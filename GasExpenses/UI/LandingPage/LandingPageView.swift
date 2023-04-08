@@ -9,7 +9,14 @@ import SwiftUI
 
 struct LandingPageView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            TitleAndIconHeaderView(title: "My overview") {
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30, height: 30)
+            }
+        }
     }
 }
 
