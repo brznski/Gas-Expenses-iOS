@@ -8,6 +8,18 @@
 "Home" = "Strona główna";
 
 /* No comment provided by engineer. */
+"landingPage.actionCard.addExpense" = "Dodaj wydatek serwisowy";
+
+/* No comment provided by engineer. */
+"landingPage.actionCard.addFuel" = "Dodaj wydatek na paliwo";
+
+/* No comment provided by engineer. */
+"landingPage.actionCard.scanRecipt" = "Zeskanuj paragon";
+
+/* No comment provided by engineer. */
+"landingPage.actionCard.seeNearbyGasStations" = "Zobacz stacje paliw w pobliżu";
+
+/* No comment provided by engineer. */
 "landingpage.car.card.title" = "Mój samochód";
 
 /* No comment provided by engineer. */

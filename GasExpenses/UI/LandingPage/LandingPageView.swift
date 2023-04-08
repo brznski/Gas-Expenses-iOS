@@ -9,23 +9,26 @@ import SwiftUI
 
 struct LandingPageView: View {
     var body: some View {
-        ZStack {
-            Color.ui.background
-                .ignoresSafeArea()
-            ScrollView {
-                VStack {
-                    TitleAndIconHeaderView(title: "My overview") {
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 30, height: 30)
-                    }
-                    CarCardView(viewModel: .init(model: Car(name: "My car", brand: "", model: "", refuels: [])))
+        NavigationView {
+            ZStack {
+                Color.ui.background
+                    .ignoresSafeArea()
+                ScrollView {
+                    VStack {
+                        TitleAndIconHeaderView(title: "My overview") {
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 30, height: 30)
+                        }
+                        CarCardView(viewModel: .init(model: Car(name: "My car", brand: "", model: "", refuels: [(.now, 250000, 30), (.now, 250150.3, 20)])))
+                        LadingPageActionCardGroup()
                     }
                 }
             }
         }
     }
+}
 
 struct LandingPageView_Previews: PreviewProvider {
     static var previews: some View {
