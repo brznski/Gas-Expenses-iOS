@@ -24,4 +24,14 @@ struct Car {
         
         return (lastRefill.fuel * 100) / distanceDriven
     }
+    
+    func distanceDifferenceSinceLast() -> Double {
+        let twoLastRefilsArray = refuels.suffix(2)
+        
+        guard twoLastRefilsArray.count == 2 else { return 0 }
+        let lastRefill = twoLastRefilsArray[1]
+        let beforeLastRefill = twoLastRefilsArray[0]
+        
+        return lastRefill.mileage - beforeLastRefill.mileage
+    }
 }
