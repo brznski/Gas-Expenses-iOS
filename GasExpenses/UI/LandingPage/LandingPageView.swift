@@ -20,6 +20,11 @@ struct LandingPageView: View {
                             .scaledToFit()
                             .frame(width: 30, height: 30)
                     }
+                    CardWithTitleView(title: "Current car") {
+                        Image(systemName: "iphone")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }
                 }
             }
         }
