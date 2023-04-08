@@ -20,16 +20,12 @@ struct LandingPageView: View {
                             .scaledToFit()
                             .frame(width: 30, height: 30)
                     }
-                    CardWithTitleView(title: "Current car") {
-                        VStack {
-                            ImageWithGradientView(imageName: "car_image_test")
-                        }
+                    CarCardView(viewModel: .init(model: Car(name: "My car", brand: "", model: "", refuels: [])))
                     }
                 }
             }
         }
     }
-}
 
 struct LandingPageView_Previews: PreviewProvider {
     static var previews: some View {
