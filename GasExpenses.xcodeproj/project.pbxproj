@@ -11,6 +11,7 @@
 		48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */; };
 		48C2922029E1E4A600FA149A /* CardCardInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921E29E1E4A600FA149A /* CardCardInfoRow.swift */; };
 		48C2922A29E1EEC500FA149A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48C2922829E1EEC500FA149A /* Localizable.strings */; };
+		48C2922D29E1FA3A00FA149A /* ActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2922C29E1FA3A00FA149A /* ActionCard.swift */; };
 		48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */; };
 		48D1135A29E1CA0B009A2ED6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1135929E1CA0B009A2ED6 /* ContentView.swift */; };
 		48D1135C29E1CA0D009A2ED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D1135B29E1CA0D009A2ED6 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		48C2921E29E1E4A600FA149A /* CardCardInfoRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCardInfoRow.swift; sourceTree = "<group>"; };
 		48C2922929E1EEC500FA149A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		48C2922B29E1F23E00FA149A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		48C2922C29E1FA3A00FA149A /* ActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCard.swift; sourceTree = "<group>"; };
 		48D1135429E1CA0B009A2ED6 /* GasExpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasExpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasExpensesApp.swift; sourceTree = "<group>"; };
 		48D1135929E1CA0B009A2ED6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				48D1139829E1D919009A2ED6 /* ImageWithGradientView.swift */,
 				48D1139A29E1DA46009A2ED6 /* CarCardView.swift */,
 				48D1139D29E1DAB7009A2ED6 /* CarCardViewModel.swift */,
+				48C2922C29E1FA3A00FA149A /* ActionCard.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				48D1138D29E1D377009A2ED6 /* LandingPageView.swift in Sources */,
 				48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */,
 				48D1139729E1D669009A2ED6 /* Color+Extensions.swift in Sources */,
+				48C2922D29E1FA3A00FA149A /* ActionCard.swift in Sources */,
 				48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */,
 				48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */,
 				48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */,
