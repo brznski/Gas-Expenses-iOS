@@ -9,12 +9,18 @@ import SwiftUI
 
 struct LandingPageView: View {
     var body: some View {
-        VStack {
-            TitleAndIconHeaderView(title: "My overview") {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 30, height: 30)
+        ZStack {
+            Color.ui.background
+                .ignoresSafeArea()
+            ScrollView {
+                VStack {
+                    TitleAndIconHeaderView(title: "My overview") {
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                    }
+                }
             }
         }
     }
