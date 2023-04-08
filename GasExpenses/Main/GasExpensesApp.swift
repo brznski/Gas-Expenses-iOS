@@ -17,7 +17,7 @@ struct GasExpensesApp: App {
                         Label("Cars",
                               systemImage: "car.fill")
                     }
-                ContentView()
+                LandingPageView()
                     .tabItem({
                         Label("Home",
                               systemImage: "house.fill")
