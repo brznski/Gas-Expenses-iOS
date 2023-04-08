@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921629E1E23300FA149A /* CarDataSource.swift */; };
 		48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */; };
-		48C2922029E1E4A600FA149A /* CardCardInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921E29E1E4A600FA149A /* CardCardInfoRow.swift */; };
+		48C2922029E1E4A600FA149A /* CarCardInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921E29E1E4A600FA149A /* CarCardInfoRow.swift */; };
 		48C2922A29E1EEC500FA149A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48C2922829E1EEC500FA149A /* Localizable.strings */; };
 		48C2922D29E1FA3A00FA149A /* ActionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2922C29E1FA3A00FA149A /* ActionCard.swift */; };
 		48C2923129E1FB4600FA149A /* LadingPageActionCardGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2923029E1FB4600FA149A /* LadingPageActionCardGroup.swift */; };
@@ -55,7 +55,7 @@
 /* Begin PBXFileReference section */
 		48C2921629E1E23300FA149A /* CarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDataSource.swift; sourceTree = "<group>"; };
 		48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardInfoRowConfiguration.swift; sourceTree = "<group>"; };
-		48C2921E29E1E4A600FA149A /* CardCardInfoRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCardInfoRow.swift; sourceTree = "<group>"; };
+		48C2921E29E1E4A600FA149A /* CarCardInfoRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardInfoRow.swift; sourceTree = "<group>"; };
 		48C2922929E1EEC500FA149A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		48C2922B29E1F23E00FA149A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		48C2922C29E1FA3A00FA149A /* ActionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCard.swift; sourceTree = "<group>"; };
@@ -205,6 +205,7 @@
 		48D1138E29E1D38E009A2ED6 /* LandingPage */ = {
 			isa = PBXGroup;
 			children = (
+				48C2923029E1FB4600FA149A /* LadingPageActionCardGroup.swift */,
 				48D1138C29E1D377009A2ED6 /* LandingPageView.swift */,
 			);
 			path = LandingPage;
@@ -213,16 +214,12 @@
 		48D1138F29E1D396009A2ED6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */,
-				48C2921E29E1E4A600FA149A /* CardCardInfoRow.swift */,
-				48D1139C29E1DAAA009A2ED6 /* CarCard */,
 				48D1139229E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift */,
 				48D1139429E1D4C5009A2ED6 /* CardWithTitleView.swift */,
-				48D1139629E1D669009A2ED6 /* Color+Extensions.swift */,
-				48D1139829E1D919009A2ED6 /* ImageWithGradientView.swift */,
-				48D1139A29E1DA46009A2ED6 /* CarCardView.swift */,
-				48D1139D29E1DAB7009A2ED6 /* CarCardViewModel.swift */,
 				48C2922C29E1FA3A00FA149A /* ActionCard.swift */,
+				48D1139829E1D919009A2ED6 /* ImageWithGradientView.swift */,
+				48D1139C29E1DAAA009A2ED6 /* CarCard */,
+				48D1139629E1D669009A2ED6 /* Color+Extensions.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -230,7 +227,10 @@
 		48D1139C29E1DAAA009A2ED6 /* CarCard */ = {
 			isa = PBXGroup;
 			children = (
-				48C2923029E1FB4600FA149A /* LadingPageActionCardGroup.swift */,
+				48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */,
+				48D1139A29E1DA46009A2ED6 /* CarCardView.swift */,
+				48D1139D29E1DAB7009A2ED6 /* CarCardViewModel.swift */,
+				48C2921E29E1E4A600FA149A /* CarCardInfoRow.swift */,
 			);
 			path = CarCard;
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 				48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */,
 				48D1139529E1D4C5009A2ED6 /* CardWithTitleView.swift in Sources */,
 				48D1139B29E1DA46009A2ED6 /* CarCardView.swift in Sources */,
-				48C2922029E1E4A600FA149A /* CardCardInfoRow.swift in Sources */,
+				48C2922029E1E4A600FA149A /* CarCardInfoRow.swift in Sources */,
 				48D1135A29E1CA0B009A2ED6 /* ContentView.swift in Sources */,
 				48D1138D29E1D377009A2ED6 /* LandingPageView.swift in Sources */,
 				48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */,
