@@ -19,6 +19,7 @@
 		48D1138729E1CD96009A2ED6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1138329E1CD02009A2ED6 /* Car.swift */; };
 		48D1138D29E1D377009A2ED6 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1138C29E1D377009A2ED6 /* LandingPageView.swift */; };
 		48D1139329E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139229E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift */; };
+		48D1139529E1D4C5009A2ED6 /* CardWithTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139429E1D4C5009A2ED6 /* CardWithTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		48D1138529E1CD59009A2ED6 /* CarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTests.swift; sourceTree = "<group>"; };
 		48D1138C29E1D377009A2ED6 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		48D1139229E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndIconHeaderView.swift; sourceTree = "<group>"; };
+		48D1139429E1D4C5009A2ED6 /* CardWithTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWithTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				48D1139229E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift */,
+				48D1139429E1D4C5009A2ED6 /* CardWithTitleView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48D1139329E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift in Sources */,
+				48D1139529E1D4C5009A2ED6 /* CardWithTitleView.swift in Sources */,
 				48D1135A29E1CA0B009A2ED6 /* ContentView.swift in Sources */,
 				48D1138D29E1D377009A2ED6 /* LandingPageView.swift in Sources */,
 				48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */,
