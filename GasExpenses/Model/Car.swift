@@ -11,5 +11,5 @@ struct Car {
     let name: String
     let brand: String
     let model: String
-    let refuels: (Date, Double, Double)
+    let refuels: [(Date, Double, Double)]
 }
