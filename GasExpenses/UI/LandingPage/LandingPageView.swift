@@ -21,9 +21,9 @@ struct LandingPageView: View {
                             .frame(width: 30, height: 30)
                     }
                     CardWithTitleView(title: "Current car") {
-                        Image(systemName: "iphone")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                        VStack {
+                            ImageWithGradientView(imageName: "car_image_test")
+                        }
                     }
                 }
             }
