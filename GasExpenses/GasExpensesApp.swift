@@ -11,7 +11,23 @@ import SwiftUI
 struct GasExpensesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView() {
+                ContentView()
+                    .tabItem {
+                        Label("Cars",
+                              systemImage: "car.fill")
+                    }
+                ContentView()
+                    .tabItem({
+                        Label("Home",
+                              systemImage: "house.fill")
+                    })
+                ContentView()
+                    .tabItem {
+                        Label("Expenses",
+                              systemImage: "dollarsign.circle.fill")
+                    }
+            }
         }
     }
 }
