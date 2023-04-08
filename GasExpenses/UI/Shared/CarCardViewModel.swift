@@ -25,10 +25,10 @@ final class CarCardViewModel: ObservableObject {
     
     private func configureOdometerRowInfo() {
         let numberFormatter = NumberFormatter()
-        numberFormatter.groupingSeparator = "."
-        numberFormatter.decimalSeparator = ","
+        numberFormatter.groupingSeparator = ","
+        numberFormatter.decimalSeparator = "."
         numberFormatter.groupingSize = 3
-        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 1
         numberFormatter.numberStyle = .decimal
         numberFormatter.usesGroupingSeparator = true
         guard let mileage = model.refuels.last?.mileage else { return }

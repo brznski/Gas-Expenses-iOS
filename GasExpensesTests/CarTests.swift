@@ -17,6 +17,10 @@ final class CarTests:XCTestCase {
         XCTAssertEqual(fuelConsumption, 7.0)
     }
     
+    
+    func test_shouldShowFormattedMileage() {
+        let model = makeSUT()
+    }
     func makeSUT() -> Car {
         return Car(name: "My Subaru",
                    brand: "Subaru",
