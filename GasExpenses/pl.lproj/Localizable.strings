@@ -8,11 +8,14 @@
 "Home" = "Strona główna";
 
 /* No comment provided by engineer. */
+"landingpage.car.card.title" = "Mój samochód";
+
+/* No comment provided by engineer. */
 "My car" = "Mój samochód";
 
 /* No comment provided by engineer. */
 "My overview" = "Strona główna";
 
 /* No comment provided by engineer. */
-"See more" = "Zobacz więcej";
+"see.more" = "Zobacz więcej";
 

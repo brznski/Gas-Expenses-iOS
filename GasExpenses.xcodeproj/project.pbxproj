@@ -52,6 +52,7 @@
 		48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardInfoRowConfiguration.swift; sourceTree = "<group>"; };
 		48C2921E29E1E4A600FA149A /* CardCardInfoRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCardInfoRow.swift; sourceTree = "<group>"; };
 		48C2922929E1EEC500FA149A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		48C2922B29E1F23E00FA149A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		48D1135429E1CA0B009A2ED6 /* GasExpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasExpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasExpensesApp.swift; sourceTree = "<group>"; };
 		48D1135929E1CA0B009A2ED6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -410,6 +411,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				48C2922929E1EEC500FA149A /* pl */,
+				48C2922B29E1F23E00FA149A /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

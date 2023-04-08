@@ -11,7 +11,7 @@ struct CarCardView: View {
     let viewModel: CarCardViewModel
     
     var body: some View {
-        CardWithTitleView(title: "Current car") {
+        CardWithTitleView(title: "landingpage.car.card.title") {
             VStack {
                 ImageWithGradientView(imageName: "car_image_test")
                 HStack {
@@ -37,7 +37,7 @@ struct CarCardView: View {
                     Button {
                         
                     } label: {
-                        Label("See more", systemImage: "chevron.right")
+                        Label("see.more", systemImage: "chevron.right")
                     }
                     .buttonStyle(.bordered)
                 }
@@ -49,7 +49,7 @@ struct CarCardView: View {
 
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
-        CarCardView(viewModel: .init(model: Car(name: "My car",
+        CarCardView(viewModel: .init(model: Car(name: "Subaru",
                                                 brand: "Subaru",
                                                 model: "Impreza WRX",
                                                 refuels: [])))
