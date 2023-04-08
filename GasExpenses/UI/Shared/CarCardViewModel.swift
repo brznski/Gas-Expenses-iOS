@@ -5,7 +5,7 @@
 //  Created by Michał Brzeziński on 08/04/2023.
 //
 
-import Foundation
+import SwiftUI
 
 final class CarCardViewModel: ObservableObject {
     private let model: Car
@@ -19,7 +19,7 @@ final class CarCardViewModel: ObservableObject {
         carInfoRows.append(CarCardInfoRowConfiguration(iconName: "fuelpump.fill", text: "7.9 l/100km", helpText: "- 1 l/100km", isPositive: true))
     }
     
-    func getCarName() -> String {
+    func getCarName() -> LocalizedStringKey {
         return model.name
     }
 }

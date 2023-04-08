@@ -5,10 +5,10 @@
 //  Created by Michał Brzeziński on 08/04/2023.
 //
 
-import Foundation
+import SwiftUI
 
 struct Car {
-    let name: String
+    let name: LocalizedStringKey
     let brand: String
     let model: String
     let refuels: [(date: Date, mileage: Double, fuel: Double)]

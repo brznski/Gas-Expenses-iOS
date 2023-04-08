@@ -10,6 +10,7 @@
 		48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921629E1E23300FA149A /* CarDataSource.swift */; };
 		48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */; };
 		48C2922029E1E4A600FA149A /* CardCardInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921E29E1E4A600FA149A /* CardCardInfoRow.swift */; };
+		48C2922A29E1EEC500FA149A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48C2922829E1EEC500FA149A /* Localizable.strings */; };
 		48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */; };
 		48D1135A29E1CA0B009A2ED6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1135929E1CA0B009A2ED6 /* ContentView.swift */; };
 		48D1135C29E1CA0D009A2ED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D1135B29E1CA0D009A2ED6 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		48C2921629E1E23300FA149A /* CarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDataSource.swift; sourceTree = "<group>"; };
 		48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardInfoRowConfiguration.swift; sourceTree = "<group>"; };
 		48C2921E29E1E4A600FA149A /* CardCardInfoRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCardInfoRow.swift; sourceTree = "<group>"; };
+		48C2922929E1EEC500FA149A /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		48D1135429E1CA0B009A2ED6 /* GasExpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasExpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasExpensesApp.swift; sourceTree = "<group>"; };
 		48D1135929E1CA0B009A2ED6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		48D1135629E1CA0B009A2ED6 /* GasExpenses */ = {
 			isa = PBXGroup;
 			children = (
+				48C2922829E1EEC500FA149A /* Localizable.strings */,
 				48C2921529E1E22200FA149A /* Service */,
 				48D1138B29E1D353009A2ED6 /* UI */,
 				48D1138A29E1D34D009A2ED6 /* Main */,
@@ -306,6 +309,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = 48D1134B29E1CA0B009A2ED6;
 			productRefGroup = 48D1135529E1CA0B009A2ED6 /* Products */;
@@ -325,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48D1135F29E1CA0D009A2ED6 /* Preview Assets.xcassets in Resources */,
+				48C2922A29E1EEC500FA149A /* Localizable.strings in Resources */,
 				48D1135C29E1CA0D009A2ED6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +404,17 @@
 			targetProxy = 48D1136F29E1CA0E009A2ED6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		48C2922829E1EEC500FA149A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48C2922929E1EEC500FA149A /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		48D1137629E1CA0E009A2ED6 /* Debug */ = {
