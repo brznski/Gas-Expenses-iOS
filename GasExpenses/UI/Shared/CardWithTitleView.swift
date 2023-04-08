@@ -19,9 +19,11 @@ struct CardWithTitleView<Content: View>: View {
     
     var body: some View {
         ZStack {
+            Color.ui.background
+                .ignoresSafeArea()
             RoundedRectangle(cornerRadius: 8)
                 .padding()
-                .foregroundColor(.gray)
+                .foregroundColor(.ui.contentOnBackground)
             VStack(alignment: alignment) {
                 HStack {
                     Text(title)
