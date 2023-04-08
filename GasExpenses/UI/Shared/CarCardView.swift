@@ -25,11 +25,13 @@ struct CarCardView: View {
                     }
                     .buttonStyle(.bordered)
 
-
                     Spacer()
                 }
-                CardCardInfoRow(labelText: "300", labelImage: "gauge", helpText: "-30", isPositive: true)
-                CardCardInfoRow(labelText: "300", labelImage: "gauge", helpText: "-30", isPositive: false)
+                
+                ForEach(viewModel.carInfoRows, id: \.self) { carInfo in
+                    CardCardInfoRow(configuration: carInfo)
+                }
+
                 HStack {
                     Spacer()
                     Button {

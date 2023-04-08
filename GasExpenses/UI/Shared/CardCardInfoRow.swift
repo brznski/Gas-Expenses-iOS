@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct CardCardInfoRow: View {
-    let labelText: String
-    let labelImage: String
-    let helpText: String
-    let isPositive: Bool
+    let configuration: CarCardInfoRowConfiguration
     
     var body: some View {
         HStack {
-            Label(labelText, systemImage: labelImage)
+            Label(configuration.text,
+                  systemImage: configuration.iconName)
                 .font(.title2)
                 .padding()
-            Text(helpText)
+            Text(configuration.helpText)
                 .font(.body)
                 .opacity(0.5)
             
-            if isPositive {
+            if configuration.isPositive == nil {
+                EmptyView()
+            } else if configuration.isPositive ?? true {
                 ZStack {
                     Image(systemName: "arrow.down")
                         .foregroundColor(Color("Success"))
@@ -33,7 +33,7 @@ struct CardCardInfoRow: View {
                         .frame(width: 25, height: 25)
                         .opacity(0.5)
                 }
-            } else if !isPositive {
+            } else {
                 ZStack {
                     Image(systemName: "arrow.up")
                         .foregroundColor(Color("Warning"))
@@ -52,6 +52,6 @@ struct CardCardInfoRow: View {
 
 struct CardCardInfoRow_Previews: PreviewProvider {
     static var previews: some View {
-        CardCardInfoRow(labelText: "2", labelImage: "gauge", helpText: "2", isPositive: true)
+        CardCardInfoRow(configuration: .init(iconName: "gauge", text: "200.000km", helpText: "+ 350 km", isPositive: nil))
     }
 }
