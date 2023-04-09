@@ -13,8 +13,8 @@ struct LandingPageView: View {
             ZStack {
                 Color.ui.background
                     .ignoresSafeArea()
-                ScrollView {
-                    VStack {
+                ScrollView(showsIndicators: false) {
+                    VStack() {
                         TitleAndIconHeaderView(title: "My overview") {
                             Image(systemName: "person.circle.fill")
                                 .resizable()
