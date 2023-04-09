@@ -21,7 +21,14 @@ struct LandingPageView: View {
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
                         }
-                        CarCardView(viewModel: .init(model: Car(name: "My car", brand: "", model: "", refuels: [(.now, 250000, 30), (.now, 250150.3, 20)])))
+                        CarCardView(viewModel: .init(model: Car(name: "My Subaru",
+                                                                brand: "",
+                                                                model: "",
+                                                                refuels: [
+                                                                    (.now, 250000, 300),
+                                                                    (.now, 250150.3, 200),
+                                                                    (.now, 251300.3, 60)
+                                                                ])))
                         LadingPageActionCardGroup()
                     }
                 }

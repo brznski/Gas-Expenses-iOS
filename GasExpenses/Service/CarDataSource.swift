@@ -13,6 +13,9 @@ final class CarDataSource {
     }
     
     func getCurrentCar() -> Car {
-        return .init(name: "My car", brand: "Subaru", model: "Impreza", refuels: [])
+        return .init(name: "My Subaru",
+                     brand: "Subaru",
+                     model: "Impreza",
+                     refuels: [])
     }
 }
