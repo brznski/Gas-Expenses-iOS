@@ -16,10 +16,12 @@ struct Car {
     func averageFuelConsumptionSinceLast() -> Double {
         let twoLastRefilsArray = refuels.suffix(2)
         
-        guard twoLastRefilsArray.count == 2 else { return 0 }
+        let lastRefill = twoLastRefilsArray.last
+        let beforeLastRefill = twoLastRefilsArray.first
         
-        let lastRefill = twoLastRefilsArray[1]
-        let beforeLastRefill = twoLastRefilsArray[0]
+        guard twoLastRefilsArray.count == 2,
+              let lastRefill,
+              let beforeLastRefill else { return 0 }
         let distanceDriven = lastRefill.mileage - beforeLastRefill.mileage
         
         return (lastRefill.fuel * 100) / distanceDriven
@@ -28,9 +30,12 @@ struct Car {
     func distanceDifferenceSinceLast() -> Double {
         let twoLastRefilsArray = refuels.suffix(2)
         
-        guard twoLastRefilsArray.count == 2 else { return 0 }
-        let lastRefill = twoLastRefilsArray[1]
-        let beforeLastRefill = twoLastRefilsArray[0]
+        let lastRefill = twoLastRefilsArray.last
+        let beforeLastRefill = twoLastRefilsArray.first
+        
+        guard twoLastRefilsArray.count == 2,
+              let lastRefill,
+              let beforeLastRefill else { return 0 }
         
         return lastRefill.mileage - beforeLastRefill.mileage
     }
