@@ -39,11 +39,9 @@ struct CardWithTitleView<Content: View>: View {
 
 struct CardWithTitleView_Previews: PreviewProvider {
     static var previews: some View {
-        CardWithTitleView(title: "My card") {
+        CardWithTitleView(title: "My car" ) {
             VStack {
-                Text("My")
-                Text("card")
-                Text("content")
+                Text("landingPage.actionCard.seeNearbyGasStations")
             }
         }
     }
