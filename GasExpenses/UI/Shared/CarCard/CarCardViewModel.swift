@@ -13,10 +13,14 @@ final class CarCardViewModel: ObservableObject {
     
     init(model: Car) {
         self.model = model
+        let fuelConsumptionDifferenceSinceLast = model.fuelConsumptionDifferenceSinceLast()
         
         configureOdometerRowInfo()
         carInfoRows.append(CarCardInfoRowConfiguration(iconName: "calendar", text: "13th July 2023", helpText: "", isPositive: nil))
-        carInfoRows.append(CarCardInfoRowConfiguration(iconName: "fuelpump.fill", text: "7.9 l/100km", helpText: "- 1 l/100km", isPositive: true))
+        carInfoRows.append(CarCardInfoRowConfiguration(iconName: "fuelpump.fill",
+                                                       text: String(format: "%.2f l/100km", model.averageFuelConsumptionSinceLast()),
+                                                       helpText: String(format: "%.2f l/100km", fuelConsumptionDifferenceSinceLast),
+                                                       isPositive: fuelConsumptionDifferenceSinceLast < 0))
     }
     
     func getCarName() -> LocalizedStringKey {
