@@ -14,15 +14,18 @@ struct ActionCard: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
-                .foregroundColor(Color.ui.contentOnBackground)
+                .foregroundColor(Color.ui.actionBackground)
             Label(title, systemImage: imageSystemName)
                 .padding()
+                .foregroundColor(.ui.action)
         }
+        .aspectRatio(1, contentMode: .fit)
     }
 }
 
 struct ActionCard_Previews: PreviewProvider {
     static var previews: some View {
-        ActionCard(title: "", imageSystemName: "")
+        ActionCard(title: "landingPage.actionCard.addFuel",
+                   imageSystemName: "fuelpump.fill")
     }
 }

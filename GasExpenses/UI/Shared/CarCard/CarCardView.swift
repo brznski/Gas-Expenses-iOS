@@ -23,13 +23,15 @@ struct CarCardView: View {
                     } label: {
                         Image(systemName: "chevron.down")
                     }
-                    .buttonStyle(.bordered)
+                    .tint(.ui.actionBackground)
+                    .foregroundColor(.ui.action)
+                    .buttonStyle(.borderedProminent)
 
                     Spacer()
                 }
                 
                 ForEach(viewModel.carInfoRows, id: \.self) { carInfo in
-                    CardCardInfoRow(configuration: carInfo)
+                    CarCardInfoRow(configuration: carInfo)
                 }
 
                 HStack {
@@ -39,7 +41,9 @@ struct CarCardView: View {
                     } label: {
                         Label("see.more", systemImage: "chevron.right")
                     }
-                    .buttonStyle(.bordered)
+                    .tint(.ui.actionBackground)
+                    .foregroundColor(.ui.action)
+                    .buttonStyle(.borderedProminent)
                 }
                 .padding()
             }

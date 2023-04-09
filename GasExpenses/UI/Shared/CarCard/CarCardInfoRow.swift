@@ -1,5 +1,5 @@
 //
-//  CardCardInfoRow.swift
+//  CarCardInfoRow.swift
 //  GasExpenses
 //
 //  Created by Michał Brzeziński on 08/04/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardCardInfoRow: View {
+struct CarCardInfoRow: View {
     let configuration: CarCardInfoRowConfiguration
     
     var body: some View {
@@ -36,7 +36,7 @@ struct CardCardInfoRow: View {
             } else {
                 ZStack {
                     Image(systemName: "arrow.up")
-                        .foregroundColor(Color("Warning"))
+                        .foregroundColor(.ui.warning)
                     RoundedRectangle(cornerRadius: 4)
                         .stroke(Color("Warning"), lineWidth: 1)
                         .frame(width: 25, height: 25)
@@ -52,6 +52,6 @@ struct CardCardInfoRow: View {
 
 struct CardCardInfoRow_Previews: PreviewProvider {
     static var previews: some View {
-        CardCardInfoRow(configuration: .init(iconName: "gauge", text: "200.000km", helpText: "+ 350 km", isPositive: nil))
+        CarCardInfoRow(configuration: .init(iconName: "gauge", text: "200.000km", helpText: "+ 350 km", isPositive: nil))
     }
 }

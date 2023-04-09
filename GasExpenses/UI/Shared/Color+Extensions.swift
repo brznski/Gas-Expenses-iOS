@@ -11,8 +11,12 @@ extension Color {
     static let ui = Color.UI()
 
     struct UI {
+        let action = Color("Action")
+        let actionBackground = Color("ActionBackground")
         let background = Color("Background")
         let contentOnBackground = Color("ContentOnBackground")
+        let success = Color("Success")
+        let warning = Color("Warning")
     }
 }
 
