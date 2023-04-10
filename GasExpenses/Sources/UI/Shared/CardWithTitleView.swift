@@ -11,12 +11,12 @@ struct CardWithTitleView<Content: View>: View {
     let title: LocalizedStringKey
     let cardContent: (() -> Content)?
     let alignment: HorizontalAlignment = .center
-    
+
     init(title: LocalizedStringKey, cardContent: ( () -> Content)?) {
         self.title = title
         self.cardContent = cardContent
     }
-    
+
     var body: some View {
         ZStack {
             Color.ui.background

@@ -12,9 +12,9 @@ final class CacheEntry<T>: NSDiscardableContent {
     func endContentAccess() {}
     func discardContentIfPossible() {}
     func isContentDiscarded() -> Bool { return false }
-    
+
     let item: T?
-    
+
     init(item: T) {
         self.item = item
     }

@@ -19,19 +19,20 @@ extension BackendEndpoint {
         var components = URLComponents(url: URL(string: path)!,
                                        resolvingAgainstBaseURL: true)!
         var bodyData: Data = Data()
-        
+
         switch method {
         case .GET:
             components.queryItems = payload.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
         case .POST, .PUT, .DELETE:
-            bodyData = try! JSONSerialization.data(withJSONObject: payload,
-                                   options: .withoutEscapingSlashes)
+            break
+//            bodyData = try! JSONSerialization.data(withJSONObject: payload,
+//                                   options: .withoutEscapingSlashes)
         }
-        
+
         var request = URLRequest(url: components.url!)
         request.httpBody = bodyData
         request.httpMethod = method.rawValue
-        
+
         return request
     }
 }

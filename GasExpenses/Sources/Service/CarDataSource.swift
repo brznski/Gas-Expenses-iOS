@@ -11,7 +11,7 @@ final class CarDataSource {
     func getCars() -> [Car] {
         return []
     }
-    
+
     func getCurrentCar() -> Car {
         return .init(name: "My Subaru",
                      brand: "Subaru",

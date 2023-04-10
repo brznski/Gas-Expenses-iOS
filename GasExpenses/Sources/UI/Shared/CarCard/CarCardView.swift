@@ -9,13 +9,13 @@ import SwiftUI
 
 struct CarCardView: View {
     @ObservedObject var viewModel: CarCardViewModel
-    
+
     init(viewModel: CarCardViewModel) {
         self.viewModel = viewModel
-        
+
         viewModel.getSelectedCar()
     }
-    
+
     var body: some View {
         CardWithTitleView(title: "landingpage.car.card.title") {
             VStack {
@@ -25,7 +25,7 @@ struct CarCardView: View {
                         .font(.title2).bold()
                         .padding()
                     Button {
-                        
+
                     } label: {
                         Image(systemName: "chevron.down")
                     }
@@ -35,7 +35,7 @@ struct CarCardView: View {
 
                     Spacer()
                 }
-                
+
                 ForEach(viewModel.carInfoRows) { carInfo in
                     CarCardInfoRow(configuration: carInfo)
                 }
@@ -43,7 +43,7 @@ struct CarCardView: View {
                 HStack {
                     Spacer()
                     Button {
-                        
+
                     } label: {
                         Label("see.more", systemImage: "chevron.right")
                     }

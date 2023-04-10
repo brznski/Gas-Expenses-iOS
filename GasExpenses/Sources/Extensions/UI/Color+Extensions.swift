@@ -19,5 +19,3 @@ extension Color {
         let warning = Color("Warning")
     }
 }
-
-

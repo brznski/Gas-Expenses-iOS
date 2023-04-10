@@ -1,8 +1,11 @@
 disabled_rules:
-- trailing_whitespace
+
 opt_in_rules:
 - empty_count
 - empty_string
+- unused_import
+- trailing_closure
+- trailing_whitespace
 excluded:
 - Carthage
 - Pods
@@ -29,4 +32,11 @@ file_length:
 cyclomatic_complexity:
     warning: 15
     error: 25
+trailing_whitespace:
+    warning: 
+    error: 3
+type_name:
+    excluded: ["UI", "ID"]
+identifier_name:
+    excluded: ["ui", "id"]
 reporter: "xcode"

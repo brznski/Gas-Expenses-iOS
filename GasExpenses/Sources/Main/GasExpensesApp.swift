@@ -11,17 +11,17 @@ import SwiftUI
 struct GasExpensesApp: App {
     var body: some Scene {
         WindowGroup {
-            TabView() {
+            TabView {
                 ContentView()
                     .tabItem {
                         Label("Cars",
                               systemImage: "car.fill")
                     }
-                LandingPageView(viewModel: .init())
-                    .tabItem({
+                LandingPageView(viewModel: LandingPageViewModel())
+                    .tabItem {
                         Label("Home",
                               systemImage: "house.fill")
-                    })
+                    }
                 ContentView()
                     .tabItem {
                         Label("Expenses",

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CarCardInfoRow: View {
     let configuration: CarCardInfoRowConfiguration
-    
+
     var body: some View {
         HStack {
             Label(configuration.text,
@@ -19,7 +19,7 @@ struct CarCardInfoRow: View {
             Text(configuration.helpText)
                 .font(.callout)
                 .opacity(0.5)
-            
+
             if configuration.isPositive == nil {
                 EmptyView()
             } else if configuration.isPositive ?? true {

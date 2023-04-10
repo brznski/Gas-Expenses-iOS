@@ -16,17 +16,17 @@ extension Double {
         numberFormatter.maximumFractionDigits = 1
         numberFormatter.numberStyle = .decimal
         numberFormatter.usesGroupingSeparator = true
-        
+
         return numberFormatter.string(from: self as NSNumber)
     }
-    
+
     func currencyString() -> String? {
         let numberFormatter = NumberFormatter()
 //        numberFormatter.maximumFractionDigits = 2
         numberFormatter.numberStyle = .currency
         numberFormatter.currencySymbol = "zł"
         numberFormatter.usesGroupingSeparator = true
-        
+
         return numberFormatter.string(from: self as NSNumber)
     }
 }

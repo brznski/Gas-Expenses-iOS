@@ -10,13 +10,13 @@ import SwiftUI
 struct TitleAndIconHeaderView<Content: View>: View {
     private let title: LocalizedStringKey
     private let rightIcon: (() -> Content)?
-    
+
     init(title: LocalizedStringKey,
          rightIcon: (() -> Content)? = nil) {
         self.title = title
         self.rightIcon = rightIcon
     }
-    
+
     var body: some View {
         HStack {
             Text(title)

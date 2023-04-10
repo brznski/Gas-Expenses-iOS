@@ -11,16 +11,15 @@ final class CarCardViewModel: ObservableObject {
     @Published var model: Car?
     @Published var carInfoRows = [CarCardInfoRowConfiguration]()
     @Published var carName: String = ""
-    
+
     private let selectedCarDataStore: SelectedCarDataStoreProtocol
-    
+
     init(selectedCarDataStore: SelectedCarDataStoreProtocol) {
         self.selectedCarDataStore = selectedCarDataStore
     }
-    
     func getSelectedCar() {
         model = selectedCarDataStore.getSelectedCar()
-        
+
         if let model {
             configureOdometerRowInfo()
             configureGasCostRowInfo()
@@ -30,7 +29,7 @@ final class CarCardViewModel: ObservableObject {
                                                            isPositive: model.fuelConsumptionDifferenceSinceLast() < 0))
         }
     }
-    
+
     private func configureOdometerRowInfo() {
 
         carInfoRows.append(CarCardInfoRowConfiguration(iconName: "gauge",
@@ -38,9 +37,9 @@ final class CarCardViewModel: ObservableObject {
                                                        helpText: "+\(Int(model?.distanceDifferenceSinceLast().odometerString() ?? "") ?? 0) km",
                                                        isPositive: nil))
     }
-    
+
     private func configureGasCostRowInfo() {
-        
+
         if let model {
             carInfoRows.append(CarCardInfoRowConfiguration(iconName: "dollarsign.circle",
                                                            text: "\(model.refuels.last?.costPerUnit.currencyString() ?? "") ",
@@ -48,4 +47,10 @@ final class CarCardViewModel: ObservableObject {
                                                            isPositive: model.gasPerUnitPriceSinceLast() < 0))
         }
     }
+}
+
+struct CacheTestKey: Codable {
+    let name: String
+    let age: Int
+    let isDog: Bool
 }

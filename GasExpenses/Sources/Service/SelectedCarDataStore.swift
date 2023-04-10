@@ -12,7 +12,7 @@ struct SelectedCarDataStore: SelectedCarDataStoreProtocol {
         //        if let cachedData = cache.getSelecetdCar()
         // if let dataFromCoreData
         // do network request
-        
+
         return Car(name: "My Subaru",
                    brand: "Subaru",
                    model: "Impreza",

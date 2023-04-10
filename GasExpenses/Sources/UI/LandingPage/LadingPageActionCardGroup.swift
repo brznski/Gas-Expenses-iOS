@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LadingPageActionCardGroup: View {
     var body: some View {
-            Grid() {
+            Grid {
                 GridRow {
                     NavigationLink {
                         ContentView()
@@ -17,7 +17,7 @@ struct LadingPageActionCardGroup: View {
                         ActionCard(title: "landingPage.actionCard.addFuel",
                                    imageSystemName: "fuelpump.fill")
                     }
-                    
+
                     NavigationLink {
                         ContentView()
                     } label: {

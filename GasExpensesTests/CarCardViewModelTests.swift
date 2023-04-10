@@ -10,13 +10,13 @@ import XCTest
 final class CarCardViewModelTests: XCTestCase {
     func test_shouldShowFormattedMileage() {
         let sut = makeSUT()
-        
+
         sut.getSelectedCar()
         let mileageRow = sut.carInfoRows.first { $0.iconName == "gauge" }
-        
+
         XCTAssertEqual(mileageRow?.text, "165,100.3 km")
     }
-    
+
     func makeSUT() -> CarCardViewModel {
         return .init(selectedCarDataStore: SelectedCarMockDataStore())
     }

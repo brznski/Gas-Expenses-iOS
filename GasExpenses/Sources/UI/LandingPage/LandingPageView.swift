@@ -9,14 +9,14 @@ import SwiftUI
 
 struct LandingPageView: View {
     @ObservedObject var viewModel: LandingPageViewModel
-    
+
     var body: some View {
         NavigationView {
             ZStack {
                 Color.ui.background
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
-                    VStack() {
+                    VStack {
                         TitleAndIconHeaderView(title: "My overview") {
                             Image(systemName: "person.circle.fill")
                                 .resizable()
