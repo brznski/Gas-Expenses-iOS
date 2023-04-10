@@ -17,19 +17,20 @@ struct CarCardInfoRow: View {
                 .font(.title2)
                 .padding()
             Text(configuration.helpText)
-                .font(.body)
+                .font(.callout)
                 .opacity(0.5)
+            Spacer()
             
             if configuration.isPositive == nil {
                 EmptyView()
             } else if configuration.isPositive ?? true {
                 ZStack {
                     Image(systemName: "arrow.down")
-                        .foregroundColor(Color("Success"))
+                        .foregroundColor(.ui.success)
                     RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color("Success"), lineWidth: 1)
+                        .stroke(Color.ui.success, lineWidth: 1)
                         .aspectRatio(contentMode: .fit)
-                        .foregroundColor(Color("Success"))
+                        .foregroundColor(.ui.success)
                         .frame(width: 25, height: 25)
                         .opacity(0.5)
                 }
@@ -38,10 +39,10 @@ struct CarCardInfoRow: View {
                     Image(systemName: "arrow.up")
                         .foregroundColor(.ui.warning)
                     RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color("Warning"), lineWidth: 1)
+                        .stroke(Color.ui.warning, lineWidth: 1)
                         .frame(width: 25, height: 25)
                         .aspectRatio(contentMode: .fit)
-                        .foregroundColor(Color("Warning"))
+                        .foregroundColor(.ui.warning)
                         .opacity(0.5)
                 }
             }
