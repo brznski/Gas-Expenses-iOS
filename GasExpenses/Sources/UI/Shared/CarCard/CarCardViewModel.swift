@@ -40,9 +40,12 @@ final class CarCardViewModel: ObservableObject {
     }
     
     private func configureGasCostRowInfo() {
-        carInfoRows.append(CarCardInfoRowConfiguration(iconName: "dollarsign.circle",
-                                                       text: "\(model?.refuels.last?.costPerUnit ?? 0) zł",
-                                                       helpText: "\(model?.gasPerUnitPriceSinceLast().currencyString() ?? "")",
-                                                       isPositive: nil))
+        
+        if let model {
+            carInfoRows.append(CarCardInfoRowConfiguration(iconName: "dollarsign.circle",
+                                                           text: "\(model.refuels.last?.costPerUnit.currencyString() ?? "") ",
+                                                           helpText: "\(model.gasPerUnitPriceSinceLast().currencyString() ?? "")",
+                                                           isPositive: model.gasPerUnitPriceSinceLast() < 0))
+        }
     }
 }

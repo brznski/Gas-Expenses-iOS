@@ -19,7 +19,6 @@ struct CarCardInfoRow: View {
             Text(configuration.helpText)
                 .font(.callout)
                 .opacity(0.5)
-            Spacer()
             
             if configuration.isPositive == nil {
                 EmptyView()
