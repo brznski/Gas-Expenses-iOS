@@ -12,20 +12,24 @@ struct ActionCard: View {
     let imageSystemName: String
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 8)
-                .foregroundColor(Color.ui.actionBackground)
+        GeometryReader { geometry in
+            ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                    .foregroundColor(Color.ui.actionBackground)
                 VStack {
                     Image(systemName: imageSystemName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .frame(height: geometry.size.height * 0.3)
                         .foregroundColor(.ui.action)
                         .padding()
+                    Spacer()
                     Text(title)
                         .foregroundColor(.ui.action)
                         .padding()
                         .multilineTextAlignment(.center)
                 }
+            }
         }
         .aspectRatio(1, contentMode: .fit)
     }
