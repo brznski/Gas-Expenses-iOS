@@ -12,7 +12,11 @@ final class CarCardViewModel: ObservableObject {
     @Published var carInfoRows = [CarCardInfoRowConfiguration]()
     @Published var carName: String = ""
     
-    private let selectedCarDataStore = SelectedCarDataStore()
+    private let selectedCarDataStore: SelectedCarDataStoreProtocol
+    
+    init(selectedCarDataStore: SelectedCarDataStoreProtocol) {
+        self.selectedCarDataStore = selectedCarDataStore
+    }
     
     func getSelectedCar() {
         model = selectedCarDataStore.getSelectedCar()

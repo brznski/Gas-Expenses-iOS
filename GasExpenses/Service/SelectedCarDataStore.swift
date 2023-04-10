@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SelectedCarDataStore {
+struct SelectedCarDataStore: SelectedCarDataStoreProtocol {
     func getSelectedCar() -> Car {
         //        if let cachedData = cache.getSelecetdCar()
         // if let dataFromCoreData

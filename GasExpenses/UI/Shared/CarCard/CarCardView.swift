@@ -59,6 +59,6 @@ struct CarCardView: View {
 
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
-        CarCardView(viewModel: .init())
+        CarCardView(viewModel: .init(selectedCarDataStore: SelectedCarMockDataStore()))
     }
 }
