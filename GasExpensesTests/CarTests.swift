@@ -42,9 +42,9 @@ final class CarTests:XCTestCase {
                    brand: "Subaru",
                    model: "Impreza",
                    refuels: [
-                    (Date.now, 164900, 20, costPerUnit: 3.60),
-                    (Date.now, 165000, 10, costPerUnit: 3.60),
-                    (Date.now, 165100, 7, costPerUnit: 3.60)
+                    .init(date: .now, mileage: 164900.0, fuelAmount: 20.0, costPerUnit: 3.60),
+                    .init(date: .now, mileage: 165000.0, fuelAmount: 10.0, costPerUnit: 3.60),
+                    .init(date: .now, mileage: 165100.0, fuelAmount: 7, costPerUnit: 3.60)
                    ])
     }
 }

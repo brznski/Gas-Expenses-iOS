@@ -17,9 +17,9 @@ struct SelectedCarDataStore: SelectedCarDataStoreProtocol {
                    brand: "Subaru",
                    model: "Impreza",
                    refuels: [
-                    (.now, 250000, 300, costPerUnit: 3.50),
-                    (.now, 250150.3, 200, costPerUnit: 3.60),
-                    (Date(timeIntervalSince1970: 1678470122), 251300.3, 60, costPerUnit: 3.40)
+                    .init(date: .now, mileage: 250000.0, fuelAmount: 300.0, costPerUnit: 3.50),
+                    .init(date: .now, mileage: 250150.3, fuelAmount: 200.0, costPerUnit: 3.60),
+                    .init(date: Date(timeIntervalSince1970: 1678470122), mileage: 251300.3, fuelAmount: 60, costPerUnit: 3.40)
                    ])
     }
 }

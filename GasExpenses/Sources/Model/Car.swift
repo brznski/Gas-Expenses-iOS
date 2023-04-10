@@ -7,11 +7,18 @@
 
 import SwiftUI
 
+struct Refuel {
+    let date: Date
+    let mileage: Double
+    let fuelAmount: Double
+    let costPerUnit: Double
+}
+
 struct Car {
     let name: LocalizedStringKey
     let brand: String
     let model: String
-    let refuels: [(date: Date, mileage: Double, fuel: Double, costPerUnit: Double)]
+    let refuels: [Refuel]
     
     func averageFuelConsumptionSinceLast() -> Double {
         let twoLastRefilsArray = refuels.suffix(2)
@@ -24,7 +31,7 @@ struct Car {
               let beforeLastRefill else { return 0 }
         let distanceDriven = lastRefill.mileage - beforeLastRefill.mileage
         
-        return (lastRefill.fuel * 100) / distanceDriven
+        return (lastRefill.fuelAmount * 100) / distanceDriven
     }
     
     func distanceDifferenceSinceLast() -> Double {
@@ -48,6 +55,6 @@ struct Car {
         
         let distanceDriven = beforeLastRefill.mileage - beforeBeforeLastRefill.mileage
         
-        return lastFuelConsumption - ((beforeLastRefill.fuel * 100) / distanceDriven)
+        return lastFuelConsumption - ((beforeLastRefill.fuelAmount * 100) / distanceDriven)
     }
 }
