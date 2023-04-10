@@ -14,6 +14,8 @@
 		48BCB61429E4753100F01A0E /* LandingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB61329E4753100F01A0E /* LandingPageViewModel.swift */; };
 		48BCB61629E47BB900F01A0E /* SelectedCarDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB61529E47BB900F01A0E /* SelectedCarDataStore.swift */; };
 		48BCB61C29E4837500F01A0E /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB61B29E4837500F01A0E /* Double+Extensions.swift */; };
+		48BCB61D29E4876200F01A0E /* SelectedCarDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB61529E47BB900F01A0E /* SelectedCarDataStore.swift */; };
+		48BCB61E29E4879200F01A0E /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB61B29E4837500F01A0E /* Double+Extensions.swift */; };
 		48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921629E1E23300FA149A /* CarDataSource.swift */; };
 		48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */; };
 		48C2922029E1E4A600FA149A /* CarCardInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921E29E1E4A600FA149A /* CarCardInfoRow.swift */; };
@@ -448,7 +450,9 @@
 			files = (
 				48D1138629E1CD59009A2ED6 /* CarTests.swift in Sources */,
 				48C60A0F29E203690070AA05 /* CarCardViewModel.swift in Sources */,
+				48BCB61E29E4879200F01A0E /* Double+Extensions.swift in Sources */,
 				48C60A1029E203930070AA05 /* CarCardInfoRowConfiguration.swift in Sources */,
+				48BCB61D29E4876200F01A0E /* SelectedCarDataStore.swift in Sources */,
 				48C60A0E29E203310070AA05 /* CarCardViewModelTests.swift in Sources */,
 				48D1138729E1CD96009A2ED6 /* Car.swift in Sources */,
 			);
