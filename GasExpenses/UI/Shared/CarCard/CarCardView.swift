@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct CarCardView: View {
-    @StateObject var viewModel: CarCardViewModel
+    @ObservedObject var viewModel: CarCardViewModel
+    
+    init(viewModel: CarCardViewModel) {
+        self.viewModel = viewModel
+        
+        viewModel.getSelectedCar()
+    }
     
     var body: some View {
         CardWithTitleView(title: "landingpage.car.card.title") {
@@ -47,9 +53,6 @@ struct CarCardView: View {
                 }
                 .padding()
             }
-        }
-        .onAppear {
-            viewModel.getSelectedCar()
         }
     }
 }
