@@ -31,16 +31,10 @@ final class CarCardViewModel: ObservableObject {
     }
     
     private func configureOdometerRowInfo() {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.groupingSeparator = ","
-        numberFormatter.decimalSeparator = "."
-        numberFormatter.groupingSize = 3
-        numberFormatter.maximumFractionDigits = 1
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.usesGroupingSeparator = true
-        guard let model,
-            let mileage = model.refuels.last?.mileage else { return }
-        let formattedMileage = numberFormatter.string(from: mileage as NSNumber)
-        carInfoRows.append(CarCardInfoRowConfiguration(iconName: "gauge", text: "\(formattedMileage ?? "") km", helpText: "+\(Int(model.distanceDifferenceSinceLast())) km", isPositive: nil))
+
+        carInfoRows.append(CarCardInfoRowConfiguration(iconName: "gauge",
+                                                       text: "\(model?.refuels.last?.mileage.odometerString() ?? "") km",
+                                                       helpText: "+\(Int(model?.distanceDifferenceSinceLast().odometerString() ?? "") ?? 0) km",
+                                                       isPositive: nil))
     }
 }
