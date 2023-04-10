@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct CarCardView: View {
-    let viewModel: CarCardViewModel
+    @StateObject var viewModel: CarCardViewModel
     
     var body: some View {
         CardWithTitleView(title: "landingpage.car.card.title") {
             VStack {
                 ImageWithGradientView(imageName: "car_image_test")
                 HStack {
-                    Text(viewModel.getCarName())
+                    Text(viewModel.model?.name ?? "")
                         .font(.title2).bold()
                         .padding()
                     Button {
@@ -30,7 +30,7 @@ struct CarCardView: View {
                     Spacer()
                 }
                 
-                ForEach(viewModel.carInfoRows, id: \.self) { carInfo in
+                ForEach(viewModel.carInfoRows) { carInfo in
                     CarCardInfoRow(configuration: carInfo)
                 }
 
@@ -48,14 +48,14 @@ struct CarCardView: View {
                 .padding()
             }
         }
+        .onAppear {
+            viewModel.getSelectedCar()
+        }
     }
 }
 
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
-        CarCardView(viewModel: .init(model: Car(name: "Subaru",
-                                                brand: "Subaru",
-                                                model: "Impreza WRX",
-                                                refuels: [])))
+        CarCardView(viewModel: .init())
     }
 }

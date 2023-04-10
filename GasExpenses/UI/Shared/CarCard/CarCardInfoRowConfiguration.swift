@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct CarCardInfoRowConfiguration: Hashable {
+struct CarCardInfoRowConfiguration: Identifiable {
+    var id = UUID()
     let iconName: String
     let text: String
     let helpText: String

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LandingPageView: View {
+    @ObservedObject var viewModel: LandingPageViewModel
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -21,14 +23,7 @@ struct LandingPageView: View {
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
                         }
-                        CarCardView(viewModel: .init(model: Car(name: "My Subaru",
-                                                                brand: "",
-                                                                model: "",
-                                                                refuels: [
-                                                                    (.now, 250000, 300),
-                                                                    (.now, 250150.3, 200),
-                                                                    (.now, 251300.3, 60)
-                                                                ])))
+                        CarCardView(viewModel: .init())
                         LadingPageActionCardGroup()
                     }
                 }
@@ -39,6 +34,7 @@ struct LandingPageView: View {
 
 struct LandingPageView_Previews: PreviewProvider {
     static var previews: some View {
-        LandingPageView()
+        let viewModel = LandingPageViewModel()
+        LandingPageView(viewModel: viewModel)
     }
 }

@@ -8,23 +8,26 @@
 import SwiftUI
 
 final class CarCardViewModel: ObservableObject {
-    private let model: Car
+    @Published var model: Car?
     @Published var carInfoRows = [CarCardInfoRowConfiguration]()
+    @Published var carName: String = ""
     
-    init(model: Car) {
-        self.model = model
-        let fuelConsumptionDifferenceSinceLast = model.fuelConsumptionDifferenceSinceLast()
+    private let selectedCarDataStore = SelectedCarDataStore()
+    
+    func getSelectedCar() {
+        model = selectedCarDataStore.getSelectedCar()
         
-        configureOdometerRowInfo()
-        carInfoRows.append(CarCardInfoRowConfiguration(iconName: "calendar", text: "13th July 2023", helpText: "", isPositive: nil))
-        carInfoRows.append(CarCardInfoRowConfiguration(iconName: "fuelpump.fill",
-                                                       text: String(format: "%.2f l/100km", model.averageFuelConsumptionSinceLast()),
-                                                       helpText: String(format: "%.2f l/100km", fuelConsumptionDifferenceSinceLast),
-                                                       isPositive: fuelConsumptionDifferenceSinceLast < 0))
-    }
-    
-    func getCarName() -> LocalizedStringKey {
-        return model.name
+        if let model {
+            configureOdometerRowInfo()
+            carInfoRows.append(CarCardInfoRowConfiguration(iconName: "calendar",
+                                                           text: "\(model.refuels.last?.date.formatted(.dateTime) ?? "")",
+                                                           helpText: RelativeDateTimeFormatter().localizedString(for: model.refuels.last!.date, relativeTo: .now),
+                                                           isPositive: nil))
+            carInfoRows.append(CarCardInfoRowConfiguration(iconName: "fuelpump.fill",
+                                                           text: String(format: "%.2f l/100km", model.averageFuelConsumptionSinceLast()),
+                                                           helpText: String(format: "%.2f l/100km", model.fuelConsumptionDifferenceSinceLast()),
+                                                           isPositive: model.fuelConsumptionDifferenceSinceLast() < 0))
+        }
     }
     
     private func configureOdometerRowInfo() {
@@ -35,7 +38,8 @@ final class CarCardViewModel: ObservableObject {
         numberFormatter.maximumFractionDigits = 1
         numberFormatter.numberStyle = .decimal
         numberFormatter.usesGroupingSeparator = true
-        guard let mileage = model.refuels.last?.mileage else { return }
+        guard let model,
+            let mileage = model.refuels.last?.mileage else { return }
         let formattedMileage = numberFormatter.string(from: mileage as NSNumber)
         carInfoRows.append(CarCardInfoRowConfiguration(iconName: "gauge", text: "\(formattedMileage ?? "") km", helpText: "+\(Int(model.distanceDifferenceSinceLast())) km", isPositive: nil))
     }
