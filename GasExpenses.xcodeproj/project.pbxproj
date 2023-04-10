@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48BA579629E36B510003D60D /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA579529E36B510003D60D /* NetworkEngine.swift */; };
+		48BCB60C29E46C6D00F01A0E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60B29E46C6D00F01A0E /* Endpoint.swift */; };
+		48BCB60E29E46C8200F01A0E /* BackendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */; };
+		48BCB61029E46D1600F01A0E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60F29E46D1600F01A0E /* HTTPMethod.swift */; };
 		48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921629E1E23300FA149A /* CarDataSource.swift */; };
 		48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */; };
 		48C2922029E1E4A600FA149A /* CarCardInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921E29E1E4A600FA149A /* CarCardInfoRow.swift */; };
@@ -52,6 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48BA579529E36B510003D60D /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
+		48BCB60B29E46C6D00F01A0E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendEndpoint.swift; sourceTree = "<group>"; };
+		48BCB60F29E46D1600F01A0E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		48C2921629E1E23300FA149A /* CarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDataSource.swift; sourceTree = "<group>"; };
 		48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardInfoRowConfiguration.swift; sourceTree = "<group>"; };
 		48C2921E29E1E4A600FA149A /* CarCardInfoRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardInfoRow.swift; sourceTree = "<group>"; };
@@ -105,6 +113,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48BA579429E36B470003D60D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				48BA579529E36B510003D60D /* NetworkEngine.swift */,
+				48BCB60B29E46C6D00F01A0E /* Endpoint.swift */,
+				48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */,
+				48BCB60F29E46D1600F01A0E /* HTTPMethod.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		48C2921529E1E22200FA149A /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +230,7 @@
 		48D1138F29E1D396009A2ED6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				48BA579429E36B470003D60D /* Network */,
 				48D1139229E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift */,
 				48D1139429E1D4C5009A2ED6 /* CardWithTitleView.swift */,
 				48C2922C29E1FA3A00FA149A /* ActionCard.swift */,
@@ -364,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48BCB61029E46D1600F01A0E /* HTTPMethod.swift in Sources */,
 				48C2923129E1FB4600FA149A /* LadingPageActionCardGroup.swift in Sources */,
 				48D1139329E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift in Sources */,
 				48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */,
@@ -373,11 +394,14 @@
 				48D1135A29E1CA0B009A2ED6 /* ContentView.swift in Sources */,
 				48D1138D29E1D377009A2ED6 /* LandingPageView.swift in Sources */,
 				48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */,
+				48BCB60E29E46C8200F01A0E /* BackendEndpoint.swift in Sources */,
 				48D1139729E1D669009A2ED6 /* Color+Extensions.swift in Sources */,
 				48C2922D29E1FA3A00FA149A /* ActionCard.swift in Sources */,
 				48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */,
 				48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */,
 				48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */,
+				48BA579629E36B510003D60D /* NetworkEngine.swift in Sources */,
+				48BCB60C29E46C6D00F01A0E /* Endpoint.swift in Sources */,
 				48D1138429E1CD02009A2ED6 /* Car.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
