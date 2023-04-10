@@ -33,14 +33,18 @@ final class CarTests:XCTestCase {
         XCTAssertEqual(differenceSinceLast, -3)
     }
     
+    func test_shouldBePositiveIfValueIsPositive() {
+        let model = makeSUT()
+    }
+    
     func makeSUT() -> Car {
         return Car(name: "My Subaru",
                    brand: "Subaru",
                    model: "Impreza",
                    refuels: [
-                    (Date.now, 164900, 20),
-                    (Date.now, 165000, 10),
-                    (Date.now, 165100, 7)
+                    (Date.now, 164900, 20, costPerUnit: 3.60),
+                    (Date.now, 165000, 10, costPerUnit: 3.60),
+                    (Date.now, 165100, 7, costPerUnit: 3.60)
                    ])
     }
 }

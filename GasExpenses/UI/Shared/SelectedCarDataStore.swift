@@ -17,9 +17,9 @@ struct SelectedCarDataStore {
                    brand: "Subaru",
                    model: "Impreza",
                    refuels: [
-                    (.now, 250000, 300),
-                    (.now, 250150.3, 200),
-                    (Date(timeIntervalSince1970: 1678470122), 251300.3, 60)
+                    (.now, 250000, 300, costPerUnit: 3.50),
+                    (.now, 250150.3, 200, costPerUnit: 3.60),
+                    (Date(timeIntervalSince1970: 1678470122), 251300.3, 60, costPerUnit: 3.40)
                    ])
     }
 }

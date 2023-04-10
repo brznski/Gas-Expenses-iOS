@@ -11,7 +11,7 @@ struct Car {
     let name: LocalizedStringKey
     let brand: String
     let model: String
-    let refuels: [(date: Date, mileage: Double, fuel: Double)]
+    let refuels: [(date: Date, mileage: Double, fuel: Double, costPerUnit: Double)]
     
     func averageFuelConsumptionSinceLast() -> Double {
         let twoLastRefilsArray = refuels.suffix(2)

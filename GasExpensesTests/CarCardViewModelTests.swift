@@ -17,14 +17,6 @@ final class CarCardViewModelTests: XCTestCase {
     }
     
     func makeSUT() -> CarCardViewModel {
-        let carModel = Car(name: "My Subaru",
-                           brand: "Subaru",
-                           model: "Impreza",
-                           refuels: [
-                            (Date.now, 165000, 20),
-                            (Date.now, 165100.345, 7)
-                           ])
-        
-        return .init(model: carModel)
+        return .init()
     }
 }
