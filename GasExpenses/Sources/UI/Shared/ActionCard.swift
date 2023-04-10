@@ -15,9 +15,17 @@ struct ActionCard: View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .foregroundColor(Color.ui.actionBackground)
-            Label(title, systemImage: imageSystemName)
-                .padding()
-                .foregroundColor(.ui.action)
+                VStack {
+                    Image(systemName: imageSystemName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.ui.action)
+                        .padding()
+                    Text(title)
+                        .foregroundColor(.ui.action)
+                        .padding()
+                        .multilineTextAlignment(.center)
+                }
         }
         .aspectRatio(1, contentMode: .fit)
     }
