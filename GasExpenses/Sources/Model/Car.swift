@@ -57,4 +57,15 @@ struct Car {
         
         return lastFuelConsumption - ((beforeLastRefill.fuelAmount * 100) / distanceDriven)
     }
+    
+    func gasPerUnitPriceSinceLast() -> Double {
+        let twoLastRefuels = refuels.suffix(2)
+        
+        let lastRefill = twoLastRefuels.last
+        let beforeLastRefill = twoLastRefuels.first
+        
+        guard lastRefill != nil, beforeLastRefill != nil else { return 0 }
+        
+        return lastRefill!.costPerUnit - beforeLastRefill!.costPerUnit
+    }
 }

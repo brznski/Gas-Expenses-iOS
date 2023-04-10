@@ -23,10 +23,7 @@ final class CarCardViewModel: ObservableObject {
         
         if let model {
             configureOdometerRowInfo()
-            carInfoRows.append(CarCardInfoRowConfiguration(iconName: "calendar",
-                                                           text: "\(model.refuels.last?.date.formatted(.dateTime) ?? "")",
-                                                           helpText: RelativeDateTimeFormatter().localizedString(for: model.refuels.last!.date, relativeTo: .now),
-                                                           isPositive: nil))
+            configureGasCostRowInfo()
             carInfoRows.append(CarCardInfoRowConfiguration(iconName: "fuelpump.fill",
                                                            text: String(format: "%.2f l/100km", model.averageFuelConsumptionSinceLast()),
                                                            helpText: String(format: "%.2f l/100km", model.fuelConsumptionDifferenceSinceLast()),
@@ -39,6 +36,13 @@ final class CarCardViewModel: ObservableObject {
         carInfoRows.append(CarCardInfoRowConfiguration(iconName: "gauge",
                                                        text: "\(model?.refuels.last?.mileage.odometerString() ?? "") km",
                                                        helpText: "+\(Int(model?.distanceDifferenceSinceLast().odometerString() ?? "") ?? 0) km",
+                                                       isPositive: nil))
+    }
+    
+    private func configureGasCostRowInfo() {
+        carInfoRows.append(CarCardInfoRowConfiguration(iconName: "dollarsign.circle",
+                                                       text: "\(model?.refuels.last?.costPerUnit ?? 0) zł",
+                                                       helpText: "\(model?.gasPerUnitPriceSinceLast().currencyString() ?? "")",
                                                        isPositive: nil))
     }
 }
