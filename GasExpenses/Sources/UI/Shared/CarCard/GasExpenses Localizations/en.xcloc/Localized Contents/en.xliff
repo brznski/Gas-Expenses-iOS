@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="GasExpenses/en.lproj/GasExpenses-InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.2" build-num="14C18"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>GasExpenses</source>
+        <target>GasExpenses</target>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="GasExpenses/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.2" build-num="14C18"/>
+    </header>
+    <body>
+      <trans-unit id="Cars" xml:space="preserve">
+        <source>Cars</source>
+        <target>Cars</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Expenses" xml:space="preserve">
+        <source>Expenses</source>
+        <target>Expenses</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Hello, world!" xml:space="preserve">
+        <source>Hello, world!</source>
+        <target>Hello, world!</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Home" xml:space="preserve">
+        <source>Home</source>
+        <target>Home</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="My" xml:space="preserve">
+        <source>My</source>
+        <target>My</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="My car" xml:space="preserve">
+        <source>My car</source>
+        <target>My car</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="My card" xml:space="preserve">
+        <source>My card</source>
+        <target>My card</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="My icon" xml:space="preserve">
+        <source>My icon</source>
+        <target>My icon</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="My overview" xml:space="preserve">
+        <source>My overview</source>
+        <target>My overview</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="My title" xml:space="preserve">
+        <source>My title</source>
+        <target>My title</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Subaru" xml:space="preserve">
+        <source>Subaru</source>
+        <target>Subaru</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="card" xml:space="preserve">
+        <source>card</source>
+        <target>card</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="content" xml:space="preserve">
+        <source>content</source>
+        <target>content</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="landingPage.actionCard.addExpense" xml:space="preserve">
+        <source>landingPage.actionCard.addExpense</source>
+        <target>landingPage.actionCard.addExpense</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="landingPage.actionCard.addFuel" xml:space="preserve">
+        <source>landingPage.actionCard.addFuel</source>
+        <target>landingPage.actionCard.addFuel</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="landingPage.actionCard.scanRecipt" xml:space="preserve">
+        <source>landingPage.actionCard.scanRecipt</source>
+        <target>landingPage.actionCard.scanRecipt</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="landingPage.actionCard.seeNearbyGasStations" xml:space="preserve">
+        <source>landingPage.actionCard.seeNearbyGasStations</source>
+        <target>landingPage.actionCard.seeNearbyGasStations</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="landingpage.car.card.title" xml:space="preserve">
+        <source>My car</source>
+        <target>My car</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="see.more" xml:space="preserve">
+        <source>See more</source>
+        <target>See more</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

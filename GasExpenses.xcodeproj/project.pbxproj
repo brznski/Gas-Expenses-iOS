@@ -134,6 +134,19 @@
 			path = MockServices;
 			sourceTree = "<group>";
 		};
+		488F4AD229E48AC40062BF4B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				48BA579429E36B470003D60D /* Network */,
+				48BCB61829E4834C00F01A0E /* Extensions */,
+				48D1138A29E1D34D009A2ED6 /* Main */,
+				48D1138229E1CCFA009A2ED6 /* Model */,
+				48C2921529E1E22200FA149A /* Service */,
+				48D1138B29E1D353009A2ED6 /* UI */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		48BA579429E36B470003D60D /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,12 +216,8 @@
 		48D1135629E1CA0B009A2ED6 /* GasExpenses */ = {
 			isa = PBXGroup;
 			children = (
-				48BCB61829E4834C00F01A0E /* Extensions */,
+				488F4AD229E48AC40062BF4B /* Sources */,
 				48C2922829E1EEC500FA149A /* Localizable.strings */,
-				48C2921529E1E22200FA149A /* Service */,
-				48D1138B29E1D353009A2ED6 /* UI */,
-				48D1138A29E1D34D009A2ED6 /* Main */,
-				48D1138229E1CCFA009A2ED6 /* Model */,
 				48D1135B29E1CA0D009A2ED6 /* Assets.xcassets */,
 				48D1135D29E1CA0D009A2ED6 /* Preview Content */,
 			);
@@ -281,7 +290,6 @@
 		48D1138F29E1D396009A2ED6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				48BA579429E36B470003D60D /* Network */,
 				48D1139229E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift */,
 				48D1139429E1D4C5009A2ED6 /* CardWithTitleView.swift */,
 				48C2922C29E1FA3A00FA149A /* ActionCard.swift */,
