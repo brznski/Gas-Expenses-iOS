@@ -10,10 +10,11 @@ import SwiftUI
 struct CardWithTitleView<Content: View>: View {
     let title: LocalizedStringKey
     let cardContent: (() -> Content)?
-    let alignment: HorizontalAlignment = .center
+    let alignment: HorizontalAlignment
 
-    init(title: LocalizedStringKey, cardContent: ( () -> Content)?) {
+    init(title: LocalizedStringKey, alignment: HorizontalAlignment = .center, cardContent: ( () -> Content)?) {
         self.title = title
+        self.alignment = alignment
         self.cardContent = cardContent
     }
 
