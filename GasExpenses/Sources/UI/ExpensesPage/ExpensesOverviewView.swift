@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ExpensesOverviewView: View {
+
+    @State var isShowingFilterSheet = false
+
     var body: some View {
         ZStack {
             Color.ui.background
@@ -15,7 +18,7 @@ struct ExpensesOverviewView: View {
 
             ScrollView(showsIndicators: false) {
                 VStack {
-                    TitleAndIconHeaderView<EmptyView>(title: "Expenses")
+                    TitleAndIconHeaderView<EmptyView>(title: "Expenses title")
                     CardWithTitleView(title: "Recent expenses",
                                       alignment: .leading) {
                         Text("350,50 zł")
@@ -23,37 +26,12 @@ struct ExpensesOverviewView: View {
                             .bold()
                             .padding()
                     }
-                    ScrollView(.horizontal) {
-                        HStack {
-                            Button {
-
-                            } label: {
-                                Label("Filter", systemImage: "line.3.horizontal.decrease.circle.fill")
-                            }
-                            .buttonStyle(.borderedProminent)
-
-                                Text("Above 150 zł")
-                                .background(RoundedRectangle(cornerRadius: 8).fill(Color.ui.contentOnBackground))
-
-                            Text("Above 150 zł")
-                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.ui.contentOnBackground))
-
-                            Text("Above 150 zł")
-                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.ui.contentOnBackground))
-
-                            Spacer()
-                        }
-                        .padding()
-                    }
-
-                    CardWithTitleView(title: "June 2023") {
-                        VStack {
-                            ExpenseRowView()
-                            ExpenseRowView()
-                        }
-                    }
+                    ExpensesFilterSection(buttonState: $isShowingFilterSheet)
                 }
             }
+        }
+        .sheet(isPresented: $isShowingFilterSheet) {
+            Text("Test")
         }
     }
 }
