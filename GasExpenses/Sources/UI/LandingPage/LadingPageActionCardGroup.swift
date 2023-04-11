@@ -29,7 +29,7 @@ struct LadingPageActionCardGroup: View {
                     ActionCard(title: "landingPage.actionCard.seeNearbyGasStations",
                                imageSystemName: "map.fill")
                     ActionCard(title: "landingPage.actionCard.scanRecipt",
-                               imageSystemName: "map.fill")
+                               imageSystemName: "doc.viewfinder.fill")
                 }
             }
             .foregroundColor(.blue)
