@@ -15,17 +15,17 @@ struct ActionCard: View {
         GeometryReader { geometry in
             ZStack {
                 RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(Color.ui.actionBackground)
+                    .foregroundColor(Color.ui.action)
                 VStack {
                     Image(systemName: imageSystemName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: geometry.size.height * 0.3)
-                        .foregroundColor(.ui.action)
+                        .foregroundColor(.white)
                         .padding()
                     Spacer()
                     Text(title)
-                        .foregroundColor(.ui.action)
+                        .foregroundColor(.white)
                         .padding()
                         .multilineTextAlignment(.center)
                 }

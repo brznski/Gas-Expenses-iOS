@@ -29,8 +29,8 @@ struct CarCardView: View {
                     } label: {
                         Image(systemName: "chevron.down")
                     }
-                    .tint(.ui.actionBackground)
-                    .foregroundColor(.ui.action)
+                    .tint(.ui.action)
+                    .foregroundColor(.white)
                     .buttonStyle(.borderedProminent)
 
                     Spacer()
@@ -47,8 +47,8 @@ struct CarCardView: View {
                     } label: {
                         Label("see.more", systemImage: "chevron.right")
                     }
-                    .tint(.ui.actionBackground)
-                    .foregroundColor(.ui.action)
+                    .tint(.ui.action)
+                    .foregroundColor(.white)
                     .buttonStyle(.borderedProminent)
                 }
                 .padding()
