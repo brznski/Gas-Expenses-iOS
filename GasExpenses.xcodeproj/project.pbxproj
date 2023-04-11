@@ -16,6 +16,7 @@
 		488F4AD929E4AA660062BF4B /* CacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD829E4AA660062BF4B /* CacheKey.swift */; };
 		48B3C55B29E5E99E00612195 /* ExpensesOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3C55A29E5E99E00612195 /* ExpensesOverviewView.swift */; };
 		48B3C55D29E5EBA100612195 /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3C55C29E5EBA100612195 /* ExpenseRowView.swift */; };
+		48B3C56129E605C400612195 /* ExpensesFilterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3C56029E605C400612195 /* ExpensesFilterSection.swift */; };
 		48BA579629E36B510003D60D /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA579529E36B510003D60D /* NetworkEngine.swift */; };
 		48BCB60C29E46C6D00F01A0E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60B29E46C6D00F01A0E /* Endpoint.swift */; };
 		48BCB60E29E46C8200F01A0E /* BackendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */; };
@@ -76,6 +77,7 @@
 		488F4AD829E4AA660062BF4B /* CacheKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheKey.swift; sourceTree = "<group>"; };
 		48B3C55A29E5E99E00612195 /* ExpensesOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesOverviewView.swift; sourceTree = "<group>"; };
 		48B3C55C29E5EBA100612195 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
+		48B3C56029E605C400612195 /* ExpensesFilterSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesFilterSection.swift; sourceTree = "<group>"; };
 		48BA579529E36B510003D60D /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
 		48BCB60B29E46C6D00F01A0E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendEndpoint.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				48B3C55A29E5E99E00612195 /* ExpensesOverviewView.swift */,
 				48B3C55C29E5EBA100612195 /* ExpenseRowView.swift */,
+				48B3C56029E605C400612195 /* ExpensesFilterSection.swift */,
 			);
 			path = ExpensesPage;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				488F4AD529E4A2D10062BF4B /* Cache.swift in Sources */,
 				48BA579629E36B510003D60D /* NetworkEngine.swift in Sources */,
 				48BCB60C29E46C6D00F01A0E /* Endpoint.swift in Sources */,
+				48B3C56129E605C400612195 /* ExpensesFilterSection.swift in Sources */,
 				48D1138429E1CD02009A2ED6 /* Car.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
