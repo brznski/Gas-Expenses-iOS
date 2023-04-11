@@ -16,6 +16,7 @@ final class CarDataSource {
         return .init(name: "My Subaru",
                      brand: "Subaru",
                      model: "Impreza",
-                     refuels: [])
+                     refuels: [],
+                     isFavourite: true)
     }
 }

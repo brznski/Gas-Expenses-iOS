@@ -19,6 +19,7 @@ struct Car {
     let brand: String
     let model: String
     let refuels: [Refuel]
+    let isFavourite: Bool
 
     func averageFuelConsumptionSinceLast() -> Double {
         let twoLastRefilsArray = refuels.suffix(2)
