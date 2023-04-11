@@ -28,6 +28,7 @@ struct GasExpensesApp: App {
                               systemImage: "dollarsign.circle.fill")
                     }
             }
+            .tint(Color.ui.action)
         }
     }
 }
