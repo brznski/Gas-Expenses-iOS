@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ImageWithGradientView: View {
     let imageName: String
+
     var body: some View {
         ZStack {
             Image(imageName)

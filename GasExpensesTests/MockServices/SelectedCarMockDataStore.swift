@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class SelectedCarMockDataStore: SelectedCarDataStoreProtocol {
-    func getSelectedCar() -> Car {
-        return Car(name: "My Subaru",
+final class MockCarService: CarServiceProtocol {
+    private let cars = [
+        Car(name: "My Subaru",
                    brand: "Subaru",
                    model: "Impreza",
                    refuels: [
@@ -19,5 +19,13 @@ final class SelectedCarMockDataStore: SelectedCarDataStoreProtocol {
                    ],
                    fuelType: .pb95,
                    isFavourite: true)
+    ]
+
+    func getCars() -> [Car] {
+        return cars
+    }
+
+    func getFavouriteCar() -> Car? {
+        return cars.first { $0.isFavourite }
     }
 }

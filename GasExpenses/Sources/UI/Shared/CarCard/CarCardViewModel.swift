@@ -10,15 +10,14 @@ import SwiftUI
 final class CarCardViewModel: ObservableObject {
     @Published var model: Car?
     @Published var carInfoRows = [CarCardInfoRowConfiguration]()
-    @Published var carName: String = ""
 
-    private let selectedCarDataStore: SelectedCarDataStoreProtocol
+    private let carService: CarServiceProtocol
 
-    init(selectedCarDataStore: SelectedCarDataStoreProtocol) {
-        self.selectedCarDataStore = selectedCarDataStore
+    init(carService: CarServiceProtocol) {
+        self.carService = carService
     }
     func getSelectedCar() {
-        model = selectedCarDataStore.getSelectedCar()
+        model = carService.getFavouriteCar()
 
         if let model {
             configureOdometerRowInfo()

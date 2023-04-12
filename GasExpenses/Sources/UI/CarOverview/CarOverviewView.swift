@@ -23,7 +23,7 @@ struct CarOverviewView: View {
                         }
                 }
 
-                CarCardView(viewModel: .init(selectedCarDataStore: SelectedCarDataStore()))
+                CarCardView(viewModel: .init(carService: CarDataSource()))
             }
         }
         .background(Color.ui.background)

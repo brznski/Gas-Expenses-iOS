@@ -46,6 +46,7 @@ final class CarTests: XCTestCase {
                     .init(date: .now, mileage: 165000.0, fuelAmount: 10.0, costPerUnit: 3.60),
                     .init(date: .now, mileage: 165100.0, fuelAmount: 7, costPerUnit: 3.60)
                    ],
+                   fuelType: .pb95,
                    isFavourite: true)
     }
 }

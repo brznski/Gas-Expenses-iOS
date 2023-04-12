@@ -18,6 +18,6 @@ final class CarCardViewModelTests: XCTestCase {
     }
 
     func makeSUT() -> CarCardViewModel {
-        return .init(selectedCarDataStore: SelectedCarMockDataStore())
+        return .init(carService: MockCarService())
     }
 }
