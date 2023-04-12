@@ -11,8 +11,8 @@ import SwiftUI
 struct GasExpensesApp: App {
     var body: some Scene {
         WindowGroup {
-            TabView {
-                ContentView()
+            TabView(selection: $selectedTab) {
+                CarOverviewView()
                     .tabItem {
                         Label("Cars",
                               systemImage: "car.fill")
