@@ -21,6 +21,7 @@ struct SelectedCarDataStore: SelectedCarDataStoreProtocol {
                     .init(date: .now, mileage: 250150.3, fuelAmount: 200.0, costPerUnit: 3.60),
                     .init(date: Date(timeIntervalSince1970: 1678470122), mileage: 251300.3, fuelAmount: 60, costPerUnit: 3.40),
                    ],
+                   fuelType: .pb95,
                    isFavourite: true)
     }
 }

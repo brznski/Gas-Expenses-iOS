@@ -17,6 +17,7 @@ final class CarDataSource {
                      brand: "Subaru",
                      model: "Impreza",
                      refuels: [],
+                     fuelType: .pb95,
                      isFavourite: true)
     }
 }

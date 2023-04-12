@@ -19,6 +19,10 @@
 		48B3C56129E605C400612195 /* ExpensesFilterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3C56029E605C400612195 /* ExpensesFilterSection.swift */; };
 		48BA579629E36B510003D60D /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA579529E36B510003D60D /* NetworkEngine.swift */; };
 		48BAF92629E7160500FB5527 /* CarOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF92529E7160500FB5527 /* CarOverviewView.swift */; };
+		48BAF92829E7175C00FB5527 /* AddCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF92729E7175C00FB5527 /* AddCarView.swift */; };
+		48BAF92B29E71C7F00FB5527 /* FuelTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF92A29E71C7F00FB5527 /* FuelTypes.swift */; };
+		48BAF92D29E71DC500FB5527 /* AddCarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF92C29E71DC500FB5527 /* AddCarViewModel.swift */; };
+		48BAF92F29E71F0D00FB5527 /* FuelTypeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF92E29E71F0D00FB5527 /* FuelTypeIcon.swift */; };
 		48BCB60C29E46C6D00F01A0E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60B29E46C6D00F01A0E /* Endpoint.swift */; };
 		48BCB60E29E46C8200F01A0E /* BackendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */; };
 		48BCB61029E46D1600F01A0E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60F29E46D1600F01A0E /* HTTPMethod.swift */; };
@@ -81,6 +85,10 @@
 		48B3C56029E605C400612195 /* ExpensesFilterSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesFilterSection.swift; sourceTree = "<group>"; };
 		48BA579529E36B510003D60D /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
 		48BAF92529E7160500FB5527 /* CarOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarOverviewView.swift; sourceTree = "<group>"; };
+		48BAF92729E7175C00FB5527 /* AddCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarView.swift; sourceTree = "<group>"; };
+		48BAF92A29E71C7F00FB5527 /* FuelTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypes.swift; sourceTree = "<group>"; };
+		48BAF92C29E71DC500FB5527 /* AddCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewModel.swift; sourceTree = "<group>"; };
+		48BAF92E29E71F0D00FB5527 /* FuelTypeIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypeIcon.swift; sourceTree = "<group>"; };
 		48BCB60B29E46C6D00F01A0E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendEndpoint.swift; sourceTree = "<group>"; };
 		48BCB60F29E46D1600F01A0E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -193,6 +201,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		48BAF92929E71BBD00FB5527 /* CarOverview */ = {
+			isa = PBXGroup;
+			children = (
+				48BAF92529E7160500FB5527 /* CarOverviewView.swift */,
+			);
+			path = CarOverview;
+			sourceTree = "<group>";
+		};
 		48BCB61829E4834C00F01A0E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				48D1138329E1CD02009A2ED6 /* Car.swift */,
+				48BAF92A29E71C7F00FB5527 /* FuelTypes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,11 +322,11 @@
 		48D1138B29E1D353009A2ED6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				48BAF92929E71BBD00FB5527 /* CarOverview */,
 				48B3C55929E5E99100612195 /* ExpensesPage */,
 				48D1138F29E1D396009A2ED6 /* Shared */,
 				48D1138E29E1D38E009A2ED6 /* LandingPage */,
 				48D1135929E1CA0B009A2ED6 /* ContentView.swift */,
-				48BAF92529E7160500FB5527 /* CarOverviewView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -332,6 +349,9 @@
 				48C2922C29E1FA3A00FA149A /* ActionCard.swift */,
 				48D1139829E1D919009A2ED6 /* ImageWithGradientView.swift */,
 				48D1139C29E1DAAA009A2ED6 /* CarCard */,
+				48BAF92729E7175C00FB5527 /* AddCarView.swift */,
+				48BAF92C29E71DC500FB5527 /* AddCarViewModel.swift */,
+				48BAF92E29E71F0D00FB5527 /* FuelTypeIcon.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -506,17 +526,20 @@
 				48B3C55B29E5E99E00612195 /* ExpensesOverviewView.swift in Sources */,
 				48B3C55D29E5EBA100612195 /* ExpenseRowView.swift in Sources */,
 				48BCB61C29E4837500F01A0E /* Double+Extensions.swift in Sources */,
+				48BAF92829E7175C00FB5527 /* AddCarView.swift in Sources */,
 				488F4AD729E4AA540062BF4B /* CacheEntry.swift in Sources */,
 				488F4ACC29E489130062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */,
 				488F4AD929E4AA660062BF4B /* CacheKey.swift in Sources */,
 				48BCB61029E46D1600F01A0E /* HTTPMethod.swift in Sources */,
 				48C2923129E1FB4600FA149A /* LadingPageActionCardGroup.swift in Sources */,
+				48BAF92F29E71F0D00FB5527 /* FuelTypeIcon.swift in Sources */,
 				48BAF92629E7160500FB5527 /* CarOverviewView.swift in Sources */,
 				48D1139329E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift in Sources */,
 				48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */,
 				48D1139529E1D4C5009A2ED6 /* CardWithTitleView.swift in Sources */,
 				48D1139B29E1DA46009A2ED6 /* CarCardView.swift in Sources */,
 				48C2922029E1E4A600FA149A /* CarCardInfoRow.swift in Sources */,
+				48BAF92D29E71DC500FB5527 /* AddCarViewModel.swift in Sources */,
 				48D1135A29E1CA0B009A2ED6 /* ContentView.swift in Sources */,
 				48D1138D29E1D377009A2ED6 /* LandingPageView.swift in Sources */,
 				48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */,
@@ -525,6 +548,7 @@
 				48C2922D29E1FA3A00FA149A /* ActionCard.swift in Sources */,
 				48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */,
 				48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */,
+				48BAF92B29E71C7F00FB5527 /* FuelTypes.swift in Sources */,
 				48BCB61629E47BB900F01A0E /* SelectedCarDataStore.swift in Sources */,
 				48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */,
 				488F4AD529E4A2D10062BF4B /* Cache.swift in Sources */,

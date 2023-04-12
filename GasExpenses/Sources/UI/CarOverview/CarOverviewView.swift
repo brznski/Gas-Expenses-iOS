@@ -28,7 +28,7 @@ struct CarOverviewView: View {
         }
         .background(Color.ui.background)
         .sheet(isPresented: $isSheetPresented, content: {
-            EmptyView()
+            AddCarView()
         })
     }
 }

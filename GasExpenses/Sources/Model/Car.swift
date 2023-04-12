@@ -19,6 +19,7 @@ struct Car {
     let brand: String
     let model: String
     let refuels: [Refuel]
+    let fuelType: FuelTypes
     let isFavourite: Bool
 
     func averageFuelConsumptionSinceLast() -> Double {
