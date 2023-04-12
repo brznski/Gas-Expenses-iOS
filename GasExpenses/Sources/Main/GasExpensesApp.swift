@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct GasExpensesApp: App {
+    @State var selectedTab = "Home"
+
     var body: some Scene {
         WindowGroup {
             TabView(selection: $selectedTab) {
@@ -17,16 +19,19 @@ struct GasExpensesApp: App {
                         Label("Cars",
                               systemImage: "car.fill")
                     }
+                    .tag("Cars")
                 LandingPageView(viewModel: LandingPageViewModel())
                     .tabItem {
                         Label("Home",
                               systemImage: "house.fill")
                     }
+                    .tag("Home")
                 ExpensesOverviewView()
                     .tabItem {
                         Label("Expenses",
                               systemImage: "dollarsign.circle.fill")
                     }
+                    .tag("Expenses")
             }
             .tint(Color.ui.action)
         }
