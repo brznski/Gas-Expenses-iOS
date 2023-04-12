@@ -11,7 +11,7 @@ struct CarOverviewView: View {
     @State var isSheetPresented = false
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
+        ScrollView {
             VStack {
                 TitleAndIconHeaderView(title: "My cars") {
                     Image(systemName: "plus.circle.fill")

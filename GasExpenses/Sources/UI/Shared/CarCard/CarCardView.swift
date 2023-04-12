@@ -17,7 +17,6 @@ struct CarCardView: View {
     }
 
     var body: some View {
-        NavigationView {
             CardWithTitleView(title: "landingpage.car.card.title") {
                 VStack {
                     ImageWithGradientView(imageName: "car_image_test")
@@ -56,7 +55,6 @@ struct CarCardView: View {
                     .padding()
                 }
             }
-        }
     }
 }
 
