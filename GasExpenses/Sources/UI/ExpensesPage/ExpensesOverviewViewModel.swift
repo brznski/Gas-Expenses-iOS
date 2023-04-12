@@ -36,4 +36,12 @@ final class ExpensesOverviewViewModel: ObservableObject {
             return ExpensesMonth(date: calendar.date(from: key)!, expenses: value)
         }
     }()
+
+    func getLastMonthExpenses() -> Double {
+        guard let lastMonth = groupedExpenses.sorted(by: {$0.date < $1.date}).last else { return 0 }
+
+        return lastMonth.expenses.reduce(0) { partialResult, expense in
+            return expense.amount
+        }
+    }
 }

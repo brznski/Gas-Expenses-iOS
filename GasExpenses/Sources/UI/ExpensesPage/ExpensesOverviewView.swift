@@ -23,7 +23,7 @@ struct ExpensesOverviewView: View {
                     TitleAndIconHeaderView<EmptyView>(title: "Expenses title")
                     CardWithTitleView(title: "Recent expenses",
                                       alignment: .leading) {
-                        Text("350,50 zł")
+                        Text(viewModel.getLastMonthExpenses().currencyString() ?? "")
                             .font(.largeTitle)
                             .bold()
                             .padding()
