@@ -17,41 +17,44 @@ struct CarCardView: View {
     }
 
     var body: some View {
-        CardWithTitleView(title: "landingpage.car.card.title") {
-            VStack {
-                ImageWithGradientView(imageName: "car_image_test")
-                HStack {
-                    Text(viewModel.model?.name ?? "")
-                        .font(.title2).bold()
-                        .padding()
-                    Button {
+        NavigationView {
+            CardWithTitleView(title: "landingpage.car.card.title") {
+                VStack {
+                    ImageWithGradientView(imageName: "car_image_test")
+                    HStack {
+                        Text(viewModel.model?.name ?? "")
+                            .font(.title2).bold()
+                            .padding()
+                        Button {
 
-                    } label: {
-                        Image(systemName: "chevron.down")
+                        } label: {
+                            Image(systemName: "chevron.down")
+                        }
+                        .tint(.ui.action)
+                        .foregroundColor(.white)
+                        .buttonStyle(.borderedProminent)
+
+                        Spacer()
                     }
-                    .tint(.ui.action)
-                    .foregroundColor(.white)
-                    .buttonStyle(.borderedProminent)
 
-                    Spacer()
-                }
-
-                ForEach(viewModel.carInfoRows) { carInfo in
-                    CarCardInfoRow(configuration: carInfo)
-                }
-
-                HStack {
-                    Spacer()
-                    Button {
-
-                    } label: {
-                        Label("see.more", systemImage: "chevron.right")
+                    ForEach(viewModel.carInfoRows) { carInfo in
+                        CarCardInfoRow(configuration: carInfo)
                     }
-                    .tint(.ui.action)
-                    .foregroundColor(.white)
-                    .buttonStyle(.borderedProminent)
+
+                    HStack {
+                        Spacer()
+                        NavigationLink {
+                            CarDetailsView()
+                        } label: {
+                            Label("see.more", systemImage: "chevron.right")
+                        }
+
+                        .tint(.ui.action)
+                        .foregroundColor(.white)
+                        .buttonStyle(.borderedProminent)
+                    }
+                    .padding()
                 }
-                .padding()
             }
         }
     }
