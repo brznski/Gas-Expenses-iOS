@@ -26,6 +26,8 @@
 		48BAF93229E7221E00FB5527 /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF93129E7221E00FB5527 /* CarDetailsView.swift */; };
 		48BAF93329E7374300FB5527 /* FuelTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF92A29E71C7F00FB5527 /* FuelTypes.swift */; };
 		48BAF93429E7375800FB5527 /* CarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921629E1E23300FA149A /* CarDataSource.swift */; };
+		48BAF93629E73B9E00FB5527 /* ExpensesOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF93529E73B9E00FB5527 /* ExpensesOverviewViewModel.swift */; };
+		48BAF93829E741BD00FB5527 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF93729E741BD00FB5527 /* Date+Extensions.swift */; };
 		48BCB60C29E46C6D00F01A0E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60B29E46C6D00F01A0E /* Endpoint.swift */; };
 		48BCB60E29E46C8200F01A0E /* BackendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */; };
 		48BCB61029E46D1600F01A0E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB60F29E46D1600F01A0E /* HTTPMethod.swift */; };
@@ -92,6 +94,8 @@
 		48BAF92C29E71DC500FB5527 /* AddCarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewModel.swift; sourceTree = "<group>"; };
 		48BAF92E29E71F0D00FB5527 /* FuelTypeIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelTypeIcon.swift; sourceTree = "<group>"; };
 		48BAF93129E7221E00FB5527 /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
+		48BAF93529E73B9E00FB5527 /* ExpensesOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesOverviewViewModel.swift; sourceTree = "<group>"; };
+		48BAF93729E741BD00FB5527 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		48BCB60B29E46C6D00F01A0E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendEndpoint.swift; sourceTree = "<group>"; };
 		48BCB60F29E46D1600F01A0E /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 				48B3C55A29E5E99E00612195 /* ExpensesOverviewView.swift */,
 				48B3C55C29E5EBA100612195 /* ExpenseRowView.swift */,
 				48B3C56029E605C400612195 /* ExpensesFilterSection.swift */,
+				48BAF93529E73B9E00FB5527 /* ExpensesOverviewViewModel.swift */,
 			);
 			path = ExpensesPage;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				48BCB61B29E4837500F01A0E /* Double+Extensions.swift */,
+				48BAF93729E741BD00FB5527 /* Date+Extensions.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -551,10 +557,12 @@
 				48C2922029E1E4A600FA149A /* CarCardInfoRow.swift in Sources */,
 				48BAF92D29E71DC500FB5527 /* AddCarViewModel.swift in Sources */,
 				48D1135A29E1CA0B009A2ED6 /* ContentView.swift in Sources */,
+				48BAF93829E741BD00FB5527 /* Date+Extensions.swift in Sources */,
 				48D1138D29E1D377009A2ED6 /* LandingPageView.swift in Sources */,
 				48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */,
 				48BAF93229E7221E00FB5527 /* CarDetailsView.swift in Sources */,
 				48BCB60E29E46C8200F01A0E /* BackendEndpoint.swift in Sources */,
+				48BAF93629E73B9E00FB5527 /* ExpensesOverviewViewModel.swift in Sources */,
 				48D1139729E1D669009A2ED6 /* Color+Extensions.swift in Sources */,
 				48C2922D29E1FA3A00FA149A /* ActionCard.swift in Sources */,
 				48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */,

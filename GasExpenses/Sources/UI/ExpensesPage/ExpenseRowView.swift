@@ -7,7 +7,25 @@
 
 import SwiftUI
 
+struct Expense: Identifiable {
+    let id = UUID()
+    let amount: Double
+    let title: String
+    let date: Date
+    let expenseType: ExpenseType
+}
+
+enum ExpenseType {
+    case fuel
+    case wash
+    case maintenance
+    case insurance
+    case parts
+}
+
 struct ExpenseRowView: View {
+    let expense: Expense
+
     var body: some View {
         HStack {
             Circle()
@@ -15,12 +33,12 @@ struct ExpenseRowView: View {
                 .frame(width: 50)
                 .padding()
             VStack(alignment: .leading) {
-                Text("Paliwo")
+                Text(expense.title)
                     .bold()
-                Text("25th June 2023")
+                Text(expense.date.formatted(.dateTime))
             }
             Spacer()
-            Text("-300 zł")
+            Text(expense.amount.currencyString() ?? "")
                 .foregroundColor(.ui.warning)
             Image(systemName: "chevron.right")
                 .font(.title)
@@ -32,6 +50,6 @@ struct ExpenseRowView: View {
 
 struct ExpenseRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseRowView()
+        ExpenseRowView(expense: .init(amount: 350.3, title: "Paliwo", date: .distantPast, expenseType: .fuel))
     }
 }

@@ -18,6 +18,12 @@ struct CardWithTitleView<Content: View>: View {
         self.cardContent = cardContent
     }
 
+    init(title: String, alignment: HorizontalAlignment = .center, cardContent: ( () -> Content)?) {
+        self.title = LocalizedStringKey(title)
+        self.alignment = alignment
+        self.cardContent = cardContent
+    }
+
     var body: some View {
         ZStack {
             Color.ui.background

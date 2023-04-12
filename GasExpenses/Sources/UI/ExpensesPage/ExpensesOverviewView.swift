@@ -11,6 +11,8 @@ struct ExpensesOverviewView: View {
 
     @State var isShowingFilterSheet = false
 
+    private let viewModel = ExpensesOverviewViewModel()
+
     var body: some View {
         ZStack {
             Color.ui.background
@@ -27,6 +29,13 @@ struct ExpensesOverviewView: View {
                             .padding()
                     }
                     ExpensesFilterSection(buttonState: $isShowingFilterSheet)
+                    ForEach(viewModel.groupedExpenses.sorted { $0.date > $1.date }) { expenses in
+                        CardWithTitleView(title: expenses.date.monthAndYearString()) {
+                            ForEach(expenses.expenses) {
+                                ExpenseRowView(expense: $0)
+                            }
+                        }
+                    }
                 }
             }
         }
