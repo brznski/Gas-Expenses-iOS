@@ -10,8 +10,12 @@ import SwiftUI
 struct CarCardView: View {
     @ObservedObject var viewModel: CarCardViewModel
 
-    init(viewModel: CarCardViewModel) {
+    let allowsCarSelection: Bool
+
+    init(viewModel: CarCardViewModel,
+         allowsCarSelection: Bool = false) {
         self.viewModel = viewModel
+        self.allowsCarSelection = allowsCarSelection
 
         viewModel.getSelectedCar()
     }
@@ -24,14 +28,17 @@ struct CarCardView: View {
                         Text(viewModel.model?.name ?? "")
                             .font(.title2).bold()
                             .padding()
-                        Button {
 
-                        } label: {
-                            Image(systemName: "chevron.down")
+                        if allowsCarSelection {
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "chevron.down")
+                            }
+                            .tint(.ui.action)
+                            .foregroundColor(.white)
+                            .buttonStyle(.borderedProminent)
                         }
-                        .tint(.ui.action)
-                        .foregroundColor(.white)
-                        .buttonStyle(.borderedProminent)
 
                         Spacer()
                     }

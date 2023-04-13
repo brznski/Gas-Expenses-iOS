@@ -23,7 +23,7 @@ struct LandingPageView: View {
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
                         }
-                        CarCardView(viewModel: .init(carService: CarDataSource()))
+                        CarCardView(viewModel: .init(carService: CarDataSource()), allowsCarSelection: true)
                         LadingPageActionCardGroup()
                     }
                 }
