@@ -15,7 +15,8 @@ struct Expense: Identifiable {
     let expenseType: ExpenseType
 }
 
-enum ExpenseType {
+enum ExpenseType: String, Identifiable, CaseIterable {
+    var id: UUID { return UUID() }
     case fuel
     case wash
     case maintenance
