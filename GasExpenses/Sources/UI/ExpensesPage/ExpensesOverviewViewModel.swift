@@ -14,6 +14,8 @@ struct ExpensesMonth: Identifiable {
 }
 
 final class ExpensesOverviewViewModel: ObservableObject {
+    @Published var filters: ExpenseFilter = .init()
+    
     @Published var expenses: [Expense] = [
         .init(amount: 25.0, title: "Myjnia", date: .distantPast, expenseType: .wash),
         .init(amount: 32.0, title: "Test1", date: .distantPast, expenseType: .fuel)
@@ -40,7 +42,7 @@ final class ExpensesOverviewViewModel: ObservableObject {
     func getLastMonthExpenses() -> Double {
         guard let lastMonth = groupedExpenses.sorted(by: {$0.date < $1.date}).last else { return 0 }
 
-        return lastMonth.expenses.reduce(0) { partialResult, expense in
+        return lastMonth.expenses.reduce(0) { _, expense in
             return expense.amount
         }
     }
