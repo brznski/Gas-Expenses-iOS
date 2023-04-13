@@ -14,7 +14,8 @@ struct Refuel {
     let costPerUnit: Double
 }
 
-struct Car {
+struct Car: Identifiable {
+    let id = UUID()
     let name: LocalizedStringKey
     let brand: String
     let model: String

@@ -16,6 +16,7 @@ final class CarCardViewModel: ObservableObject {
     init(carService: CarServiceProtocol) {
         self.carService = carService
     }
+
     func getSelectedCar() {
         model = carService.getFavouriteCar()
 
@@ -27,6 +28,10 @@ final class CarCardViewModel: ObservableObject {
                                                            helpText: String(format: "%.2f l/100km", model.fuelConsumptionDifferenceSinceLast()),
                                                            isPositive: model.fuelConsumptionDifferenceSinceLast() < 0))
         }
+    }
+
+    func getCars() -> [Car] {
+        return carService.getCars()
     }
 
     private func configureOdometerRowInfo() {

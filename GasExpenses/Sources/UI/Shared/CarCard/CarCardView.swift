@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CarCardView: View {
     @ObservedObject var viewModel: CarCardViewModel
+    @State var shouldShowSheet = true
 
     let allowsCarSelection: Bool
 
@@ -31,7 +32,7 @@ struct CarCardView: View {
 
                         if allowsCarSelection {
                             Button {
-                                
+                                shouldShowSheet.toggle()
                             } label: {
                                 Image(systemName: "chevron.down")
                             }
@@ -60,6 +61,11 @@ struct CarCardView: View {
                         .buttonStyle(.borderedProminent)
                     }
                     .padding()
+                }
+            }
+            .sheet(isPresented: $shouldShowSheet) {
+                ForEach(viewModel.getCars()) { car in
+                    CarRowInfoView(carModel: car)
                 }
             }
     }
