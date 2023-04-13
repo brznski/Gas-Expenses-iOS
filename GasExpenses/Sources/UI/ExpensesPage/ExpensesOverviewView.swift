@@ -11,28 +11,30 @@ struct ExpensesOverviewView: View {
 
     @State var isShowingFilterSheet = false
 
-    private let viewModel = ExpensesOverviewViewModel()
+    @ObservedObject var viewModel: ExpensesOverviewViewModel
 
     var body: some View {
-        ZStack {
-            Color.ui.background
-                .ignoresSafeArea()
+        NavigationView {
+            ZStack {
+                Color.ui.background
+                    .ignoresSafeArea()
 
-            ScrollView(showsIndicators: false) {
-                VStack {
-                    TitleAndIconHeaderView<EmptyView>(title: "Expenses title")
-                    CardWithTitleView(title: "Recent expenses",
-                                      alignment: .leading) {
-                        Text(viewModel.getLastMonthExpenses().currencyString() ?? "")
-                            .font(.largeTitle)
-                            .bold()
-                            .padding()
-                    }
-                    ExpensesFilterSection(buttonState: $isShowingFilterSheet)
-                    ForEach(viewModel.groupedExpenses.sorted { $0.date > $1.date }) { expenses in
-                        CardWithTitleView(title: expenses.date.monthAndYearString()) {
-                            ForEach(expenses.expenses) {
-                                ExpenseRowView(expense: $0)
+                ScrollView(showsIndicators: false) {
+                    VStack {
+                        TitleAndIconHeaderView<EmptyView>(title: "Expenses title")
+                        CardWithTitleView(title: "Recent expenses",
+                                          alignment: .leading) {
+                            Text(viewModel.getLastMonthExpenses().currencyString() ?? "")
+                                .font(.largeTitle)
+                                .bold()
+                                .padding()
+                        }
+                        ExpensesFilterSection(viewModel: viewModel)
+                        ForEach(viewModel.groupedExpenses.sorted { $0.date > $1.date }) { expenses in
+                            CollapsableCardWithTitleView(title: expenses.date.monthAndYearString()) {
+                                ForEach(expenses.expenses) {
+                                    ExpenseRowView(expense: $0)
+                                }
                             }
                         }
                     }
@@ -47,6 +49,6 @@ struct ExpensesOverviewView: View {
 
 struct ExpensesOverviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpensesOverviewView()
+        ExpensesOverviewView(viewModel: ExpensesOverviewViewModel())
     }
 }
