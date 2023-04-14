@@ -13,24 +13,44 @@ struct AddExpenseView: View {
     @State var expenseType: String = ""
 
     var body: some View {
-        VStack {
-            TextField("Amount", text: $amount)
-                .textFieldStyle(.roundedBorder)
-                .padding()
-            TextField("Amount", text: $amount)
-                .textFieldStyle(.roundedBorder)
-                .padding()
-            DatePicker("Date", selection: $date, displayedComponents: [.date])
-                .datePickerStyle(.graphical)
-            Picker("Fuel type", selection: $expenseType) {
-                ForEach(ExpenseType.allCases) {
-                    Text($0.rawValue.uppercased()).tag($0.rawValue)
+        ZStack {
+            Color.ui.background
+                .ignoresSafeArea()
+            VStack {
+                TitleAndTextField(title: "amount",
+                                  textFieldValue: $amount)
+                TitleAndTextField(title: "title",
+                                  textFieldValue: $amount)
+                HStack {
+                    Text("expense.type")
+                    Spacer()
+                    Picker("Fuel type", selection: $expenseType) {
+                        ForEach(ExpenseType.allCases.sorted(by: { lhs, rhs in
+                            return lhs.rawValue < rhs.rawValue
+                        })) {
+                            Text($0.rawValue.capitalized).tag($0.rawValue)
+                        }
+                    }
+                    .tint(Color.ui.action)
                 }
+                DatePicker("Date", selection: $date, displayedComponents: [.date])
+                    .tint(Color.ui.action)
+                    .datePickerStyle(.graphical)
+                Spacer()
+                Button {
+
+                } label: {
+                    Spacer()
+                    Text("add")
+                    Spacer()
+                }
+                .tint(Color.ui.action)
+                .buttonStyle(.borderedProminent)
+
             }
-            .datePickerStyle(.compact)
+            .padding()
+
         }
-        .background(Color.ui.background)
-        .ignoresSafeArea()
     }
 }
 
