@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct Refuel {
+struct Refuel: Identifiable {
+    let id = UUID()
     let date: Date
     let mileage: Double
     let fuelAmount: Double
