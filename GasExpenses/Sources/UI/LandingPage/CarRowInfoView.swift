@@ -9,21 +9,33 @@ import SwiftUI
 
 struct CarRowInfoView: View {
     let carModel: Car
+    let onTapGesture: () -> Void
+
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
-        HStack {
-            Image("car_image_test")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 150)
-                .clipShape(Circle())
-            VStack(alignment: .leading) {
-                Text(carModel.name)
-                    .font(.largeTitle)
-                    .bold()
-                Text("\(carModel.brand + carModel.model)")
+        Button {
+            onTapGesture()
+            dismiss()
+        } label: {
+            HStack {
+                Image("car_image_test")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100)
+                    .clipShape(Circle())
+                VStack(alignment: .leading) {
+                    Text(carModel.name)
+                        .font(.largeTitle)
+                        .bold()
+                    Text("\(carModel.brand)" + " " + "\(carModel.model)")
+                }
+
+                Spacer()
+                FuelTypeIcon(fuelType: carModel.fuelType)
+                    .frame(width: 50)
+                    .padding()
             }
-            Spacer()
         }
     }
 }
@@ -34,6 +46,6 @@ struct CarRowInfoView_Previews: PreviewProvider {
                                        brand: "Subaru",
                                        model: "Impreza", refuels: [],
                                        fuelType: .pb95,
-                                       isFavourite: true))
+                                       isFavourite: true), onTapGesture: {})
     }
 }
