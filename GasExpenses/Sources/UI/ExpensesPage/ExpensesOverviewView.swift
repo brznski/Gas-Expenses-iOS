@@ -10,6 +10,7 @@ import SwiftUI
 struct ExpensesOverviewView: View {
 
     @State var isShowingFilterSheet = false
+    @State var isShowingAddExpenseSheet = false
 
     @ObservedObject var viewModel: ExpensesOverviewViewModel
 
@@ -21,7 +22,16 @@ struct ExpensesOverviewView: View {
 
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        TitleAndIconHeaderView<EmptyView>(title: "Expenses title")
+                        TitleAndIconHeaderView(title: "Expenses title") {
+                            Button {
+                                isShowingAddExpenseSheet.toggle()
+                            } label: {
+                                Image(systemName: "plus.circle.fill")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                            }
+
+                        }
                         CardWithTitleView(title: "Recent expenses",
                                           alignment: .leading) {
                             Text(viewModel.getLastMonthExpenses().currencyString() ?? "")
@@ -41,8 +51,8 @@ struct ExpensesOverviewView: View {
                 }
             }
         }
-        .sheet(isPresented: $isShowingFilterSheet) {
-            Text("Test")
+        .sheet(isPresented: $isShowingAddExpenseSheet) {
+            AddExpenseView()
         }
     }
 }
