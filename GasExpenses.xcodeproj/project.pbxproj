@@ -14,6 +14,7 @@
 		488F4AD529E4A2D10062BF4B /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD429E4A2D10062BF4B /* Cache.swift */; };
 		488F4AD729E4AA540062BF4B /* CacheEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD629E4AA540062BF4B /* CacheEntry.swift */; };
 		488F4AD929E4AA660062BF4B /* CacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD829E4AA660062BF4B /* CacheKey.swift */; };
+		48A027E729EACA1200515291 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A027E629EACA1200515291 /* Configuration.swift */; };
 		48B3C55B29E5E99E00612195 /* ExpensesOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3C55A29E5E99E00612195 /* ExpensesOverviewView.swift */; };
 		48B3C55D29E5EBA100612195 /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3C55C29E5EBA100612195 /* ExpenseRowView.swift */; };
 		48B3C56129E605C400612195 /* ExpensesFilterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3C56029E605C400612195 /* ExpensesFilterSection.swift */; };
@@ -89,6 +90,9 @@
 		488F4AD429E4A2D10062BF4B /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		488F4AD629E4AA540062BF4B /* CacheEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheEntry.swift; sourceTree = "<group>"; };
 		488F4AD829E4AA660062BF4B /* CacheKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheKey.swift; sourceTree = "<group>"; };
+		48A027E429EAC8EF00515291 /* ConfigurationDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigurationDebug.xcconfig; sourceTree = "<group>"; };
+		48A027E529EAC9F900515291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		48A027E629EACA1200515291 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		48B3C55A29E5E99E00612195 /* ExpensesOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesOverviewView.swift; sourceTree = "<group>"; };
 		48B3C55C29E5EBA100612195 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
 		48B3C56029E605C400612195 /* ExpensesFilterSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesFilterSection.swift; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 		48D1135629E1CA0B009A2ED6 /* GasExpenses */ = {
 			isa = PBXGroup;
 			children = (
+				48A027E529EAC9F900515291 /* Info.plist */,
 				488F4AD229E48AC40062BF4B /* Sources */,
 				48C2922829E1EEC500FA149A /* Localizable.strings */,
 				48D1135B29E1CA0D009A2ED6 /* Assets.xcassets */,
@@ -343,6 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */,
+				48A027E429EAC8EF00515291 /* ConfigurationDebug.xcconfig */,
+				48A027E629EACA1200515291 /* Configuration.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -543,7 +550,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -562,6 +570,7 @@
 				488F4AD729E4AA540062BF4B /* CacheEntry.swift in Sources */,
 				488F4ACC29E489130062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */,
 				488F4AD929E4AA660062BF4B /* CacheKey.swift in Sources */,
+				48A027E729EACA1200515291 /* Configuration.swift in Sources */,
 				48BAF93E29E7488F00FB5527 /* ExpenseFilterView.swift in Sources */,
 				48BCB61029E46D1600F01A0E /* HTTPMethod.swift in Sources */,
 				48C2923129E1FB4600FA149A /* LadingPageActionCardGroup.swift in Sources */,
@@ -653,6 +662,7 @@
 /* Begin XCBuildConfiguration section */
 		48D1137629E1CA0E009A2ED6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48A027E429EAC8EF00515291 /* ConfigurationDebug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -776,11 +786,13 @@
 				DEVELOPMENT_TEAM = 843LVGZ3SS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GasExpenses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -805,11 +817,13 @@
 				DEVELOPMENT_TEAM = 843LVGZ3SS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GasExpenses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

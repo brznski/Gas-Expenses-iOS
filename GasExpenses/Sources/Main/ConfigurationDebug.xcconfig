@@ -1,0 +1,11 @@
+//
+//  Configuration.xcconfig
+//  GasExpenses
+//
+//  Created by Michał Brzeziński on 15/04/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = 192.168.1.164:8080
