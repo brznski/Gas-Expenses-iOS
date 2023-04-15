@@ -42,8 +42,10 @@ struct ExpensesOverviewView: View {
                         ExpensesFilterSection(viewModel: viewModel)
                         ForEach(viewModel.groupedExpenses.sorted { $0.date > $1.date }) { expenses in
                             CollapsableCardWithTitleView(title: expenses.date.monthAndYearString()) {
-                                ForEach(expenses.expenses) {
-                                    ExpenseRowView(expense: $0)
+                                ForEach(expenses.expenses) { expense in
+                                    NavigationLink(destination: EmptyView()) {
+                                        ExpenseRowView(expense: expense)
+                                    }
                                 }
                             }
                         }
