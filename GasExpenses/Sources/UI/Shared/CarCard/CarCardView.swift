@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CarCardView: View {
     @ObservedObject var viewModel: CarCardViewModel
-    @State var shouldShowSheet = true
+    @State var shouldShowSheet: Bool = false
 
     let allowsCarSelection: Bool
 
@@ -51,7 +51,7 @@ struct CarCardView: View {
                     HStack {
                         Spacer()
                         NavigationLink {
-                            CarDetailsView()
+                            CarDetailsView(model: viewModel.model!)
                         } label: {
                             Label("see.more", systemImage: "chevron.right")
                         }
@@ -65,8 +65,11 @@ struct CarCardView: View {
             }
             .sheet(isPresented: $shouldShowSheet) {
                 ForEach(viewModel.getCars()) { car in
-                    CarRowInfoView(carModel: car)
+                    CarRowInfoView(carModel: car) {
+                        viewModel.model = car
+                    }
                 }
+                Spacer()
             }
     }
 }
