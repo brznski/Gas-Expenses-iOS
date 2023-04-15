@@ -24,9 +24,10 @@ extension BackendEndpoint {
         case .GET:
             components.queryItems = payload.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
         case .POST, .PUT, .DELETE:
-            break
-//            bodyData = try! JSONSerialization.data(withJSONObject: payload,
-//                                   options: .withoutEscapingSlashes)
+            if let serializedData = try? JSONSerialization.data(withJSONObject: payload,
+                                                                options: .withoutEscapingSlashes) {
+                bodyData = serializedData
+            }
         }
 
         var request = URLRequest(url: components.url!)
