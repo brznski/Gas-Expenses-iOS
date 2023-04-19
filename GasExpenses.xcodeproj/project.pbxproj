@@ -50,6 +50,11 @@
 		48C60A0F29E203690070AA05 /* CarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139D29E1DAB7009A2ED6 /* CarCardViewModel.swift */; };
 		48C60A1029E203930070AA05 /* CarCardInfoRowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */; };
 		48C7C8C229E8A85800010018 /* CarRowInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7C8C129E8A85800010018 /* CarRowInfoView.swift */; };
+		48CB9D4C29F05C9C006258C4 /* GetJWTEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB9D4B29F05C9C006258C4 /* GetJWTEndpoint.swift */; };
+		48CB9D4E29F05CA5006258C4 /* JWTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB9D4D29F05CA5006258C4 /* JWTService.swift */; };
+		48CB9D5029F05CB0006258C4 /* JWTServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB9D4F29F05CB0006258C4 /* JWTServiceProtocol.swift */; };
+		48CB9D5329F0614D006258C4 /* AccessTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB9D5229F0614D006258C4 /* AccessTokenManager.swift */; };
+		48CB9D5929F07718006258C4 /* JWTResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB9D5829F07718006258C4 /* JWTResponse.swift */; };
 		48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */; };
 		48D1135C29E1CA0D009A2ED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D1135B29E1CA0D009A2ED6 /* Assets.xcassets */; };
 		48D1135F29E1CA0D009A2ED6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D1135E29E1CA0D009A2ED6 /* Preview Assets.xcassets */; };
@@ -124,6 +129,11 @@
 		48C2923029E1FB4600FA149A /* LadingPageActionCardGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LadingPageActionCardGroup.swift; sourceTree = "<group>"; };
 		48C60A0D29E203310070AA05 /* CarCardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCardViewModelTests.swift; sourceTree = "<group>"; };
 		48C7C8C129E8A85800010018 /* CarRowInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRowInfoView.swift; sourceTree = "<group>"; };
+		48CB9D4B29F05C9C006258C4 /* GetJWTEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetJWTEndpoint.swift; sourceTree = "<group>"; };
+		48CB9D4D29F05CA5006258C4 /* JWTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTService.swift; sourceTree = "<group>"; };
+		48CB9D4F29F05CB0006258C4 /* JWTServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTServiceProtocol.swift; sourceTree = "<group>"; };
+		48CB9D5229F0614D006258C4 /* AccessTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenManager.swift; sourceTree = "<group>"; };
+		48CB9D5829F07718006258C4 /* JWTResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTResponse.swift; sourceTree = "<group>"; };
 		48D1135429E1CA0B009A2ED6 /* GasExpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasExpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasExpensesApp.swift; sourceTree = "<group>"; };
 		48D1135B29E1CA0D009A2ED6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -216,6 +226,7 @@
 		48BA579429E36B470003D60D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				48CB9D4929F05C8C006258C4 /* Endpoints */,
 				48BA579529E36B510003D60D /* NetworkEngine.swift */,
 				48BCB60B29E46C6D00F01A0E /* Endpoint.swift */,
 				48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */,
@@ -274,6 +285,34 @@
 				488F4ACB29E489130062BF4B /* SelectedCarDataStoreProtocol.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		48CB9D4929F05C8C006258C4 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				48CB9D5129F06142006258C4 /* AccesToken */,
+				48CB9D4A29F05C91006258C4 /* Signing */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		48CB9D4A29F05C91006258C4 /* Signing */ = {
+			isa = PBXGroup;
+			children = (
+				48CB9D4B29F05C9C006258C4 /* GetJWTEndpoint.swift */,
+				48CB9D4D29F05CA5006258C4 /* JWTService.swift */,
+				48CB9D4F29F05CB0006258C4 /* JWTServiceProtocol.swift */,
+				48CB9D5829F07718006258C4 /* JWTResponse.swift */,
+			);
+			path = Signing;
+			sourceTree = "<group>";
+		};
+		48CB9D5129F06142006258C4 /* AccesToken */ = {
+			isa = PBXGroup;
+			children = (
+				48CB9D5229F0614D006258C4 /* AccessTokenManager.swift */,
+			);
+			path = AccesToken;
 			sourceTree = "<group>";
 		};
 		48D1134B29E1CA0B009A2ED6 = {
@@ -565,21 +604,26 @@
 				48B3C55B29E5E99E00612195 /* ExpensesOverviewView.swift in Sources */,
 				48B3C55D29E5EBA100612195 /* ExpenseRowView.swift in Sources */,
 				48BCB61C29E4837500F01A0E /* Double+Extensions.swift in Sources */,
+				48CB9D4C29F05C9C006258C4 /* GetJWTEndpoint.swift in Sources */,
 				48BAF94029E74B6B00FB5527 /* CollapsableCardWithTitleView.swift in Sources */,
 				48BAF92829E7175C00FB5527 /* AddCarView.swift in Sources */,
 				488F4AD729E4AA540062BF4B /* CacheEntry.swift in Sources */,
 				488F4ACC29E489130062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */,
 				488F4AD929E4AA660062BF4B /* CacheKey.swift in Sources */,
 				48A027E729EACA1200515291 /* Configuration.swift in Sources */,
+				48CB9D4E29F05CA5006258C4 /* JWTService.swift in Sources */,
+				48CB9D5029F05CB0006258C4 /* JWTServiceProtocol.swift in Sources */,
 				48BAF93E29E7488F00FB5527 /* ExpenseFilterView.swift in Sources */,
 				48BCB61029E46D1600F01A0E /* HTTPMethod.swift in Sources */,
 				48C2923129E1FB4600FA149A /* LadingPageActionCardGroup.swift in Sources */,
 				48BAF92F29E71F0D00FB5527 /* FuelTypeIcon.swift in Sources */,
+				48CB9D5929F07718006258C4 /* JWTResponse.swift in Sources */,
 				48BAF92629E7160500FB5527 /* CarOverviewView.swift in Sources */,
 				48D1139329E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift in Sources */,
 				48C7C8C229E8A85800010018 /* CarRowInfoView.swift in Sources */,
 				48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */,
 				48D1139529E1D4C5009A2ED6 /* CardWithTitleView.swift in Sources */,
+				48CB9D5329F0614D006258C4 /* AccessTokenManager.swift in Sources */,
 				48D1139B29E1DA46009A2ED6 /* CarCardView.swift in Sources */,
 				48C2922029E1E4A600FA149A /* CarCardInfoRow.swift in Sources */,
 				48BAF92D29E71DC500FB5527 /* AddCarViewModel.swift in Sources */,
