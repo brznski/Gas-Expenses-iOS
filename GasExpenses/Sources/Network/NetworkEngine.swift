@@ -10,18 +10,20 @@ import Combine
 
 struct NetworkEngine {
 
-    static func download<T: Decodable>(endpoint: Endpoint, type: T.Type) -> AnyPublisher<T, Error> {
-        return URLSession.shared.dataTaskPublisher(for: endpoint.request)
-            .subscribe(on: DispatchQueue.global(qos: .background))
-            .tryMap { (data, response) -> Data in
-                guard let response = response as? HTTPURLResponse,
-                      200...300 ~= response.statusCode else {
-                    throw URLError(.badServerResponse)
-                }
-                return data
-            }
-            .decode(type: T.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
+    static func download<T: Decodable>(endpoint: Endpoint, type: T.Type) async throws -> T {
+        let (data, response) = try await URLSession.shared.data(for: endpoint.request)
+
+        if let urlResponse = response as? HTTPURLResponse,
+           400...599 ~= urlResponse.statusCode {
+            throw URLError(.secureConnectionFailed)
+        }
+
+        do {
+            let decodedObject = try JSONDecoder().decode(T.self, from: data)
+
+            return decodedObject
+        } catch(let error) {
+            throw error
+        }
     }
 }
