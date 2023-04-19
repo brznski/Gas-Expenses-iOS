@@ -11,7 +11,7 @@ protocol BackendEndpoint: Endpoint {
     var path: String { get }
     var method: HTTPMethod { get }
     var payload: [String: Any] { get }
-    var headers: [String: Any] { get }
+    var accessToken: String { get }
 }
 
 extension BackendEndpoint {
@@ -33,7 +33,15 @@ extension BackendEndpoint {
         var request = URLRequest(url: components.url!)
         request.httpBody = bodyData
         request.httpMethod = method.rawValue
+        request.allHTTPHeaderFields = headers
 
         return request
+    }
+
+    var headers: [String: String] {
+        return [
+            "Content-Type": "application/json",
+            "Authorization": "Bearer \(accessToken)"
+        ]
     }
 }
