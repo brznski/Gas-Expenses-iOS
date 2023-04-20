@@ -12,12 +12,14 @@ struct LadingPageActionCardGroup: View {
             Grid {
                 GridRow {
                     NavigationLink {
+                        AddExpenseView(expenseType: "Fuel")
                     } label: {
                         ActionCard(title: "landingPage.actionCard.addFuel",
                                    imageSystemName: "fuelpump.fill")
                     }
 
                     NavigationLink {
+                        AddExpenseView(expenseType: "Maintenance")
                     } label: {
                         ActionCard(title: "landingPage.actionCard.addExpense",
                                    imageSystemName: "wrench.and.screwdriver.fill")
