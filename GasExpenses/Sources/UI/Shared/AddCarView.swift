@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddCarView: View {
     @State var carName: String = ""
@@ -13,28 +14,54 @@ struct AddCarView: View {
     @State var carModel: String = ""
     @State var carMileage: String = ""
     @ObservedObject var viewModel: AddCarViewModel = .init()
+    @State private var selectedPhoto: PhotosPickerItem?
+    @State private var selectedImageData: Data? = nil
 
     var body: some View {
         ScrollView {
             CardWithTitleView(title: "Car info") {
                 VStack {
-                    TextField("Car name",
-                              text: $carName)
-                    .textFieldStyle(.roundedBorder)
+
+                    PhotosPicker(
+                        selection: $selectedPhoto,
+                        matching: .images,
+                        photoLibrary: .shared()) {
+                            if let selectedImageData,
+                            let uiImage = UIImage(data: selectedImageData){
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                    .padding()
+                            } else {
+                                Text("Select a photo")
+                            }
+                        }
+                        .onChange(of: selectedPhoto) { newItem in
+                            Task {
+                                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                    selectedImageData = data
+                                }
+                            }
+                        }
+
+
+
+                    Group {
+                        TitleAndTextField(title: "Car name",
+                                          textFieldValue: $carName)
+                        TitleAndTextField(title: "Brand",
+                                          textFieldValue: $carBrand)
+                        TitleAndTextField(title: "Model",
+                                          textFieldValue: $carModel)
+                        TitleAndTextField(title: "Mileage",
+                                          textFieldValue: $carMileage)
+                        .keyboardType(.decimalPad)
+                        TitleAndTextField(title: "Car name",
+                                          textFieldValue: $carName)
+                    }
                     .padding()
-                    TextField("Brand",
-                              text: $carBrand)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-                    TextField("Model",
-                              text: $carModel)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
-                    TextField("Mileage",
-                              text: $carMileage)
-                    .keyboardType(.numberPad)
-                    .textFieldStyle(.roundedBorder)
-                    .padding()
+
                     HStack {
                         Text("Fuel Type")
                             .padding()
@@ -51,23 +78,14 @@ struct AddCarView: View {
                 }
             }
 
-                    VStack {
-                        Image(systemName: "plus.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .padding()
-                        Text("Add car photo")
-                            .padding()
-                    }
-                    .background(RoundedRectangle(cornerRadius: 8)
-                        .stroke(lineWidth: 3))
-                    .padding()
-
             Button {
 
             } label: {
+                Spacer()
                 Text("Add")
+                Spacer()
             }
+            .padding()
             .buttonStyle(.borderedProminent)
             .tint(Color.ui.action)
 
