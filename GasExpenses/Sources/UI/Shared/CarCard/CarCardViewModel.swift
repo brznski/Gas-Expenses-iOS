@@ -11,14 +11,11 @@ final class CarCardViewModel: ObservableObject {
     @Published var model: Car?
     @Published var carInfoRows = [CarCardInfoRowConfiguration]()
 
-    private let carService: CarServiceProtocol
-
-    init(carService: CarServiceProtocol) {
-        self.carService = carService
+    init(car: Car) {
+        self.model = car
     }
 
     func getSelectedCar() {
-        model = carService.getFavouriteCar()
 
         if let model {
             configureOdometerRowInfo()
@@ -31,7 +28,8 @@ final class CarCardViewModel: ObservableObject {
     }
 
     func getCars() -> [Car] {
-        return carService.getCars()
+//        return carService.getCars()
+        return []
     }
 
     private func configureOdometerRowInfo() {

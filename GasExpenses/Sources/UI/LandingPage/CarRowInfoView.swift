@@ -42,7 +42,7 @@ struct CarRowInfoView: View {
 
 struct CarRowInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        CarRowInfoView(carModel: .init(name: "My Subaru",
+        CarRowInfoView(carModel: .init(id: 1, name: "My Subaru",
                                        brand: "Subaru",
                                        model: "Impreza", refuels: [],
                                        fuelType: .pb95,

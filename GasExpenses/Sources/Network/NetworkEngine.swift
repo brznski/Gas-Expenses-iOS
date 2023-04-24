@@ -19,7 +19,7 @@ struct NetworkEngine {
         }
 
         do {
-            let decodedObject = try JSONDecoder().decode(T.self, from: data)
+            let decodedObject = try! JSONDecoder().decode(T.self, from: data)
 
             return decodedObject
         } catch(let error) {

@@ -8,14 +8,15 @@
 import Foundation
 
 final class MockCarService: CarServiceProtocol {
+    func getAllCars() async throws -> [Car] {
+        return cars
+    }
+    
     private let cars = [
-        Car(name: "My Subaru",
+        Car(id: 1, name: "My Subaru",
                    brand: "Subaru",
                    model: "Impreza",
                    refuels: [
-                    .init(date: .now, mileage: 164900.0, fuelAmount: 20.0, costPerUnit: 3.60),
-                    .init(date: .now, mileage: 165000.0, fuelAmount: 10.0, costPerUnit: 3.60),
-                    .init(date: .now, mileage: 165100.3, fuelAmount: 7, costPerUnit: 3.60)
                    ],
                    fuelType: .pb95,
                    isFavourite: true)

@@ -10,13 +10,16 @@ import SwiftUI
 struct CarCardView: View {
     @ObservedObject var viewModel: CarCardViewModel
     @State var shouldShowSheet: Bool = false
+    var car: Car
 
     let allowsCarSelection: Bool
 
     init(viewModel: CarCardViewModel,
-         allowsCarSelection: Bool = false) {
+         allowsCarSelection: Bool = false,
+         car: Car) {
         self.viewModel = viewModel
         self.allowsCarSelection = allowsCarSelection
+        self.car = car
 
         viewModel.getSelectedCar()
     }
@@ -26,7 +29,7 @@ struct CarCardView: View {
                 VStack {
                     ImageWithGradientView(imageName: "car_image_test")
                     HStack {
-                        Text(viewModel.model?.name ?? "")
+                        Text(car.name)
                             .font(.title2).bold()
                             .padding()
 
@@ -76,6 +79,6 @@ struct CarCardView: View {
 
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
-        CarCardView(viewModel: .init(carService: CarDataSource()))
+        CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true)), car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true))
     }
 }

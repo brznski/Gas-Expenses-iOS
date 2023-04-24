@@ -8,7 +8,8 @@
 import Foundation
 
 final class AddCarViewModel: ObservableObject {
-    @Published var model: Car = .init(name: "",
+    @Published var model: Car = .init(id: 1,
+                                      name: "",
                                       brand: "",
                                       model: "",
                                       refuels: [],

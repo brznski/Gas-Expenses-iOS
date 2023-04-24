@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CarOverviewView: View {
     @State var isSheetPresented = false
+    @State var car: Car = .init(id: 1, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: false)
+
 
     var body: some View {
         ScrollView {
@@ -23,7 +25,7 @@ struct CarOverviewView: View {
                         }
                 }
 
-                CarCardView(viewModel: .init(carService: CarDataSource()))
+                CarCardView(viewModel: .init(car: car), car: car)
             }
         }
         .background(Color.ui.background)

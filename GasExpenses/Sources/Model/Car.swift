@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct Refuel: Identifiable {
-    let id = UUID()
-    let date: Date
+struct Refuel: Identifiable, Codable {
+    let id: Double
+    let date: String
     let mileage: Double
     let fuelAmount: Double
     let costPerUnit: Double
 }
 
-struct Car: Identifiable {
-    let id = UUID()
-    let name: LocalizedStringKey
+struct Car: Identifiable, Codable {
+    let id: Double
+    let name: String
     let brand: String
     let model: String
     let refuels: [Refuel]

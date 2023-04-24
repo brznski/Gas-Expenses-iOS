@@ -56,6 +56,11 @@
 		48CB9D5329F0614D006258C4 /* AccessTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB9D5229F0614D006258C4 /* AccessTokenManager.swift */; };
 		48CB9D5929F07718006258C4 /* JWTResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB9D5829F07718006258C4 /* JWTResponse.swift */; };
 		48CD096629F704D300975EAB /* CarEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD096529F704D300975EAB /* CarEndpoint.swift */; };
+		48CD096829F705CC00975EAB /* CarServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD096729F705CC00975EAB /* CarServiceProtocol.swift */; };
+		48CD096A29F705D300975EAB /* CarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD096929F705D300975EAB /* CarService.swift */; };
+		48CD096C29F7185C00975EAB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD096B29F7185C00975EAB /* String+Extensions.swift */; };
+		48CD096D29F7272400975EAB /* CarServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD096729F705CC00975EAB /* CarServiceProtocol.swift */; };
+		48CD097029F727FB00975EAB /* MockCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD096F29F727FB00975EAB /* MockCar.swift */; };
 		48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */; };
 		48D1135C29E1CA0D009A2ED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D1135B29E1CA0D009A2ED6 /* Assets.xcassets */; };
 		48D1135F29E1CA0D009A2ED6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D1135E29E1CA0D009A2ED6 /* Preview Assets.xcassets */; };
@@ -136,6 +141,10 @@
 		48CB9D5229F0614D006258C4 /* AccessTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenManager.swift; sourceTree = "<group>"; };
 		48CB9D5829F07718006258C4 /* JWTResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTResponse.swift; sourceTree = "<group>"; };
 		48CD096529F704D300975EAB /* CarEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEndpoint.swift; sourceTree = "<group>"; };
+		48CD096729F705CC00975EAB /* CarServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarServiceProtocol.swift; sourceTree = "<group>"; };
+		48CD096929F705D300975EAB /* CarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarService.swift; sourceTree = "<group>"; };
+		48CD096B29F7185C00975EAB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		48CD096F29F727FB00975EAB /* MockCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCar.swift; sourceTree = "<group>"; };
 		48D1135429E1CA0B009A2ED6 /* GasExpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasExpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasExpensesApp.swift; sourceTree = "<group>"; };
 		48D1135B29E1CA0D009A2ED6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -276,6 +285,7 @@
 				48BCB61B29E4837500F01A0E /* Double+Extensions.swift */,
 				48BAF93729E741BD00FB5527 /* Date+Extensions.swift */,
 				48BAF94129E75E8B00FB5527 /* Binding+Extensions.swift */,
+				48CD096B29F7185C00975EAB /* String+Extensions.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -322,8 +332,18 @@
 			isa = PBXGroup;
 			children = (
 				48CD096529F704D300975EAB /* CarEndpoint.swift */,
+				48CD096729F705CC00975EAB /* CarServiceProtocol.swift */,
+				48CD096929F705D300975EAB /* CarService.swift */,
 			);
 			path = Car;
+			sourceTree = "<group>";
+		};
+		48CD096E29F727EE00975EAB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				48CD096F29F727FB00975EAB /* MockCar.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		48D1134B29E1CA0B009A2ED6 = {
@@ -369,6 +389,7 @@
 		48D1136729E1CA0E009A2ED6 /* GasExpensesTests */ = {
 			isa = PBXGroup;
 			children = (
+				48CD096E29F727EE00975EAB /* Models */,
 				488F4ACE29E4894A0062BF4B /* MockServices */,
 				48D1138529E1CD59009A2ED6 /* CarTests.swift */,
 				48C60A0D29E203310070AA05 /* CarCardViewModelTests.swift */,
@@ -616,11 +637,13 @@
 				48B3C55D29E5EBA100612195 /* ExpenseRowView.swift in Sources */,
 				48BCB61C29E4837500F01A0E /* Double+Extensions.swift in Sources */,
 				48CB9D4C29F05C9C006258C4 /* GetJWTEndpoint.swift in Sources */,
+				48CD096829F705CC00975EAB /* CarServiceProtocol.swift in Sources */,
 				48BAF94029E74B6B00FB5527 /* CollapsableCardWithTitleView.swift in Sources */,
 				48BAF92829E7175C00FB5527 /* AddCarView.swift in Sources */,
 				488F4AD729E4AA540062BF4B /* CacheEntry.swift in Sources */,
 				488F4ACC29E489130062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */,
 				488F4AD929E4AA660062BF4B /* CacheKey.swift in Sources */,
+				48CD096A29F705D300975EAB /* CarService.swift in Sources */,
 				48A027E729EACA1200515291 /* Configuration.swift in Sources */,
 				48CB9D4E29F05CA5006258C4 /* JWTService.swift in Sources */,
 				48CB9D5029F05CB0006258C4 /* JWTServiceProtocol.swift in Sources */,
@@ -648,6 +671,7 @@
 				48BAF93229E7221E00FB5527 /* CarDetailsView.swift in Sources */,
 				48BCB60E29E46C8200F01A0E /* BackendEndpoint.swift in Sources */,
 				48BAF93629E73B9E00FB5527 /* ExpensesOverviewViewModel.swift in Sources */,
+				48CD096C29F7185C00975EAB /* String+Extensions.swift in Sources */,
 				48D1139729E1D669009A2ED6 /* Color+Extensions.swift in Sources */,
 				48C2922D29E1FA3A00FA149A /* ActionCard.swift in Sources */,
 				48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */,
@@ -666,6 +690,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48CD097029F727FB00975EAB /* MockCar.swift in Sources */,
 				48D1138629E1CD59009A2ED6 /* CarTests.swift in Sources */,
 				48BAF93429E7375800FB5527 /* CarDataSource.swift in Sources */,
 				488F4AD029E489590062BF4B /* SelectedCarMockDataStore.swift in Sources */,
@@ -676,6 +701,7 @@
 				48C60A0E29E203310070AA05 /* CarCardViewModelTests.swift in Sources */,
 				48BAF93329E7374300FB5527 /* FuelTypes.swift in Sources */,
 				48D1138729E1CD96009A2ED6 /* Car.swift in Sources */,
+				48CD096D29F7272400975EAB /* CarServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

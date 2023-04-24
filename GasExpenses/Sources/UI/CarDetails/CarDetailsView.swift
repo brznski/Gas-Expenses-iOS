@@ -13,13 +13,17 @@ struct CarDetailsView: View {
     var body: some View {
         ScrollView {
             VStack {
-                CarCardView(viewModel: .init(carService: CarDataSource()))
+                CarCardView(viewModel: .init(car: model), car: model)
                 CardWithTitleView(title: "Gas expenses") {
                     Chart {
-                        ForEach(model.refuels) { refuel in
+                        ForEach(model.refuels.sorted(by: { a, b in
+                            a.date.dateFromJSON()! < b.date.dateFromJSON()!
+                        })) { refuel in
                             BarMark(
-                                x: .value("Date", refuel.date),
-                                y: .value("", refuel.fuelAmount * refuel.costPerUnit)
+                                x: .value("Date",
+                                          refuel.date.dateFromJSON()?.dayAndMonthString() ?? ""),
+                                y: .value("",
+                                          refuel.fuelAmount * refuel.costPerUnit)
                             )
                         }
                     }
@@ -29,8 +33,10 @@ struct CarDetailsView: View {
                     Chart {
                         ForEach(model.refuels) { refuel in
                             BarMark(
-                                x: .value("Date", refuel.date),
-                                y: .value("", refuel.mileage)
+                                x: .value("Date",
+                                          refuel.date.dateFromJSON()?.dayAndMonthString() ?? ""),
+                                y: .value("",
+                                          refuel.mileage)
                             )
                         }
                     }

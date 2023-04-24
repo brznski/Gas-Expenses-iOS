@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FuelTypes: String, CaseIterable, Identifiable {
+enum FuelTypes: String, CaseIterable, Identifiable, Codable {
     var id: String { return self.rawValue }
 
     case electic = "Electric"

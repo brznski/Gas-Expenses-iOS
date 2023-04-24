@@ -23,9 +23,16 @@ struct LandingPageView: View {
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
                         }
-                        CarCardView(viewModel: .init(carService: CarDataSource()), allowsCarSelection: true)
+                        if let model = viewModel.cars.first {
+                            CarCardView(viewModel: .init(car: model), car: model)
+                        }
                         LadingPageActionCardGroup()
                     }
+                }
+            }
+            .onAppear {
+                Task {
+                    await viewModel.getCars()
                 }
             }
         }
