@@ -9,7 +9,7 @@ import Foundation
 
 struct JWTService: JWTServiceProtocol {
     func getJWT() async throws -> String {
-        return try! await NetworkEngine.download(endpoint: GetJWTEndpoint(accesToken: ""),
+        return try await NetworkEngine.download(endpoint: GetJWTEndpoint(accesToken: ""),
                                                  type: JWTResponse.self).jwt
     }
 }

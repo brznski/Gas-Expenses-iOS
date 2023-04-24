@@ -16,7 +16,7 @@ protocol BackendEndpoint: Endpoint {
 
 extension BackendEndpoint {
     var request: URLRequest {
-        var components = URLComponents(url: URL(string: path)!,
+        var components = URLComponents(url: URL(string: API.baseURL.absoluteString + path)!,
                                        resolvingAgainstBaseURL: true)!
         var bodyData: Data = Data()
 

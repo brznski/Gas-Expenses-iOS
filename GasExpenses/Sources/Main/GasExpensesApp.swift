@@ -33,6 +33,15 @@ struct GasExpensesApp: App {
                     }
                     .tag("Expenses")
             }
+            .onAppear {
+                Task {
+                    do {
+                        _ = try await JWTService().getJWT()
+                    } catch {
+
+                    }
+                }
+            }
             .tint(Color.ui.action)
         }
     }
