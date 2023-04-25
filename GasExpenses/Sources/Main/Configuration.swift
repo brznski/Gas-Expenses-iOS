@@ -13,7 +13,7 @@ enum Configuration {
     }
 
     static func value<T>(for key: String) throws -> T where T: LosslessStringConvertible {
-        guard let object = Bundle.main.object(forInfoDictionaryKey:key) else {
+        guard let object = Bundle.main.object(forInfoDictionaryKey: key) else {
             throw Error.missingKey
         }
 
@@ -31,6 +31,7 @@ enum Configuration {
 
 enum API {
     static var baseURL: URL {
+        // swiftlint:disable force_try
         return try! URL(string: "http://" + Configuration.value(for: "BASE_URL"))!
     }
 }

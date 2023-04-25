@@ -79,6 +79,7 @@ struct CarCardView: View {
 
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
+        // swiftlint:disable line_length
         CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true)), car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true))
     }
 }

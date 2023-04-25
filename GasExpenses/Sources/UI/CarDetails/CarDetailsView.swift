@@ -16,8 +16,8 @@ struct CarDetailsView: View {
                 CarCardView(viewModel: .init(car: model), car: model)
                 CardWithTitleView(title: "Gas expenses") {
                     Chart {
-                        ForEach(model.refuels.sorted(by: { a, b in
-                            a.date.dateFromJSON()! < b.date.dateFromJSON()!
+                        ForEach(model.refuels.sorted(by: { lhs, rhs in
+                            lhs.date.dateFromJSON()! < rhs.date.dateFromJSON()!
                         })) { refuel in
                             BarMark(
                                 x: .value("Date",

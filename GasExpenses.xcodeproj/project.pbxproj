@@ -189,6 +189,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		485E883929F85A38007B3088 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */,
+				48BCB60B29E46C6D00F01A0E /* Endpoint.swift */,
+				48BCB60F29E46D1600F01A0E /* HTTPMethod.swift */,
+				48BA579529E36B510003D60D /* NetworkEngine.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		488F4ACE29E4894A0062BF4B /* MockServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,11 +248,11 @@
 		48BA579429E36B470003D60D /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				48CB9D4929F05C8C006258C4 /* Endpoints */,
-				48BA579529E36B510003D60D /* NetworkEngine.swift */,
-				48BCB60B29E46C6D00F01A0E /* Endpoint.swift */,
-				48BCB60D29E46C8200F01A0E /* BackendEndpoint.swift */,
-				48BCB60F29E46D1600F01A0E /* HTTPMethod.swift */,
+				48CB9D5129F06142006258C4 /* AccesToken */,
+				48CD096429F704C600975EAB /* Car */,
+				48EB693429F859FD00FDD9BB /* Expense */,
+				485E883929F85A38007B3088 /* Shared */,
+				48CB9D4A29F05C91006258C4 /* Signing */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -297,16 +308,6 @@
 				488F4ACB29E489130062BF4B /* SelectedCarDataStoreProtocol.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		48CB9D4929F05C8C006258C4 /* Endpoints */ = {
-			isa = PBXGroup;
-			children = (
-				48CD096429F704C600975EAB /* Car */,
-				48CB9D5129F06142006258C4 /* AccesToken */,
-				48CB9D4A29F05C91006258C4 /* Signing */,
-			);
-			path = Endpoints;
 			sourceTree = "<group>";
 		};
 		48CB9D4A29F05C91006258C4 /* Signing */ = {
@@ -476,6 +477,13 @@
 			path = CarCard;
 			sourceTree = "<group>";
 		};
+		48EB693429F859FD00FDD9BB /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Expense;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -621,8 +629,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

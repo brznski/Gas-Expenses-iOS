@@ -52,6 +52,9 @@ struct ExpensesOverviewView: View {
                     }
                 }
             }
+            .onAppear {
+
+            }
         }
         .sheet(isPresented: $isShowingAddExpenseSheet) {
             AddExpenseView()
