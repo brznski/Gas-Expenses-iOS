@@ -27,7 +27,7 @@ struct CarCardView: View {
     var body: some View {
             CardWithTitleView(title: "landingpage.car.card.title") {
                 VStack {
-                    ImageWithGradientView(imageName: "car_image_test")
+                    ImageWithGradientView(imageName: UIImage(data: Data(base64Encoded: car.imageBase64, options: .ignoreUnknownCharacters)!)!)
                     HStack {
                         Text(car.name)
                             .font(.title2).bold()
@@ -80,6 +80,6 @@ struct CarCardView: View {
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
         // swiftlint:disable line_length
-        CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true)), car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true))
+        CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: "")), car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: ""))
     }
 }

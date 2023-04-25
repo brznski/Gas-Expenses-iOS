@@ -12,8 +12,8 @@ struct GetJWTEndpoint: BackendEndpoint {
     var path: String = "/authenticate"
     var method: HTTPMethod = .POST
     var payload: [String : Any] = [
-        "username":"b",
-        "password":"a"
+        "username":"a",
+        "password":"b"
     ]
 
     init(accesToken: String) {

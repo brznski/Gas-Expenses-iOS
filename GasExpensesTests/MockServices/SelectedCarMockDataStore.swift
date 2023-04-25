@@ -14,18 +14,19 @@ final class MockCarService: CarServiceProtocol {
     
     private let cars = [
         Car(id: 1, name: "My Subaru",
-                   brand: "Subaru",
-                   model: "Impreza",
-                   refuels: [
-                   ],
-                   fuelType: .pb95,
-                   isFavourite: true)
+            brand: "Subaru",
+            model: "Impreza",
+            refuels: [
+            ],
+            fuelType: .pb95,
+            isFavourite: true,
+            imageBase64: "")
     ]
-
+    
     func getCars() -> [Car] {
         return cars
     }
-
+    
     func getFavouriteCar() -> Car? {
         return cars.first { $0.isFavourite }
     }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ImageWithGradientView: View {
-    let imageName: String
+    let imageName: UIImage
 
     var body: some View {
         ZStack {
-            Image(imageName)
+            Image(uiImage: imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             LinearGradient(colors: [Color.ui.contentOnBackground, .clear], startPoint: .top, endPoint: .center)
@@ -23,6 +23,6 @@ struct ImageWithGradientView: View {
 
 struct ImageWithGradientView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageWithGradientView(imageName: "car_image_test")
+        ImageWithGradientView(imageName: UIImage(named: "car_test_image")!)
     }
 }

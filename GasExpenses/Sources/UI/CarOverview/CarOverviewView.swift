@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CarOverviewView: View {
     @State var isSheetPresented = false
-    @State var car: Car = .init(id: 1, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: false)
+    @State var car: Car = .init(id: 1, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: false, imageBase64: "")
 
 
     var body: some View {

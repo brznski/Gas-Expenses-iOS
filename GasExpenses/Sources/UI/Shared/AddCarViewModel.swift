@@ -14,5 +14,6 @@ final class AddCarViewModel: ObservableObject {
                                       model: "",
                                       refuels: [],
                                       fuelType: .pb95,
-                                      isFavourite: false)
+                                      isFavourite: false,
+                                      imageBase64: "")
 }

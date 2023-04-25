@@ -46,6 +46,6 @@ struct CarRowInfoView_Previews: PreviewProvider {
                                        brand: "Subaru",
                                        model: "Impreza", refuels: [],
                                        fuelType: .pb95,
-                                       isFavourite: true), onTapGesture: {})
+                                       isFavourite: true, imageBase64: ""), onTapGesture: {})
     }
 }
