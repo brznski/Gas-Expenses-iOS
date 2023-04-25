@@ -8,9 +8,9 @@
 import Foundation
 import Combine
 
-struct NetworkEngine {
+class NetworkEngine {
 
-    static func download<T: Decodable>(endpoint: Endpoint, type: T.Type) async throws -> T {
+    func download<T: Decodable>(endpoint: Endpoint, type: T.Type) async throws -> T {
         let (data, response) = try await URLSession.shared.data(for: endpoint.request)
 
         if let urlResponse = response as? HTTPURLResponse,

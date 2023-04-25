@@ -7,9 +7,10 @@
 
 import Foundation
 
-final class ExpenseService: ExpenseServiceProtocol {
+final class ExpenseService: NetworkEngine, ExpenseServiceProtocol {
     func getAllExpenses() async throws -> [Expense] {
-        return try await NetworkEngine.download(endpoint: GetAllExpensesEndpoint(accessToken: AccessTokenManager.shared.getJWTToken()),
-                               type: [Expense].self)
+        let endpoint = await GetAllExpensesEndpoint(accessToken: AccessTokenManager.shared.getJWTToken())
+        return try await download(endpoint: endpoint,
+                                  type: [Expense].self)
     }
 }

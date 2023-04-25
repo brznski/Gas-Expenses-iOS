@@ -7,9 +7,10 @@
 
 import Foundation
 
-class CarService: CarServiceProtocol {
+class CarService: NetworkEngine, CarServiceProtocol {
     func getAllCars() async throws -> [Car] {
-        return try await NetworkEngine.download(endpoint: GetAllCarsEndpoint(accessToken: AccessTokenManager.shared.getJWTToken()),
-                                                type: [Car].self)
+        let endpoint = await GetAllCarsEndpoint(accessToken: AccessTokenManager.shared.getJWTToken())
+        return try await download(endpoint: endpoint,
+                                  type: [Car].self)
     }
 }
