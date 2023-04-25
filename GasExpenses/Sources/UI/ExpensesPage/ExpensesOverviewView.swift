@@ -53,7 +53,14 @@ struct ExpensesOverviewView: View {
                 }
             }
             .onAppear {
-
+                Task {
+                    do {
+                        try await viewModel.getExpenses()
+                        viewModel.groupExpenses()
+                    } catch {
+                        
+                    }
+                }
             }
         }
         .sheet(isPresented: $isShowingAddExpenseSheet) {

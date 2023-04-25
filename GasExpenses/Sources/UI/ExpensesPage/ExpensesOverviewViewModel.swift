@@ -15,29 +15,32 @@ struct ExpensesMonth: Identifiable {
 
 final class ExpensesOverviewViewModel: ObservableObject {
     @Published var filters: ExpenseFilter = .init()
-    
-    @Published var expenses: [Expense] = [
-        .init(amount: 25.0, title: "Myjnia", date: .distantPast, expenseType: .wash),
-        .init(amount: 32.0, title: "Test1", date: .distantPast, expenseType: .fuel)
-    ]
-    @Published var groupedExpenses: [ExpensesMonth] = {
-        let expenses1: [Expense] = [        .init(amount: 25.0, title: "Myjnia", date: .distantPast, expenseType: .wash),
-                                            .init(amount: 32.0, title: "Test1", date: .distantPast, expenseType: .fuel),
-                                            .init(amount: 200.0, title: "Test date", date: Date(timeIntervalSince1970: 1681328572), expenseType: .fuel)]
-        let groupDic = Dictionary(grouping: expenses1) { (pendingCamera) -> DateComponents in
+    @Published var expenses: [Expense] = []
+    @Published var groupedExpenses: [ExpensesMonth] = []
 
-            let date = Calendar.current.dateComponents([.day, .year, .month], from: (pendingCamera.date))
+    func getExpenses() async throws {
+        let service = ExpenseService()
+        let response = try await service.getAllExpenses()
+        DispatchQueue.main.async { [weak self] in
+            self?.expenses = response
+        }
+    }
+
+    func groupExpenses() {
+        let groupDic = Dictionary(grouping: expenses) { (pendingCamera) -> DateComponents in
+
+            let date = Calendar.current.dateComponents([.day, .year, .month], from: (pendingCamera.date.dateFromJSON()!))
 
             return date
         }
 
         var calendar = Calendar(identifier: .gregorian)
 
-        return groupDic.map { (key, value) in
+        groupedExpenses = groupDic.map { (key, value) in
 
             return ExpensesMonth(date: calendar.date(from: key)!, expenses: value)
         }
-    }()
+    }
 
     func getLastMonthExpenses() -> Double {
         guard let lastMonth = groupedExpenses.sorted(by: {$0.date < $1.date}).last else { return 0 }

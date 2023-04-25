@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct Expense: Identifiable {
-    let id = UUID()
+struct Expense: Identifiable, Codable {
+    let id: Int
     let amount: Double
     let title: String
-    let date: Date
+    let date: String
     let expenseType: ExpenseType
 }
 
-enum ExpenseType: String, Identifiable, CaseIterable {
-    var id: UUID { return UUID() }
+enum ExpenseType: String, Identifiable, CaseIterable, Codable {
+    var id: String { return self.rawValue }
     case fuel
     case wash
     case maintenance
@@ -36,7 +36,7 @@ struct ExpenseRowView: View {
             VStack(alignment: .leading) {
                 Text(expense.title)
                     .bold()
-                Text(expense.date.formatted(.dateTime))
+                Text(expense.date.dateFromJSON()?.dayAndMonthString() ?? "")
             }
             Spacer()
             Text(expense.amount.currencyString() ?? "")
@@ -51,6 +51,6 @@ struct ExpenseRowView: View {
 
 struct ExpenseRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseRowView(expense: .init(amount: 350.3, title: "Paliwo", date: .distantPast, expenseType: .fuel))
+        ExpenseRowView(expense: .init(id: 3, amount: 350.3, title: "Paliwo", date: "", expenseType: .fuel))
     }
 }
