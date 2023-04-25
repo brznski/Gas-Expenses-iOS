@@ -19,9 +19,7 @@ struct NetworkEngine {
         }
 
         do {
-
-            // swiftlint:disable force_try
-            let decodedObject = try! JSONDecoder().decode(T.self, from: data)
+            let decodedObject = try? JSONDecoder().decode(T.self, from: data)
 
             return decodedObject
         } catch(let error) {
