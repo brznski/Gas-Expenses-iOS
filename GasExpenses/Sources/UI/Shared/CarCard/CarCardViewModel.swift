@@ -17,7 +17,8 @@ final class CarCardViewModel: ObservableObject {
 
     func getSelectedCar() {
 
-        if let model {
+        if let model,
+           model.refuels.count > 2 {
             configureOdometerRowInfo()
             configureGasCostRowInfo()
             carInfoRows.append(CarCardInfoRowConfiguration(iconName: "fuelpump.fill",
@@ -28,21 +29,25 @@ final class CarCardViewModel: ObservableObject {
     }
 
     func getCars() -> [Car] {
-//        return carService.getCars()
+        //        return carService.getCars()
         return []
     }
 
     private func configureOdometerRowInfo() {
 
-        carInfoRows.append(CarCardInfoRowConfiguration(iconName: "gauge",
-                                                       text: "\(model?.refuels.last?.mileage.odometerString() ?? "") km",
-                                                       helpText: "+\(Int(model?.distanceDifferenceSinceLast().odometerString() ?? "") ?? 0) km",
-                                                       isPositive: nil))
+        if let model,
+           model.refuels.count > 2 {
+            carInfoRows.append(CarCardInfoRowConfiguration(iconName: "gauge",
+                                                           text: "\(model.refuels.last?.mileage.odometerString() ?? "") km",
+                                                           helpText: "+\(model.distanceDifferenceSinceLast().odometerString() ?? "") km",
+                                                           isPositive: nil))
+        }
     }
 
     private func configureGasCostRowInfo() {
 
-        if let model {
+        if let model,
+           model.refuels.count > 2 {
             carInfoRows.append(CarCardInfoRowConfiguration(iconName: "dollarsign.circle",
                                                            text: "\(model.refuels.last?.costPerUnit.currencyString() ?? "") ",
                                                            helpText: "\(model.gasPerUnitPriceSinceLast().currencyString() ?? "")",

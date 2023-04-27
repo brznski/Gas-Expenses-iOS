@@ -12,7 +12,7 @@ struct LadingPageActionCardGroup: View {
             Grid {
                 GridRow {
                     NavigationLink {
-                        AddExpenseView(expenseType: "Fuel")
+                        AddRefuelView()
                     } label: {
                         ActionCard(title: "landingPage.actionCard.addFuel",
                                    imageSystemName: "fuelpump.fill")

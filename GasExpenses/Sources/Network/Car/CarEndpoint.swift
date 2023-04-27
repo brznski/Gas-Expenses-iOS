@@ -38,13 +38,13 @@ struct AddNewCarEndpoint: BackendEndpoint {
 struct EditCarEndpoint: BackendEndpoint {
     var path: String = "car/edit"
     var method: HTTPMethod = .PUT
-    var payload: [String : Any] = [:]
+    var payload: [String: Any] = [:]
     var accessToken: String
 }
 
 struct DeleteCarEndpoint: BackendEndpoint {
     var path: String = "car/delete"
     var method: HTTPMethod = .DELETE
-    var payload: [String : Any] = [:]
+    var payload: [String: Any] = [:]
     var accessToken: String
 }

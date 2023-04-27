@@ -19,4 +19,11 @@ extension Date {
         dateFormatter.dateFormat = "dd MMM"
         return dateFormatter.string(from: self)
     }
+
+    func JSONDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-mm-dd"
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
+        return dateFormatter.string(from: self)
+    }
 }
