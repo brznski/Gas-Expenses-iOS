@@ -27,7 +27,7 @@ struct CarOverviewView: View {
 
                 if let models = cars {
                     ForEach(models) { model in
-                        CarCardView(viewModel: .init(car: model), car: model)
+                        CarCardView(viewModel: .init(car: model), cardContext: .carOverview, car: model)
                     }
                 }
             }

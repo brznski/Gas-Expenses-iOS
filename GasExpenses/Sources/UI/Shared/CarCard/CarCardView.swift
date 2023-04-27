@@ -7,19 +7,23 @@
 
 import SwiftUI
 
+enum CarCardContext {
+    case landingPage
+    case carOverview
+}
+
 struct CarCardView: View {
     @ObservedObject var viewModel: CarCardViewModel
     @State var shouldShowSheet: Bool = false
     var car: Car
-
-    let allowsCarSelection: Bool
+    let cardContext: CarCardContext
 
     init(viewModel: CarCardViewModel,
-         allowsCarSelection: Bool = false,
+         cardContext: CarCardContext,
          car: Car) {
         self.viewModel = viewModel
-        self.allowsCarSelection = allowsCarSelection
         self.car = car
+        self.cardContext = cardContext
 
         viewModel.getSelectedCar()
     }
@@ -29,11 +33,23 @@ struct CarCardView: View {
                 VStack {
                     ImageWithGradientView(imageName: UIImage(data: Data(base64Encoded: car.imageBase64, options: .ignoreUnknownCharacters)!)!)
                     HStack {
-                        Text(car.name)
-                            .font(.title2).bold()
-                            .padding()
+                        HStack {
+                            Text(car.name)
+                                .font(.title2).bold()
+                                .padding()
+                            Spacer()
+                            
+                            if cardContext == .carOverview {
+                                Button {
+                                    viewModel.model?.isFavourite.toggle()
+                                } label: {
+                                    Image(systemName: viewModel.model!.isFavourite ? "heart.fill" : "heart")
+                                        .foregroundColor(.ui.action)
+                                }
+                            }
+                        }
 
-                        if allowsCarSelection {
+                        if cardContext == .landingPage {
                             Button {
                                 shouldShowSheet.toggle()
                             } label: {
@@ -80,6 +96,6 @@ struct CarCardView: View {
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
         // swiftlint:disable line_length
-        CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: "")), car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: ""))
+        CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: "")), cardContext: .landingPage, car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: ""))
     }
 }

@@ -22,7 +22,7 @@ struct Car: Identifiable, Codable {
     let model: String
     let refuels: [Refuel]
     let fuelType: FuelTypes
-    let isFavourite: Bool
+    var isFavourite: Bool
     let imageBase64: String
 
     func averageFuelConsumptionSinceLast() -> Double {
@@ -37,7 +37,6 @@ struct Car: Identifiable, Codable {
         let distanceDriven = lastRefill.mileage - beforeLastRefill.mileage
 
         return (lastRefill.fuelAmount * 100) / distanceDriven
-        return 0.0
     }
 
     
@@ -52,7 +51,6 @@ struct Car: Identifiable, Codable {
               let beforeLastRefill else { return 0 }
 
         return lastRefill.mileage - beforeLastRefill.mileage
-        return 0.0
     }
 
     func fuelConsumptionDifferenceSinceLast() -> Double {
@@ -64,7 +62,6 @@ struct Car: Identifiable, Codable {
         let distanceDriven = beforeLastRefill.mileage - beforeBeforeLastRefill.mileage
 
         return lastFuelConsumption - ((beforeLastRefill.fuelAmount * 100) / distanceDriven)
-        return 0.0
     }
 
     func gasPerUnitPriceSinceLast() -> Double {
@@ -76,6 +73,5 @@ struct Car: Identifiable, Codable {
         guard lastRefill != nil, beforeLastRefill != nil else { return 0 }
 
         return lastRefill!.costPerUnit - beforeLastRefill!.costPerUnit
-        return 0.0
     }
 }
