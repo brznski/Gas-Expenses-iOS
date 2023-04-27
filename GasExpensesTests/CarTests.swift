@@ -47,6 +47,7 @@ final class CarTests: XCTestCase {
                     .init(id: 3, date: "2023-04-18T00:00:00.000+00:00", mileage: 165100.0, fuelAmount: 7, costPerUnit: 3.60)
                    ],
                    fuelType: .pb95,
-                   isFavourite: true)
+                   isFavourite: true,
+                   imageBase64: "")
     }
 }

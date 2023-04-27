@@ -79,7 +79,16 @@ struct AddCarView: View {
             }
 
             Button {
-
+                Task {
+                    try await CarService().addCar(.init(id: 0,
+                                                        name: carName,
+                                                        brand: carBrand,
+                                                        model: carModel,
+                                                        refuels: [],
+                                                        fuelType: .pb95,
+                                                        isFavourite: false,
+                                                        imageBase64: selectedImageData?.base64EncodedString() ?? ""))
+                }
             } label: {
                 Spacer()
                 Text("Add")

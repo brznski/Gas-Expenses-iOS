@@ -23,7 +23,7 @@ struct LandingPageView: View {
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
                         }
-                        if let model = viewModel.cars.first {
+                        if let model = viewModel.cars.first(where: { $0.isFavourite}) {
                             CarCardView(viewModel: .init(car: model), car: model)
                         }
                         LadingPageActionCardGroup()

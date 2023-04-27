@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CarOverviewView: View {
     @State var isSheetPresented = false
-    @State var car: Car = .init(id: 1, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: false, imageBase64: "")
+    @State var cars: [Car]?
 
 
     var body: some View {
@@ -25,13 +25,26 @@ struct CarOverviewView: View {
                         }
                 }
 
-                CarCardView(viewModel: .init(car: car), car: car)
+                if let models = cars {
+                    ForEach(models) { model in
+                        CarCardView(viewModel: .init(car: model), car: model)
+                    }
+                }
             }
         }
         .background(Color.ui.background)
         .sheet(isPresented: $isSheetPresented, content: {
             AddCarView()
         })
+        .onAppear {
+            Task {
+                do {
+                    try await cars = CarDataSource(carService: CarService()).getCars()
+                } catch {
+                    
+                }
+            }
+        }
     }
 }
 

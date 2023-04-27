@@ -8,6 +8,10 @@
 import Foundation
 
 final class MockCarService: CarServiceProtocol {
+    func addCar(_ car: Car) async throws {
+        
+    }
+
     func getAllCars() async throws -> [Car] {
         return cars
     }

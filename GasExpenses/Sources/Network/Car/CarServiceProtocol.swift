@@ -9,4 +9,5 @@ import Foundation
 
 protocol CarServiceProtocol {
     func getAllCars() async throws -> [Car]
+    func addCar(_ car: Car) async throws
 }

@@ -79,6 +79,9 @@
 		48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139829E1D919009A2ED6 /* ImageWithGradientView.swift */; };
 		48D1139B29E1DA46009A2ED6 /* CarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139A29E1DA46009A2ED6 /* CarCardView.swift */; };
 		48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139D29E1DAB7009A2ED6 /* CarCardViewModel.swift */; };
+		48DC506E29FB0AEB009F3676 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD429E4A2D10062BF4B /* Cache.swift */; };
+		48DC506F29FB0AFA009F3676 /* CacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD829E4AA660062BF4B /* CacheKey.swift */; };
+		48DC507029FB0B0A009F3676 /* CacheEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD629E4AA540062BF4B /* CacheEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -714,10 +717,13 @@
 				48BAF93429E7375800FB5527 /* CarDataSource.swift in Sources */,
 				488F4AD029E489590062BF4B /* SelectedCarMockDataStore.swift in Sources */,
 				48C60A0F29E203690070AA05 /* CarCardViewModel.swift in Sources */,
+				48DC507029FB0B0A009F3676 /* CacheEntry.swift in Sources */,
 				48BCB61E29E4879200F01A0E /* Double+Extensions.swift in Sources */,
+				48DC506E29FB0AEB009F3676 /* Cache.swift in Sources */,
 				48C60A1029E203930070AA05 /* CarCardInfoRowConfiguration.swift in Sources */,
 				488F4ACD29E4893F0062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */,
 				48C60A0E29E203310070AA05 /* CarCardViewModelTests.swift in Sources */,
+				48DC506F29FB0AFA009F3676 /* CacheKey.swift in Sources */,
 				48BAF93329E7374300FB5527 /* FuelTypes.swift in Sources */,
 				48D1138729E1CD96009A2ED6 /* Car.swift in Sources */,
 				48CD096D29F7272400975EAB /* CarServiceProtocol.swift in Sources */,
