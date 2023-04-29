@@ -14,19 +14,19 @@ struct ExpenseFilterView: View {
     var body: some View {
         ScrollView {
             VStack {
-                CollapsableCardWithTitleView(title: "Amount from") {
+                CollapsableCardWithTitleView(title: LocalizedStringKey("amount.from")) {
                     TextField("", text: $viewModel.filters.amountFrom)
                         .textFieldStyle(.roundedBorder)
                         .padding()
                 }
 
-                CollapsableCardWithTitleView(title: "Amount to") {
+                CollapsableCardWithTitleView(title: LocalizedStringKey("amount.to")) {
                     TextField("", text: $viewModel.filters.amountTo)
                         .textFieldStyle(.roundedBorder)
                         .padding()
                 }
 
-                CollapsableCardWithTitleView(title: "Date from") {
+                CollapsableCardWithTitleView(title: LocalizedStringKey("date.from")) {
                     DatePicker("",
                                selection: $viewModel.filters.dateFrom.toUnwrapped(defaultValue: .now),
                                displayedComponents: .date)
@@ -35,7 +35,7 @@ struct ExpenseFilterView: View {
                         .padding()
                 }
 
-                CollapsableCardWithTitleView(title: "Date to") {
+                CollapsableCardWithTitleView(title: LocalizedStringKey("date.to")) {
                     DatePicker("",
                                selection: $viewModel.filters.dateTo.toUnwrapped(defaultValue: .now),
                                displayedComponents: .date)
@@ -44,8 +44,8 @@ struct ExpenseFilterView: View {
                         .padding()
                 }
 
-                CollapsableCardWithTitleView(title: "Expense type") {
-                    Picker(selection: .constant("Fuel"), label: Text("Pick")) {
+                CollapsableCardWithTitleView(title: LocalizedStringKey("expense.type")) {
+                    Picker(selection: .constant("fuel"), label: Text("pick")) {
                         ForEach(ExpenseType.allCases) {
                             Text($0.rawValue)
                         }

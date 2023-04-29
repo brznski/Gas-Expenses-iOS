@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TitleAndTextField: View {
-    let title: String
+    let title: LocalizedStringKey
     @Binding var textFieldValue: String
 
     var body: some View {
@@ -22,6 +22,6 @@ struct TitleAndTextField: View {
 
 struct TitleAndTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TitleAndTextField(title: "Amount", textFieldValue: .constant("3"))
+        TitleAndTextField(title: "amount", textFieldValue: .constant("3"))
     }
 }

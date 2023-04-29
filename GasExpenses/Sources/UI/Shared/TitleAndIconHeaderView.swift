@@ -30,8 +30,8 @@ struct TitleAndIconHeaderView<Content: View>: View {
 
 struct TitleAndIconHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        TitleAndIconHeaderView(title: "My title") {
-            Label("My icon", systemImage: "iphone")
+        TitleAndIconHeaderView(title: "my.title") {
+            Label("my.icon", systemImage: "iphone")
         }
     }
 }

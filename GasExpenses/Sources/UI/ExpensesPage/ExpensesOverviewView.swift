@@ -22,7 +22,7 @@ struct ExpensesOverviewView: View {
 
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        TitleAndIconHeaderView(title: "Expenses title") {
+                        TitleAndIconHeaderView(title: "expenses.title") {
                             Button {
                                 isShowingAddExpenseSheet.toggle()
                             } label: {
@@ -32,7 +32,7 @@ struct ExpensesOverviewView: View {
                             }
 
                         }
-                        CardWithTitleView(title: "Recent expenses",
+                        CardWithTitleView(title: LocalizedStringKey("expenses.recent"),
                                           alignment: .leading) {
                             Text(viewModel.getLastMonthExpenses().currencyString() ?? "")
                                 .font(.largeTitle)

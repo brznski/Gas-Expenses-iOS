@@ -1,11 +1,59 @@
 /* No comment provided by engineer. */
-"Cars" = "Samochody";
+"add" = "Dodaj";
 
 /* No comment provided by engineer. */
-"Expenses" = "Wydatki";
+"amount" = "Ilość";
 
 /* No comment provided by engineer. */
-"Home" = "Strona główna";
+"amount.from" = "Kwota od";
+
+/* No comment provided by engineer. */
+"amount.to" = "Kwota do";
+
+/* No comment provided by engineer. */
+"brand" = "Marka";
+
+/* No comment provided by engineer. */
+"car.name" = "Nazwa samochodu";
+
+/* No comment provided by engineer. */
+"cars" = "Samocohdy";
+
+/* No comment provided by engineer. */
+"cost.per.unit" = "Koszt za jednostkę";
+
+/* No comment provided by engineer. */
+"date" = "Data";
+
+/* No comment provided by engineer. */
+"date.from" = "Data od";
+
+/* No comment provided by engineer. */
+"date.to" = "Data do";
+
+/* No comment provided by engineer. */
+"expense.type" = "Typ wydatku";
+
+/* No comment provided by engineer. */
+"expenses" = "Wydatki";
+
+/* No comment provided by engineer. */
+"expenses.recent" = "Ostatnie wydatki";
+
+/* No comment provided by engineer. */
+"expenses.title" = "Wydatki";
+
+/* No comment provided by engineer. */
+"filter" = "Filtr";
+
+/* No comment provided by engineer. */
+"fuel.amount" = "Ilość paliwa";
+
+/* No comment provided by engineer. */
+"fuel.type" = "Rodzaj paliwa";
+
+/* No comment provided by engineer. */
+"home" = "Strona główna";
 
 /* No comment provided by engineer. */
 "landingPage.actionCard.addExpense" = "Dodaj wydatek serwisowy";
@@ -23,11 +71,32 @@
 "landingpage.car.card.title" = "Mój samochód";
 
 /* No comment provided by engineer. */
-"My car" = "Mój samochód";
+"mileage" = "Przebieg";
 
 /* No comment provided by engineer. */
-"My overview" = "Strona główna";
+"model" = "Model";
+
+/* No comment provided by engineer. */
+"my.cars" = "Moje samochody";
+
+/* No comment provided by engineer. */
+"my.icon" = "Moja ikona";
+
+/* No comment provided by engineer. */
+"my.overview" = "Strona główna";
+
+/* No comment provided by engineer. */
+"my.title" = "Mój tytuł";
+
+/* No comment provided by engineer. */
+"pick" = "Wybierz";
 
 /* No comment provided by engineer. */
 "see.more" = "Zobacz więcej";
+
+/* No comment provided by engineer. */
+"select.photo" = "Wybierz zdjęcie";
+
+/* No comment provided by engineer. */
+"title" = "Tytuł";
 

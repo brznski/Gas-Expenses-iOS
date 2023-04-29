@@ -39,7 +39,7 @@ struct ExpensesFilterSection: View {
                 NavigationLink {
                     ExpenseFilterView(viewModel: viewModel)
                 } label: {
-                    Label("Filter", systemImage: "line.3.horizontal.decrease.circle.fill")
+                    Label("filter", systemImage: "line.3.horizontal.decrease.circle.fill")
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.ui.action)

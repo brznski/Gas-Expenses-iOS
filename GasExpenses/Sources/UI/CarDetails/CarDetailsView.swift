@@ -20,7 +20,7 @@ struct CarDetailsView: View {
                             lhs.date.dateFromJSON()! < rhs.date.dateFromJSON()!
                         })) { refuel in
                             BarMark(
-                                x: .value("Date",
+                                x: .value("date",
                                           refuel.date.dateFromJSON()?.dayAndMonthString() ?? ""),
                                 y: .value("",
                                           refuel.fuelAmount * refuel.costPerUnit)
@@ -29,11 +29,11 @@ struct CarDetailsView: View {
                     }
                     .padding()
                 }
-                CardWithTitleView(title: "Mileage") {
+                CardWithTitleView(title: "mileage") {
                     Chart {
                         ForEach(model.refuels) { refuel in
                             BarMark(
-                                x: .value("Date",
+                                x: .value("date",
                                           refuel.date.dateFromJSON()?.dayAndMonthString() ?? ""),
                                 y: .value("",
                                           refuel.mileage)

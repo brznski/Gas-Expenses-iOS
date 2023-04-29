@@ -46,12 +46,12 @@ struct AddRefuelView: View {
             VStack {
                 TitleAndTextField(title: "mileage",
                                   textFieldValue: $viewModel.mileage)
-                TitleAndTextField(title: "fuelAmount",
+                TitleAndTextField(title: "fuel.amount",
                                   textFieldValue: $viewModel.fuelAmount)
-                TitleAndTextField(title: "cost per unit",
+                TitleAndTextField(title: "cost.per.unit",
                                   textFieldValue: $viewModel.costPerUnit)
 
-                DatePicker("Date", selection: $viewModel.date, displayedComponents: [.date])
+                DatePicker("date", selection: $viewModel.date, displayedComponents: [.date])
                     .tint(Color.ui.action)
                     .datePickerStyle(.graphical)
                 Spacer()

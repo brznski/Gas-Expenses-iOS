@@ -17,7 +17,7 @@ struct LandingPageView: View {
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        TitleAndIconHeaderView(title: "My overview") {
+                        TitleAndIconHeaderView(title: "my.overview") {
                             Image(systemName: "person.circle.fill")
                                 .resizable()
                                 .scaledToFit()

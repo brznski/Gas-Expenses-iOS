@@ -24,7 +24,7 @@ struct AddExpenseView: View {
                 HStack {
                     Text("expense.type")
                     Spacer()
-                    Picker("Fuel type", selection: $expenseType) {
+                    Picker("fuel.type", selection: $expenseType) {
                         ForEach(ExpenseType.allCases.sorted(by: { lhs, rhs in
                             return lhs.rawValue < rhs.rawValue
                         })) {
@@ -33,7 +33,7 @@ struct AddExpenseView: View {
                     }
                     .tint(Color.ui.action)
                 }
-                DatePicker("Date", selection: $date, displayedComponents: [.date])
+                DatePicker("date", selection: $date, displayedComponents: [.date])
                     .tint(Color.ui.action)
                     .datePickerStyle(.graphical)
                 Spacer()

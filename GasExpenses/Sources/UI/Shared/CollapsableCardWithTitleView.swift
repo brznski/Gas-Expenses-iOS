@@ -60,8 +60,8 @@ struct CollapsableCardWithTitleView<Content: View>: View {
 
 struct CollapsableCardWithTitleView_Previews: PreviewProvider {
     static var previews: some View {
-        CollapsableCardWithTitleView(title: "My car", cardContent: {
-            Text("Test")
+        CollapsableCardWithTitleView(title: "", cardContent: {
+            Text("")
         })
     }
 }

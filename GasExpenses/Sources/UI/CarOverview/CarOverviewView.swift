@@ -15,7 +15,7 @@ struct CarOverviewView: View {
     var body: some View {
         ScrollView {
             VStack {
-                TitleAndIconHeaderView(title: "My cars") {
+                TitleAndIconHeaderView(title: "my.cars") {
                     Image(systemName: "plus.circle.fill")
                         .resizable()
                         .scaledToFit()

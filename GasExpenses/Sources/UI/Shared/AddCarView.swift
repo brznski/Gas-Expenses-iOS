@@ -27,14 +27,14 @@ struct AddCarView: View {
                         matching: .images,
                         photoLibrary: .shared()) {
                             if let selectedImageData,
-                            let uiImage = UIImage(data: selectedImageData){
+                            let uiImage = UIImage(data: selectedImageData) {
                                 Image(uiImage: uiImage)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
                                     .padding()
                             } else {
-                                Text("Select a photo")
+                                Text("select.photo")
                             }
                         }
                         .onChange(of: selectedPhoto) { newItem in
@@ -45,25 +45,23 @@ struct AddCarView: View {
                             }
                         }
 
-
-
                     Group {
-                        TitleAndTextField(title: "Car name",
+                        TitleAndTextField(title: "car.name",
                                           textFieldValue: $carName)
-                        TitleAndTextField(title: "Brand",
+                        TitleAndTextField(title: "brand",
                                           textFieldValue: $carBrand)
-                        TitleAndTextField(title: "Model",
+                        TitleAndTextField(title: "model",
                                           textFieldValue: $carModel)
-                        TitleAndTextField(title: "Mileage",
+                        TitleAndTextField(title: "mileage",
                                           textFieldValue: $carMileage)
                         .keyboardType(.decimalPad)
-                        TitleAndTextField(title: "Car name",
+                        TitleAndTextField(title: "car.name",
                                           textFieldValue: $carName)
                     }
                     .padding()
 
                     HStack {
-                        Text("Fuel Type")
+                        Text("fuel.type")
                             .padding()
                         Spacer()
                         Picker(selection: $carBrand, label: EmptyView()) {
@@ -91,7 +89,7 @@ struct AddCarView: View {
                 }
             } label: {
                 Spacer()
-                Text("Add")
+                Text("add")
                 Spacer()
             }
             .padding()

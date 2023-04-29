@@ -1,4 +1,61 @@
 /* No comment provided by engineer. */
+"add" = "Add";
+
+/* No comment provided by engineer. */
+"amount" = "Amount";
+
+/* No comment provided by engineer. */
+"amount.from" = "From amount";
+
+/* No comment provided by engineer. */
+"amount.to" = "To amount";
+
+/* No comment provided by engineer. */
+"brand" = "Brand";
+
+/* No comment provided by engineer. */
+"car.name" = "Car name";
+
+/* No comment provided by engineer. */
+"cars" = "Cars";
+
+/* No comment provided by engineer. */
+"cost.per.unit" = "Cost per unit";
+
+/* No comment provided by engineer. */
+"date" = "Date";
+
+/* No comment provided by engineer. */
+"date.from" = "From date";
+
+/* No comment provided by engineer. */
+"date.to" = "To date";
+
+/* No comment provided by engineer. */
+"expense.type" = "Expense type";
+
+/* No comment provided by engineer. */
+"expenses" = "Expenses";
+
+/* No comment provided by engineer. */
+"expenses.recent" = "Recent expenses";
+
+/* No comment provided by engineer. */
+"expenses.title" = "Expenses";
+
+/* No comment provided by engineer. */
+"filter" = "Filter";
+
+/* No comment provided by engineer. */
+"fuel.amount" = "Fuel amount";
+
+/* No comment provided by engineer. */
+"fuel.type" = "Fuel type";
+
+/* No comment provided by engineer. */
+"home" = "Home";
+
+/* No comment provided by engineer. */
 "landingPage.actionCard.addExpense" = "Add car expense";
 
 /* No comment provided by engineer. */
@@ -14,5 +71,32 @@
 "landingpage.car.card.title" = "My car";
 
 /* No comment provided by engineer. */
+"mileage" = "Mileage";
+
+/* No comment provided by engineer. */
+"model" = "Model";
+
+/* No comment provided by engineer. */
+"my.cars" = "My cars";
+
+/* No comment provided by engineer. */
+"my.icon" = "My icon";
+
+/* No comment provided by engineer. */
+"my.overview" = "My overview";
+
+/* No comment provided by engineer. */
+"my.title" = "My title";
+
+/* No comment provided by engineer. */
+"pick" = "Pick";
+
+/* No comment provided by engineer. */
 "see.more" = "See more";
+
+/* No comment provided by engineer. */
+"select.photo" = "Select photo";
+
+/* No comment provided by engineer. */
+"title" = "Title";
 

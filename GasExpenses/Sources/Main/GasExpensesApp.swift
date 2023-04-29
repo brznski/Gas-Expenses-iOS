@@ -16,22 +16,22 @@ struct GasExpensesApp: App {
             TabView(selection: $selectedTab) {
                 CarOverviewView()
                     .tabItem {
-                        Label("Cars",
+                        Label("cars",
                               systemImage: "car.fill")
                     }
-                    .tag("Cars")
+                    .tag("cars")
                 LandingPageView(viewModel: LandingPageViewModel())
                     .tabItem {
-                        Label("Home",
+                        Label("home",
                               systemImage: "house.fill")
                     }
-                    .tag("Home")
+                    .tag("home")
                 ExpensesOverviewView(viewModel: ExpensesOverviewViewModel())
                     .tabItem {
-                        Label("Expenses",
+                        Label("expenses",
                               systemImage: "dollarsign.circle.fill")
                     }
-                    .tag("Expenses")
+                    .tag("expenses")
             }
             .onAppear {
                 Task {
