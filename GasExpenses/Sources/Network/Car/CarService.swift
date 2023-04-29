@@ -13,13 +13,13 @@ class CarService: NetworkEngine, CarServiceProtocol {
     func addCar(_ car: Car) async throws {
         let endpoint = await AddNewCarEndpoint(car: car,
                                                accessToken: AccessTokenManager.shared.getJWTToken())
-        _ = try await download(endpoint: endpoint,
+        _ = try await sendRequest(endpoint: endpoint,
                            type: EmptyModel.self)
     }
 
     func getAllCars() async throws -> [Car] {
         let endpoint = await GetAllCarsEndpoint(accessToken: AccessTokenManager.shared.getJWTToken())
-        return try await download(endpoint: endpoint,
+        return try await sendRequest(endpoint: endpoint,
                                   type: [Car].self)
     }
 }

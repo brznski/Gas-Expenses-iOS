@@ -12,6 +12,6 @@ class RefuelService: NetworkEngine, RefuelServiceProtocol {
         let endpoint = await AddRefuelEndpoint(accessToken: AccessTokenManager.shared.getJWTToken(),
                                                refuel: refuel,
                                                carID: carID)
-        _ = try await download(endpoint: endpoint, type: EmptyModel.self)
+        _ = try await sendRequest(endpoint: endpoint, type: EmptyModel.self)
     }
 }
