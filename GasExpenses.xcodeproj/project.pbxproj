@@ -44,6 +44,7 @@
 		48BDB53429E9C8F800B9D269 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB53329E9C8F800B9D269 /* AddExpenseView.swift */; };
 		48BDB53629E9CC7300B9D269 /* TitleAndTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB53529E9CC7300B9D269 /* TitleAndTextField.swift */; };
 		48C234CB29FDBB530077166B /* AddExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C234CA29FDBB530077166B /* AddExpenseViewModel.swift */; };
+		48C234CD29FDC4730077166B /* NetworkEngineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C234CC29FDC4730077166B /* NetworkEngineError.swift */; };
 		48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921629E1E23300FA149A /* CarDataSource.swift */; };
 		48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */; };
 		48C2922029E1E4A600FA149A /* CarCardInfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921E29E1E4A600FA149A /* CarCardInfoRow.swift */; };
@@ -141,6 +142,7 @@
 		48BDB53329E9C8F800B9D269 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		48BDB53529E9CC7300B9D269 /* TitleAndTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndTextField.swift; sourceTree = "<group>"; };
 		48C234CA29FDBB530077166B /* AddExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewModel.swift; sourceTree = "<group>"; };
+		48C234CC29FDC4730077166B /* NetworkEngineError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngineError.swift; sourceTree = "<group>"; };
 		48C2921629E1E23300FA149A /* CarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDataSource.swift; sourceTree = "<group>"; };
 		48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardInfoRowConfiguration.swift; sourceTree = "<group>"; };
 		48C2921E29E1E4A600FA149A /* CarCardInfoRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardInfoRow.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				48BCB60B29E46C6D00F01A0E /* Endpoint.swift */,
 				48BCB60F29E46D1600F01A0E /* HTTPMethod.swift */,
 				48BA579529E36B510003D60D /* NetworkEngine.swift */,
+				48C234CC29FDC4730077166B /* NetworkEngineError.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */,
 				48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */,
 				485E883D29F85B68007B3088 /* ExpenseServiceProtocol.swift in Sources */,
+				48C234CD29FDC4730077166B /* NetworkEngineError.swift in Sources */,
 				48BAF92B29E71C7F00FB5527 /* FuelTypes.swift in Sources */,
 				48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */,
 				488F4AD529E4A2D10062BF4B /* Cache.swift in Sources */,

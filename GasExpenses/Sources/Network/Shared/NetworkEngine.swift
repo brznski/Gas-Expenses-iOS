@@ -19,10 +19,7 @@ class NetworkEngine {
         }
 
         do {
-
-            // swiftlint:disable force_try
-            let decodedObject = try! JSONDecoder().decode(T.self, from: data)
-
+            guard let decodedObject = try? JSONDecoder().decode(T.self, from: data) else { throw NetworkEngineError.decodeError }
             return decodedObject
         } catch(let error) {
             throw error
