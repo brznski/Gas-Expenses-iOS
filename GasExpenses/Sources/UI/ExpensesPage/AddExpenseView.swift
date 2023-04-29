@@ -8,37 +8,52 @@
 import SwiftUI
 
 struct AddExpenseView: View {
-    @State var amount: String = "0"
-    @State var date: Date = .now
-    @State var expenseType: String = ""
+
+    @ObservedObject var viewModel: AddExpenseViewModel
+
+    @State var showCardSelectionSheet = false
 
     var body: some View {
         ZStack {
             Color.ui.background
                 .ignoresSafeArea()
             VStack {
-                TitleAndTextField(title: "amount",
-                                  textFieldValue: $amount)
                 TitleAndTextField(title: "title",
-                                  textFieldValue: $amount)
+                                  textFieldValue: $viewModel.title)
+                TitleAndTextField(title: "amount",
+                                  textFieldValue: $viewModel.amount)
+
                 HStack {
                     Text("expense.type")
                     Spacer()
-                    Picker("fuel.type", selection: $expenseType) {
-                        ForEach(ExpenseType.allCases.sorted(by: { lhs, rhs in
+                    Picker("fuel.type", selection: $viewModel.expenseType) {
+                        ForEach(ExpenseType.allCases.sorted { lhs, rhs in
                             return lhs.rawValue < rhs.rawValue
-                        })) {
+                        }) {
                             Text($0.rawValue.capitalized).tag($0.rawValue)
                         }
                     }
                     .tint(Color.ui.action)
                 }
-                DatePicker("date", selection: $date, displayedComponents: [.date])
+
+                HStack {
+                    Text("car")
+                    Spacer()
+                    Button(action: {
+                        showCardSelectionSheet = true
+                    }, label: {
+                        Text(viewModel.car?.name ?? "select.car")
+                    })
+                    .padding()
+                    .tint(Color.ui.action)
+                }
+
+                DatePicker("date", selection: $viewModel.date, displayedComponents: [.date])
                     .tint(Color.ui.action)
                     .datePickerStyle(.graphical)
                 Spacer()
                 Button {
-
+                    viewModel.addExpense()
                 } label: {
                     Spacer()
                     Text("add")
@@ -48,14 +63,24 @@ struct AddExpenseView: View {
                 .buttonStyle(.borderedProminent)
 
             }
+            .sheet(isPresented: $showCardSelectionSheet,
+                   content: {
+                ForEach(viewModel.cars) { car in
+                    CarRowInfoView(carModel: car) {
+                        viewModel.car = car
+                    }
+                }})
             .padding()
-
+            .onAppear {
+                viewModel.getCars()
+            }
         }
     }
 }
 
 struct AddExpenseView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpenseView()
+        AddExpenseView(viewModel: .init(carDataStore: CarDataSource(carService: CarService()),
+                                        expenseService: ExpenseService()))
     }
 }

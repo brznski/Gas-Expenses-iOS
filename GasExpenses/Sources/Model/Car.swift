@@ -16,7 +16,7 @@ struct Refuel: Identifiable, Codable {
 }
 
 struct Car: Identifiable, Codable {
-    let id: Double
+    let id: Int
     let name: String
     let brand: String
     let model: String

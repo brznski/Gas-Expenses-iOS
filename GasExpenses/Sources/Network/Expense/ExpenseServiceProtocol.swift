@@ -9,4 +9,5 @@ import Foundation
 
 protocol ExpenseServiceProtocol {
     func getAllExpenses() async throws -> [Expense]
+    func addExpense(carID: String, expense: Expense) async throws
 }

@@ -64,7 +64,8 @@ struct ExpensesOverviewView: View {
             }
         }
         .sheet(isPresented: $isShowingAddExpenseSheet) {
-            AddExpenseView()
+            AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: CarDataSource(carService: CarService()),
+                                                          expenseService: ExpenseService()))
         }
     }
 }

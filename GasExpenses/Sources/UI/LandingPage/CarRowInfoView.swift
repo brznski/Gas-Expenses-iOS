@@ -19,11 +19,15 @@ struct CarRowInfoView: View {
             dismiss()
         } label: {
             HStack {
-                Image("car_image_test")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 100)
-                    .clipShape(Circle())
+                if let imageData = Data(base64Encoded: carModel.imageBase64,
+                                        options: .ignoreUnknownCharacters),
+                   let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100)
+                        .clipShape(Circle())
+                }
                 VStack(alignment: .leading) {
                     Text(carModel.name)
                         .font(.largeTitle)

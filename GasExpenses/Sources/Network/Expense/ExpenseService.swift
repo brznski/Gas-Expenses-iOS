@@ -13,4 +13,12 @@ final class ExpenseService: NetworkEngine, ExpenseServiceProtocol {
         return try await download(endpoint: endpoint,
                                   type: [Expense].self)
     }
+
+    func addExpense(carID: String, expense: Expense) async throws {
+        let endpoint = await AddExpenseEndpoint(accessToken: AccessTokenManager.shared.getJWTToken(),
+                                                carID: carID,
+                                                expense: expense)
+        _ = try await download(endpoint: endpoint,
+                               type: EmptyModel.self)
+    }
 }
