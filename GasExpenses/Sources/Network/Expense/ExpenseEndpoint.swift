@@ -10,8 +10,12 @@ import Foundation
 struct GetAllExpensesEndpoint: BackendEndpoint {
     var path: String = "expense/getAll"
     var method: HTTPMethod = .GET
-    var payload: [String: Any] = ["carID": "16"]
+    var payload: [String: Any] {
+        ["carID": carID]
+    }
     var accessToken: String
+
+    let carID: String
 }
 
 struct AddExpenseEndpoint: BackendEndpoint {
