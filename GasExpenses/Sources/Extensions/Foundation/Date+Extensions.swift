@@ -22,7 +22,7 @@ extension Date {
 
     func JSONDate() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-mm-dd"
+        dateFormatter.dateFormat = "YYYY-dd-mm"
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
         return dateFormatter.string(from: self)
     }
