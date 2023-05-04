@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct LadingPageActionCardGroup: View {
+
+    let carID: Int
+
     var body: some View {
             Grid {
                 GridRow {
                     NavigationLink {
-                        AddRefuelView()
+                        AddRefuelView(viewModel: .init(service: RefuelService(),
+                                                       carID: carID))
                     } label: {
                         ActionCard(title: "landingPage.actionCard.addFuel",
                                    imageSystemName: "fuelpump.fill")
@@ -40,6 +44,6 @@ struct LadingPageActionCardGroup: View {
 
 struct LadingPageActionCardGroup_Previews: PreviewProvider {
     static var previews: some View {
-        LadingPageActionCardGroup()
+        LadingPageActionCardGroup(carID: 0)
     }
 }

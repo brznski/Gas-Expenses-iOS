@@ -29,7 +29,7 @@ struct LandingPageView: View {
                                 shouldShowSheet.toggle()
                             }
                         }
-                        LadingPageActionCardGroup()
+                        LadingPageActionCardGroup(carID: viewModel.selectedCar?.id ?? -1)
                     }
                 }
             }

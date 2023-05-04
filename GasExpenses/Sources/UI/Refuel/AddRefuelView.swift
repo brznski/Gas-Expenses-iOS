@@ -13,11 +13,12 @@ final class AddRefuelViewModel: ObservableObject {
     @Published var fuelAmount: String = ""
     @Published var costPerUnit: String = ""
 
-    private let carID: Int = 6
+    private let carID: Int
     private let service: RefuelServiceProtocol
 
-    init(service: RefuelServiceProtocol) {
+    init(service: RefuelServiceProtocol, carID: Int) {
         self.service = service
+        self.carID = carID
     }
 
     func addRefuel() {
@@ -37,7 +38,8 @@ final class AddRefuelViewModel: ObservableObject {
 }
 
 struct AddRefuelView: View {
-    @ObservedObject var viewModel: AddRefuelViewModel = .init(service: RefuelService())
+    @ObservedObject var viewModel: AddRefuelViewModel
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         ZStack {
@@ -57,6 +59,7 @@ struct AddRefuelView: View {
                 Spacer()
                 Button {
                     viewModel.addRefuel()
+                    dismiss()
                 } label: {
                     Spacer()
                     Text("add")
@@ -74,6 +77,6 @@ struct AddRefuelView: View {
 
 struct AddRefuelView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRefuelView()
+        AddRefuelView(viewModel: .init(service: RefuelService(), carID: 0))
     }
 }

@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class CarDataSource {
+final class CarDataSource: ObservableObject {
+    @Published var selectedCar: Car?
     private let carService: CarServiceProtocol
     private var cars: [Car] = []
     private let cache = Cache.shared
