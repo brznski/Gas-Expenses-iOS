@@ -17,10 +17,20 @@ final class ExpensesOverviewViewModel: ObservableObject {
     @Published var filters: ExpenseFilter = .init()
     @Published var expenses: [Expense] = []
     @Published var groupedExpenses: [ExpensesMonth] = []
+    @Published var car: Car = .init(id: 0,
+                                    name: "",
+                                    brand: "",
+                                    model: "",
+                                    refuels: [],
+                                    fuelType: .electic,
+                                    isFavourite: false,
+                                    imageBase64: "")
+
+    private var cars: [Car] = []
 
     func getExpenses() async throws {
         let service = ExpenseService()
-        let response = try await service.getAllExpenses()
+        let response = try await service.getAllExpenses(carID: "\(car.id)")
         DispatchQueue.main.async { [weak self] in
             self?.expenses = response
         }
@@ -34,7 +44,7 @@ final class ExpensesOverviewViewModel: ObservableObject {
             return date
         }
 
-        var calendar = Calendar(identifier: .gregorian)
+        let calendar = Calendar(identifier: .gregorian)
 
         groupedExpenses = groupDic.map { (key, value) in
 
@@ -48,5 +58,20 @@ final class ExpensesOverviewViewModel: ObservableObject {
         return lastMonth.expenses.reduce(0) { _, expense in
             return expense.amount
         }
+    }
+
+    func getCars() {
+        Task {
+            do {
+                cars = try await CarDataSource(carService: CarService()).getCars()
+                DispatchQueue.main.async { [weak self] in
+                    self?.car = (self?.cars.first { $0.isFavourite })!
+                }
+                try await getExpenses()
+            } catch {
+
+            }
+        }
+
     }
 }

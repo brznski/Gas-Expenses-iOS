@@ -8,8 +8,9 @@
 import Foundation
 
 final class ExpenseService: NetworkEngine, ExpenseServiceProtocol {
-    func getAllExpenses() async throws -> [Expense] {
-        let endpoint = await GetAllExpensesEndpoint(accessToken: AccessTokenManager.shared.getJWTToken())
+    func getAllExpenses(carID: String) async throws -> [Expense] {
+        let endpoint = await GetAllExpensesEndpoint(accessToken: AccessTokenManager.shared.getJWTToken(),
+                                                    carID: carID)
         return try await sendRequest(endpoint: endpoint,
                                   type: [Expense].self)
     }

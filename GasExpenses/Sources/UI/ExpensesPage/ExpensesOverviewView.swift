@@ -32,6 +32,9 @@ struct ExpensesOverviewView: View {
                             }
 
                         }
+
+                        CarRowInfoView(carModel: $viewModel.car) {}
+                        
                         CardWithTitleView(title: LocalizedStringKey("expenses.recent"),
                                           alignment: .leading) {
                             Text(viewModel.getLastMonthExpenses().currencyString() ?? "")
@@ -40,9 +43,10 @@ struct ExpensesOverviewView: View {
                                 .padding()
                         }
                         ExpensesFilterSection(viewModel: viewModel)
-                        ForEach(viewModel.groupedExpenses.sorted { $0.date > $1.date }) { expenses in
-                            CollapsableCardWithTitleView(title: expenses.date.monthAndYearString()) {
-                                ForEach(expenses.expenses) { expense in
+
+                        ForEach($viewModel.groupedExpenses) { monthExpenses in
+                            CollapsableCardWithTitleView(title: monthExpenses.wrappedValue.date.monthAndYearString()) {
+                                ForEach(monthExpenses.wrappedValue.expenses) { expense in
                                     NavigationLink(destination: EmptyView()) {
                                         ExpenseRowView(expense: expense)
                                     }
@@ -55,6 +59,7 @@ struct ExpensesOverviewView: View {
             .onAppear {
                 Task {
                     do {
+                        viewModel.getCars()
                         try await viewModel.getExpenses()
                         viewModel.groupExpenses()
                     } catch {
