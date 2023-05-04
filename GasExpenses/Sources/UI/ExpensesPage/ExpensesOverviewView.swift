@@ -11,6 +11,7 @@ struct ExpensesOverviewView: View {
 
     @State var isShowingFilterSheet = false
     @State var isShowingAddExpenseSheet = false
+    @State var isShowingCarSelectSheet = false
 
     @ObservedObject var viewModel: ExpensesOverviewViewModel
 
@@ -33,8 +34,10 @@ struct ExpensesOverviewView: View {
 
                         }
 
-                        CarRowInfoView(carModel: $viewModel.car) {}
-                        
+                        CarRowInfoView(carModel: $viewModel.car) {
+                            isShowingCarSelectSheet = true
+                        }
+
                         CardWithTitleView(title: LocalizedStringKey("expenses.recent"),
                                           alignment: .leading) {
                             Text(viewModel.getLastMonthExpenses().currencyString() ?? "")
@@ -59,11 +62,11 @@ struct ExpensesOverviewView: View {
             .onAppear {
                 Task {
                     do {
-                        viewModel.getCars()
+                        try await viewModel.getCars()
                         try await viewModel.getExpenses()
                         viewModel.groupExpenses()
                     } catch {
-                        
+
                     }
                 }
             }
@@ -71,6 +74,14 @@ struct ExpensesOverviewView: View {
         .sheet(isPresented: $isShowingAddExpenseSheet) {
             AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: CarDataSource(carService: CarService()),
                                                           expenseService: ExpenseService()))
+        }
+        .sheet(isPresented: $isShowingCarSelectSheet) {
+            ForEach($viewModel.cars) { car in
+                CarRowInfoView(carModel: .constant(car.wrappedValue)) {
+                    viewModel.car = car.wrappedValue
+                }
+            }
+            Spacer()
         }
     }
 }

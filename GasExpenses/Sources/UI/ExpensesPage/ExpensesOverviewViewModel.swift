@@ -26,7 +26,7 @@ final class ExpensesOverviewViewModel: ObservableObject {
                                     isFavourite: false,
                                     imageBase64: "")
 
-    private var cars: [Car] = []
+    @Published var cars: [Car] = []
 
     func getExpenses() async throws {
         let service = ExpenseService()
@@ -60,18 +60,11 @@ final class ExpensesOverviewViewModel: ObservableObject {
         }
     }
 
-    func getCars() {
-        Task {
-            do {
-                cars = try await CarDataSource(carService: CarService()).getCars()
-                DispatchQueue.main.async { [weak self] in
-                    self?.car = (self?.cars.first { $0.isFavourite })!
-                }
-                try await getExpenses()
-            } catch {
-
-            }
+    func getCars() async  throws {
+        let response = try await CarDataSource(carService: CarService()).getCars()
+        DispatchQueue.main.async { [weak self] in
+            self?.cars = response
+            self?.car = (self?.cars.first { $0.isFavourite })!
         }
-
     }
 }
