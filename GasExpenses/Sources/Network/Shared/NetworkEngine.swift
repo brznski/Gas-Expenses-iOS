@@ -20,7 +20,7 @@ class NetworkEngine {
         do {
             guard let decodedObject = try? JSONDecoder().decode(T.self, from: data) else { throw NetworkEngineError.decodeError }
             return decodedObject
-        } catch(let error) {
+        } catch let error {
             throw error
         }
     }

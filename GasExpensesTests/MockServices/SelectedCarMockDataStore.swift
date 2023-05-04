@@ -9,13 +9,13 @@ import Foundation
 
 final class MockCarService: CarServiceProtocol {
     func addCar(_ car: Car) async throws {
-        
+
     }
 
     func getAllCars() async throws -> [Car] {
         return cars
     }
-    
+
     private let cars = [
         Car(id: 1, name: "My Subaru",
             brand: "Subaru",
@@ -26,11 +26,11 @@ final class MockCarService: CarServiceProtocol {
             isFavourite: true,
             imageBase64: "")
     ]
-    
+
     func getCars() -> [Car] {
         return cars
     }
-    
+
     func getFavouriteCar() -> Car? {
         return cars.first { $0.isFavourite }
     }

@@ -39,7 +39,6 @@ struct Car: Identifiable, Codable {
         return (lastRefill.fuelAmount * 100) / distanceDriven
     }
 
-    
     func distanceDifferenceSinceLast() -> Double {
         let twoLastRefilsArray = refuels.suffix(2)
 

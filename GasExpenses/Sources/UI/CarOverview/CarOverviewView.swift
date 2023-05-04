@@ -11,7 +11,6 @@ struct CarOverviewView: View {
     @State var isSheetPresented = false
     @State var cars: [Car]?
 
-
     var body: some View {
         ScrollView {
             VStack {
@@ -41,7 +40,7 @@ struct CarOverviewView: View {
                 do {
                     try await cars = CarDataSource(carService: CarService()).getCars()
                 } catch {
-                    
+
                 }
             }
         }

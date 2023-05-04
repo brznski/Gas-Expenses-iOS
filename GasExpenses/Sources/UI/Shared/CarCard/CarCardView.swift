@@ -30,7 +30,7 @@ struct CarCardView: View {
                                 .font(.title2).bold()
                                 .padding()
                             Spacer()
-                            
+
                             if cardContext == .carOverview {
                                 Button {
                                     viewModel.model?.isFavourite.toggle()

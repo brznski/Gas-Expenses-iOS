@@ -26,10 +26,10 @@ final class LandingPageViewModel: ObservableObject {
                 self.cars = response
             }
         } catch {
-            
+
         }
     }
-    
+
     func prepareSelectedCars() {
         DispatchQueue.main.async { [weak self] in
             self?.selectedCar = self?.cars.first { $0.isFavourite }
