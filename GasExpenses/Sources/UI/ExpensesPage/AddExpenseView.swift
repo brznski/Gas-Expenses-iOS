@@ -66,7 +66,7 @@ struct AddExpenseView: View {
             .sheet(isPresented: $showCardSelectionSheet,
                    content: {
                 ForEach(viewModel.cars) { car in
-                    CarRowInfoView(carModel: car) {
+                    CarRowInfoView(carModel: .constant(car)) {
                         viewModel.car = car
                     }
                 }})

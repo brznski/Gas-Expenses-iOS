@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LandingPageView: View {
     @ObservedObject var viewModel: LandingPageViewModel
+    @State var shouldShowSheet: Bool = false
 
     var body: some View {
         NavigationView {
@@ -23,17 +24,25 @@ struct LandingPageView: View {
                                 .scaledToFit()
                                 .frame(width: 30, height: 30)
                         }
-                        if let model = viewModel.cars.first(where: { $0.isFavourite}) {
-                            CarCardView(viewModel: .init(car: model), cardContext: .landingPage, car: model)
+                        if let model = $viewModel.selectedCar.wrappedValue {
+                            CarCardView(viewModel: .init(car: model), car: model, cardContext: .landingPage) {
+                                shouldShowSheet.toggle()
+                            }
                         }
                         LadingPageActionCardGroup()
                     }
                 }
             }
             .onAppear {
-                Task {
-                    await viewModel.getCars()
+                viewModel.prepareModels()
+            }
+            .sheet(isPresented: $shouldShowSheet) {
+                ForEach($viewModel.cars) { car in
+                    CarRowInfoView(carModel: .constant(car.wrappedValue)) {
+                        viewModel.selectedCar = car.wrappedValue
+                    }
                 }
+                Spacer()
             }
         }
     }

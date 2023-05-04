@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CarRowInfoView: View {
-    let carModel: Car
+    @Binding var carModel: Car
     let onTapGesture: () -> Void
 
     @Environment(\.dismiss) var dismiss
@@ -46,10 +46,10 @@ struct CarRowInfoView: View {
 
 struct CarRowInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        CarRowInfoView(carModel: .init(id: 1, name: "My Subaru",
-                                       brand: "Subaru",
-                                       model: "Impreza", refuels: [],
-                                       fuelType: .pb95,
-                                       isFavourite: true, imageBase64: ""), onTapGesture: {})
+        CarRowInfoView(carModel: .constant(.init(id: 1, name: "My Subaru",
+                                                 brand: "Subaru",
+                                                 model: "Impreza", refuels: [],
+                                                 fuelType: .pb95,
+                                                 isFavourite: true, imageBase64: "")), onTapGesture: {})
     }
 }

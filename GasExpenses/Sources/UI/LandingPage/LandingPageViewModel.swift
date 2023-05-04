@@ -9,17 +9,30 @@ import Foundation
 
 final class LandingPageViewModel: ObservableObject {
     private let carService = CarService()
+    @Published var selectedCar: Car?
     @Published var cars: [Car] = []
 
-    func getCars() async -> [Car] {
+    func prepareModels() {
+        Task {
+            await getCars()
+            prepareSelectedCars()
+        }
+    }
+
+    func getCars() async {
         do {
             let response = try await carService.getAllCars()
             DispatchQueue.main.async {
                 self.cars = response
             }
-            return cars
         } catch {
-            return []
+            
+        }
+    }
+    
+    func prepareSelectedCars() {
+        DispatchQueue.main.async { [weak self] in
+            self?.selectedCar = self?.cars.first { $0.isFavourite }
         }
     }
 }

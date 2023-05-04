@@ -10,6 +10,7 @@ import SwiftUI
 final class CarCardViewModel: ObservableObject {
     @Published var model: Car?
     @Published var carInfoRows = [CarCardInfoRowConfiguration]()
+    @Published var availableCars: [Car] = []
 
     init(car: Car) {
         self.model = car
@@ -28,9 +29,18 @@ final class CarCardViewModel: ObservableObject {
         }
     }
 
-    func getCars() -> [Car] {
-        //        return carService.getCars()
-        return []
+    func getCars() {
+        Task {
+            do {
+                 let response = try await CarDataSource(carService: CarService()).getCars()
+
+                DispatchQueue.main.async { [weak self] in
+                    self?.availableCars = response
+                }
+            } catch {
+
+            }
+        }
     }
 
     private func configureOdometerRowInfo() {
@@ -39,7 +49,7 @@ final class CarCardViewModel: ObservableObject {
            model.refuels.count > 2 {
             carInfoRows.append(CarCardInfoRowConfiguration(iconName: "gauge",
                                                            text: "\(model.refuels.last?.mileage.odometerString() ?? "") km",
-                                                           helpText: "+\(model.distanceDifferenceSinceLast().odometerString() ?? "") km",
+                                                           helpText: "\(model.distanceDifferenceSinceLast().odometerString() ?? "") km",
                                                            isPositive: nil))
         }
     }

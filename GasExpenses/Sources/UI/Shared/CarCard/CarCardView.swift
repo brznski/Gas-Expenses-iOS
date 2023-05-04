@@ -15,18 +15,10 @@ enum CarCardContext {
 struct CarCardView: View {
     @ObservedObject var viewModel: CarCardViewModel
     @State var shouldShowSheet: Bool = false
+
     var car: Car
     let cardContext: CarCardContext
-
-    init(viewModel: CarCardViewModel,
-         cardContext: CarCardContext,
-         car: Car) {
-        self.viewModel = viewModel
-        self.car = car
-        self.cardContext = cardContext
-
-        viewModel.getSelectedCar()
-    }
+    var onChevronDownTap: (() -> Void)? = {}
 
     var body: some View {
             CardWithTitleView(title: "landingpage.car.card.title") {
@@ -51,7 +43,7 @@ struct CarCardView: View {
 
                         if cardContext == .landingPage {
                             Button {
-                                shouldShowSheet.toggle()
+                                onChevronDownTap?()
                             } label: {
                                 Image(systemName: "chevron.down")
                             }
@@ -81,14 +73,9 @@ struct CarCardView: View {
                     }
                     .padding()
                 }
-            }
-            .sheet(isPresented: $shouldShowSheet) {
-                ForEach(viewModel.getCars()) { car in
-                    CarRowInfoView(carModel: car) {
-                        viewModel.model = car
-                    }
+                .onAppear {
+                    viewModel.getCars()
                 }
-                Spacer()
             }
     }
 }
@@ -96,6 +83,6 @@ struct CarCardView: View {
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
         // swiftlint:disable line_length
-        CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: "")), cardContext: .landingPage, car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: ""))
+        CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: "")), car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: ""), cardContext: .landingPage) {}
     }
 }
