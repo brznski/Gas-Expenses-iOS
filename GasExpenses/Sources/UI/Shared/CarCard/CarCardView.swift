@@ -75,6 +75,7 @@ struct CarCardView: View {
                 }
                 .onAppear {
                     viewModel.getCars()
+                    viewModel.getSelectedCar()
                 }
             }
     }

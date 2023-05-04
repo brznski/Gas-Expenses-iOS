@@ -17,9 +17,10 @@ final class CarCardViewModel: ObservableObject {
     }
 
     func getSelectedCar() {
-
         if let model,
            model.refuels.count > 2 {
+            carInfoRows.removeAll()
+            
             configureOdometerRowInfo()
             configureGasCostRowInfo()
             carInfoRows.append(CarCardInfoRowConfiguration(iconName: "fuelpump.fill",
