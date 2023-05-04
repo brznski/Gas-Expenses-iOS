@@ -13,9 +13,13 @@ struct AddCarView: View {
     @State var carBrand: String = ""
     @State var carModel: String = ""
     @State var carMileage: String = ""
+    @State var carFuelType: String = ""
+
     @ObservedObject var viewModel: AddCarViewModel = .init()
+    @Environment(\.dismiss) var dismiss
+
     @State private var selectedPhoto: PhotosPickerItem?
-    @State private var selectedImageData: Data? = nil
+    @State private var selectedImageData: Data?
 
     var body: some View {
         ScrollView {
@@ -64,7 +68,7 @@ struct AddCarView: View {
                         Text("fuel.type")
                             .padding()
                         Spacer()
-                        Picker(selection: $carBrand, label: EmptyView()) {
+                        Picker(selection: $carFuelType, label: EmptyView()) {
                             ForEach(FuelTypes.allCases) {
                                 Text($0.rawValue).tag($0.rawValue)
                             }
@@ -83,9 +87,10 @@ struct AddCarView: View {
                                                         brand: carBrand,
                                                         model: carModel,
                                                         refuels: [],
-                                                        fuelType: .pb95,
+                                                        fuelType: FuelTypes(rawValue: carFuelType) ?? FuelTypes.pb95,
                                                         isFavourite: false,
                                                         imageBase64: selectedImageData?.base64EncodedString() ?? ""))
+                    dismiss()
                 }
             } label: {
                 Spacer()
