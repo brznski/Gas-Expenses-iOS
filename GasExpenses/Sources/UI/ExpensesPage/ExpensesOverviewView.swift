@@ -32,13 +32,6 @@ struct ExpensesOverviewView: View {
                                     .resizable()
                                     .frame(width: 30, height: 30)
                             }
-
-                        }
-
-                        if let model = $carDataSource.selectedCar {
-                            CarRowInfoView(carModel: model.toUnwrapped(defaultValue: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: false, imageBase64: ""))) {
-                                isShowingCarSelectSheet = true
-                            }
                         }
 
                         CardWithTitleView(title: LocalizedStringKey("expenses.recent"),
