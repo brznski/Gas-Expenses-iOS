@@ -59,8 +59,6 @@ struct AddCarView: View {
                         TitleAndTextField(title: "mileage",
                                           textFieldValue: $carMileage)
                         .keyboardType(.decimalPad)
-                        TitleAndTextField(title: "car.name",
-                                          textFieldValue: $carName)
                     }
                     .padding()
 
