@@ -14,6 +14,7 @@
 		484CBE992A053A97007AF611 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE982A053A97007AF611 /* Location.swift */; };
 		484CBE9B2A053AD5007AF611 /* ExpenseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE9A2A053AD5007AF611 /* ExpenseType.swift */; };
 		484CBE9D2A053B01007AF611 /* Refuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE9C2A053B01007AF611 /* Refuel.swift */; };
+		484CBE9E2A058940007AF611 /* Refuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE9C2A053B01007AF611 /* Refuel.swift */; };
 		485E883B29F85B20007B3088 /* ExpenseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E883A29F85B20007B3088 /* ExpenseEndpoint.swift */; };
 		485E883D29F85B68007B3088 /* ExpenseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E883C29F85B68007B3088 /* ExpenseServiceProtocol.swift */; };
 		485E883F29F85B81007B3088 /* ExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E883E29F85B81007B3088 /* ExpenseService.swift */; };
@@ -798,6 +799,7 @@
 				48DC506E29FB0AEB009F3676 /* Cache.swift in Sources */,
 				48C60A1029E203930070AA05 /* CarCardInfoRowConfiguration.swift in Sources */,
 				488F4ACD29E4893F0062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */,
+				484CBE9E2A058940007AF611 /* Refuel.swift in Sources */,
 				48C60A0E29E203310070AA05 /* CarCardViewModelTests.swift in Sources */,
 				48DC506F29FB0AFA009F3676 /* CacheKey.swift in Sources */,
 				48BAF93329E7374300FB5527 /* FuelTypes.swift in Sources */,
