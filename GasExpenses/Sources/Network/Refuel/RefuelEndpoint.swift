@@ -16,7 +16,9 @@ struct AddRefuelEndpoint: BackendEndpoint {
             "date": refuel.date,
             "mileage": refuel.mileage,
             "fuelAmount": refuel.fuelAmount,
-            "costPerUnit": refuel.costPerUnit
+            "costPerUnit": refuel.costPerUnit,
+            "longitude": refuel.longitude,
+            "latitude": refuel.latitude
         ]
     ]
     }
