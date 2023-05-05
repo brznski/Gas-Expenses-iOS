@@ -8,6 +8,8 @@
 import Foundation
 
 final class MockCarService: CarServiceProtocol {
+    func setFavouriteCar(carID: Int) async throws {}
+
     func addCar(_ car: Car) async throws {
 
     }

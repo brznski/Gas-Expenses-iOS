@@ -11,16 +11,24 @@ final class CarCardViewModel: ObservableObject {
     @Published var model: Car?
     @Published var carInfoRows = [CarCardInfoRowConfiguration]()
 
-    init(car: Car) {
-        self.model = car
+    private let carService: CarServiceProtocol
 
+    init(car: Car,
+         carService: CarServiceProtocol) {
+        self.model = car
+        self.carService = carService
         prepareCarInfoRows()
+    }
+
+    func setFavouriteCar() {
+        Task {
+            try await carService.setFavouriteCar(carID: model?.id ?? -1)
+        }
     }
 
     private func prepareCarInfoRows() {
         if let model,
            model.refuels.count > 2 {
-            
             configureOdometerRowInfo()
             configureGasCostRowInfo()
             carInfoRows.append(CarCardInfoRowConfiguration(iconName: "fuelpump.fill",

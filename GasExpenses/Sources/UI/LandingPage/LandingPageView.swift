@@ -26,7 +26,8 @@ struct LandingPageView: View {
                                 .frame(width: 30, height: 30)
                         }
                         if let model = $carDataSource.selectedCar.wrappedValue {
-                            CarCardView(viewModel: .init(car: model),
+                            CarCardView(viewModel: .init(car: model,
+                                                         carService: CarService()),
                                         cardContext: .landingPage) {
                                 shouldShowSheet.toggle()
                             }

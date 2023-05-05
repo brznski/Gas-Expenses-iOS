@@ -48,3 +48,16 @@ struct DeleteCarEndpoint: BackendEndpoint {
     var payload: [String: Any] = [:]
     var accessToken: String
 }
+
+struct SetFavouriteCarEndpoint: BackendEndpoint {
+    let carID: Int
+
+    var path: String = "car/change-favourite"
+    var method: HTTPMethod = .GET
+    var payload: [String: Any] {
+        [
+            "carID": carID
+        ]
+    }
+    var accessToken: String
+}

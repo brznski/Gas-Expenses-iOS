@@ -35,6 +35,7 @@ struct CarCardView: View {
                             if cardContext == .carOverview {
                                 Button {
                                     viewModel.model?.isFavourite.toggle()
+                                    viewModel.setFavouriteCar()
                                 } label: {
                                     Image(systemName: viewModel.model!.isFavourite ? "heart.fill" : "heart")
                                         .foregroundColor(.ui.action)
@@ -81,6 +82,8 @@ struct CarCardView: View {
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
         // swiftlint:disable line_length
-        CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: "")), cardContext: .landingPage) {}
+        CarCardView(viewModel: .init(car: .mock,
+                                     carService: CarService()),
+                    cardContext: .landingPage) {}
     }
 }

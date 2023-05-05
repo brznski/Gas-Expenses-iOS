@@ -22,4 +22,10 @@ class CarService: NetworkEngine, CarServiceProtocol {
         return try await sendRequest(endpoint: endpoint,
                                   type: [Car].self)
     }
+
+    func setFavouriteCar(carID: Int) async throws {
+        let endpoint = await SetFavouriteCarEndpoint(carID: carID, accessToken: AccessTokenManager.shared.getJWTToken())
+        _ = try await sendRequest(endpoint: endpoint,
+                                     type: EmptyModel.self)
+    }
 }

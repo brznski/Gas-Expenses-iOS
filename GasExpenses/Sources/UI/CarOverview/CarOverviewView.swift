@@ -27,7 +27,9 @@ struct CarOverviewView: View {
 
                 if let models = carDataSource.cars {
                     ForEach(models) { model in
-                        CarCardView(viewModel: .init(car: model), cardContext: .carOverview)
+                        CarCardView(viewModel: .init(car: model,
+                                                     carService: CarService()),
+                                    cardContext: .carOverview)
                     }
                 }
             }
@@ -36,15 +38,6 @@ struct CarOverviewView: View {
         .sheet(isPresented: $isSheetPresented, content: {
             AddCarView()
         })
-        .onAppear {
-//            Task {
-//                do {
-//                    try await cars = CarDataSource(carService: CarService()).getCars()
-//                } catch {
-//
-//                }
-//            }
-        }
     }
 }
 

@@ -13,7 +13,9 @@ struct CarDetailsView: View {
     var body: some View {
         ScrollView {
             VStack {
-                CarCardView(viewModel: .init(car: model), cardContext: .carOverview)
+                CarCardView(viewModel: .init(car: model,
+                                             carService: CarService()),
+                            cardContext: .carOverview)
                 CardWithTitleView(title: "Gas expenses") {
                     Chart {
                         ForEach(model.refuels.sorted(by: { lhs, rhs in
