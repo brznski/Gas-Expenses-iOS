@@ -10,6 +10,7 @@ import SwiftUI
 struct AddExpenseView: View {
 
     @ObservedObject var viewModel: AddExpenseViewModel
+    @Environment(\.dismiss) var dismiss
 
     @State var showCardSelectionSheet = false
 
@@ -54,6 +55,7 @@ struct AddExpenseView: View {
                 Spacer()
                 Button {
                     viewModel.addExpense()
+                    dismiss()
                 } label: {
                     Spacer()
                     Text("add")
