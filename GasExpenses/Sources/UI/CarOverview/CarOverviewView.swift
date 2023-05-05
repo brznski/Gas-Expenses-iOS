@@ -10,6 +10,7 @@ import SwiftUI
 struct CarOverviewView: View {
     @State var isSheetPresented = false
     @State var cars: [Car]?
+    @EnvironmentObject var carDataSource: CarDataSource
 
     var body: some View {
         ScrollView {
@@ -24,9 +25,9 @@ struct CarOverviewView: View {
                         }
                 }
 
-                if let models = cars {
+                if let models = carDataSource.cars {
                     ForEach(models) { model in
-                        CarCardView(viewModel: .init(car: model), car: model, cardContext: .carOverview)
+                        CarCardView(viewModel: .init(car: model), cardContext: .carOverview)
                     }
                 }
             }
@@ -36,13 +37,13 @@ struct CarOverviewView: View {
             AddCarView()
         })
         .onAppear {
-            Task {
-                do {
-                    try await cars = CarDataSource(carService: CarService()).getCars()
-                } catch {
-
-                }
-            }
+//            Task {
+//                do {
+//                    try await cars = CarDataSource(carService: CarService()).getCars()
+//                } catch {
+//
+//                }
+//            }
         }
     }
 }

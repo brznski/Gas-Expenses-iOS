@@ -29,10 +29,29 @@ struct ExpenseRowView: View {
 
     var body: some View {
         HStack {
-            Circle()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 50)
-                .padding()
+            ZStack {
+                Circle()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50)
+                    .padding()
+                switch expense.expenseType {
+                case .fuel:
+                    Image(systemName: "fuelpump.fill")
+                        .foregroundColor(.white)
+                case .insurance:
+                    Image(systemName: "umbrella.fill")
+                        .foregroundColor(.white)
+                case .maintenance:
+                    Image(systemName: "wrench.and.screwdriver.fill")
+                        .foregroundColor(.white)
+                case .parts:
+                    Image(systemName: "gearshape.fill")
+                        .foregroundColor(.white)
+                case .wash:
+                    Image(systemName: "sparkles")
+                        .foregroundColor(.white)
+                }
+            }
             VStack(alignment: .leading) {
                 Text(expense.title)
                     .bold()

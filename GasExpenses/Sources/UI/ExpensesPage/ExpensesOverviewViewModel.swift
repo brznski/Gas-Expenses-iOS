@@ -17,20 +17,19 @@ final class ExpensesOverviewViewModel: ObservableObject {
     @Published var filters: ExpenseFilter = .init()
     @Published var expenses: [Expense] = []
     @Published var groupedExpenses: [ExpensesMonth] = []
-    @Published var car: Car = .init(id: 0,
-                                    name: "",
-                                    brand: "",
-                                    model: "",
-                                    refuels: [],
-                                    fuelType: .electic,
-                                    isFavourite: false,
-                                    imageBase64: "")
-
     @Published var cars: [Car] = []
+
+    let carID: Int
+    private let carDataSource: CarDataSource
+
+    init(carID: Int, carDataSource: CarDataSource) {
+        self.carID = carID
+        self.carDataSource = carDataSource
+    }
 
     func getExpenses() async throws {
         let service = ExpenseService()
-        let response = try await service.getAllExpenses(carID: "\(car.id)")
+        let response = try await service.getAllExpenses(carID: "\(carID)")
         DispatchQueue.main.async { [weak self] in
             self?.expenses = response
         }
@@ -61,10 +60,10 @@ final class ExpensesOverviewViewModel: ObservableObject {
     }
 
     func getCars() async  throws {
-        let response = try await CarDataSource(carService: CarService()).getCars()
-        DispatchQueue.main.async { [weak self] in
-            self?.cars = response
-            self?.car = (self?.cars.first { $0.isFavourite })!
-        }
+//        let response = try await carDataSource.getCars()
+//        DispatchQueue.main.async { [weak self] in
+//            self?.cars = response
+//            self?.car = (self?.cars.first { $0.isFavourite })!
+//        }
     }
 }

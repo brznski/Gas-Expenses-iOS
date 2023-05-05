@@ -16,17 +16,18 @@ struct CarCardView: View {
     @ObservedObject var viewModel: CarCardViewModel
     @State var shouldShowSheet: Bool = false
 
-    var car: Car
     let cardContext: CarCardContext
     var onChevronDownTap: (() -> Void)? = {}
 
     var body: some View {
             CardWithTitleView(title: "landingpage.car.card.title") {
                 VStack {
-                    ImageWithGradientView(imageName: UIImage(data: Data(base64Encoded: car.imageBase64, options: .ignoreUnknownCharacters)!)!)
+                    if let model = viewModel.model {
+                        ImageWithGradientView(imageName: UIImage(data: Data(base64Encoded: model.imageBase64, options: .ignoreUnknownCharacters)!)!)
+                    }
                     HStack {
                         HStack {
-                            Text(car.name)
+                            Text(viewModel.model?.name ?? "")
                                 .font(.title2).bold()
                                 .padding()
                             Spacer()
@@ -55,8 +56,8 @@ struct CarCardView: View {
                         Spacer()
                     }
 
-                    ForEach(viewModel.carInfoRows) { carInfo in
-                        CarCardInfoRow(configuration: carInfo)
+                    ForEach($viewModel.carInfoRows) { carInfo in
+                        CarCardInfoRow(configuration: carInfo.wrappedValue)
                     }
 
                     HStack {
@@ -73,10 +74,6 @@ struct CarCardView: View {
                     }
                     .padding()
                 }
-                .onAppear {
-                    viewModel.getCars()
-                    viewModel.getSelectedCar()
-                }
             }
     }
 }
@@ -84,6 +81,6 @@ struct CarCardView: View {
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
         // swiftlint:disable line_length
-        CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: "")), car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: ""), cardContext: .landingPage) {}
+        CarCardView(viewModel: .init(car: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: true, imageBase64: "")), cardContext: .landingPage) {}
     }
 }

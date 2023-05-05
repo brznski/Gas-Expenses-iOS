@@ -6,27 +6,29 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class LandingPageViewModel: ObservableObject {
-    private let carService = CarService()
+    @ObservedObject var carDataSource: CarDataSource
     @Published var selectedCar: Car?
     @Published var cars: [Car] = []
+    @EnvironmentObject var carDataSource2: CarDataSource
+
+    init(carDataSource: CarDataSource) {
+        self.carDataSource = carDataSource
+    }
 
     func prepareModels() {
         Task {
             await getCars()
-            prepareSelectedCars()
         }
     }
 
     func getCars() async {
         do {
-            let response = try await carService.getAllCars()
-            DispatchQueue.main.async {
-                self.cars = response
-            }
+            cars = try await carDataSource.getCars()
         } catch {
-
+            
         }
     }
 

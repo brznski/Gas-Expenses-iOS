@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct GasExpensesApp: App {
-    @State var selectedTab = "Home"
+    @State var selectedTab = "home"
+    @StateObject var carDataSource: CarDataSource = .init(carService: CarService())
 
     var body: some Scene {
         WindowGroup {
@@ -20,23 +21,25 @@ struct GasExpensesApp: App {
                               systemImage: "car.fill")
                     }
                     .tag("cars")
-                LandingPageView(viewModel: LandingPageViewModel())
+                LandingPageView(viewModel: LandingPageViewModel(carDataSource: carDataSource))
                     .tabItem {
                         Label("home",
                               systemImage: "house.fill")
                     }
                     .tag("home")
-                ExpensesOverviewView(viewModel: ExpensesOverviewViewModel())
+                ExpensesOverviewView(viewModel: ExpensesOverviewViewModel(carID: $carDataSource.selectedCar.wrappedValue?.id ?? -1, carDataSource: carDataSource))
                     .tabItem {
                         Label("expenses",
                               systemImage: "dollarsign.circle.fill")
                     }
                     .tag("expenses")
             }
+            .environmentObject(carDataSource)
             .onAppear {
                 Task {
                     do {
                         _ = try await JWTService().getJWT()
+                        _ = try await carDataSource.getCars()
                     } catch {
 
                     }

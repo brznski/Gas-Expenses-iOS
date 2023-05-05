@@ -10,16 +10,16 @@ import SwiftUI
 final class CarCardViewModel: ObservableObject {
     @Published var model: Car?
     @Published var carInfoRows = [CarCardInfoRowConfiguration]()
-    @Published var availableCars: [Car] = []
 
     init(car: Car) {
         self.model = car
+
+        prepareCarInfoRows()
     }
 
-    func getSelectedCar() {
+    private func prepareCarInfoRows() {
         if let model,
            model.refuels.count > 2 {
-            carInfoRows.removeAll()
             
             configureOdometerRowInfo()
             configureGasCostRowInfo()
@@ -27,20 +27,6 @@ final class CarCardViewModel: ObservableObject {
                                                            text: String(format: "%.2f l/100km", model.averageFuelConsumptionSinceLast()),
                                                            helpText: String(format: "%.2f l/100km", model.fuelConsumptionDifferenceSinceLast()),
                                                            isPositive: model.fuelConsumptionDifferenceSinceLast() < 0))
-        }
-    }
-
-    func getCars() {
-        Task {
-            do {
-                 let response = try await CarDataSource(carService: CarService()).getCars()
-
-                DispatchQueue.main.async { [weak self] in
-                    self?.availableCars = response
-                }
-            } catch {
-
-            }
         }
     }
 

@@ -14,6 +14,7 @@ struct ExpensesOverviewView: View {
     @State var isShowingCarSelectSheet = false
 
     @ObservedObject var viewModel: ExpensesOverviewViewModel
+    @EnvironmentObject var carDataSource: CarDataSource
 
     var body: some View {
         NavigationView {
@@ -34,8 +35,10 @@ struct ExpensesOverviewView: View {
 
                         }
 
-                        CarRowInfoView(carModel: $viewModel.car) {
-                            isShowingCarSelectSheet = true
+                        if let model = $carDataSource.selectedCar {
+                            CarRowInfoView(carModel: model.toUnwrapped(defaultValue: .init(id: 0, name: "", brand: "", model: "", refuels: [], fuelType: .pb95, isFavourite: false, imageBase64: ""))) {
+                                isShowingCarSelectSheet = true
+                            }
                         }
 
                         CardWithTitleView(title: LocalizedStringKey("expenses.recent"),
@@ -75,19 +78,11 @@ struct ExpensesOverviewView: View {
             AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: CarDataSource(carService: CarService()),
                                                           expenseService: ExpenseService()))
         }
-        .sheet(isPresented: $isShowingCarSelectSheet) {
-            ForEach($viewModel.cars) { car in
-                CarRowInfoView(carModel: .constant(car.wrappedValue)) {
-                    viewModel.car = car.wrappedValue
-                }
-            }
-            Spacer()
-        }
     }
 }
 
 struct ExpensesOverviewView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpensesOverviewView(viewModel: ExpensesOverviewViewModel())
+        ExpensesOverviewView(viewModel: ExpensesOverviewViewModel(carID: 0, carDataSource: CarDataSource(carService: CarService())))
     }
 }
