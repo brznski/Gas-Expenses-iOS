@@ -34,6 +34,12 @@ struct LandingPageView: View {
                         LadingPageActionCardGroup()
                     }
                 }
+                .refreshable {
+                    Cache.shared.invalidate(key: "cars")
+                    Task {
+                        try await carDataSource.getCars()
+                    }
+                }
             }
             .sheet(isPresented: $shouldShowSheet) {
                 ForEach($carDataSource.cars) { car in
