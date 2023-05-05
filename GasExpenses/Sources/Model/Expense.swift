@@ -13,8 +13,8 @@ struct Expense: Identifiable, Codable {
     let title: String
     let date: String
     let expenseType: ExpenseType
-    let latitude: Double
-    let longitude: Double
+    let latitude: Double?
+    let longitude: Double?
 }
 
 extension Expense {

@@ -66,3 +66,11 @@ struct Car: Identifiable, Codable {
         return lastRefill!.costPerUnit - beforeLastRefill!.costPerUnit
     }
 }
+
+extension Car {
+    static let mock: Car = .init(id: 1, name: "My Subaru",
+                          brand: "Subaru",
+                          model: "Impreza", refuels: [],
+                          fuelType: .pb95,
+                          isFavourite: true, imageBase64: "")
+}
