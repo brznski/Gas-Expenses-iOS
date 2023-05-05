@@ -13,4 +13,6 @@ struct Refuel: Identifiable, Codable {
     let mileage: Double
     let fuelAmount: Double
     let costPerUnit: Double
+    let latitude: Double
+    let longitude: Double
 }

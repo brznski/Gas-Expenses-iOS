@@ -31,7 +31,7 @@ struct LandingPageView: View {
                                 shouldShowSheet.toggle()
                             }
                         }
-                        LadingPageActionCardGroup(carID: carDataSource.selectedCar?.id ?? -1)
+                        LadingPageActionCardGroup()
                     }
                 }
             }

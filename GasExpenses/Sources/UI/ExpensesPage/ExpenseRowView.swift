@@ -31,11 +31,6 @@ struct ExpenseRowView: View {
 
 struct ExpenseRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseRowView(expense: .init(id: 3,
-                                      amount: 350.3,
-                                      title: "Paliwo",
-                                      date: "",
-                                      expenseType: .wash,
-                                      location: .init(latitude: 0, longitude: 0)))
+        ExpenseRowView(expense: .mock)
     }
 }

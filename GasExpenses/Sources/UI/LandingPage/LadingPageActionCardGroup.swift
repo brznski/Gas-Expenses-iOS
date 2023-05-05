@@ -9,14 +9,14 @@ import SwiftUI
 
 struct LadingPageActionCardGroup: View {
 
-    let carID: Int
+    @EnvironmentObject var carDataSource: CarDataSource
 
     var body: some View {
             Grid {
                 GridRow {
                     NavigationLink {
                         AddRefuelView(viewModel: .init(service: RefuelService(),
-                                                       carID: carID))
+                                                       car: $carDataSource.selectedCar))
                     } label: {
                         ActionCard(title: "landingPage.actionCard.addFuel",
                                    imageSystemName: "fuelpump.fill")
@@ -25,7 +25,7 @@ struct LadingPageActionCardGroup: View {
                     NavigationLink {
                         AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: CarDataSource(carService: CarService()),
                                                                       expenseService: ExpenseService(),
-                                                                      carID: carID))
+                                                                      carID: carDataSource.selectedCar?.id ?? -1))
                     } label: {
                         ActionCard(title: "landingPage.actionCard.addExpense",
                                    imageSystemName: "wrench.and.screwdriver.fill")
@@ -40,11 +40,16 @@ struct LadingPageActionCardGroup: View {
             }
             .foregroundColor(.blue)
             .padding()
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    print("Hello")
+                }
+            }
     }
 }
 
 struct LadingPageActionCardGroup_Previews: PreviewProvider {
     static var previews: some View {
-        LadingPageActionCardGroup(carID: 0)
+        LadingPageActionCardGroup()
     }
 }

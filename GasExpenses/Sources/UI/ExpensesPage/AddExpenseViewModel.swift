@@ -8,7 +8,7 @@
 import Foundation
 
 final class AddExpenseViewModel: ObservableObject {
-    let carID: Int
+    @Published var carID: Int
     @Published var title: String = ""
     @Published var amount: String = ""
     @Published var date: Date = .now
@@ -36,7 +36,8 @@ final class AddExpenseViewModel: ObservableObject {
                                                                    title: title,
                                                                    date: date.JSONDate(),
                                                                    expenseType: ExpenseType(rawValue: expenseType)!,
-                                                                   location: .init(latitude: 0, longitude: 0)))
+                                                                   latitude: 0,
+                                                                   longitude: 0))
             }
         }
     }

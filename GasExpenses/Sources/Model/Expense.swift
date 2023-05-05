@@ -13,5 +13,16 @@ struct Expense: Identifiable, Codable {
     let title: String
     let date: String
     let expenseType: ExpenseType
-    let location: Location
+    let latitude: Double
+    let longitude: Double
+}
+
+extension Expense {
+    static let mock = Expense(id: 3,
+                              amount: 350.3,
+                              title: "Fuel",
+                              date: "",
+                              expenseType: .wash,
+                              latitude: 54,
+                              longitude: 20)
 }

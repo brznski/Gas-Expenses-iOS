@@ -76,12 +76,7 @@ struct ExpenseDetailsView: View {
 
 struct ExpenseDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseDetailsView(expense: .init(id: 0,
-                                          amount: 3.70,
-                                          title: "Test expense",
-                                          date: "2022-03-15",
-                                          expenseType: .wash,
-                                          location: .init(latitude: 0, longitude: 0)))
+        ExpenseDetailsView(expense: .mock)
     }
 }
 
