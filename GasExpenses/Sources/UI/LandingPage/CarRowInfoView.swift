@@ -46,10 +46,6 @@ struct CarRowInfoView: View {
 
 struct CarRowInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        CarRowInfoView(carModel: .constant(.init(id: 1, name: "My Subaru",
-                                                 brand: "Subaru",
-                                                 model: "Impreza", refuels: [],
-                                                 fuelType: .pb95,
-                                                 isFavourite: true, imageBase64: "")), onTapGesture: {})
+        CarRowInfoView(carModel: .constant(Car.mock)) {}
     }
 }
