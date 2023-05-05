@@ -17,7 +17,6 @@ struct Expense: Identifiable, Codable {
 
 enum ExpenseType: String, Identifiable, CaseIterable, Codable {
     var id: String { return self.rawValue }
-    case fuel
     case wash
     case maintenance
     case insurance
@@ -48,6 +47,6 @@ struct ExpenseRowView: View {
 
 struct ExpenseRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseRowView(expense: .init(id: 3, amount: 350.3, title: "Paliwo", date: "", expenseType: .fuel))
+        ExpenseRowView(expense: .init(id: 3, amount: 350.3, title: "Paliwo", date: "", expenseType: .wash))
     }
 }

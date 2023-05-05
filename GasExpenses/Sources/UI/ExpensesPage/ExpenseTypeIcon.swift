@@ -13,12 +13,10 @@ struct ExpenseTypeIcon: View {
 
     private var primaryColor: Color {
         switch expenseType {
-        case .fuel:
-            return .orange
         case .wash:
             return .green
         case .maintenance:
-            return .gray
+            return .orange
         case .insurance:
             return .yellow
         case .parts:
@@ -28,8 +26,6 @@ struct ExpenseTypeIcon: View {
 
     private var iconName: String {
         switch expenseType {
-        case .fuel:
-            return "fuelpump.fill"
         case .insurance:
             return "umbrella.fill"
         case .maintenance:
