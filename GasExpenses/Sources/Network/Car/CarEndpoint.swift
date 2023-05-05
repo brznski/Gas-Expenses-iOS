@@ -43,9 +43,15 @@ struct EditCarEndpoint: BackendEndpoint {
 }
 
 struct DeleteCarEndpoint: BackendEndpoint {
+    let carID: Int
+
     var path: String = "car/delete"
     var method: HTTPMethod = .DELETE
-    var payload: [String: Any] = [:]
+    var payload: [String: Any] {
+        [
+            "carID": carID
+        ]
+    }
     var accessToken: String
 }
 

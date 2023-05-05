@@ -64,7 +64,8 @@ struct CarCardView: View {
                     HStack {
                         Spacer()
                         NavigationLink {
-                            CarDetailsView(model: viewModel.model!)
+                            CarDetailsView(model: viewModel.model!,
+                                           viewModel: CarDetailsViewModel(carService: CarService()))
                         } label: {
                             Label("see.more", systemImage: "chevron.right")
                         }
@@ -81,7 +82,6 @@ struct CarCardView: View {
 
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
-        // swiftlint:disable line_length
         CarCardView(viewModel: .init(car: .mock,
                                      carService: CarService()),
                     cardContext: .landingPage) {}

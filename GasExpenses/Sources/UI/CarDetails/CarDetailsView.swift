@@ -10,6 +10,9 @@ import Charts
 
 struct CarDetailsView: View {
     let model: Car
+    let viewModel: CarDetailsViewModel
+    @State var showsAlert = false
+
     var body: some View {
         ScrollView {
             VStack {
@@ -44,14 +47,36 @@ struct CarDetailsView: View {
                     }
                     .padding()
                 }
+                Button {
+                    showsAlert = true
+                } label: {
+                    Spacer()
+                    Text("delete")
+                    Spacer()
+                }
+                .tint(.ui.warning)
+                .buttonStyle(.borderedProminent)
+                .padding()
+
             }
         }
+        .alert("alert.delete.car", isPresented: $showsAlert,
+               actions: {
+            Button("yes", role: .none) {
+                viewModel.deleteCar(carID: model.id)
+                showsAlert = false
+            }
+            Button("no", role: .cancel) {
+                showsAlert = false
+            }
+        })
         .background(Color.ui.background)
     }
 }
 
 struct CarDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        CarDetailsView(model: MockCarService().getFavouriteCar()!)
+        CarDetailsView(model: .mock,
+                       viewModel: .init(carService: CarService()))
     }
 }

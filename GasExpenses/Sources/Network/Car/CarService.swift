@@ -17,6 +17,12 @@ class CarService: NetworkEngine, CarServiceProtocol {
                            type: EmptyModel.self)
     }
 
+    func deleteCar(carID: Int) async throws {
+        let endpoint = await DeleteCarEndpoint(carID: carID, accessToken: AccessTokenManager.shared.getJWTToken())
+        _ = try await sendRequest(endpoint: endpoint,
+                                  type: EmptyModel.self)
+    }
+
     func getAllCars() async throws -> [Car] {
         let endpoint = await GetAllCarsEndpoint(accessToken: AccessTokenManager.shared.getJWTToken())
         return try await sendRequest(endpoint: endpoint,

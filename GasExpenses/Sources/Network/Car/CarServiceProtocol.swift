@@ -8,7 +8,8 @@
 import Foundation
 
 protocol CarServiceProtocol {
-    func getAllCars() async throws -> [Car]
     func addCar(_ car: Car) async throws
+    func deleteCar(carID: Int) async throws
+    func getAllCars() async throws -> [Car]
     func setFavouriteCar(carID: Int) async throws
 }

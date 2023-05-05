@@ -13,31 +13,33 @@ struct CarOverviewView: View {
     @EnvironmentObject var carDataSource: CarDataSource
 
     var body: some View {
-        ScrollView {
-            VStack {
-                TitleAndIconHeaderView(title: "my.cars") {
-                    Image(systemName: "plus.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .onTapGesture {
-                            isSheetPresented.toggle()
+        NavigationView {
+            ScrollView {
+                VStack {
+                    TitleAndIconHeaderView(title: "my.cars") {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .onTapGesture {
+                                isSheetPresented.toggle()
+                            }
+                    }
+                    
+                    if let models = carDataSource.cars {
+                        ForEach(models) { model in
+                            CarCardView(viewModel: .init(car: model,
+                                                         carService: CarService()),
+                                        cardContext: .carOverview)
                         }
-                }
-
-                if let models = carDataSource.cars {
-                    ForEach(models) { model in
-                        CarCardView(viewModel: .init(car: model,
-                                                     carService: CarService()),
-                                    cardContext: .carOverview)
                     }
                 }
             }
+            .background(Color.ui.background)
+            .sheet(isPresented: $isSheetPresented, content: {
+                AddCarView()
+            })
         }
-        .background(Color.ui.background)
-        .sheet(isPresented: $isSheetPresented, content: {
-            AddCarView()
-        })
     }
 }
 
