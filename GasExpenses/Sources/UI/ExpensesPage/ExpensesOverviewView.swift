@@ -53,7 +53,7 @@ struct ExpensesOverviewView: View {
                         ForEach($viewModel.groupedExpenses) { monthExpenses in
                             CollapsableCardWithTitleView(title: monthExpenses.wrappedValue.date.monthAndYearString()) {
                                 ForEach(monthExpenses.wrappedValue.expenses) { expense in
-                                    NavigationLink(destination: EmptyView()) {
+                                    NavigationLink(destination: ExpenseDetailsView(expense: expense)) {
                                         ExpenseRowView(expense: expense)
                                     }
                                 }
