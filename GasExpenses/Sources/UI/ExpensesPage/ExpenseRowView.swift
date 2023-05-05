@@ -7,22 +7,6 @@
 
 import SwiftUI
 
-struct Expense: Identifiable, Codable {
-    let id: Int
-    let amount: Double
-    let title: String
-    let date: String
-    let expenseType: ExpenseType
-}
-
-enum ExpenseType: String, Identifiable, CaseIterable, Codable {
-    var id: String { return self.rawValue }
-    case wash
-    case maintenance
-    case insurance
-    case parts
-}
-
 struct ExpenseRowView: View {
     let expense: Expense
 
@@ -47,6 +31,11 @@ struct ExpenseRowView: View {
 
 struct ExpenseRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseRowView(expense: .init(id: 3, amount: 350.3, title: "Paliwo", date: "", expenseType: .wash))
+        ExpenseRowView(expense: .init(id: 3,
+                                      amount: 350.3,
+                                      title: "Paliwo",
+                                      date: "",
+                                      expenseType: .wash,
+                                      location: .init(latitude: 0, longitude: 0)))
     }
 }

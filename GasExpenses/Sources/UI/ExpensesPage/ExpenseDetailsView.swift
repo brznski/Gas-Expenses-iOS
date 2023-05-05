@@ -80,7 +80,8 @@ struct ExpenseDetailsView_Previews: PreviewProvider {
                                           amount: 3.70,
                                           title: "Test expense",
                                           date: "2022-03-15",
-                                          expenseType: .wash))
+                                          expenseType: .wash,
+                                          location: .init(latitude: 0, longitude: 0)))
     }
 }
 

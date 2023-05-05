@@ -10,6 +10,10 @@
 		484CBE902A0524EC007AF611 /* ExpenseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE8F2A0524EC007AF611 /* ExpenseDetailsView.swift */; };
 		484CBE932A052CB9007AF611 /* ExpenseTypeMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE922A052CB9007AF611 /* ExpenseTypeMapAnnotation.swift */; };
 		484CBE952A052D50007AF611 /* ExpenseTypeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE942A052D50007AF611 /* ExpenseTypeIcon.swift */; };
+		484CBE972A053A89007AF611 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE962A053A89007AF611 /* Expense.swift */; };
+		484CBE992A053A97007AF611 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE982A053A97007AF611 /* Location.swift */; };
+		484CBE9B2A053AD5007AF611 /* ExpenseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE9A2A053AD5007AF611 /* ExpenseType.swift */; };
+		484CBE9D2A053B01007AF611 /* Refuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE9C2A053B01007AF611 /* Refuel.swift */; };
 		485E883B29F85B20007B3088 /* ExpenseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E883A29F85B20007B3088 /* ExpenseEndpoint.swift */; };
 		485E883D29F85B68007B3088 /* ExpenseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E883C29F85B68007B3088 /* ExpenseServiceProtocol.swift */; };
 		485E883F29F85B81007B3088 /* ExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E883E29F85B81007B3088 /* ExpenseService.swift */; };
@@ -114,6 +118,10 @@
 		484CBE8F2A0524EC007AF611 /* ExpenseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailsView.swift; sourceTree = "<group>"; };
 		484CBE922A052CB9007AF611 /* ExpenseTypeMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTypeMapAnnotation.swift; sourceTree = "<group>"; };
 		484CBE942A052D50007AF611 /* ExpenseTypeIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTypeIcon.swift; sourceTree = "<group>"; };
+		484CBE962A053A89007AF611 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		484CBE982A053A97007AF611 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		484CBE9A2A053AD5007AF611 /* ExpenseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseType.swift; sourceTree = "<group>"; };
+		484CBE9C2A053B01007AF611 /* Refuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refuel.swift; sourceTree = "<group>"; };
 		485E883A29F85B20007B3088 /* ExpenseEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEndpoint.swift; sourceTree = "<group>"; };
 		485E883C29F85B68007B3088 /* ExpenseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseServiceProtocol.swift; sourceTree = "<group>"; };
 		485E883E29F85B81007B3088 /* ExpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseService.swift; sourceTree = "<group>"; };
@@ -451,7 +459,11 @@
 			isa = PBXGroup;
 			children = (
 				48D1138329E1CD02009A2ED6 /* Car.swift */,
+				484CBE962A053A89007AF611 /* Expense.swift */,
+				484CBE9A2A053AD5007AF611 /* ExpenseType.swift */,
 				48BAF92A29E71C7F00FB5527 /* FuelTypes.swift */,
+				484CBE982A053A97007AF611 /* Location.swift */,
+				484CBE9C2A053B01007AF611 /* Refuel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -704,6 +716,7 @@
 				48BCB61429E4753100F01A0E /* LandingPageViewModel.swift in Sources */,
 				488F4AD129E4899F0062BF4B /* SelectedCarMockDataStore.swift in Sources */,
 				48B3C55B29E5E99E00612195 /* ExpensesOverviewView.swift in Sources */,
+				484CBE9B2A053AD5007AF611 /* ExpenseType.swift in Sources */,
 				48B3C55D29E5EBA100612195 /* ExpenseRowView.swift in Sources */,
 				48BCB61C29E4837500F01A0E /* Double+Extensions.swift in Sources */,
 				48C234CB29FDBB530077166B /* AddExpenseViewModel.swift in Sources */,
@@ -714,6 +727,7 @@
 				48BAF92829E7175C00FB5527 /* AddCarView.swift in Sources */,
 				488F4AD729E4AA540062BF4B /* CacheEntry.swift in Sources */,
 				488F4ACC29E489130062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */,
+				484CBE9D2A053B01007AF611 /* Refuel.swift in Sources */,
 				488F4AD929E4AA660062BF4B /* CacheKey.swift in Sources */,
 				48CD096A29F705D300975EAB /* CarService.swift in Sources */,
 				48DC507829FB15F6009F3676 /* RefuelService.swift in Sources */,
@@ -725,6 +739,7 @@
 				48DC507A29FB1602009F3676 /* RefuelServiceProtocol.swift in Sources */,
 				48C2923129E1FB4600FA149A /* LadingPageActionCardGroup.swift in Sources */,
 				48BAF92F29E71F0D00FB5527 /* FuelTypeIcon.swift in Sources */,
+				484CBE972A053A89007AF611 /* Expense.swift in Sources */,
 				485E883F29F85B81007B3088 /* ExpenseService.swift in Sources */,
 				48CB9D5929F07718006258C4 /* JWTResponse.swift in Sources */,
 				48BAF92629E7160500FB5527 /* CarOverviewView.swift in Sources */,
@@ -734,6 +749,7 @@
 				48C7C8C229E8A85800010018 /* CarRowInfoView.swift in Sources */,
 				48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */,
 				48D1139529E1D4C5009A2ED6 /* CardWithTitleView.swift in Sources */,
+				484CBE992A053A97007AF611 /* Location.swift in Sources */,
 				48CB9D5329F0614D006258C4 /* AccessTokenManager.swift in Sources */,
 				48D1139B29E1DA46009A2ED6 /* CarCardView.swift in Sources */,
 				48C2922029E1E4A600FA149A /* CarCardInfoRow.swift in Sources */,

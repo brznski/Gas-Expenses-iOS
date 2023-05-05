@@ -35,7 +35,8 @@ final class AddExpenseViewModel: ObservableObject {
                                                                    amount: Double(amount) ?? 0,
                                                                    title: title,
                                                                    date: date.JSONDate(),
-                                                                   expenseType: ExpenseType(rawValue: expenseType)!))
+                                                                   expenseType: ExpenseType(rawValue: expenseType)!,
+                                                                   location: .init(latitude: 0, longitude: 0)))
             }
         }
     }

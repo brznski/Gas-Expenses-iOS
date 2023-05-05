@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct Refuel: Identifiable, Codable {
-    let id: Double
-    let date: String
-    let mileage: Double
-    let fuelAmount: Double
-    let costPerUnit: Double
-}
-
 struct Car: Identifiable, Codable {
     let id: Int
     let name: String
