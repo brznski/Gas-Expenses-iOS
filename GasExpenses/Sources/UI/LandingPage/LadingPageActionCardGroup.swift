@@ -25,7 +25,7 @@ struct LadingPageActionCardGroup: View {
                     NavigationLink {
                         AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: CarDataSource(carService: CarService()),
                                                                       expenseService: ExpenseService(),
-                                                                      carID: carDataSource.selectedCar?.id ?? -1))
+                                                                      carID: $carDataSource.selectedCar.wrappedValue?.id ?? -1))
                     } label: {
                         ActionCard(title: "landingPage.actionCard.addExpense",
                                    imageSystemName: "wrench.and.screwdriver.fill")
@@ -40,11 +40,6 @@ struct LadingPageActionCardGroup: View {
             }
             .foregroundColor(.blue)
             .padding()
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    print("Hello")
-                }
-            }
     }
 }
 
