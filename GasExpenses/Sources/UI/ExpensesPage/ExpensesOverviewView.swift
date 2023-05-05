@@ -30,6 +30,7 @@ struct ExpensesOverviewView: View {
                             } label: {
                                 Image(systemName: "plus.circle.fill")
                                     .resizable()
+                                    .tint(.ui.action)
                                     .frame(width: 30, height: 30)
                             }
                         }
