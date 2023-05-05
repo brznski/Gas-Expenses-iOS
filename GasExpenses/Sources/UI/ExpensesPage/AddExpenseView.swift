@@ -37,18 +37,6 @@ struct AddExpenseView: View {
                     .tint(Color.ui.action)
                 }
 
-                HStack {
-                    Text("car")
-                    Spacer()
-                    Button(action: {
-                        showCardSelectionSheet = true
-                    }, label: {
-                        Text(viewModel.car?.name ?? "select.car")
-                    })
-                    .padding()
-                    .tint(Color.ui.action)
-                }
-
                 DatePicker("date", selection: $viewModel.date, displayedComponents: [.date])
                     .tint(Color.ui.action)
                     .datePickerStyle(.graphical)
@@ -65,17 +53,7 @@ struct AddExpenseView: View {
                 .buttonStyle(.borderedProminent)
 
             }
-            .sheet(isPresented: $showCardSelectionSheet,
-                   content: {
-                ForEach(viewModel.cars) { car in
-                    CarRowInfoView(carModel: .constant(car)) {
-                        viewModel.car = car
-                    }
-                }})
             .padding()
-            .onAppear {
-                viewModel.getCars()
-            }
         }
     }
 }
@@ -83,6 +61,7 @@ struct AddExpenseView: View {
 struct AddExpenseView_Previews: PreviewProvider {
     static var previews: some View {
         AddExpenseView(viewModel: .init(carDataStore: CarDataSource(carService: CarService()),
-                                        expenseService: ExpenseService()))
+                                        expenseService: ExpenseService(),
+                                        carID: 0))
     }
 }

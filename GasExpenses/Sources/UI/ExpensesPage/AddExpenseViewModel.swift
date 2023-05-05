@@ -8,39 +8,29 @@
 import Foundation
 
 final class AddExpenseViewModel: ObservableObject {
-    @Published var cars: [Car] = []
-
+    let carID: Int
     @Published var title: String = ""
     @Published var amount: String = ""
     @Published var date: Date = .now
     @Published var expenseType: String = ""
-    @Published var car: Car?
 
     private let carDataStore: CarDataSource
     private let expenseService: ExpenseServiceProtocol
 
     init(
         carDataStore: CarDataSource,
-        expenseService: ExpenseServiceProtocol
+        expenseService: ExpenseServiceProtocol,
+        carID: Int
     ) {
         self.carDataStore = carDataStore
         self.expenseService = expenseService
-    }
-
-    func getCars() {
-        Task {
-            do {
-                cars = try await carDataStore.getCars()
-            } catch {
-
-            }
-        }
+        self.carID = carID
     }
 
     func addExpense() {
         Task {
             do {
-                try await expenseService.addExpense(carID: "\(car?.id ?? -1)",
+                try await expenseService.addExpense(carID: "\(carID)",
                                                     expense: .init(id: 0,
                                                                    amount: Double(amount) ?? 0,
                                                                    title: title,
