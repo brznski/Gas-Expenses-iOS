@@ -78,6 +78,7 @@ struct AddRefuelView: View {
     @ObservedObject var locationManager = LocationManager()
     @ObservedObject var viewModel: AddRefuelViewModel
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var carDataSource: CarDataSource
 
     var body: some View {
         ScrollView {
@@ -116,6 +117,10 @@ struct AddRefuelView: View {
                     Button {
                         viewModel.usersLocation = locationManager.location
                         viewModel.addRefuel()
+                        Cache.shared.invalidate(key: "cars")
+                        Task {
+                            try await carDataSource.getCars()
+                        }
                         dismiss()
                     } label: {
                         Spacer()
