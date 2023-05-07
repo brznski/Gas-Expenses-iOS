@@ -31,15 +31,16 @@ actor AccessTokenManager {
         return true
     }
 
-    func getJWTToken() async -> String {
+    func getJWTToken() async throws -> String {
         if isValid {
             return token
         }
 
         do {
-            token = try await jwtService.getJWT()
+            token = try await jwtService.getJWT(username: UserManager.shared.user?.username ?? "",
+                                                password: UserManager.shared.user?.password ?? "")
         } catch {
-
+            throw error
         }
 
         if let twoHoursInAdvance = Calendar.current.date(byAdding: .hour,

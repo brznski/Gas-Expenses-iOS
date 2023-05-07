@@ -8,15 +8,14 @@
 import Foundation
 
 struct GetJWTEndpoint: BackendEndpoint {
-    var accessToken: String
+    let username: String
+    let password: String
+    var accessToken: String =  ""
     var path: String = "/authenticate"
     var method: HTTPMethod = .POST
-    var payload: [String: Any] = [
-        "username": "a",
-        "password": "b"
+    var payload: [String: Any] { [
+        "username": "\(username)",
+        "password": "\(password)"
     ]
-
-    init(accesToken: String) {
-        self.accessToken = accesToken
     }
 }

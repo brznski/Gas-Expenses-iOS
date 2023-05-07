@@ -14,7 +14,16 @@ class NetworkEngine {
 
         if let urlResponse = response as? HTTPURLResponse,
            400...599 ~= urlResponse.statusCode {
-            throw URLError(.secureConnectionFailed)
+            switch urlResponse.statusCode {
+            case 300...400:
+                throw NetworkEngineError.decodeError
+            case 401, 403:
+                throw NetworkEngineError.unauthorized
+            case 500...503:
+                throw NetworkEngineError.serverUnavailable
+            default:
+                throw NetworkEngineError.other
+            }
         }
 
         do {

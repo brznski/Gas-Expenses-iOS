@@ -8,8 +8,8 @@
 import Foundation
 
 class JWTService: NetworkEngine, JWTServiceProtocol {
-    func getJWT() async throws -> String {
-        let endpoint = GetJWTEndpoint(accesToken: "")
+    func getJWT(username: String, password: String) async throws -> String {
+        let endpoint = GetJWTEndpoint(username: username, password: password)
         return try await sendRequest(endpoint: endpoint,
                                   type: JWTResponse.self).jwt
     }

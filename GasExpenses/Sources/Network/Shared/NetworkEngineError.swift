@@ -9,4 +9,8 @@ import Foundation
 
 enum NetworkEngineError: Error {
     case decodeError
+    case unauthorized
+    case notFound
+    case serverUnavailable
+    case other
 }

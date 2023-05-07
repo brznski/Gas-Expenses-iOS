@@ -8,5 +8,5 @@
 import Foundation
 
 protocol JWTServiceProtocol {
-    func getJWT() async throws -> String
+    func getJWT(username: String, password: String) async throws -> String
 }

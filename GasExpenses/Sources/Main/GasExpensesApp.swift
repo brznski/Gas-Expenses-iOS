@@ -11,41 +11,47 @@ import SwiftUI
 struct GasExpensesApp: App {
     @State var selectedTab = "home"
     @StateObject var carDataSource: CarDataSource = .init(carService: CarService())
+    @StateObject var userManager = UserManager.shared
 
     var body: some Scene {
         WindowGroup {
-            TabView(selection: $selectedTab) {
-                CarOverviewView()
-                    .tabItem {
-                        Label("cars",
-                              systemImage: "car.fill")
+            Group {
+                if $userManager.isUserLoggedIn.wrappedValue {
+                    TabView(selection: $selectedTab) {
+                        CarOverviewView()
+                            .tabItem {
+                                Label("cars",
+                                      systemImage: "car.fill")
+                            }
+                            .tag("cars")
+                        LandingPageView(viewModel: LandingPageViewModel(carDataSource: carDataSource))
+                            .tabItem {
+                                Label("home",
+                                      systemImage: "house.fill")
+                            }
+                            .tag("home")
+                        ExpensesOverviewView(viewModel: ExpensesOverviewViewModel(carID: $carDataSource.selectedCar.wrappedValue?.id ?? -1, carDataSource: carDataSource))
+                            .tabItem {
+                                Label("expenses",
+                                      systemImage: "dollarsign.circle.fill")
+                            }
+                            .tag("expenses")
                     }
-                    .tag("cars")
-                LandingPageView(viewModel: LandingPageViewModel(carDataSource: carDataSource))
-                    .tabItem {
-                        Label("home",
-                              systemImage: "house.fill")
-                    }
-                    .tag("home")
-                ExpensesOverviewView(viewModel: ExpensesOverviewViewModel(carID: $carDataSource.selectedCar.wrappedValue?.id ?? -1, carDataSource: carDataSource))
-                    .tabItem {
-                        Label("expenses",
-                              systemImage: "dollarsign.circle.fill")
-                    }
-                    .tag("expenses")
-            }
-            .environmentObject(carDataSource)
-            .onAppear {
-                Task {
-                    do {
-                        _ = try await JWTService().getJWT()
-                        _ = try await carDataSource.getCars()
-                    } catch {
+                    .environmentObject(carDataSource)
+                    .onAppear {
+                        Task {
+                            do {
+                                _ = try await carDataSource.getCars()
+                            } catch {
 
+                            }
+                        }
                     }
+                    .tint(Color.ui.action)
+                } else {
+                    LoginMainPage(loginService: JWTService())
                 }
-            }
-            .tint(Color.ui.action)
+            }.environmentObject(userManager)
         }
     }
 }
