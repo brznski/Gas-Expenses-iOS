@@ -98,6 +98,7 @@
 		48D8C85B2A082B4800DCB09D /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C85A2A082B4800DCB09D /* SettingsPage.swift */; };
 		48D8C85D2A082CC200DCB09D /* TitleAndSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C85C2A082CC200DCB09D /* TitleAndSecureField.swift */; };
 		48D8C8602A083D9B00DCB09D /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C85F2A083D9B00DCB09D /* ButtonPrimary.swift */; };
+		48D8C8622A08408100DCB09D /* ButtonSecondary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C8612A08408100DCB09D /* ButtonSecondary.swift */; };
 		48DC506E29FB0AEB009F3676 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD429E4A2D10062BF4B /* Cache.swift */; };
 		48DC506F29FB0AFA009F3676 /* CacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD829E4AA660062BF4B /* CacheKey.swift */; };
 		48DC507029FB0B0A009F3676 /* CacheEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD629E4AA540062BF4B /* CacheEntry.swift */; };
@@ -212,6 +213,7 @@
 		48D8C85A2A082B4800DCB09D /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
 		48D8C85C2A082CC200DCB09D /* TitleAndSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndSecureField.swift; sourceTree = "<group>"; };
 		48D8C85F2A083D9B00DCB09D /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
+		48D8C8612A08408100DCB09D /* ButtonSecondary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSecondary.swift; sourceTree = "<group>"; };
 		48DC507229FB1204009F3676 /* AddRefuelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRefuelView.swift; sourceTree = "<group>"; };
 		48DC507529FB15ED009F3676 /* RefuelEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelEndpoint.swift; sourceTree = "<group>"; };
 		48DC507729FB15F6009F3676 /* RefuelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelService.swift; sourceTree = "<group>"; };
@@ -579,6 +581,7 @@
 			isa = PBXGroup;
 			children = (
 				48D8C85F2A083D9B00DCB09D /* ButtonPrimary.swift */,
+				48D8C8612A08408100DCB09D /* ButtonSecondary.swift */,
 			);
 			path = BasicComponents;
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 				4879B8932A06F561003337D6 /* LocationSelectionView.swift in Sources */,
 				48BAF94229E75E8B00FB5527 /* Binding+Extensions.swift in Sources */,
 				48BAF93229E7221E00FB5527 /* CarDetailsView.swift in Sources */,
+				48D8C8622A08408100DCB09D /* ButtonSecondary.swift in Sources */,
 				48DC507629FB15ED009F3676 /* RefuelEndpoint.swift in Sources */,
 				48D8C85D2A082CC200DCB09D /* TitleAndSecureField.swift in Sources */,
 				48BCB60E29E46C8200F01A0E /* BackendEndpoint.swift in Sources */,
