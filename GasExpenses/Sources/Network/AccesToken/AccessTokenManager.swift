@@ -51,4 +51,8 @@ actor AccessTokenManager {
 
         return token
     }
+
+    func revokeJWTToken() {
+        token = ""
+    }
 }

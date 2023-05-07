@@ -21,4 +21,8 @@ final class UserManager: ObservableObject {
     @Published var isUserLoggedIn: Bool = false
 
     private init() {}
+
+    func forgetUser() {
+        UserDefaults.standard.removeObject(forKey: "user.credentials")
+    }
 }

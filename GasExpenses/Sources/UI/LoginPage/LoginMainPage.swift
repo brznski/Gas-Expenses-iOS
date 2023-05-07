@@ -28,23 +28,29 @@ struct LoginMainPage: View {
             } else {
                 VStack {
                     TitleAndIconHeaderView<EmptyView>(title: "login")
+                    Spacer()
                     TitleAndTextField(title: "login",
                                       textFieldValue: $userCredentials.username)
-                    TitleAndTextField(title: "password",
+                    TitleAndSecureField(title: "password",
                                       textFieldValue: $userCredentials.password)
                     Toggle("remmember.me", isOn: $shouldRemmemberUser)
-                    Button {
-                        onLogin()
-                    } label: {
-                        Spacer()
+                        .tint(.ui.action)
+
+                    Spacer()
+
+                    ButtonPrimary {
                         Text("login")
-                        Spacer()
+                    } action: {
+                        onLogin()
                     }
+
+                    .tint(.ui.action)
                     .buttonStyle(.borderedProminent)
 
                     NavigationLink(destination: SignupPage()) {
                         Text("sign.up")
                     }
+                    .tint(.ui.action)
                 }
                 .alert(errorMessage, isPresented: $shouldShowAlert, actions: {
                     Button("ok") {}

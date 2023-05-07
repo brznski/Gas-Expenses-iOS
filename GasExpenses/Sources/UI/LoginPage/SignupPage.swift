@@ -10,6 +10,8 @@ import SwiftUI
 struct SignupPage: View {
     @State var username: String = ""
     @State var password: String = ""
+    @State var repeatedPassword: String = ""
+    @State var email: String = ""
     @State var shouldRemmemberUser: Bool = false
     @EnvironmentObject var userManager: UserManager
 
@@ -18,20 +20,20 @@ struct SignupPage: View {
             TitleAndIconHeaderView<EmptyView>(title: "sign.up")
             TitleAndTextField(title: "login",
                               textFieldValue: $username)
-            TitleAndTextField(title: "password",
+            TitleAndSecureField(title: "password",
                               textFieldValue: $password)
-            TitleAndTextField(title: "repeat.password",
-                              textFieldValue: $password)
+            TitleAndSecureField(title: "repeat.password",
+                              textFieldValue: $repeatedPassword)
             TitleAndTextField(title: "email",
-                              textFieldValue: $password)
-            Toggle("remmember.me", isOn: $shouldRemmemberUser)
-            Button {
-            } label: {
-                Spacer()
+                              textFieldValue: $email)
+            Toggle("remmember.me",
+                   isOn: $shouldRemmemberUser)
+
+            ButtonPrimary {
                 Text("sign.up")
-                Spacer()
+            } action: {
+
             }
-            .buttonStyle(.borderedProminent)
         }
         .padding()
     }

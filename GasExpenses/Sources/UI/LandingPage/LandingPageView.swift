@@ -20,10 +20,12 @@ struct LandingPageView: View {
                 ScrollView(showsIndicators: false) {
                     VStack {
                         TitleAndIconHeaderView(title: "my.overview") {
-                            Image(systemName: "person.circle.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 30, height: 30)
+                            NavigationLink(destination: SettingsPage()) {
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 30, height: 30)
+                            }
                         }
                         if let model = $carDataSource.selectedCar.wrappedValue {
                             CarCardView(viewModel: .init(car: model,

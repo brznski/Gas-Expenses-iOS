@@ -95,6 +95,9 @@
 		48D8C8542A0806F500DCB09D /* LoginMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C8532A0806F500DCB09D /* LoginMainPage.swift */; };
 		48D8C8562A08089D00DCB09D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C8552A08089D00DCB09D /* UserManager.swift */; };
 		48D8C8582A081F3A00DCB09D /* SignupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C8572A081F3A00DCB09D /* SignupPage.swift */; };
+		48D8C85B2A082B4800DCB09D /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C85A2A082B4800DCB09D /* SettingsPage.swift */; };
+		48D8C85D2A082CC200DCB09D /* TitleAndSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C85C2A082CC200DCB09D /* TitleAndSecureField.swift */; };
+		48D8C8602A083D9B00DCB09D /* ButtonPrimary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C85F2A083D9B00DCB09D /* ButtonPrimary.swift */; };
 		48DC506E29FB0AEB009F3676 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD429E4A2D10062BF4B /* Cache.swift */; };
 		48DC506F29FB0AFA009F3676 /* CacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD829E4AA660062BF4B /* CacheKey.swift */; };
 		48DC507029FB0B0A009F3676 /* CacheEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4AD629E4AA540062BF4B /* CacheEntry.swift */; };
@@ -206,6 +209,9 @@
 		48D8C8532A0806F500DCB09D /* LoginMainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainPage.swift; sourceTree = "<group>"; };
 		48D8C8552A08089D00DCB09D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		48D8C8572A081F3A00DCB09D /* SignupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPage.swift; sourceTree = "<group>"; };
+		48D8C85A2A082B4800DCB09D /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		48D8C85C2A082CC200DCB09D /* TitleAndSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndSecureField.swift; sourceTree = "<group>"; };
+		48D8C85F2A083D9B00DCB09D /* ButtonPrimary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPrimary.swift; sourceTree = "<group>"; };
 		48DC507229FB1204009F3676 /* AddRefuelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRefuelView.swift; sourceTree = "<group>"; };
 		48DC507529FB15ED009F3676 /* RefuelEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelEndpoint.swift; sourceTree = "<group>"; };
 		48DC507729FB15F6009F3676 /* RefuelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelService.swift; sourceTree = "<group>"; };
@@ -498,6 +504,7 @@
 		48D1138B29E1D353009A2ED6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				48D8C8592A082B0100DCB09D /* SettingsPage */,
 				48D8C8522A0806E400DCB09D /* LoginPage */,
 				48BAF93029E7220F00FB5527 /* CarDetails */,
 				48BAF92929E71BBD00FB5527 /* CarOverview */,
@@ -523,6 +530,7 @@
 		48D1138F29E1D396009A2ED6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				48D8C85E2A083D8300DCB09D /* BasicComponents */,
 				484CBE912A052CA8007AF611 /* Map */,
 				48D1139229E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift */,
 				48D1139429E1D4C5009A2ED6 /* CardWithTitleView.swift */,
@@ -534,6 +542,7 @@
 				48BAF92E29E71F0D00FB5527 /* FuelTypeIcon.swift */,
 				48BAF93F29E74B6B00FB5527 /* CollapsableCardWithTitleView.swift */,
 				48BDB53529E9CC7300B9D269 /* TitleAndTextField.swift */,
+				48D8C85C2A082CC200DCB09D /* TitleAndSecureField.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -556,6 +565,22 @@
 				48D8C8572A081F3A00DCB09D /* SignupPage.swift */,
 			);
 			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		48D8C8592A082B0100DCB09D /* SettingsPage */ = {
+			isa = PBXGroup;
+			children = (
+				48D8C85A2A082B4800DCB09D /* SettingsPage.swift */,
+			);
+			path = SettingsPage;
+			sourceTree = "<group>";
+		};
+		48D8C85E2A083D8300DCB09D /* BasicComponents */ = {
+			isa = PBXGroup;
+			children = (
+				48D8C85F2A083D9B00DCB09D /* ButtonPrimary.swift */,
+			);
+			path = BasicComponents;
 			sourceTree = "<group>";
 		};
 		48DC507129FB11F4009F3676 /* Refuel */ = {
@@ -749,9 +774,11 @@
 				48C234CB29FDBB530077166B /* AddExpenseViewModel.swift in Sources */,
 				48DC507329FB1204009F3676 /* AddRefuelView.swift in Sources */,
 				48CB9D4C29F05C9C006258C4 /* GetJWTEndpoint.swift in Sources */,
+				48D8C85B2A082B4800DCB09D /* SettingsPage.swift in Sources */,
 				48CD096829F705CC00975EAB /* CarServiceProtocol.swift in Sources */,
 				48BAF94029E74B6B00FB5527 /* CollapsableCardWithTitleView.swift in Sources */,
 				48BAF92829E7175C00FB5527 /* AddCarView.swift in Sources */,
+				48D8C8602A083D9B00DCB09D /* ButtonPrimary.swift in Sources */,
 				488F4AD729E4AA540062BF4B /* CacheEntry.swift in Sources */,
 				488F4ACC29E489130062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */,
 				484CBE9D2A053B01007AF611 /* Refuel.swift in Sources */,
@@ -795,6 +822,7 @@
 				48BAF94229E75E8B00FB5527 /* Binding+Extensions.swift in Sources */,
 				48BAF93229E7221E00FB5527 /* CarDetailsView.swift in Sources */,
 				48DC507629FB15ED009F3676 /* RefuelEndpoint.swift in Sources */,
+				48D8C85D2A082CC200DCB09D /* TitleAndSecureField.swift in Sources */,
 				48BCB60E29E46C8200F01A0E /* BackendEndpoint.swift in Sources */,
 				485E883B29F85B20007B3088 /* ExpenseEndpoint.swift in Sources */,
 				48BAF93629E73B9E00FB5527 /* ExpensesOverviewViewModel.swift in Sources */,
