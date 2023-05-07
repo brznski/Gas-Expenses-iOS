@@ -18,6 +18,9 @@ struct SignupPage: View {
     var body: some View {
         VStack {
             TitleAndIconHeaderView<EmptyView>(title: "sign.up")
+
+            Spacer()
+
             TitleAndTextField(title: "login",
                               textFieldValue: $username)
             TitleAndSecureField(title: "password",
@@ -28,6 +31,8 @@ struct SignupPage: View {
                               textFieldValue: $email)
             Toggle("remmember.me",
                    isOn: $shouldRemmemberUser)
+            
+            Spacer()
 
             ButtonPrimary {
                 Text("sign.up")
