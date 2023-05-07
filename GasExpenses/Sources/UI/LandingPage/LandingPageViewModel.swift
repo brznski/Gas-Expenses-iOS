@@ -28,7 +28,7 @@ final class LandingPageViewModel: ObservableObject {
         do {
             cars = try await carDataSource.getCars()
         } catch {
-            
+
         }
     }
 

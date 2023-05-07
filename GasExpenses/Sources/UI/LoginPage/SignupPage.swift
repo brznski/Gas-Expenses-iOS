@@ -31,7 +31,7 @@ struct SignupPage: View {
                               textFieldValue: $email)
             Toggle("remmember.me",
                    isOn: $shouldRemmemberUser)
-            
+
             Spacer()
 
             ButtonPrimary {

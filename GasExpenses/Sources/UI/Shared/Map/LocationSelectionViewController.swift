@@ -38,9 +38,9 @@ final class LocationSelectionViewController: UIViewController {
         return UILabel()
     }()
 
-    private let onSelectedLocalization: (CLLocationCoordinate2D) -> ()
+    private let onSelectedLocalization: (CLLocationCoordinate2D) -> Void
 
-    init(onSelectedLocalization: @escaping (CLLocationCoordinate2D) -> ()) {
+    init(onSelectedLocalization: @escaping (CLLocationCoordinate2D) -> Void) {
         self.onSelectedLocalization = onSelectedLocalization
         super.init(nibName: nil, bundle: nil)
     }

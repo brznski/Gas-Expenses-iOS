@@ -25,7 +25,7 @@ struct CarOverviewView: View {
                                 isSheetPresented.toggle()
                             }
                     }
-                    
+
                     if let models = carDataSource.cars {
                         ForEach(models) { model in
                             CarCardView(viewModel: .init(car: model,
