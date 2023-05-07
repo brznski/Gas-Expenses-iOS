@@ -2,6 +2,9 @@
 "add" = "Add";
 
 /* No comment provided by engineer. */
+"alert.delete.car" = "Are you sure that you want to delete car? All data will be lost.";
+
+/* No comment provided by engineer. */
 "amount" = "Amount";
 
 /* No comment provided by engineer. */
@@ -20,6 +23,9 @@
 "cars" = "Cars";
 
 /* No comment provided by engineer. */
+"category" = "Category";
+
+/* No comment provided by engineer. */
 "cost.per.unit" = "Cost per unit";
 
 /* No comment provided by engineer. */
@@ -32,10 +38,31 @@
 "date.to" = "To date";
 
 /* No comment provided by engineer. */
+"delete" = "Delete";
+
+/* No comment provided by engineer. */
+"email" = "Email";
+
+/* No comment provided by engineer. */
+"error.generic" = "Service is currently unavailable. Please try late.";
+
+/* No comment provided by engineer. */
+"error.notfound" = "Service is currently unavailable. Please try late.";
+
+/* No comment provided by engineer. */
+"error.server.unvailable" = "Service is currently unavailable. Please try late.";
+
+/* No comment provided by engineer. */
+"error.unauthorized" = "Username or password is wrong. Please try again.";
+
+/* No comment provided by engineer. */
 "expense.type" = "Expense type";
 
 /* No comment provided by engineer. */
 "expenses" = "Expenses";
+
+/* No comment provided by engineer. */
+"expenses.details" = "Expenses details";
 
 /* No comment provided by engineer. */
 "expenses.recent" = "Recent expenses";
@@ -71,6 +98,9 @@
 "landingpage.car.card.title" = "My car";
 
 /* No comment provided by engineer. */
+"login" = "Login";
+
+/* No comment provided by engineer. */
 "mileage" = "Mileage";
 
 /* No comment provided by engineer. */
@@ -89,7 +119,22 @@
 "my.title" = "My title";
 
 /* No comment provided by engineer. */
+"no" = "No";
+
+/* No comment provided by engineer. */
+"ok" = "Ok";
+
+/* No comment provided by engineer. */
+"open.map" = "Open map";
+
+/* No comment provided by engineer. */
 "pick" = "Pick";
+
+/* No comment provided by engineer. */
+"remmember.me" = "Remember me";
+
+/* No comment provided by engineer. */
+"repeat.password" = "Repeat password";
 
 /* No comment provided by engineer. */
 "see.more" = "See more";
@@ -98,5 +143,11 @@
 "select.photo" = "Select photo";
 
 /* No comment provided by engineer. */
+"sign.up" = "Sign up";
+
+/* No comment provided by engineer. */
 "title" = "Title";
+
+/* No comment provided by engineer. */
+"yes" = "Yes";
 

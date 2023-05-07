@@ -2,7 +2,10 @@
 "add" = "Dodaj";
 
 /* No comment provided by engineer. */
-"amount" = "Ilość";
+"alert.delete.car" = "Czy na pewno chcesz usunąć samochód? Wszystkie dane zostaną usunięte.";
+
+/* No comment provided by engineer. */
+"amount" = "Kwota";
 
 /* No comment provided by engineer. */
 "amount.from" = "Kwota od";
@@ -20,6 +23,9 @@
 "cars" = "Samocohdy";
 
 /* No comment provided by engineer. */
+"category" = "Kategoria";
+
+/* No comment provided by engineer. */
 "cost.per.unit" = "Koszt za jednostkę";
 
 /* No comment provided by engineer. */
@@ -32,10 +38,31 @@
 "date.to" = "Data do";
 
 /* No comment provided by engineer. */
+"delete" = "Usuń";
+
+/* No comment provided by engineer. */
+"email" = "E-mail";
+
+/* No comment provided by engineer. */
+"error.generic" = "Usługa tymczasowo niedostępna. Proszę spróbować później.";
+
+/* No comment provided by engineer. */
+"error.notfound" = "Usługa tymczasowo niedostępna. Proszę spróbować później.";
+
+/* No comment provided by engineer. */
+"error.server.unvailable" = "Usługa tymczasowo niedostępna. Proszę spróbować później.";
+
+/* No comment provided by engineer. */
+"error.unauthorized" = "Login lub hasło nie poprawne. Spróbuj ponownie.";
+
+/* No comment provided by engineer. */
 "expense.type" = "Typ wydatku";
 
 /* No comment provided by engineer. */
 "expenses" = "Wydatki";
+
+/* No comment provided by engineer. */
+"expenses.details" = "Sczegóły wydatku";
 
 /* No comment provided by engineer. */
 "expenses.recent" = "Ostatnie wydatki";
@@ -71,6 +98,9 @@
 "landingpage.car.card.title" = "Mój samochód";
 
 /* No comment provided by engineer. */
+"login" = "Zaloguj się";
+
+/* No comment provided by engineer. */
 "mileage" = "Przebieg";
 
 /* No comment provided by engineer. */
@@ -89,7 +119,25 @@
 "my.title" = "Mój tytuł";
 
 /* No comment provided by engineer. */
+"no" = "Nie";
+
+/* No comment provided by engineer. */
+"ok" = "Ok";
+
+/* No comment provided by engineer. */
+"open.map" = "Otwórz mapę";
+
+/* No comment provided by engineer. */
+"password" = "Hasło";
+
+/* No comment provided by engineer. */
 "pick" = "Wybierz";
+
+/* No comment provided by engineer. */
+"remmember.me" = "Zapamiętaj mnie";
+
+/* No comment provided by engineer. */
+"repeat.password" = "Powtórz hasło";
 
 /* No comment provided by engineer. */
 "see.more" = "Zobacz więcej";
@@ -98,5 +146,11 @@
 "select.photo" = "Wybierz zdjęcie";
 
 /* No comment provided by engineer. */
+"sign.up" = "Utwórz konto";
+
+/* No comment provided by engineer. */
 "title" = "Tytuł";
+
+/* No comment provided by engineer. */
+"yes" = "Tak";
 

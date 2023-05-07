@@ -15,7 +15,7 @@ struct LoginMainPage: View {
                                              password: "",
                                              email: "")
     @State var shouldRemmemberUser: Bool = false
-    @State var isLoading: Bool = true
+    @State var isLoading: Bool = false
     @State var shouldShowAlert: Bool = false
     @State var errorMessage: LocalizedStringKey = ""
     @EnvironmentObject var userManager: UserManager
