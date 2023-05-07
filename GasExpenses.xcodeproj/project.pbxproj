@@ -19,6 +19,8 @@
 		485E883B29F85B20007B3088 /* ExpenseEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E883A29F85B20007B3088 /* ExpenseEndpoint.swift */; };
 		485E883D29F85B68007B3088 /* ExpenseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E883C29F85B68007B3088 /* ExpenseServiceProtocol.swift */; };
 		485E883F29F85B81007B3088 /* ExpenseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E883E29F85B81007B3088 /* ExpenseService.swift */; };
+		4879B8932A06F561003337D6 /* LocationSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4879B8922A06F561003337D6 /* LocationSelectionView.swift */; };
+		4879B8952A06F5B3003337D6 /* LocationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4879B8942A06F5B3003337D6 /* LocationSelectionViewController.swift */; };
 		488F4ACC29E489130062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4ACB29E489130062BF4B /* SelectedCarDataStoreProtocol.swift */; };
 		488F4ACD29E4893F0062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4ACB29E489130062BF4B /* SelectedCarDataStoreProtocol.swift */; };
 		488F4AD029E489590062BF4B /* SelectedCarMockDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488F4ACF29E489590062BF4B /* SelectedCarMockDataStore.swift */; };
@@ -128,6 +130,8 @@
 		485E883A29F85B20007B3088 /* ExpenseEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseEndpoint.swift; sourceTree = "<group>"; };
 		485E883C29F85B68007B3088 /* ExpenseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseServiceProtocol.swift; sourceTree = "<group>"; };
 		485E883E29F85B81007B3088 /* ExpenseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseService.swift; sourceTree = "<group>"; };
+		4879B8922A06F561003337D6 /* LocationSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionView.swift; sourceTree = "<group>"; };
+		4879B8942A06F5B3003337D6 /* LocationSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionViewController.swift; sourceTree = "<group>"; };
 		488F4ACB29E489130062BF4B /* SelectedCarDataStoreProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCarDataStoreProtocol.swift; sourceTree = "<group>"; };
 		488F4ACF29E489590062BF4B /* SelectedCarMockDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCarMockDataStore.swift; sourceTree = "<group>"; };
 		488F4AD429E4A2D10062BF4B /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				484CBE922A052CB9007AF611 /* ExpenseTypeMapAnnotation.swift */,
+				4879B8922A06F561003337D6 /* LocationSelectionView.swift */,
+				4879B8942A06F5B3003337D6 /* LocationSelectionViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -745,6 +751,7 @@
 				484CBEA02A058F89007AF611 /* CarDetailsViewModel.swift in Sources */,
 				48BAF92F29E71F0D00FB5527 /* FuelTypeIcon.swift in Sources */,
 				484CBE972A053A89007AF611 /* Expense.swift in Sources */,
+				4879B8952A06F5B3003337D6 /* LocationSelectionViewController.swift in Sources */,
 				485E883F29F85B81007B3088 /* ExpenseService.swift in Sources */,
 				48CB9D5929F07718006258C4 /* JWTResponse.swift in Sources */,
 				48BAF92629E7160500FB5527 /* CarOverviewView.swift in Sources */,
@@ -765,6 +772,7 @@
 				48BDB53629E9CC7300B9D269 /* TitleAndTextField.swift in Sources */,
 				48BDB53429E9C8F800B9D269 /* AddExpenseView.swift in Sources */,
 				48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */,
+				4879B8932A06F561003337D6 /* LocationSelectionView.swift in Sources */,
 				48BAF94229E75E8B00FB5527 /* Binding+Extensions.swift in Sources */,
 				48BAF93229E7221E00FB5527 /* CarDetailsView.swift in Sources */,
 				48DC507629FB15ED009F3676 /* RefuelEndpoint.swift in Sources */,

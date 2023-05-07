@@ -13,7 +13,15 @@ import MapKit
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
 
-    @Published var location: CLLocationCoordinate2D?
+    @Published var location: CLLocationCoordinate2D? {
+        didSet {
+            if let location {
+                region = .init(center: location,
+                               latitudinalMeters: 700,
+                               longitudinalMeters: 700)
+            }
+        }
+    }
     @Published var region: MKCoordinateRegion?
 
     override init() {
@@ -114,6 +122,12 @@ struct AddRefuelView: View {
                     .foregroundColor(.white)
                     .padding()
 
+                    NavigationLink(destination: LocationSelectionView(onSelectedLocalization: { coordinate in
+                        locationManager.location = coordinate
+                    })) {
+                        Text("open.map")
+                    }
+
                     Button {
                         viewModel.usersLocation = locationManager.location
                         viewModel.addRefuel()
@@ -134,8 +148,6 @@ struct AddRefuelView: View {
             }
             .onAppear {
                 locationManager.requestLocation()
-                print("")
-                print("")
             }
             .padding()
         }
