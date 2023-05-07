@@ -78,37 +78,41 @@ struct LoginMainPage: View {
                 userManager.user = userCredentials
                 _ = try await AccessTokenManager.shared.getJWTToken()
                 if shouldRemmemberUser {
-                    let data = try JSONEncoder().encode(userCredentials)
-                    UserDefaults.standard.set(data, forKey: "user.credentials")
+                    try remmemberUser()
                 }
                 isLoading = false
                 userManager.isUserLoggedIn = true
             } catch {
-                if let networkError = error as? NetworkEngineError {
-                    switch networkError {
-                    case .decodeError:
-                        errorMessage = "error.generic"
-                    case .unauthorized:
-                        errorMessage = "error.unauthorized"
-                    case .notFound:
-                        errorMessage = "error.notfound"
-                    case .serverUnavailable:
-                        errorMessage = "error.server.unvailable"
-                    case .other:
-                        errorMessage = "error.generic"
-                    }
-                } else {
-                    errorMessage = "error.generic"
-                }
-
-                shouldShowAlert = true
-                isLoading = false
+                handleError(error)
             }
         }
     }
 
-    private func handleError() {
+    private func remmemberUser() throws {
+        let data = try JSONEncoder().encode(userCredentials)
+        UserDefaults.standard.set(data, forKey: "user.credentials")
+    }
 
+    private func handleError(_ error: Error) {
+        if let networkError = error as? NetworkEngineError {
+            switch networkError {
+            case .decodeError:
+                errorMessage = "error.generic"
+            case .unauthorized:
+                errorMessage = "error.unauthorized"
+            case .notFound:
+                errorMessage = "error.notfound"
+            case .serverUnavailable:
+                errorMessage = "error.server.unvailable"
+            case .other:
+                errorMessage = "error.generic"
+            }
+        } else {
+            errorMessage = "error.generic"
+        }
+
+        shouldShowAlert = true
+        isLoading = false
     }
 }
 
