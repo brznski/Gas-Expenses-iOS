@@ -9,12 +9,14 @@ import SwiftUI
 
 struct TitleAndSecureField: View {
     let title: LocalizedStringKey
+    let inputAutocapitalization: TextInputAutocapitalization = .never
     @Binding var textFieldValue: String
 
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
             SecureField("", text: $textFieldValue)
+                .textInputAutocapitalization(inputAutocapitalization)
                 .textFieldStyle(.roundedBorder)
         }
     }
