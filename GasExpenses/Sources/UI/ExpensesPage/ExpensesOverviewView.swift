@@ -35,13 +35,14 @@ struct ExpensesOverviewView: View {
                             }
                         }
 
-                        CardWithTitleView(title: LocalizedStringKey("expenses.recent"),
-                                          alignment: .leading) {
-                            Text(viewModel.getLastMonthExpenses().currencyString() ?? "")
-                                .font(.largeTitle)
-                                .bold()
-                                .padding()
-                        }
+                            CardWithTitleView(title: LocalizedStringKey("expenses.recent"),
+                                              alignment: .leading) {
+                                Text($viewModel.lastMonthExpenses.wrappedValue.currencyString() ?? "")
+                                    .font(.largeTitle)
+                                    .bold()
+                                    .padding()
+                            }
+
                         ExpensesFilterSection(viewModel: viewModel)
 
                         ForEach($viewModel.groupedExpenses) { monthExpenses in
@@ -59,9 +60,9 @@ struct ExpensesOverviewView: View {
             .onAppear {
                 Task {
                     do {
-                        try await viewModel.getCars()
                         try await viewModel.getExpenses()
                         viewModel.groupExpenses()
+                        viewModel.getLastMonthExpenses()
                     } catch {
 
                     }
