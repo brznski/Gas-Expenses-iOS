@@ -48,7 +48,9 @@ struct ExpensesFilterSection: View {
                     ForEach(prepareFilters(), id: \.self) { filter in
                         Text(filter.text)
                         Button {
-                            filter.onDelete()
+                            withAnimation {
+                                filter.onDelete()
+                            }
                         } label: {
                             Image(systemName: "xmark.circle.fill")
                         }
@@ -63,7 +65,6 @@ struct ExpensesFilterSection: View {
 
     private func prepareFilters() -> [ExpenceFilterElement] {
         var stringArray = [ExpenceFilterElement]()
-//
         if !viewModel.filters.amountFrom.isEmpty {
             stringArray.append(.init(text: "Above \(viewModel.filters.amountFrom)", onDelete: {
                 viewModel.filters.amountFrom = ""
