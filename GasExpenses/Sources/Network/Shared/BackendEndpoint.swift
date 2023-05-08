@@ -30,7 +30,7 @@ extension BackendEndpoint {
             }
         }
 
-        var request = URLRequest(url: components.url!)
+        var request = URLRequest(url: components.url!, timeoutInterval: 5)
         request.httpBody = bodyData
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
