@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ExpensesOverviewView: View {
-
     @State var isShowingFilterSheet = false
     @State var isShowingAddExpenseSheet = false
     @State var isShowingCarSelectSheet = false
@@ -70,11 +69,19 @@ struct ExpensesOverviewView: View {
             }
         }
         .sheet(isPresented: $isShowingAddExpenseSheet) {
+            Task {
+                do {
+                    try await viewModel.getExpenses()
+                    viewModel.groupExpenses()
+                    viewModel.getLastMonthExpenses()
+                }
+            }
+        } content: {
             AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: CarDataSource(carService: CarService()),
                                                           expenseService: ExpenseService(),
                                                           carID: viewModel.carID))
         }
-    }
+        }
 }
 
 struct ExpensesOverviewView_Previews: PreviewProvider {
