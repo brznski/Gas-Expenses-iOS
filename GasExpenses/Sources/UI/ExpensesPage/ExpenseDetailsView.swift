@@ -20,18 +20,20 @@ struct MapLocation: Identifiable {
 
 struct ExpenseDetailsView: View {
 
-    let mapLocations = [
-            MapLocation(name: "St Francis Memorial Hospital", latitude: 37.789467, longitude: -122.416772),
-            MapLocation(name: "The Ritz-Carlton, San Francisco", latitude: 37.791965, longitude: -122.406903),
-            MapLocation(name: "Honey Honey Cafe & Crepery", latitude: 37.787891, longitude: -122.411223)
-            ]
+    private var mapLocations: [MapLocation] {
+        [
+            MapLocation(name: expense.title,
+                        latitude: expense.latitude ?? 0,
+                        longitude: expense.longitude ?? 0)
+        ]
+    }
 
     let expense: Expense
 
     @State private var region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(
-                    latitude: 37.789467,
-                    longitude: -122.416772),
+                    latitude: 0,
+                    longitude: 0),
                 span: MKCoordinateSpan(
                     latitudeDelta: 0.01,
                     longitudeDelta: 0.01)
@@ -54,22 +56,33 @@ struct ExpenseDetailsView: View {
                                              value: expense.date.dateFromJSON()?.dayAndMonthString() ?? "")
                         ExpenseDetailRowInfo(key: "category",
                                              value: expense.expenseType.rawValue.capitalized)
+                    }
+                }
 
-                        CardWithTitleView(title: "map") {
-                            Map(coordinateRegion: $region,
-                                showsUserLocation: true,
-                                annotationItems: mapLocations) { location in
-                                MapAnnotation(coordinate: location.coordinate) {
-                                    Image(systemName: "fuelpump.circle.fill")
-                                        .tint(.ui.action)
-                                    Text("\(location.name)")
-                                }
+                if expense.latitude != nil && expense.longitude != nil {
+                    CardWithTitleView(title: "map") {
+                        Map(coordinateRegion: $region,
+                            showsUserLocation: true,
+                            annotationItems: mapLocations) { location in
+                            MapAnnotation(coordinate: location.coordinate) {
+                                ExpenseTypeIcon(expenseType: expense.expenseType)
+                                Text("\(location.name)")
                             }
-                                .frame(minHeight: 300)
                         }
+                            .frame(minHeight: 300)
                     }
                 }
             }
+        }
+        .onAppear {
+            region = MKCoordinateRegion(
+                center: CLLocationCoordinate2D(
+                    latitude: expense.latitude ?? 0,
+                    longitude: expense.longitude ?? 0),
+                span: MKCoordinateSpan(
+                    latitudeDelta: 0.01,
+                    longitudeDelta: 0.01)
+                )
         }
     }
 }

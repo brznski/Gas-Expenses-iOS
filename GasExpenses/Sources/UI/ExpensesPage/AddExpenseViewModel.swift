@@ -13,6 +13,8 @@ final class AddExpenseViewModel: ObservableObject {
     @Published var amount: String = ""
     @Published var date: Date = .now
     @Published var expenseType: String = ""
+    @Published var latitude: Double?
+    @Published var longitude: Double?
 
     private let carDataStore: CarDataSource
     private let expenseService: ExpenseServiceProtocol
@@ -36,8 +38,8 @@ final class AddExpenseViewModel: ObservableObject {
                                                                    title: title,
                                                                    date: date.JSONDate(),
                                                                    expenseType: ExpenseType(rawValue: expenseType)!,
-                                                                   latitude: 0,
-                                                                   longitude: 0))
+                                                                   latitude: latitude,
+                                                                   longitude: longitude))
             }
         }
     }

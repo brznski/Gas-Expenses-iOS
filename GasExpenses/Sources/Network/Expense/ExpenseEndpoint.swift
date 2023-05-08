@@ -27,7 +27,9 @@ struct AddExpenseEndpoint: BackendEndpoint {
             "amount": expense.amount,
             "title": expense.title,
             "date": expense.date,
-            "expenseType": expense.expenseType.rawValue
+            "expenseType": expense.expenseType.rawValue,
+            "longitude": expense.longitude as Any,
+            "latitude": expense.latitude as Any
         ]
     ]
     }
