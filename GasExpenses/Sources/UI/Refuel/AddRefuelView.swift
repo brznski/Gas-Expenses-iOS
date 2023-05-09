@@ -88,6 +88,8 @@ struct AddRefuelView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var carDataSource: CarDataSource
 
+    @State var pin: [Location] = []
+
     var body: some View {
         ScrollView {
             ZStack {
@@ -107,7 +109,11 @@ struct AddRefuelView: View {
                     if let region = $locationManager.region,
                        region.wrappedValue != nil {
                         Map(coordinateRegion: region.toUnwrapped(defaultValue: .init(.world)),
-                            showsUserLocation: true)
+                            showsUserLocation: true,
+                            annotationItems: pin) {
+                            MapMarker(coordinate: .init(latitude: $0.latitude,
+                                                     longitude: $0.longitude))
+                        }
                             .frame(height: 300)
                             .cornerRadius(8)
                             .padding()
@@ -116,6 +122,9 @@ struct AddRefuelView: View {
 
                     LocationButton(.shareMyCurrentLocation) {
                         locationManager.requestLocation()
+                        pin.removeAll()
+                        pin.append(.init(latitude: locationManager.location?.latitude ?? 0,
+                                         longitude: locationManager.location?.longitude ?? 0))
                     }
                     .cornerRadius(8)
                     .frame(height: 44)
@@ -124,6 +133,10 @@ struct AddRefuelView: View {
 
                     NavigationLink(destination: LocationSelectionView(onSelectedLocalization: { coordinate in
                         locationManager.location = coordinate
+                        viewModel.usersLocation = coordinate
+                        pin.removeAll()
+                        pin.append(.init(latitude: coordinate.latitude,
+                                         longitude: coordinate.longitude))
                     })) {
                         Text("open.map")
                     }

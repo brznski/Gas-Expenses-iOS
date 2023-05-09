@@ -14,6 +14,7 @@ struct AddExpenseView: View {
     @ObservedObject var viewModel: AddExpenseViewModel
     @Environment(\.dismiss) var dismiss
 
+    @State var pin: [Location] = []
     @State var showCardSelectionSheet = false
 
     var body: some View {
@@ -50,7 +51,11 @@ struct AddExpenseView: View {
                         if let region = $locationManager.region,
                            region.wrappedValue != nil {
                             Map(coordinateRegion: region.toUnwrapped(defaultValue: .init(.world)),
-                                showsUserLocation: true)
+                                showsUserLocation: true,
+                                annotationItems: pin) {
+                                MapMarker(coordinate: .init(latitude: $0.latitude,
+                                                         longitude: $0.longitude))
+                            }
                             .frame(height: 300)
                             .cornerRadius(8)
                             .padding()
@@ -58,6 +63,9 @@ struct AddExpenseView: View {
 
                         LocationButton(.shareMyCurrentLocation) {
                             locationManager.requestLocation()
+                            pin.removeAll()
+                            pin.append(.init(latitude: locationManager.location?.latitude ?? 0,
+                                             longitude: locationManager.location?.longitude ?? 0))
                         }
                         .cornerRadius(8)
                         .frame(height: 44)
@@ -68,6 +76,9 @@ struct AddExpenseView: View {
                             locationManager.location = coordinate
                             viewModel.latitude = coordinate.latitude
                             viewModel.longitude = coordinate.longitude
+                            pin.removeAll()
+                            pin.append(.init(latitude: coordinate.latitude,
+                                             longitude: coordinate.longitude))
                         })) {
                             Text("open.map")
                         }
