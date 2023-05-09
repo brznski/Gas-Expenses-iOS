@@ -74,3 +74,9 @@ extension Car {
                           fuelType: .pb95,
                           isFavourite: true, imageBase64: "")
 }
+
+extension Car: Equatable {
+    static func == (lhs: Car, rhs: Car) -> Bool {
+        lhs.id == rhs.id
+    }
+}

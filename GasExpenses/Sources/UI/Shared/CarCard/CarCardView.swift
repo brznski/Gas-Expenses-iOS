@@ -15,6 +15,7 @@ enum CarCardContext {
 struct CarCardView: View {
     @ObservedObject var viewModel: CarCardViewModel
     @State var shouldShowSheet: Bool = false
+    @EnvironmentObject var carDataSource: CarDataSource
 
     let cardContext: CarCardContext
     var onChevronDownTap: (() -> Void)? = {}
@@ -36,6 +37,7 @@ struct CarCardView: View {
                                 Button {
                                     viewModel.model?.isFavourite.toggle()
                                     viewModel.setFavouriteCar()
+                                    carDataSource.setFavouriteCar(carID: viewModel.model?.id ?? -1)
                                 } label: {
                                     Image(systemName: viewModel.model!.isFavourite ? "heart.fill" : "heart")
                                         .foregroundColor(.ui.action)

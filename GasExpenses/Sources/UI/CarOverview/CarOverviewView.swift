@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CarOverviewView: View {
     @State var isSheetPresented = false
-    @State var cars: [Car]?
     @EnvironmentObject var carDataSource: CarDataSource
 
     var body: some View {
@@ -26,7 +25,7 @@ struct CarOverviewView: View {
                             }
                     }
 
-                    if let models = carDataSource.cars {
+                    if let models = $carDataSource.cars.wrappedValue {
                         ForEach(models) { model in
                             CarCardView(viewModel: .init(car: model,
                                                          carService: CarService()),

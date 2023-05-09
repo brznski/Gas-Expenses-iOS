@@ -39,6 +39,25 @@ final class CarDataSource: ObservableObject {
         return cars.first { $0.isFavourite }
     }
 
+    func setFavouriteCar(carID: Int) {
+        var carList = [Car]()
+
+        cars.forEach { car in
+            var car = car
+            car.isFavourite = false
+            carList.append(car)
+        }
+
+        if var newFavouriteCar = carList.first(where: { $0.id == carID }) {
+            newFavouriteCar.isFavourite = true
+            let indexOfNewFavouriteCar = carList.firstIndex(of: newFavouriteCar)
+            carList[indexOfNewFavouriteCar!] = newFavouriteCar
+        }
+
+        cars = carList
+        setSelectedCar()
+    }
+
     private func setSelectedCar() {
         DispatchQueue.main.async { [weak self] in
             self?.selectedCar = self?.cars.first { $0.isFavourite }

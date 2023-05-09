@@ -59,7 +59,7 @@ struct SetFavouriteCarEndpoint: BackendEndpoint {
     let carID: Int
 
     var path: String = "car/change-favourite"
-    var method: HTTPMethod = .GET
+    var method: HTTPMethod = .POST
     var payload: [String: Any] {
         [
             "carID": carID
