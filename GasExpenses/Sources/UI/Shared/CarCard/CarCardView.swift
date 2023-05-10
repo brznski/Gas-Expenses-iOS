@@ -62,6 +62,15 @@ struct CarCardView: View {
                         CarCardInfoRow(configuration: carInfo.wrappedValue)
                     }
 
+                    if $viewModel.carInfoRows.isEmpty {
+                        HStack {
+                            Spacer()
+                            Text("car.card.refuel.empty")
+                                .opacity(0.5)
+                            Spacer()
+                        }
+                    }
+
                     HStack {
                         Spacer()
                         NavigationLink {
