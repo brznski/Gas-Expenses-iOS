@@ -31,7 +31,6 @@ struct CarCardView: View {
                             Text(viewModel.model?.name ?? "")
                                 .font(.title2).bold()
                                 .padding()
-                            Spacer()
 
                             if cardContext == .carOverview {
                                 Button {
