@@ -54,6 +54,9 @@
 		48BCB61E29E4879200F01A0E /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB61B29E4837500F01A0E /* Double+Extensions.swift */; };
 		48BDB53429E9C8F800B9D269 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB53329E9C8F800B9D269 /* AddExpenseView.swift */; };
 		48BDB53629E9CC7300B9D269 /* TitleAndTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB53529E9CC7300B9D269 /* TitleAndTextField.swift */; };
+		48BFAE872A0A5DFE0021644E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BFAE862A0A5DFE0021644E /* CameraView.swift */; };
+		48C1331D2A0B8C3D007C84B0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C1331C2A0B8C3D007C84B0 /* UserService.swift */; };
+		48C1331F2A0B8C48007C84B0 /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C1331E2A0B8C48007C84B0 /* UserEndpoint.swift */; };
 		48C234CB29FDBB530077166B /* AddExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C234CA29FDBB530077166B /* AddExpenseViewModel.swift */; };
 		48C234CD29FDC4730077166B /* NetworkEngineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C234CC29FDC4730077166B /* NetworkEngineError.swift */; };
 		48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921629E1E23300FA149A /* CarDataSource.swift */; };
@@ -169,6 +172,9 @@
 		48BCB61B29E4837500F01A0E /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		48BDB53329E9C8F800B9D269 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		48BDB53529E9CC7300B9D269 /* TitleAndTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndTextField.swift; sourceTree = "<group>"; };
+		48BFAE862A0A5DFE0021644E /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		48C1331C2A0B8C3D007C84B0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		48C1331E2A0B8C48007C84B0 /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
 		48C234CA29FDBB530077166B /* AddExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewModel.swift; sourceTree = "<group>"; };
 		48C234CC29FDC4730077166B /* NetworkEngineError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngineError.swift; sourceTree = "<group>"; };
 		48C2921629E1E23300FA149A /* CarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDataSource.swift; sourceTree = "<group>"; };
@@ -319,6 +325,7 @@
 		48BA579429E36B470003D60D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				48C1331B2A0B8C2F007C84B0 /* User */,
 				48DC507429FB15DE009F3676 /* Refuel */,
 				48CB9D5129F06142006258C4 /* AccesToken */,
 				48CD096429F704C600975EAB /* Car */,
@@ -372,6 +379,23 @@
 				48CD096B29F7185C00975EAB /* String+Extensions.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		48BFAE852A0A5DF00021644E /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				48BFAE862A0A5DFE0021644E /* CameraView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		48C1331B2A0B8C2F007C84B0 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				48C1331C2A0B8C3D007C84B0 /* UserService.swift */,
+				48C1331E2A0B8C48007C84B0 /* UserEndpoint.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		48C2921529E1E22200FA149A /* Service */ = {
@@ -532,6 +556,7 @@
 		48D1138F29E1D396009A2ED6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				48BFAE852A0A5DF00021644E /* Camera */,
 				48D8C85E2A083D8300DCB09D /* BasicComponents */,
 				484CBE912A052CA8007AF611 /* Map */,
 				48D1139229E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift */,
@@ -798,6 +823,7 @@
 				484CBEA02A058F89007AF611 /* CarDetailsViewModel.swift in Sources */,
 				48BAF92F29E71F0D00FB5527 /* FuelTypeIcon.swift in Sources */,
 				484CBE972A053A89007AF611 /* Expense.swift in Sources */,
+				48C1331F2A0B8C48007C84B0 /* UserEndpoint.swift in Sources */,
 				4879B8952A06F5B3003337D6 /* LocationSelectionViewController.swift in Sources */,
 				485E883F29F85B81007B3088 /* ExpenseService.swift in Sources */,
 				48CB9D5929F07718006258C4 /* JWTResponse.swift in Sources */,
@@ -824,6 +850,7 @@
 				4879B8932A06F561003337D6 /* LocationSelectionView.swift in Sources */,
 				48BAF94229E75E8B00FB5527 /* Binding+Extensions.swift in Sources */,
 				48BAF93229E7221E00FB5527 /* CarDetailsView.swift in Sources */,
+				48BFAE872A0A5DFE0021644E /* CameraView.swift in Sources */,
 				48D8C8622A08408100DCB09D /* ButtonSecondary.swift in Sources */,
 				48DC507629FB15ED009F3676 /* RefuelEndpoint.swift in Sources */,
 				48D8C85D2A082CC200DCB09D /* TitleAndSecureField.swift in Sources */,
@@ -843,6 +870,7 @@
 				48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */,
 				488F4AD529E4A2D10062BF4B /* Cache.swift in Sources */,
 				48BA579629E36B510003D60D /* NetworkEngine.swift in Sources */,
+				48C1331D2A0B8C3D007C84B0 /* UserService.swift in Sources */,
 				48BCB60C29E46C6D00F01A0E /* Endpoint.swift in Sources */,
 				48B3C56129E605C400612195 /* ExpensesFilterSection.swift in Sources */,
 				48D1138429E1CD02009A2ED6 /* Car.swift in Sources */,
@@ -1036,6 +1064,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GasExpenses/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed for scanning recipts/taking photos of cars.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1067,6 +1096,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GasExpenses/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed for scanning recipts/taking photos of cars.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
