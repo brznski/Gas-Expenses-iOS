@@ -95,6 +95,7 @@
 		48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139829E1D919009A2ED6 /* ImageWithGradientView.swift */; };
 		48D1139B29E1DA46009A2ED6 /* CarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139A29E1DA46009A2ED6 /* CarCardView.swift */; };
 		48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139D29E1DAB7009A2ED6 /* CarCardViewModel.swift */; };
+		48D5256B2A0C1630007A866D /* OnboardingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D5256A2A0C1630007A866D /* OnboardingMainView.swift */; };
 		48D8C8542A0806F500DCB09D /* LoginMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C8532A0806F500DCB09D /* LoginMainPage.swift */; };
 		48D8C8562A08089D00DCB09D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C8552A08089D00DCB09D /* UserManager.swift */; };
 		48D8C8582A081F3A00DCB09D /* SignupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8C8572A081F3A00DCB09D /* SignupPage.swift */; };
@@ -213,6 +214,7 @@
 		48D1139829E1D919009A2ED6 /* ImageWithGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithGradientView.swift; sourceTree = "<group>"; };
 		48D1139A29E1DA46009A2ED6 /* CarCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCardView.swift; sourceTree = "<group>"; };
 		48D1139D29E1DAB7009A2ED6 /* CarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCardViewModel.swift; sourceTree = "<group>"; };
+		48D5256A2A0C1630007A866D /* OnboardingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMainView.swift; sourceTree = "<group>"; };
 		48D8C8532A0806F500DCB09D /* LoginMainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMainPage.swift; sourceTree = "<group>"; };
 		48D8C8552A08089D00DCB09D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		48D8C8572A081F3A00DCB09D /* SignupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPage.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 		48D1138B29E1D353009A2ED6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				48D5256C2A0C18FD007A866D /* Onboarding */,
 				48D8C8592A082B0100DCB09D /* SettingsPage */,
 				48D8C8522A0806E400DCB09D /* LoginPage */,
 				48BAF93029E7220F00FB5527 /* CarDetails */,
@@ -583,6 +586,14 @@
 				48C2921E29E1E4A600FA149A /* CarCardInfoRow.swift */,
 			);
 			path = CarCard;
+			sourceTree = "<group>";
+		};
+		48D5256C2A0C18FD007A866D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				48D5256A2A0C1630007A866D /* OnboardingMainView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		48D8C8522A0806E400DCB09D /* LoginPage */ = {
@@ -861,6 +872,7 @@
 				48D1139729E1D669009A2ED6 /* Color+Extensions.swift in Sources */,
 				484CBE952A052D50007AF611 /* ExpenseTypeIcon.swift in Sources */,
 				48C2922D29E1FA3A00FA149A /* ActionCard.swift in Sources */,
+				48D5256B2A0C1630007A866D /* OnboardingMainView.swift in Sources */,
 				48C2921F29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift in Sources */,
 				48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */,
 				485E883D29F85B68007B3088 /* ExpenseServiceProtocol.swift in Sources */,

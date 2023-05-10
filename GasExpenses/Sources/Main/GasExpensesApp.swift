@@ -12,6 +12,7 @@ struct GasExpensesApp: App {
     @State var selectedTab = "home"
     @StateObject var carDataSource: CarDataSource = .init(carService: CarService())
     @StateObject var userManager = UserManager.shared
+    @AppStorage("onboardingWasShown") private var shouldShowOnboarding = true
 
     var body: some Scene {
         WindowGroup {
@@ -48,6 +49,8 @@ struct GasExpensesApp: App {
                         }
                     }
                     .tint(Color.ui.action)
+                } else if $shouldShowOnboarding.wrappedValue {
+                    OnboardingMainView()
                 } else {
                     LoginMainPage(loginService: JWTService())
                 }
