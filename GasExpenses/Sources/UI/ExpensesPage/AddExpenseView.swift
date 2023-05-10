@@ -16,16 +16,22 @@ struct AddExpenseView: View {
 
     @State var pin: [Location] = []
     @State var showCardSelectionSheet = false
+    @State var documentPhoto: Data?
+    @State var commnent: String = ""
 
     var body: some View {
-        NavigationView {
+
+        ZStack {
+            Color.ui.background
+                .ignoresSafeArea()
             ScrollView {
-                ZStack {
-                    Color.ui.background
-                        .ignoresSafeArea()
-                    VStack {
+                VStack {
+                    Group {
                         TitleAndTextField(title: "title",
                                           textFieldValue: $viewModel.title)
+                        TitleAndTextField(title: "comment",
+                                          textFieldValue: $commnent
+                        )
                         TitleAndTextField(title: "amount",
                                           textFieldValue: $viewModel.amount)
 
@@ -41,27 +47,29 @@ struct AddExpenseView: View {
                             }
                             .tint(Color.ui.action)
                         }
+                    }
 
-                        DatePicker("date", selection: $viewModel.date,
-                                   displayedComponents: [.date])
-                        .tint(Color.ui.action)
-                        .datePickerStyle(.graphical)
-                        Spacer()
+                    DatePicker("date", selection: $viewModel.date,
+                               displayedComponents: [.date])
+                    .tint(Color.ui.action)
+                    .datePickerStyle(.graphical)
+                    Spacer()
 
-                        if let region = $locationManager.region,
-                           region.wrappedValue != nil {
-                            Map(coordinateRegion: region.toUnwrapped(defaultValue: .init(.world)),
-                                showsUserLocation: true,
-                                annotationItems: pin) {
-                                MapMarker(coordinate: .init(latitude: $0.latitude,
-                                                         longitude: $0.longitude))
-                            }
+                    if let region = $locationManager.region,
+                       region.wrappedValue != nil {
+                        Map(coordinateRegion: region.toUnwrapped(defaultValue: .init(.world)),
+                            showsUserLocation: true,
+                            annotationItems: pin) {
+                            MapMarker(coordinate: .init(latitude: $0.latitude,
+                                                        longitude: $0.longitude))
+                        }
                             .frame(height: 300)
                             .cornerRadius(8)
                             .padding()
-                        }
+                    }
 
-                        LocationButton(.shareMyCurrentLocation) {
+                    HStack {
+                        LocationButton(.currentLocation) {
                             locationManager.requestLocation()
                             pin.removeAll()
                             pin.append(.init(latitude: locationManager.location?.latitude ?? 0,
@@ -71,27 +79,47 @@ struct AddExpenseView: View {
                         .frame(height: 44)
                         .foregroundColor(.white)
                         .padding()
-
-                        NavigationLink(destination: LocationSelectionView(onSelectedLocalization: { coordinate in
+                        .tint(.ui.action)
+                        NavigationLink(destination: LocationSelectionView { coordinate in
                             locationManager.location = coordinate
                             viewModel.latitude = coordinate.latitude
                             viewModel.longitude = coordinate.longitude
                             pin.removeAll()
                             pin.append(.init(latitude: coordinate.latitude,
                                              longitude: coordinate.longitude))
-                        })) {
-                            Text("open.map")
-                        }
-
-                        ButtonPrimary {
-                            Text("add")
-                        } action: {
-                            viewModel.addExpense()
-                            dismiss()
+                        }) {
+                            Label("open.map", systemImage: "map")
+                                .padding([.all], 10)
+                                .background(Color.ui.action)
+                                .tint(.white)
+                                .cornerRadius(8)
                         }
                     }
-                    .padding()
+
+                    if let documentPhotoData = $documentPhoto.wrappedValue {
+                        Image(uiImage: .init(data: documentPhotoData)!)
+                            .resizable()
+                            .scaledToFit()
+                    }
+
+                    NavigationLink(destination: CameraView(onPhotoSelected: { data in
+                        documentPhoto = data
+                    })) {
+                        Label("add.document.photo", systemImage: "doc")
+                            .padding([.all], 10)
+                            .background(Color.ui.action)
+                            .tint(.white)
+                            .cornerRadius(8)
+                    }
+
+                    ButtonPrimary {
+                        Text("add")
+                    } action: {
+                        viewModel.addExpense()
+                        dismiss()
+                    }
                 }
+                .padding()
             }
         }
     }
