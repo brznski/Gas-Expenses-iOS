@@ -131,13 +131,13 @@ struct AddRefuelView: View {
                     .foregroundColor(.white)
                     .padding()
 
-                    NavigationLink(destination: LocationSelectionView(onSelectedLocalization: { coordinate in
+                    NavigationLink(destination: LocationSelectionView { coordinate in
                         locationManager.location = coordinate
                         viewModel.usersLocation = coordinate
                         pin.removeAll()
                         pin.append(.init(latitude: coordinate.latitude,
                                          longitude: coordinate.longitude))
-                    })) {
+                    }) {
                         Text("open.map")
                     }
 
