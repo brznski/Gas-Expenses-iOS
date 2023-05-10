@@ -37,10 +37,50 @@ struct SignupPage: View {
             ButtonPrimary {
                 Text("sign.up")
             } action: {
-
+                signup()
             }
         }
         .padding()
+    }
+
+    private func signup() {
+        Task {
+            let userService = UserService()
+            let user = User(username: username,
+                            password: password,
+                            email: email)
+
+            do {
+                try await userService.createUser(user: user)
+                onSignup()
+            } catch {
+                print(error)
+            }
+        }
+    }
+
+    private func onSignup() {
+        Task {
+            do {
+                userManager.user = User(username: username,
+                                        password: password,
+                                        email: email)
+                _ = try await AccessTokenManager.shared.getJWTToken()
+                if shouldRemmemberUser {
+                    try remmemberUser()
+                }
+                userManager.isUserLoggedIn = true
+            } catch {
+            }
+        }
+    }
+
+    private func remmemberUser() throws {
+        let user = User(username: username,
+                        password: password,
+                        email: email)
+        let data = try JSONEncoder().encode(user)
+        UserDefaults.standard.set(data, forKey: "user.credentials")
     }
 }
 
