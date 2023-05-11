@@ -17,7 +17,11 @@ struct GasExpensesApp: App {
     var body: some Scene {
         WindowGroup {
             Group {
-                if $userManager.isUserLoggedIn.wrappedValue {
+                if !$userManager.isUserLoggedIn.wrappedValue {
+                    LoginMainPage(loginService: JWTService())
+                } else if $shouldShowOnboarding.wrappedValue {
+                    OnboardingMainView()
+                } else {
                     TabView(selection: $selectedTab) {
                         CarOverviewView()
                             .tabItem {
@@ -49,10 +53,6 @@ struct GasExpensesApp: App {
                         }
                     }
                     .tint(Color.ui.action)
-                } else if $shouldShowOnboarding.wrappedValue {
-                    OnboardingMainView()
-                } else {
-                    LoginMainPage(loginService: JWTService())
                 }
             }.environmentObject(userManager)
         }
