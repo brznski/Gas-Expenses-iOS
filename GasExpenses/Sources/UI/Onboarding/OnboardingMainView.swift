@@ -6,34 +6,50 @@
 //
 
 import SwiftUI
+import CoreLocation
+import AVFoundation
 
 struct OnboardingMainView: View {
     @AppStorage("onboardingWasShown") private var showedOnboarding = true
     @State private var currentTab = 0
+    @State private var shouldShowAddCarSheet = false
 
     var body: some View {
         TabView(selection: $currentTab) {
-            OnboardingView(systemName: "person.3.fill",
-                           contentText: "onboarding.account.text",
-                           primaryButtonConfig: ButtonConfig(title: "add.car") {},
-                           secondaryButtonConfig: ButtonConfig(title: "maybe.later") {})
-            .tag(0)
             OnboardingView(systemName: "car.2.fill",
                            contentText: "onboarding.car.text",
-                           primaryButtonConfig: ButtonConfig(title: "add.car") {},
-                           secondaryButtonConfig: ButtonConfig(title: "maybe.later") {})
-            .tag(1)
+                           primaryButtonConfig: ButtonConfig(title: "add.car") { shouldShowAddCarSheet = true })
+            .tag(0)
             OnboardingView(systemName: "camera.fill",
                            contentText: "onboarding.camera.text",
-                           primaryButtonConfig: ButtonConfig(title: "allow.camera.permission") {},
-                           secondaryButtonConfig: ButtonConfig(title: "maybe.later") {})
-            .tag(2)
+                           primaryButtonConfig: ButtonConfig(title: "allow.camera.permission") {
+                AVCaptureDevice.requestAccess(for: .video) { wasAcessGranted in
+                    if wasAcessGranted {
+                        currentTab += 1
+                    }
+                }
+            })
+            .tag(1)
             OnboardingView(systemName: "mappin.and.ellipse",
                            contentText: "onboarding.localization.text",
-                           primaryButtonConfig: ButtonConfig(title: "allow.localization.permission") {},
-                           secondaryButtonConfig: ButtonConfig(title: "maybe.later") {})
+                           primaryButtonConfig: ButtonConfig(title: "allow.localization.permission") {
+                CLLocationManager().requestWhenInUseAuthorization()
+            })
+            .tag(2)
+            OnboardingView(systemName: "sparkles",
+                           contentText: "onboarding.localization.get.to.app",
+                           primaryButtonConfig: .init(title: "take.to.app", onPress: {
+                showedOnboarding = false
+            }))
             .tag(3)
         }
+        .background(content: {
+            Color.ui.background
+                .ignoresSafeArea()
+        })
+        .sheet(isPresented: $shouldShowAddCarSheet, content: {
+            AddCarView()
+        })
         .tabViewStyle(.page)
         .indexViewStyle(.page(backgroundDisplayMode: .always))
     }
