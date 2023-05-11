@@ -2,7 +2,19 @@
 "add" = "Add";
 
 /* No comment provided by engineer. */
+"add.car" = "Add car";
+
+/* No comment provided by engineer. */
+"add.document.photo" = "Add photo of document";
+
+/* No comment provided by engineer. */
 "alert.delete.car" = "Are you sure that you want to delete car? All data will be lost.";
+
+/* No comment provided by engineer. */
+"allow.camera.permission" = "Grant permission";
+
+/* No comment provided by engineer. */
+"allow.localization.permission" = "Grant localisation permission";
 
 /* No comment provided by engineer. */
 "amount" = "Amount";
@@ -17,6 +29,9 @@
 "brand" = "Brand";
 
 /* No comment provided by engineer. */
+"car.card.refuel.empty" = "Add at least 2 refuels to see details";
+
+/* No comment provided by engineer. */
 "car.name" = "Car name";
 
 /* No comment provided by engineer. */
@@ -24,6 +39,9 @@
 
 /* No comment provided by engineer. */
 "category" = "Category";
+
+/* No comment provided by engineer. */
+"comment" = "Comment";
 
 /* No comment provided by engineer. */
 "cost.per.unit" = "Cost per unit";
@@ -101,6 +119,9 @@
 "login" = "Login";
 
 /* No comment provided by engineer. */
+"maybe.later" = "Maybe later";
+
+/* No comment provided by engineer. */
 "mileage" = "Mileage";
 
 /* No comment provided by engineer. */
@@ -125,7 +146,22 @@
 "ok" = "Ok";
 
 /* No comment provided by engineer. */
+"onboarding.account.text" = "Create an account to backup all of your data. You will be able to see your data on other platforms as well.";
+
+/* No comment provided by engineer. */
+"onboarding.camera.text" = "Grant access to camera to be able to take photos of car and documents.";
+
+/* No comment provided by engineer. */
+"onboarding.car.text" = "Add your first car to keep track of your expenses and gas mileage.";
+
+/* No comment provided by engineer. */
+"onboarding.localization.text" = "Grant access to your location to add location of your expenses.";
+
+/* No comment provided by engineer. */
 "open.map" = "Open map";
+
+/* No comment provided by engineer. */
+"password" = "Password";
 
 /* No comment provided by engineer. */
 "pick" = "Pick";

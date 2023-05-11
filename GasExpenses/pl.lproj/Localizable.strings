@@ -2,7 +2,19 @@
 "add" = "Dodaj";
 
 /* No comment provided by engineer. */
+"add.car" = "Dodaj samochód";
+
+/* No comment provided by engineer. */
+"add.document.photo" = "Dodaj zdjęcie dokumentu";
+
+/* No comment provided by engineer. */
 "alert.delete.car" = "Czy na pewno chcesz usunąć samochód? Wszystkie dane zostaną usunięte.";
+
+/* No comment provided by engineer. */
+"allow.camera.permission" = "Pozwól na dostęp do kamery";
+
+/* No comment provided by engineer. */
+"allow.localization.permission" = "Pozwól na dostęp do lokalizacji";
 
 /* No comment provided by engineer. */
 "amount" = "Kwota";
@@ -17,6 +29,9 @@
 "brand" = "Marka";
 
 /* No comment provided by engineer. */
+"car.card.refuel.empty" = "Dodaj minimum dwa tankowania aby wyświetlić szczegóły";
+
+/* No comment provided by engineer. */
 "car.name" = "Nazwa samochodu";
 
 /* No comment provided by engineer. */
@@ -24,6 +39,9 @@
 
 /* No comment provided by engineer. */
 "category" = "Kategoria";
+
+/* No comment provided by engineer. */
+"comment" = "Komentarz";
 
 /* No comment provided by engineer. */
 "cost.per.unit" = "Koszt za jednostkę";
@@ -101,6 +119,12 @@
 "login" = "Zaloguj się";
 
 /* No comment provided by engineer. */
+"logout" = "Wyloguj się";
+
+/* No comment provided by engineer. */
+"maybe.later" = "Może później";
+
+/* No comment provided by engineer. */
 "mileage" = "Przebieg";
 
 /* No comment provided by engineer. */
@@ -123,6 +147,18 @@
 
 /* No comment provided by engineer. */
 "ok" = "Ok";
+
+/* No comment provided by engineer. */
+"onboarding.account.text" = "Utwórz konto aby trzymać kopię zapasową swoich danych. Dane będą dostępna na innych platformach.";
+
+/* No comment provided by engineer. */
+"onboarding.camera.text" = "Pozwól na dostęp do kamery aby robić zdjęcia swojemu samochodowi oraz dodać zdjęcia dokumentów do wydatków.";
+
+/* No comment provided by engineer. */
+"onboarding.car.text" = "Dodaj samochód aby śledzić wydatki oraz spalanie.";
+
+/* No comment provided by engineer. */
+"onboarding.localization.text" = "Pozwól na dostęp do lokalizacji aby przypisać lokalizację do wydatku.";
 
 /* No comment provided by engineer. */
 "open.map" = "Otwórz mapę";
