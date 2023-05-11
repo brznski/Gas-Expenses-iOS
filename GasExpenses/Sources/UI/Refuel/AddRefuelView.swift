@@ -24,10 +24,13 @@ struct AddRefuelView: View {
             ScrollView(showsIndicators: false) {
                 VStack {
                     TitleAndTextField(title: "mileage",
+                                      keyboardType: .numberPad,
                                       textFieldValue: $viewModel.mileage)
                     TitleAndTextField(title: "fuel.amount",
+                                      keyboardType: .decimalPad,
                                       textFieldValue: $viewModel.fuelAmount)
                     TitleAndTextField(title: "cost.per.unit",
+                                      keyboardType: .decimalPad,
                                       textFieldValue: $viewModel.costPerUnit)
 
                     DatePicker("date", selection: $viewModel.date, displayedComponents: [.date])
