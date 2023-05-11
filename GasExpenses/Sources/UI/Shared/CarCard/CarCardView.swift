@@ -21,72 +21,73 @@ struct CarCardView: View {
     var onChevronDownTap: (() -> Void)? = {}
 
     var body: some View {
-            CardWithTitleView(title: "landingpage.car.card.title") {
-                VStack {
-                    if let model = viewModel.model {
-                        ImageWithGradientView(imageName: UIImage(data: Data(base64Encoded: model.imageBase64, options: .ignoreUnknownCharacters)!)!)
-                    }
+        CardWithTitleView(title: viewModel.getHeader(context: cardContext)) {
+            VStack {
+                if let model = viewModel.model {
+                    ImageWithGradientView(imageName: UIImage(data: Data(base64Encoded: model.imageBase64, options: .ignoreUnknownCharacters)!)!)
+                }
+                HStack {
                     HStack {
-                        HStack {
-                            Text(viewModel.model?.name ?? "")
-                                .font(.title2).bold()
-                                .padding()
+                        Text(viewModel.getTitle(context: cardContext))
+                            .font(.title2).bold()
+                            .padding()
 
-                            if cardContext == .carOverview {
-                                Button {
-                                    viewModel.model?.isFavourite.toggle()
-                                    viewModel.setFavouriteCar()
-                                    carDataSource.setFavouriteCar(carID: viewModel.model?.id ?? -1)
-                                } label: {
-                                    Image(systemName: viewModel.model!.isFavourite ? "heart.fill" : "heart")
-                                        .foregroundColor(.ui.action)
-                                }
-                            }
-                        }
-
-                        if cardContext == .landingPage {
+                        if cardContext == .carOverview {
                             Button {
-                                onChevronDownTap?()
+                                viewModel.model?.isFavourite.toggle()
+                                viewModel.setFavouriteCar()
+                                carDataSource.setFavouriteCar(carID: viewModel.model?.id ?? -1)
                             } label: {
-                                Image(systemName: "chevron.down")
+                                Image(systemName: viewModel.model!.isFavourite ? "heart.fill" : "heart")
+                                    .foregroundColor(.ui.action)
                             }
-                            .tint(.ui.action)
-                            .foregroundColor(.white)
-                            .buttonStyle(.borderedProminent)
-                        }
-
-                        Spacer()
-                    }
-
-                    ForEach($viewModel.carInfoRows) { carInfo in
-                        CarCardInfoRow(configuration: carInfo.wrappedValue)
-                    }
-
-                    if $viewModel.carInfoRows.isEmpty {
-                        HStack {
-                            Spacer()
-                            Text("car.card.refuel.empty")
-                                .opacity(0.5)
-                            Spacer()
                         }
                     }
 
-                    HStack {
-                        Spacer()
-                        NavigationLink {
-                            CarDetailsView(model: viewModel.model!,
-                                           viewModel: CarDetailsViewModel(carService: CarService()))
+                    if cardContext == .landingPage {
+                        Button {
+                            onChevronDownTap?()
                         } label: {
-                            Label("see.more", systemImage: "chevron.right")
+                            Image(systemName: "chevron.down")
                         }
-
                         .tint(.ui.action)
                         .foregroundColor(.white)
                         .buttonStyle(.borderedProminent)
                     }
-                    .padding()
+
+                    Spacer()
                 }
+
+                ForEach($viewModel.carInfoRows) { carInfo in
+                    CarCardInfoRow(configuration: carInfo.wrappedValue)
+                }
+
+                if $viewModel.carInfoRows.isEmpty {
+                    HStack {
+                        Spacer()
+                        Text("car.card.refuel.empty")
+                            .multilineTextAlignment(.center)
+                            .opacity(0.5)
+                        Spacer()
+                    }
+                }
+
+                HStack {
+                    Spacer()
+                    NavigationLink {
+                        CarDetailsView(model: viewModel.model!,
+                                       viewModel: CarDetailsViewModel(carService: CarService()))
+                    } label: {
+                        Label("see.more", systemImage: "chevron.right")
+                    }
+
+                    .tint(.ui.action)
+                    .foregroundColor(.white)
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding()
             }
+        }
     }
 }
 

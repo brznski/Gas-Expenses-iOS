@@ -26,6 +26,24 @@ final class CarCardViewModel: ObservableObject {
         }
     }
 
+    func getHeader(context: CarCardContext) -> LocalizedStringKey {
+        switch context {
+        case .landingPage:
+            return "landingpage.car.card.title"
+        case .carOverview:
+            return LocalizedStringKey(model?.name ?? "")
+        }
+    }
+
+    func getTitle(context: CarCardContext) -> String {
+        switch context {
+        case .landingPage:
+            return model?.name ?? ""
+        case .carOverview:
+            return "\(model?.brand ?? "") \(model?.model ?? "")"
+        }
+    }
+
     private func prepareCarInfoRows() {
         if let model,
            model.refuels.count > 2 {
@@ -59,10 +77,4 @@ final class CarCardViewModel: ObservableObject {
                                                            isPositive: model.gasPerUnitPriceSinceLast() < 0))
         }
     }
-}
-
-struct CacheTestKey: Codable {
-    let name: String
-    let age: Int
-    let isDog: Bool
 }
