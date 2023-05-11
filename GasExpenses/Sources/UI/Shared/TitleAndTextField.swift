@@ -11,13 +11,15 @@ struct TitleAndTextField: View {
     let title: LocalizedStringKey
     let inputAutocapitalization: TextInputAutocapitalization = .sentences
     let axis: Axis = .vertical
+    var keyboardType: UIKeyboardType = .asciiCapable
     @Binding var textFieldValue: String
 
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
             TextField("", text: $textFieldValue, axis: axis)
-                .textInputAutocapitalization(.never)
+                .keyboardType(keyboardType)
+                .textInputAutocapitalization(inputAutocapitalization)
                 .textFieldStyle(.roundedBorder)
         }
     }
