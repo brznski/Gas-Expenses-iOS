@@ -6,81 +6,8 @@
 //
 
 import SwiftUI
-import CoreLocation
 import CoreLocationUI
 import MapKit
-
-class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    let manager = CLLocationManager()
-
-    @Published var location: CLLocationCoordinate2D? {
-        didSet {
-            if let location {
-                region = .init(center: location,
-                               latitudinalMeters: 700,
-                               longitudinalMeters: 700)
-            }
-        }
-    }
-    @Published var region: MKCoordinateRegion?
-
-    override init() {
-        super.init()
-        manager.delegate = self
-    }
-
-    func requestLocation() {
-        manager.startUpdatingLocation()
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first?.coordinate
-        if let location {
-            region = .init(center: location,
-                           latitudinalMeters: 700,
-                           longitudinalMeters: 700)
-        }
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
-}
-
-final class AddRefuelViewModel: ObservableObject {
-    @Published var date: Date = .now
-    @Published var mileage: String = ""
-    @Published var fuelAmount: String = ""
-    @Published var costPerUnit: String = ""
-    @Published var usersLocation: CLLocationCoordinate2D?
-
-    @Binding var car: Car?
-    private let service: RefuelServiceProtocol
-
-    init(service: RefuelServiceProtocol,
-         car: Binding<Car?>) {
-        self.service = service
-        self._car = car
-    }
-
-    func addRefuel() {
-        Task {
-            let newRefuel = Refuel(id: 0,
-                                   date: date.JSONDate(),
-                                   mileage: Double(mileage)!,
-                                   fuelAmount: Double(fuelAmount)!,
-                                   costPerUnit: Double(costPerUnit)!,
-                                   latitude: (usersLocation?.latitude.magnitude)!,
-                                   longitude: (usersLocation?.longitude.magnitude)!)
-            do {
-                try await service.addRefuel(newRefuel,
-                                            carID: car?.id ?? -1)
-            } catch {
-
-            }
-        }
-    }
-}
 
 struct AddRefuelView: View {
     @ObservedObject var locationManager = LocationManager()
@@ -169,13 +96,7 @@ struct AddRefuelView: View {
 
 struct AddRefuelView_Previews: PreviewProvider {
     static var previews: some View {
-        AddRefuelView(viewModel: .init(service: RefuelService(), car: .constant(Car(id: 0,
-                                                                                    name: "",
-                                                                                    brand: "",
-                                                                                    model: "",
-                                                                                    refuels: [],
-                                                                                    fuelType: .pb95,
-                                                                                    isFavourite: false,
-                                                                                    imageBase64: ""))))
+        AddRefuelView(viewModel: .init(service: RefuelService(),
+                                       car: .constant(Car.mock)))
     }
 }
