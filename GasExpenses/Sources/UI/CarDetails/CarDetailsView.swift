@@ -62,7 +62,9 @@ struct CarDetailsView: View {
         }
         .alert("alert.delete.car", isPresented: $showsAlert,
                actions: {
-            Button("yes", role: .none) {
+            Button("yes", role: .destructive
+
+            ) {
                 viewModel.deleteCar(carID: model.id)
                 showsAlert = false
             }

@@ -9,10 +9,10 @@ import SwiftUI
 
 struct TitleAndTextField: View {
     let title: LocalizedStringKey
+    @Binding var textFieldValue: String
     let inputAutocapitalization: TextInputAutocapitalization = .sentences
     let axis: Axis = .vertical
     var keyboardType: UIKeyboardType = .asciiCapable
-    @Binding var textFieldValue: String
 
     var body: some View {
         VStack(alignment: .leading) {

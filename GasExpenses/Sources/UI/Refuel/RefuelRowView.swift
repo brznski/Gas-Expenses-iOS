@@ -14,7 +14,7 @@ struct RefuelRowView: View {
         HStack {
             ExpenseTypeIcon(expenseType: .maintenance)
             VStack(alignment: .leading) {
-                Text("TODO: Refuel name")
+                Text(refuel.title)
                     .bold()
                 Text(refuel.date.dateFromJSON()?.dayAndMonthString() ?? "")
             }
@@ -34,6 +34,6 @@ struct RefuelRowView: View {
 
 struct RefuelRowView_Previews: PreviewProvider {
     static var previews: some View {
-        RefuelRowView(refuel: Refuel(id: 0, date: "", mileage: 0, fuelAmount: 0, costPerUnit: 0, latitude: 0, longitude: 0))
+        RefuelRowView(refuel: .mock)
     }
 }

@@ -29,7 +29,9 @@ struct AddExpenseEndpoint: BackendEndpoint {
             "date": expense.date,
             "expenseType": expense.expenseType.rawValue,
             "longitude": expense.longitude as Any,
-            "latitude": expense.latitude as Any
+            "latitude": expense.latitude as Any,
+            "comment": expense.comment as Any,
+            "documentBase64": expense.documentBase64 as Any
         ]
     ]
     }

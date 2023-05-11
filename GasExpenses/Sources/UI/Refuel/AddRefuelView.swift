@@ -23,15 +23,23 @@ struct AddRefuelView: View {
                 .ignoresSafeArea()
             ScrollView(showsIndicators: false) {
                 VStack {
-                    TitleAndTextField(title: "mileage",
-                                      keyboardType: .numberPad,
-                                      textFieldValue: $viewModel.mileage)
-                    TitleAndTextField(title: "fuel.amount",
-                                      keyboardType: .decimalPad,
-                                      textFieldValue: $viewModel.fuelAmount)
-                    TitleAndTextField(title: "cost.per.unit",
-                                      keyboardType: .decimalPad,
-                                      textFieldValue: $viewModel.costPerUnit)
+                    Group {
+                        TitleAndTextField(title: "title",
+                                          textFieldValue: $viewModel.title,
+                                          keyboardType: .asciiCapable)
+                        TitleAndTextField(title: "comment",
+                                          textFieldValue: $viewModel.comment,
+                                          keyboardType: .asciiCapable)
+                        TitleAndTextField(title: "mileage",
+                                          textFieldValue: $viewModel.mileage,
+                                          keyboardType: .numberPad)
+                        TitleAndTextField(title: "fuel.amount",
+                                          textFieldValue: $viewModel.fuelAmount,
+                                          keyboardType: .decimalPad)
+                        TitleAndTextField(title: "cost.per.unit",
+                                          textFieldValue: $viewModel.costPerUnit,
+                                          keyboardType: .decimalPad)
+                    }
 
                     DatePicker("date", selection: $viewModel.date, displayedComponents: [.date])
                         .tint(Color.ui.action)
@@ -69,6 +77,23 @@ struct AddRefuelView: View {
                                          longitude: coordinate.longitude))
                     }) {
                         Text("open.map")
+                    }
+
+                    if let documentPhotoData = $viewModel.documentBase64.wrappedValue {
+                        Image(uiImage: .init(data: documentPhotoData)!)
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(8)
+                    }
+
+                    NavigationLink(destination: CameraView(onPhotoSelected: { data in
+                        viewModel.documentBase64 = data
+                    })) {
+                        Label("add.document.photo", systemImage: "doc")
+                            .padding([.all], 10)
+                            .background(Color.ui.action)
+                            .tint(.white)
+                            .cornerRadius(8)
                     }
 
                     ButtonPrimary {

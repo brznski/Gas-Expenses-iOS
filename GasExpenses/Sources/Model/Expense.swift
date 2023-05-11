@@ -10,19 +10,23 @@ import Foundation
 struct Expense: Identifiable, Codable {
     let id: Int
     let amount: Double
+    let comment: String?
     let title: String
     let date: String
     let expenseType: ExpenseType
     let latitude: Double?
     let longitude: Double?
+    let documentBase64: String?
 }
 
 extension Expense {
     static let mock = Expense(id: 3,
                               amount: 350.3,
+                              comment: "",
                               title: "Fuel",
                               date: "",
                               expenseType: .wash,
                               latitude: 54,
-                              longitude: 20)
+                              longitude: 20,
+                              documentBase64: "")
 }
