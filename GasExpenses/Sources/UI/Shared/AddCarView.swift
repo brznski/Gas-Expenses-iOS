@@ -22,83 +22,86 @@ struct AddCarView: View {
     @State private var selectedImageData: Data?
 
     var body: some View {
-        ScrollView {
-            CardWithTitleView(title: "Car info") {
-                VStack {
-
-                    PhotosPicker(
-                        selection: $selectedPhoto,
-                        matching: .images,
-                        photoLibrary: .shared()) {
-                            if let selectedImageData,
-                            let uiImage = UIImage(data: selectedImageData) {
-                                Image(uiImage: uiImage)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                                    .padding()
-                            } else {
-                                Text("select.photo")
-                            }
-                        }
-                        .onChange(of: selectedPhoto) { newItem in
-                            Task {
-                                if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                    selectedImageData = data
+            ZStack {
+                Color.ui.background
+                    .ignoresSafeArea()
+                ScrollView {
+                CardWithTitleView(title: "Car info") {
+                    VStack {
+                        PhotosPicker(
+                            selection: $selectedPhoto,
+                            matching: .images,
+                            photoLibrary: .shared()) {
+                                if let selectedImageData,
+                                   let uiImage = UIImage(data: selectedImageData) {
+                                    Image(uiImage: uiImage)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                                        .padding()
+                                } else {
+                                    Text("select.photo")
                                 }
                             }
-                        }
-
-                    Group {
-                        TitleAndTextField(title: "car.name",
-                                          textFieldValue: $carName)
-                        TitleAndTextField(title: "brand",
-                                          textFieldValue: $carBrand)
-                        TitleAndTextField(title: "model",
-                                          textFieldValue: $carModel)
-                        TitleAndTextField(title: "mileage",
-                                          textFieldValue: $carMileage)
-                        .keyboardType(.decimalPad)
-                    }
-                    .padding()
-
-                    HStack {
-                        Text("fuel.type")
-                            .padding()
-                        Spacer()
-                        Picker(selection: $carFuelType, label: EmptyView()) {
-                            ForEach(FuelTypes.allCases) {
-                                Text($0.rawValue).tag($0.rawValue)
+                            .onChange(of: selectedPhoto) { newItem in
+                                Task {
+                                    if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                        selectedImageData = data
+                                    }
+                                }
                             }
+
+                        Group {
+                            TitleAndTextField(title: "car.name",
+                                              textFieldValue: $carName)
+                            TitleAndTextField(title: "brand",
+                                              textFieldValue: $carBrand)
+                            TitleAndTextField(title: "model",
+                                              textFieldValue: $carModel)
+                            TitleAndTextField(title: "mileage",
+                                              textFieldValue: $carMileage)
+                            .keyboardType(.decimalPad)
                         }
-                        .pickerStyle(.menu)
-                        .tint(Color.ui.action)
                         .padding()
+
+                        HStack {
+                            Text("fuel.type")
+                                .padding()
+                            Spacer()
+                            Picker(selection: $carFuelType, label: EmptyView()) {
+                                ForEach(FuelTypes.allCases) {
+                                    Text($0.rawValue).tag($0.rawValue)
+                                }
+                            }
+                            .pickerStyle(.menu)
+                            .tint(Color.ui.action)
+                            .padding()
+                        }
                     }
                 }
-            }
 
-            Button {
-                Task {
-                    try await CarService().addCar(.init(id: 0,
-                                                        name: carName,
-                                                        brand: carBrand,
-                                                        model: carModel,
-                                                        refuels: [],
-                                                        fuelType: FuelTypes(rawValue: carFuelType) ?? FuelTypes.pb95,
-                                                        isFavourite: false,
-                                                        imageBase64: selectedImageData?.base64EncodedString() ?? ""))
-                    dismiss()
+                Button {
+                    Task {
+                        try await CarService().addCar(.init(id: 0,
+                                                            name: carName,
+                                                            brand: carBrand,
+                                                            model: carModel,
+                                                            refuels: [],
+                                                            fuelType: FuelTypes(rawValue: carFuelType) ?? FuelTypes.pb95,
+                                                            isFavourite: false,
+                                                            imageBase64: selectedImageData?.base64EncodedString() ?? ""))
+                        dismiss()
+                    }
+                } label: {
+                    Spacer()
+                    Text("add")
+                    Spacer()
                 }
-            } label: {
-                Spacer()
-                Text("add")
-                Spacer()
-            }
-            .padding()
-            .buttonStyle(.borderedProminent)
-            .tint(Color.ui.action)
+                .padding()
+                .buttonStyle(.borderedProminent)
+                .tint(Color.ui.action)
 
+            }
         }
         .background(Color.ui.background)
     }
