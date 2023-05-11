@@ -30,8 +30,7 @@ struct AddExpenseView: View {
                         TitleAndTextField(title: "title",
                                           textFieldValue: $viewModel.title)
                         TitleAndTextField(title: "comment",
-                                          textFieldValue: $commnent
-                        )
+                                          textFieldValue: $commnent)
                         TitleAndTextField(title: "amount",
                                           textFieldValue: $viewModel.amount)
 

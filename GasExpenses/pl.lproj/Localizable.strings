@@ -170,6 +170,9 @@
 "pick" = "Wybierz";
 
 /* No comment provided by engineer. */
+"refuels.title" = "Tankowania";
+
+/* No comment provided by engineer. */
 "remmember.me" = "Zapamiętaj mnie";
 
 /* No comment provided by engineer. */
@@ -183,6 +186,9 @@
 
 /* No comment provided by engineer. */
 "sign.up" = "Utwórz konto";
+
+/* No comment provided by engineer. */
+"take.to.app" = "Przejdź do aplikacji";
 
 /* No comment provided by engineer. */
 "title" = "Tytuł";

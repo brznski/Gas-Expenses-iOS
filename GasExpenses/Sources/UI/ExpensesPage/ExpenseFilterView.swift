@@ -59,6 +59,8 @@ struct ExpenseFilterView: View {
 
 struct ExpenseFilterView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseFilterView(viewModel: .init(carID: 0, carDataSource: CarDataSource(carService: CarService())))
+        ExpenseFilterView(viewModel: .init(carID: 0,
+                                           carDataSource: CarDataSource(carService: CarService()),
+                                           refuelService: RefuelService()))
     }
 }

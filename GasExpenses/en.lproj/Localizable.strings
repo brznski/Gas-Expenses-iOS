@@ -119,6 +119,9 @@
 "login" = "Login";
 
 /* No comment provided by engineer. */
+"logout" = "Logout";
+
+/* No comment provided by engineer. */
 "maybe.later" = "Maybe later";
 
 /* No comment provided by engineer. */
@@ -165,6 +168,9 @@
 
 /* No comment provided by engineer. */
 "pick" = "Pick";
+
+/* No comment provided by engineer. */
+"refuels.title" = "Refuels";
 
 /* No comment provided by engineer. */
 "remmember.me" = "Remember me";

@@ -35,7 +35,9 @@ struct GasExpensesApp: App {
                                       systemImage: "house.fill")
                             }
                             .tag("home")
-                        ExpensesOverviewView(viewModel: ExpensesOverviewViewModel(carID: $carDataSource.selectedCar.wrappedValue?.id ?? -1, carDataSource: carDataSource))
+                        ExpensesOverviewView(viewModel: ExpensesOverviewViewModel(carID: $carDataSource.selectedCar.wrappedValue?.id ?? -1,
+                                                                                  carDataSource: carDataSource,
+                                                                                  refuelService: RefuelService()))
                             .tabItem {
                                 Label("expenses",
                                       systemImage: "dollarsign.circle.fill")

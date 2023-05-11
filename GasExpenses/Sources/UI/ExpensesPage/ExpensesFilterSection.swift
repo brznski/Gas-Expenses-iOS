@@ -109,6 +109,8 @@ struct ExpensesFilterSection: View {
 
 struct ExpensesFilterSection_Previews: PreviewProvider {
     static var previews: some View {
-        ExpensesFilterSection(viewModel: .init(carID: 0, carDataSource: CarDataSource(carService: CarService())))
+        ExpensesFilterSection(viewModel: .init(carID: 0,
+                                               carDataSource: CarDataSource(carService: CarService()),
+                                               refuelService: RefuelService()))
     }
 }

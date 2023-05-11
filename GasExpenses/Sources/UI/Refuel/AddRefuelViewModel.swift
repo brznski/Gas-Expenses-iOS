@@ -31,7 +31,7 @@ final class AddRefuelViewModel: ObservableObject {
                                    date: date.JSONDate(),
                                    mileage: Double(mileage)!,
                                    fuelAmount: Double(fuelAmount)!,
-                                   costPerUnit: Double(costPerUnit)!,
+                                   costPerUnit: Double(costPerUnit.replacingOccurrences(of: ",", with: "."))!,
                                    latitude: (usersLocation?.latitude.magnitude)!,
                                    longitude: (usersLocation?.longitude.magnitude)!)
             do {

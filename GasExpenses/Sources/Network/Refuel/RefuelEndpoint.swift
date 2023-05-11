@@ -7,6 +7,19 @@
 
 import Foundation
 
+struct GetAllRefuelsEndpoint: BackendEndpoint {
+    let carID: Int
+
+    var path: String = "refuel/getAll"
+    var method: HTTPMethod = .GET
+    var payload: [String: Any] {
+        [
+            "carID": carID
+        ]
+    }
+    var accessToken: String
+}
+
 struct AddRefuelEndpoint: BackendEndpoint {
     var path: String = "refuel/add"
     var method: HTTPMethod = .POST
