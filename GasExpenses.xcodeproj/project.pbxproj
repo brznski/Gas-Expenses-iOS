@@ -1105,6 +1105,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GasExpenses/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed for scanning recipts/taking photos of cars.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is needed for linking expenses with users location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1137,6 +1138,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GasExpenses/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed for scanning recipts/taking photos of cars.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location is needed for linking expenses with users location";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
