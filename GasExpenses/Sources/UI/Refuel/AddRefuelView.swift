@@ -18,10 +18,10 @@ struct AddRefuelView: View {
     @State var pin: [Location] = []
 
     var body: some View {
-        ScrollView {
-            ZStack {
-                Color.ui.background
-                    .ignoresSafeArea()
+        ZStack {
+            Color.ui.background
+                .ignoresSafeArea()
+            ScrollView(showsIndicators: false) {
                 VStack {
                     TitleAndTextField(title: "mileage",
                                       textFieldValue: $viewModel.mileage)
@@ -39,7 +39,7 @@ struct AddRefuelView: View {
                             showsUserLocation: true,
                             annotationItems: pin) {
                             MapMarker(coordinate: .init(latitude: $0.latitude,
-                                                     longitude: $0.longitude))
+                                                        longitude: $0.longitude))
                         }
                             .frame(height: 300)
                             .cornerRadius(8)
@@ -68,7 +68,9 @@ struct AddRefuelView: View {
                         Text("open.map")
                     }
 
-                    Button {
+                    ButtonPrimary {
+                        Text("add")
+                    } action: {
                         viewModel.usersLocation = locationManager.location
                         viewModel.addRefuel()
                         Cache.shared.invalidate(key: "cars")
@@ -76,11 +78,8 @@ struct AddRefuelView: View {
                             try await carDataSource.getCars()
                         }
                         dismiss()
-                    } label: {
-                        Spacer()
-                        Text("add")
-                        Spacer()
                     }
+
                     .tint(Color.ui.action)
                     .buttonStyle(.borderedProminent)
                     .padding()
