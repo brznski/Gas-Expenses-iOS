@@ -12,7 +12,7 @@ struct RefuelRowView: View {
 
     var body: some View {
         HStack {
-            ExpenseTypeIcon(expenseType: .maintenance)
+            ExpenseTypeIcon(expenseType: .fuel)
             VStack(alignment: .leading) {
                 Text(refuel.title)
                     .bold()

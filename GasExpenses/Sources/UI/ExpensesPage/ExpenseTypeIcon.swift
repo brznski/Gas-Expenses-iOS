@@ -14,13 +14,15 @@ struct ExpenseTypeIcon: View {
     private var primaryColor: Color {
         switch expenseType {
         case .wash:
-            return .green
+            return .blue
         case .maintenance:
             return .orange
         case .insurance:
             return .yellow
         case .parts:
-            return .blue
+            return .gray
+        case .fuel:
+            return .orange
         }
     }
 
@@ -34,6 +36,8 @@ struct ExpenseTypeIcon: View {
             return "gearshape.fill"
         case .wash:
             return "sparkles"
+        case .fuel:
+            return "fuelpump.fill"
         }
     }
 
@@ -63,6 +67,9 @@ struct ExpenseTypeIcon_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
         ExpenseTypeIcon(expenseType: .maintenance)
             .previewDisplayName("Maintenance")
+            .previewLayout(.sizeThatFits)
+        ExpenseTypeIcon(expenseType: .fuel)
+            .previewDisplayName("Fuel")
             .previewLayout(.sizeThatFits)
     }
 }
