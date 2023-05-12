@@ -64,6 +64,7 @@ struct MapPreviewCard: View {
                         Label("open.map", systemImage: "map")
                         Spacer()
                     }
+                    .tint(.ui.action)
                     .buttonStyle(.borderedProminent)
                     .padding([.horizontal, .bottom])
                 }
