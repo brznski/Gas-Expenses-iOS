@@ -116,6 +116,7 @@
 		48DC507A29FB1602009F3676 /* RefuelServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC507929FB1602009F3676 /* RefuelServiceProtocol.swift */; };
 		48F39A852A0E542A009C4FE0 /* ButtonDestructive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F39A842A0E542A009C4FE0 /* ButtonDestructive.swift */; };
 		48F39A872A0E5556009C4FE0 /* MapPreviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F39A862A0E5556009C4FE0 /* MapPreviewCard.swift */; };
+		48F39A8A2A0E937A009C4FE0 /* ImagePreviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F39A892A0E937A009C4FE0 /* ImagePreviewCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,6 +239,7 @@
 		48DC507929FB1602009F3676 /* RefuelServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelServiceProtocol.swift; sourceTree = "<group>"; };
 		48F39A842A0E542A009C4FE0 /* ButtonDestructive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDestructive.swift; sourceTree = "<group>"; };
 		48F39A862A0E5556009C4FE0 /* MapPreviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewCard.swift; sourceTree = "<group>"; };
+		48F39A892A0E937A009C4FE0 /* ImagePreviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,6 +575,7 @@
 		48D1138F29E1D396009A2ED6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				48F39A882A0E9355009C4FE0 /* Card */,
 				48BFAE852A0A5DF00021644E /* Camera */,
 				48D8C85E2A083D8300DCB09D /* BasicComponents */,
 				484CBE912A052CA8007AF611 /* Map */,
@@ -682,6 +685,14 @@
 				485E883E29F85B81007B3088 /* ExpenseService.swift */,
 			);
 			path = Expense;
+			sourceTree = "<group>";
+		};
+		48F39A882A0E9355009C4FE0 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				48F39A892A0E937A009C4FE0 /* ImagePreviewCard.swift */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -851,6 +862,7 @@
 				48F39A852A0E542A009C4FE0 /* ButtonDestructive.swift in Sources */,
 				48CD096829F705CC00975EAB /* CarServiceProtocol.swift in Sources */,
 				48BAF94029E74B6B00FB5527 /* CollapsableCardWithTitleView.swift in Sources */,
+				48F39A8A2A0E937A009C4FE0 /* ImagePreviewCard.swift in Sources */,
 				48BAF92829E7175C00FB5527 /* AddCarView.swift in Sources */,
 				48D8C8602A083D9B00DCB09D /* ButtonPrimary.swift in Sources */,
 				488F4AD729E4AA540062BF4B /* CacheEntry.swift in Sources */,
