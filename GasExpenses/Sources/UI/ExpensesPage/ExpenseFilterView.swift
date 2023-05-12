@@ -14,43 +14,50 @@ struct ExpenseFilterView: View {
     var body: some View {
         ScrollView {
             VStack {
-                CollapsableCardWithTitleView(title: LocalizedStringKey("amount.from")) {
-                    TextField("", text: $viewModel.filters.amountFrom)
-                        .textFieldStyle(.roundedBorder)
-                        .padding()
-                }
-
-                CollapsableCardWithTitleView(title: LocalizedStringKey("amount.to")) {
-                    TextField("", text: $viewModel.filters.amountTo)
-                        .textFieldStyle(.roundedBorder)
-                        .padding()
-                }
-
-                CollapsableCardWithTitleView(title: LocalizedStringKey("date.from")) {
-                    DatePicker("",
-                               selection: $viewModel.filters.dateFrom.toUnwrapped(defaultValue: .now),
-                               displayedComponents: .date)
-                        .datePickerStyle(.graphical)
-                        .tint(.ui.action)
-                        .padding()
-                }
-
-                CollapsableCardWithTitleView(title: LocalizedStringKey("date.to")) {
-                    DatePicker("",
-                               selection: $viewModel.filters.dateTo.toUnwrapped(defaultValue: .now),
-                               displayedComponents: .date)
-                        .datePickerStyle(.graphical)
-                        .tint(.ui.action)
-                        .padding()
-                }
-
-                CollapsableCardWithTitleView(title: LocalizedStringKey("expense.type")) {
-                    Picker(selection: .constant("fuel"), label: Text("pick")) {
-                        ForEach(ExpenseType.allCases) {
-                            Text($0.rawValue)
+                CardWithTitleView(title: "main") {
+                    VStack {
+                        TitleAndTextField(title: "title",
+                                          textFieldValue: $viewModel.filters.title)
+                            .padding()
+                        HStack {
+                            Text("expense.type")
+                            Spacer()
+                            Picker(selection: $viewModel.filters.expenseType,
+                                   label: Text("pick")) {
+                                ForEach(ExpenseType.allCases.filter { $0 != .fuel }) {
+                                    Text($0.rawValue.capitalized)
+                                }
+                            }
+                            .pickerStyle(.menu)
                         }
+                        .padding()
                     }
-                    .pickerStyle(.menu)
+                }
+                CardWithTitleView(title: "amount") {
+                    VStack {
+                        TitleAndTextField(title: "amount.from",
+                                          textFieldValue: $viewModel.filters.amountFrom)
+                        TitleAndTextField(title: "amount.to",
+                                          textFieldValue: $viewModel.filters.amountTo)
+                    }
+                    .padding()
+                }
+
+                CardWithTitleView(title: "date") {
+                    VStack {
+                        DatePicker("date.from",
+                                   selection: $viewModel.filters.dateFrom.toUnwrapped(defaultValue: .now),
+                                   displayedComponents: .date)
+                        .datePickerStyle(.compact)
+                        .tint(.ui.action)
+                        .padding()
+                        DatePicker("date.to",
+                                   selection: $viewModel.filters.dateTo.toUnwrapped(defaultValue: .now),
+                                   displayedComponents: .date)
+                            .datePickerStyle(.compact)
+                            .tint(.ui.action)
+                            .padding()
+                    }
                 }
             }
         }.background(Color.ui.background)
