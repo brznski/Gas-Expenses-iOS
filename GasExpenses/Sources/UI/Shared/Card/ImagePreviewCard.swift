@@ -13,8 +13,9 @@ struct ImagePreviewCard: View {
     var body: some View {
         CardWithTitleView(title: LocalizedStringKey("image")) {
             VStack {
-                if let documentPhotoData = $imageData.wrappedValue {
-                    Image(uiImage: .init(data: documentPhotoData)!)
+                if let documentPhotoData = $imageData.wrappedValue,
+                let uiImage = UIImage(data: documentPhotoData) {
+                    Image(uiImage: uiImage)
                         .resizable()
                         .padding()
                         .scaledToFit()
