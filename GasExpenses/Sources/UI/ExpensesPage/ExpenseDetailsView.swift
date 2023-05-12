@@ -33,14 +33,7 @@ struct ExpenseDetailsView: View {
 
     let expense: Expense
 
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(
-            latitude: 0,
-            longitude: 0),
-        span: MKCoordinateSpan(
-            latitudeDelta: 0.01,
-            longitudeDelta: 0.01)
-    )
+    @State private var region: MKCoordinateRegion?
 
     var body: some View {
 
@@ -66,18 +59,8 @@ struct ExpenseDetailsView: View {
                     }
                 }
 
-                if expense.latitude != nil && expense.longitude != nil {
-                    CardWithTitleView(title: "map") {
-                        Map(coordinateRegion: $region,
-                            showsUserLocation: true,
-                            annotationItems: mapLocations) { location in
-                            MapAnnotation(coordinate: location.coordinate) {
-                                ExpenseTypeIcon(expenseType: expense.expenseType)
-                                Text("\(location.name)")
-                            }
-                        }
-                            .frame(minHeight: 300)
-                    }
+                if let unwrapped = $region.toUnwrapped(defaultValue: .init(.world)) {
+                    MapPreviewCard(region: unwrapped.wrappedValue) { _ in }
                 }
 //                if let documentData = Data(base64Encoded: expense.documentBase64 ?? ""),
 //                   let uiImage = UIImage(data: documentData) {
@@ -89,7 +72,6 @@ struct ExpenseDetailsView: View {
                     showAlert = true
                 }
                 .padding()
-
             }
         }
         .background {
@@ -110,14 +92,12 @@ struct ExpenseDetailsView: View {
             }
         }
         .onAppear {
-            region = MKCoordinateRegion(
-                center: CLLocationCoordinate2D(
-                    latitude: expense.latitude ?? 0,
-                    longitude: expense.longitude ?? 0),
-                span: MKCoordinateSpan(
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01)
-            )
+            if let longitude = expense.longitude,
+               let latitude = expense.latitude {
+                region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+                                            latitudinalMeters: 700,
+                                            longitudinalMeters: 700)
+            }
         }
         .sheet(isPresented: $showEditSheet) {
             AddExpenseView(viewModel: .init(carDataStore: CarDataSource(carService: CarService()),
