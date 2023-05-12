@@ -13,8 +13,8 @@ struct ExpenseFilter {
     var amountTo: String = ""
     var dateFrom: Date?
     var dateTo: Date?
-    var title: String?
-    var expenseType: ExpenseType?
+    var title: String = ""
+    var expenseType: String = ""
 }
 
 struct ExpenceFilterElement: Hashable {
@@ -66,41 +66,51 @@ struct ExpensesFilterSection: View {
     private func prepareFilters() -> [ExpenceFilterElement] {
         var stringArray = [ExpenceFilterElement]()
         if !viewModel.filters.amountFrom.isEmpty {
-            stringArray.append(.init(text: "Above \(viewModel.filters.amountFrom)", onDelete: {
+            let localizedKey = String(localized: "above.%@")
+            let formattedText = String(format: localizedKey, viewModel.filters.amountFrom)
+            stringArray.append(.init(text: formattedText) {
                 viewModel.filters.amountFrom = ""
-            }))
+            })
         }
 
         if !viewModel.filters.amountTo.isEmpty {
-            stringArray.append(.init(text: "Below \(viewModel.filters.amountTo)", onDelete: {
+            let localizedKey = String(localized: "below.%@")
+            let formattedText = String(format: localizedKey, viewModel.filters.amountTo)
+            stringArray.append(.init(text: formattedText) {
                 viewModel.filters.amountTo = ""
-            }))
-                }
+            })
+        }
 
         if let dateFrom = viewModel.filters.dateFrom {
-            stringArray.append(.init(text: "From \(dateFrom.monthAndYearString())",
-                                     onDelete: {
+            let localizedKey = String(localized: "from.%@")
+            let formattedText = String(format: localizedKey, dateFrom.dayAndMonthString())
+            stringArray.append(.init(text: formattedText) {
                 viewModel.filters.dateFrom = nil
-            }))
+            })
         }
 
         if let dateTo = viewModel.filters.dateTo {
-            stringArray.append(.init(text: "To \(dateTo.monthAndYearString())",
-                                     onDelete: {
+            let localizedKey = String(localized: "to.%@")
+            let formattedText = String(format: localizedKey, dateTo.dayAndMonthString())
+            stringArray.append(.init(text: formattedText) {
                 viewModel.filters.dateTo = nil
-            }))
+            })
         }
 
-        if let expenseType = viewModel.filters.expenseType {
-            stringArray.append(.init(text: "\(expenseType.rawValue)", onDelete: {
-                viewModel.filters.expenseType = nil
-            }))
+        if !viewModel.filters.expenseType.isEmpty {
+            let localizedKey = String(localized: "type.%@")
+            let formattedText = String(format: localizedKey, viewModel.filters.expenseType)
+            stringArray.append(.init(text: formattedText) {
+                viewModel.filters.expenseType = ""
+            })
         }
 
-        if let title = viewModel.filters.title {
-            stringArray.append(.init(text: "Contains \(title)", onDelete: {
-                viewModel.filters.title = nil
-            }))
+        if !viewModel.filters.title.isEmpty {
+            let localizedKey = String(localized: "contains %@")
+            let formattedText = String(format: localizedKey, viewModel.filters.title)
+            stringArray.append(.init(text: formattedText) {
+                viewModel.filters.title = ""
+            })
         }
 
         return stringArray

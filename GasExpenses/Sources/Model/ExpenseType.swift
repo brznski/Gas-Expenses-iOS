@@ -14,4 +14,5 @@ enum ExpenseType: String, Identifiable, CaseIterable, Codable {
     case maintenance
     case insurance
     case parts
+    case undefinied = ""
 }

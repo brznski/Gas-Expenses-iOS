@@ -23,6 +23,8 @@ struct ExpenseTypeIcon: View {
             return .gray
         case .fuel:
             return .orange
+        case .undefinied:
+            return .clear
         }
     }
 
@@ -38,6 +40,8 @@ struct ExpenseTypeIcon: View {
             return "sparkles"
         case .fuel:
             return "fuelpump.fill"
+        case .undefinied:
+            return ""
         }
     }
 
