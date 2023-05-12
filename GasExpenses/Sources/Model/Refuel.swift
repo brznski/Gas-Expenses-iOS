@@ -18,6 +18,10 @@ struct Refuel: Identifiable, Codable {
     let latitude: Double?
     let longitude: Double?
     let documentBase64: String?
+
+    func getTotalRefuelValue() -> Double {
+        return costPerUnit * fuelAmount
+    }
 }
 
 extension Refuel {

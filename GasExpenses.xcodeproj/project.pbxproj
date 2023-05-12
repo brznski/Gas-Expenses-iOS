@@ -117,6 +117,7 @@
 		48F39A852A0E542A009C4FE0 /* ButtonDestructive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F39A842A0E542A009C4FE0 /* ButtonDestructive.swift */; };
 		48F39A872A0E5556009C4FE0 /* MapPreviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F39A862A0E5556009C4FE0 /* MapPreviewCard.swift */; };
 		48F39A8A2A0E937A009C4FE0 /* ImagePreviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F39A892A0E937A009C4FE0 /* ImagePreviewCard.swift */; };
+		48F39A8C2A0E95A6009C4FE0 /* RefuelDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F39A8B2A0E95A6009C4FE0 /* RefuelDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +241,7 @@
 		48F39A842A0E542A009C4FE0 /* ButtonDestructive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDestructive.swift; sourceTree = "<group>"; };
 		48F39A862A0E5556009C4FE0 /* MapPreviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewCard.swift; sourceTree = "<group>"; };
 		48F39A892A0E937A009C4FE0 /* ImagePreviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewCard.swift; sourceTree = "<group>"; };
+		48F39A8B2A0E95A6009C4FE0 /* RefuelDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -663,6 +665,7 @@
 				48DC507229FB1204009F3676 /* AddRefuelView.swift */,
 				48D8BE3F2A0D0A2100B10ADC /* AddRefuelViewModel.swift */,
 				48D8BE432A0D438D00B10ADC /* RefuelRowView.swift */,
+				48F39A8B2A0E95A6009C4FE0 /* RefuelDetailsView.swift */,
 			);
 			path = Refuel;
 			sourceTree = "<group>";
@@ -933,6 +936,7 @@
 				48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */,
 				48F39A872A0E5556009C4FE0 /* MapPreviewCard.swift in Sources */,
 				488F4AD529E4A2D10062BF4B /* Cache.swift in Sources */,
+				48F39A8C2A0E95A6009C4FE0 /* RefuelDetailsView.swift in Sources */,
 				48BA579629E36B510003D60D /* NetworkEngine.swift in Sources */,
 				48C1331D2A0B8C3D007C84B0 /* UserService.swift in Sources */,
 				48BCB60C29E46C6D00F01A0E /* Endpoint.swift in Sources */,

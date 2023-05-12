@@ -73,8 +73,10 @@ struct ExpensesOverviewView: View {
                         } else {
                             ForEach($viewModel.groupedRefuels) { monthlyRefuels in
                                 CollapsableCardWithTitleView(title: monthlyRefuels.wrappedValue.date.monthAndYearString()) {
-                                    ForEach(monthlyRefuels.refuels.wrappedValue) {
-                                        RefuelRowView(refuel: $0)
+                                    ForEach(monthlyRefuels.refuels.wrappedValue) { refuel in
+                                        NavigationLink(destination: RefuelDetailsView(refuel: refuel)) {
+                                            RefuelRowView(refuel: refuel)
+                                        }
                                     }
                                     .buttonStyle(.plain)
                                 }
