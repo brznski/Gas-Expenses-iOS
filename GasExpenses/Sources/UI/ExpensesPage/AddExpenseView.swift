@@ -23,99 +23,95 @@ struct AddExpenseView: View {
                 Color.ui.background
                     .ignoresSafeArea()
                 ScrollView {
-                    VStack {
-                        Group {
-                            TitleAndTextField(title: "title",
-                                              textFieldValue: $viewModel.title)
-                            TitleAndTextField(title: "comment",
-                                              textFieldValue: $viewModel.comment)
-                            TitleAndTextField(title: "amount",
-                                              textFieldValue: $viewModel.amount,
-                                              keyboardType: .decimalPad)
+                    CardWithTitleView(title: LocalizedStringKey("main.form")) {
+                        VStack {
+                            Group {
+                                TitleAndTextField(title: "title",
+                                                  textFieldValue: $viewModel.title)
+                                TitleAndTextField(title: "comment",
+                                                  textFieldValue: $viewModel.comment)
+                                TitleAndTextField(title: "amount",
+                                                  textFieldValue: $viewModel.amount,
+                                                  keyboardType: .decimalPad)
 
-                            HStack {
-                                Text("expense.type")
-                                Spacer()
-                                Picker("fuel.type", selection: $viewModel.expenseType) {
-                                    ForEach(ExpenseType.allCases.sorted { lhs, rhs in
-                                        return lhs.rawValue < rhs.rawValue
-                                    }) {
-                                        Text($0.rawValue.capitalized).tag($0.rawValue)
+                                HStack {
+                                    Text("expense.type")
+                                    Spacer()
+                                    Picker("fuel.type", selection: $viewModel.expenseType) {
+                                        ForEach(ExpenseType.allCases.sorted { lhs, rhs in
+                                            return lhs.rawValue < rhs.rawValue
+                                        }) {
+                                            Text($0.rawValue.capitalized).tag($0.rawValue)
+                                        }
                                     }
+                                    .tint(Color.ui.action)
                                 }
-                                .tint(Color.ui.action)
                             }
+
+                            DatePicker("date", selection: $viewModel.date,
+                                       displayedComponents: [.date])
+                            .tint(Color.ui.action)
+                            .datePickerStyle(.compact)
+                            Spacer()
                         }
+                        .padding()
+                    }
 
-                        DatePicker("date", selection: $viewModel.date,
-                                   displayedComponents: [.date])
-                        .tint(Color.ui.action)
-                        .datePickerStyle(.graphical)
-                        Spacer()
-
-                        if let region = $locationManager.region,
-                           region.wrappedValue != nil {
-                            Map(coordinateRegion: region.toUnwrapped(defaultValue: .init(.world)),
-                                showsUserLocation: true,
-                                annotationItems: pin) {
-                                MapMarker(coordinate: .init(latitude: $0.latitude,
-                                                            longitude: $0.longitude))
-                            }
-                                .frame(height: 300)
-                                .cornerRadius(8)
-                                .padding()
+                    if let latitude = viewModel.latitude,
+                       let longitude = viewModel.longitude {
+                        MapPreviewCard(region: .init(center: .init(latitude: latitude, longitude: longitude),
+                                                     latitudinalMeters: 700,
+                                                     longitudinalMeters: 700)) { location in
+                            viewModel.longitude = location.longitude
+                            viewModel.latitude = location.latitude
                         }
-
-                        HStack {
-                            LocationButton(.currentLocation) {
-                                locationManager.requestLocation()
-                                pin.removeAll()
-                                pin.append(.init(latitude: locationManager.location?.latitude ?? 0,
-                                                 longitude: locationManager.location?.longitude ?? 0))
-                            }
-                            .cornerRadius(8)
-                            .frame(height: 44)
-                            .foregroundColor(.white)
-                            .padding()
-                            .tint(.ui.action)
-                            NavigationLink(destination: LocationSelectionView { coordinate in
-                                locationManager.location = coordinate
-                                viewModel.latitude = coordinate.latitude
-                                viewModel.longitude = coordinate.longitude
-                                pin.removeAll()
-                                pin.append(.init(latitude: coordinate.latitude,
-                                                 longitude: coordinate.longitude))
-                            }) {
-                                Label("open.map", systemImage: "map")
-                                    .padding([.all], 10)
-                                    .background(Color.ui.action)
-                                    .tint(.white)
+                    } else {
+                        MapPreviewCard {
+                            viewModel.longitude = $0.longitude
+                            viewModel.latitude = $0.latitude
+                        }
+                    }
+                    
+                    CardWithTitleView(title: LocalizedStringKey("image")) {
+                        VStack {
+                            if let documentPhotoData = $viewModel.documentBase64.wrappedValue {
+                                Image(uiImage: .init(data: documentPhotoData)!)
+                                    .resizable()
+                                    .padding()
+                                    .scaledToFit()
                                     .cornerRadius(8)
+
+                            }
+                            VStack(spacing: 2) {
+                                NavigationLink(destination: CameraView(onPhotoSelected: { data in
+                                    viewModel.documentBase64 = data
+                                })) {
+                                    Spacer()
+                                    Label($viewModel.documentBase64.wrappedValue == nil ? "add.document.photo" : "edit.document.photo",
+                                          systemImage: "doc")
+                                    Spacer()
+                                }
+                                .padding(.horizontal)
+                                .buttonStyle(.borderedProminent)
+
+                                if $viewModel.documentBase64.wrappedValue != nil {
+                                    ButtonDestructive {
+                                        Label("delete",
+                                              systemImage: "trash.fill")
+                                    } action: {
+                                        viewModel.documentBase64 = nil
+                                    }
+                                    .padding()
+                                }
                             }
                         }
+                    }
 
-                        if let documentPhotoData = $viewModel.documentBase64.wrappedValue {
-                            Image(uiImage: .init(data: documentPhotoData)!)
-                                .resizable()
-                                .scaledToFit()
-                        }
-
-                        NavigationLink(destination: CameraView(onPhotoSelected: { data in
-                            viewModel.documentBase64 = data
-                        })) {
-                            Label("add.document.photo", systemImage: "doc")
-                                .padding([.all], 10)
-                                .background(Color.ui.action)
-                                .tint(.white)
-                                .cornerRadius(8)
-                        }
-
-                        ButtonPrimary {
-                            Text("add")
-                        } action: {
-                            viewModel.addExpense()
-                            dismiss()
-                        }
+                    ButtonPrimary {
+                        Text(viewModel.context == .add ? "add" : "edit")
+                    } action: {
+                        viewModel.addExpense()
+                        dismiss()
                     }
                     .padding()
                 }
@@ -127,7 +123,6 @@ struct AddExpenseView: View {
 struct AddExpenseView_Previews: PreviewProvider {
     static var previews: some View {
         AddExpenseView(viewModel: .init(carDataStore: CarDataSource(carService: CarService()),
-                                        expenseService: ExpenseService(),
-                                        carID: 0))
+                                        expenseService: ExpenseService()))
     }
 }

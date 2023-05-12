@@ -20,6 +20,9 @@ struct MapLocation: Identifiable {
 
 struct ExpenseDetailsView: View {
 
+    @State private var showEditSheet: Bool = false
+    @State private var showAlert: Bool = false
+
     private var mapLocations: [MapLocation] {
         [
             MapLocation(name: expense.title,
@@ -31,13 +34,13 @@ struct ExpenseDetailsView: View {
     let expense: Expense
 
     @State private var region = MKCoordinateRegion(
-                center: CLLocationCoordinate2D(
-                    latitude: 0,
-                    longitude: 0),
-                span: MKCoordinateSpan(
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01)
-                )
+        center: CLLocationCoordinate2D(
+            latitude: 0,
+            longitude: 0),
+        span: MKCoordinateSpan(
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01)
+    )
 
     var body: some View {
 
@@ -52,6 +55,10 @@ struct ExpenseDetailsView: View {
                                              value: expense.amount.currencyString() ?? "")
                         ExpenseDetailRowInfo(key: "title",
                                              value: expense.title)
+                        if !(expense.comment?.isEmpty ?? true) {
+                            ExpenseDetailRowInfo(key: "comment",
+                                                 value: expense.comment ?? "")
+                        }
                         ExpenseDetailRowInfo(key: "date",
                                              value: expense.date.dateFromJSON()?.dayAndMonthString() ?? "")
                         ExpenseDetailRowInfo(key: "category",
@@ -72,6 +79,34 @@ struct ExpenseDetailsView: View {
                             .frame(minHeight: 300)
                     }
                 }
+//                if let documentData = Data(base64Encoded: expense.documentBase64 ?? ""),
+//                   let uiImage = UIImage(data: documentData) {
+//                    Image(uiImage: uiImage)
+//                }
+                ButtonDestructive {
+                    Label("delete", systemImage: "trash.fill")
+                } action: {
+                    showAlert = true
+                }
+                .padding()
+
+            }
+        }
+        .background {
+            Color.ui.background
+                .ignoresSafeArea()
+        }
+        .alert("alert.delete.expense", isPresented: $showAlert, actions: {
+            Button("no", role: .cancel) {}
+            Button("yes", role: .destructive) {}
+        })
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    showEditSheet = true
+                } label: {
+                    Image(systemName: "pencil.circle.fill")
+                }
             }
         }
         .onAppear {
@@ -82,7 +117,12 @@ struct ExpenseDetailsView: View {
                 span: MKCoordinateSpan(
                     latitudeDelta: 0.01,
                     longitudeDelta: 0.01)
-                )
+            )
+        }
+        .sheet(isPresented: $showEditSheet) {
+            AddExpenseView(viewModel: .init(carDataStore: CarDataSource(carService: CarService()),
+                                            expenseService: ExpenseService(),
+                                            expense: expense))
         }
     }
 }

@@ -11,6 +11,9 @@
 "alert.delete.car" = "Are you sure that you want to delete car? All data will be lost.";
 
 /* No comment provided by engineer. */
+"alert.delete.expense" = "Are you sure that you want to delete expense? All data will be lost.";
+
+/* No comment provided by engineer. */
 "allow.camera.permission" = "Grant permission";
 
 /* No comment provided by engineer. */
@@ -47,6 +50,9 @@
 "cost.per.unit" = "Cost per unit";
 
 /* No comment provided by engineer. */
+"curent.position" = "Current location";
+
+/* No comment provided by engineer. */
 "date" = "Date";
 
 /* No comment provided by engineer. */
@@ -57,6 +63,12 @@
 
 /* No comment provided by engineer. */
 "delete" = "Delete";
+
+/* No comment provided by engineer. */
+"edit" = "Edit";
+
+/* No comment provided by engineer. */
+"edit.document.photo" = "Change document photo";
 
 /* No comment provided by engineer. */
 "email" = "Email";
@@ -101,6 +113,9 @@
 "home" = "Home";
 
 /* No comment provided by engineer. */
+"image" = "Image";
+
+/* No comment provided by engineer. */
 "landingPage.actionCard.addExpense" = "Add car expense";
 
 /* No comment provided by engineer. */
@@ -120,6 +135,12 @@
 
 /* No comment provided by engineer. */
 "logout" = "Logout";
+
+/* No comment provided by engineer. */
+"main.form" = "Main form";
+
+/* No comment provided by engineer. */
+"map" = "Map";
 
 /* No comment provided by engineer. */
 "maybe.later" = "Maybe later";
@@ -186,6 +207,9 @@
 
 /* No comment provided by engineer. */
 "sign.up" = "Sign up";
+
+/* No comment provided by engineer. */
+"take.to.app" = "Take me to app";
 
 /* No comment provided by engineer. */
 "title" = "Title";

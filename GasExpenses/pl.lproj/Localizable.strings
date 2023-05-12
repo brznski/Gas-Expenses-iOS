@@ -11,6 +11,9 @@
 "alert.delete.car" = "Czy na pewno chcesz usunąć samochód? Wszystkie dane zostaną usunięte.";
 
 /* No comment provided by engineer. */
+"alert.delete.expense" = "Czy na pewno chcesz usunąć ten wydatek? Wszystkie informacje zostaną usunięte.";
+
+/* No comment provided by engineer. */
 "allow.camera.permission" = "Pozwól na dostęp do kamery";
 
 /* No comment provided by engineer. */
@@ -47,6 +50,9 @@
 "cost.per.unit" = "Koszt za jednostkę";
 
 /* No comment provided by engineer. */
+"curent.position" = "Obecna lokacja";
+
+/* No comment provided by engineer. */
 "date" = "Data";
 
 /* No comment provided by engineer. */
@@ -57,6 +63,12 @@
 
 /* No comment provided by engineer. */
 "delete" = "Usuń";
+
+/* No comment provided by engineer. */
+"edit" = "Edytuj";
+
+/* No comment provided by engineer. */
+"edit.document.photo" = "Zmień zdjęcie dokumentu";
 
 /* No comment provided by engineer. */
 "email" = "E-mail";
@@ -101,6 +113,9 @@
 "home" = "Strona główna";
 
 /* No comment provided by engineer. */
+"image" = "Obraz";
+
+/* No comment provided by engineer. */
 "landingPage.actionCard.addExpense" = "Dodaj wydatek serwisowy";
 
 /* No comment provided by engineer. */
@@ -120,6 +135,12 @@
 
 /* No comment provided by engineer. */
 "logout" = "Wyloguj się";
+
+/* No comment provided by engineer. */
+"main.form" = "Główny formularz";
+
+/* No comment provided by engineer. */
+"map" = "Mapa";
 
 /* No comment provided by engineer. */
 "maybe.later" = "Może później";
@@ -156,6 +177,9 @@
 
 /* No comment provided by engineer. */
 "onboarding.car.text" = "Dodaj samochód aby śledzić wydatki oraz spalanie.";
+
+/* No comment provided by engineer. */
+"onboarding.localization.get.to.app" = "Przejdź do aplikacji";
 
 /* No comment provided by engineer. */
 "onboarding.localization.text" = "Pozwól na dostęp do lokalizacji aby przypisać lokalizację do wydatku.";

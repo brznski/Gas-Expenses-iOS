@@ -114,6 +114,8 @@
 		48DC507629FB15ED009F3676 /* RefuelEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC507529FB15ED009F3676 /* RefuelEndpoint.swift */; };
 		48DC507829FB15F6009F3676 /* RefuelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC507729FB15F6009F3676 /* RefuelService.swift */; };
 		48DC507A29FB1602009F3676 /* RefuelServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DC507929FB1602009F3676 /* RefuelServiceProtocol.swift */; };
+		48F39A852A0E542A009C4FE0 /* ButtonDestructive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F39A842A0E542A009C4FE0 /* ButtonDestructive.swift */; };
+		48F39A872A0E5556009C4FE0 /* MapPreviewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F39A862A0E5556009C4FE0 /* MapPreviewCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +236,8 @@
 		48DC507529FB15ED009F3676 /* RefuelEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelEndpoint.swift; sourceTree = "<group>"; };
 		48DC507729FB15F6009F3676 /* RefuelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelService.swift; sourceTree = "<group>"; };
 		48DC507929FB1602009F3676 /* RefuelServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelServiceProtocol.swift; sourceTree = "<group>"; };
+		48F39A842A0E542A009C4FE0 /* ButtonDestructive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDestructive.swift; sourceTree = "<group>"; };
+		48F39A862A0E5556009C4FE0 /* MapPreviewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPreviewCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +271,7 @@
 				484CBE922A052CB9007AF611 /* ExpenseTypeMapAnnotation.swift */,
 				4879B8922A06F561003337D6 /* LocationSelectionView.swift */,
 				4879B8942A06F5B3003337D6 /* LocationSelectionViewController.swift */,
+				48F39A862A0E5556009C4FE0 /* MapPreviewCard.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -644,6 +649,7 @@
 			children = (
 				48D8C85F2A083D9B00DCB09D /* ButtonPrimary.swift */,
 				48D8C8612A08408100DCB09D /* ButtonSecondary.swift */,
+				48F39A842A0E542A009C4FE0 /* ButtonDestructive.swift */,
 			);
 			path = BasicComponents;
 			sourceTree = "<group>";
@@ -842,6 +848,7 @@
 				48DC507329FB1204009F3676 /* AddRefuelView.swift in Sources */,
 				48CB9D4C29F05C9C006258C4 /* GetJWTEndpoint.swift in Sources */,
 				48D8C85B2A082B4800DCB09D /* SettingsPage.swift in Sources */,
+				48F39A852A0E542A009C4FE0 /* ButtonDestructive.swift in Sources */,
 				48CD096829F705CC00975EAB /* CarServiceProtocol.swift in Sources */,
 				48BAF94029E74B6B00FB5527 /* CollapsableCardWithTitleView.swift in Sources */,
 				48BAF92829E7175C00FB5527 /* AddCarView.swift in Sources */,
@@ -912,6 +919,7 @@
 				48D8C8542A0806F500DCB09D /* LoginMainPage.swift in Sources */,
 				48BAF92B29E71C7F00FB5527 /* FuelTypes.swift in Sources */,
 				48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */,
+				48F39A872A0E5556009C4FE0 /* MapPreviewCard.swift in Sources */,
 				488F4AD529E4A2D10062BF4B /* Cache.swift in Sources */,
 				48BA579629E36B510003D60D /* NetworkEngine.swift in Sources */,
 				48C1331D2A0B8C3D007C84B0 /* UserService.swift in Sources */,

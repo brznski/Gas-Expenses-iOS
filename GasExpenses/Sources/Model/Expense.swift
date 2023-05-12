@@ -22,9 +22,9 @@ struct Expense: Identifiable, Codable {
 extension Expense {
     static let mock = Expense(id: 3,
                               amount: 350.3,
-                              comment: "",
+                              comment: "This is a payment for clutch and gearbox",
                               title: "Fuel",
-                              date: "",
+                              date: "2023-05-16 02:00:00.000000",
                               expenseType: .wash,
                               latitude: 54,
                               longitude: 20,

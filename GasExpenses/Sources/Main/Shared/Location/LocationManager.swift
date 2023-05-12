@@ -41,6 +41,15 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 
+    func locationManager(_ manager: CLLocationManager, didDetermineState state: CLRegionState, for region: CLRegion) {
+
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
+
+    }
+    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
