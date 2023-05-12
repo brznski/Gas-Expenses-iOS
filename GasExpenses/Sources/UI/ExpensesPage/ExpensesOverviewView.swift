@@ -66,6 +66,7 @@ struct ExpensesOverviewView: View {
                                         NavigationLink(destination: ExpenseDetailsView(expense: expense)) {
                                             ExpenseRowView(expense: expense)
                                         }
+                                        .buttonStyle(.plain)
                                     }
                                 }
                             }
@@ -75,6 +76,7 @@ struct ExpensesOverviewView: View {
                                     ForEach(monthlyRefuels.refuels.wrappedValue) {
                                         RefuelRowView(refuel: $0)
                                     }
+                                    .buttonStyle(.plain)
                                 }
                             }
                         }
@@ -94,9 +96,9 @@ struct ExpensesOverviewView: View {
                     do {
                         try await viewModel.getExpenses()
                         viewModel.groupExpenses()
-                        viewModel.getLastMonthExpenses()
                         try await viewModel.getRefuels()
                         viewModel.groupRefuels()
+                        viewModel.getLastMonthRefuels()
                     } catch {
 
                     }
