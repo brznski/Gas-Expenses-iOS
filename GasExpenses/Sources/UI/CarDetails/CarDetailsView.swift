@@ -12,6 +12,7 @@ struct CarDetailsView: View {
     let model: Car
     let viewModel: CarDetailsViewModel
     @State var showsAlert = false
+    @State var shouldShowSheet = false
 
     var body: some View {
         ScrollView {
@@ -58,6 +59,19 @@ struct CarDetailsView: View {
                 .buttonStyle(.borderedProminent)
                 .padding()
 
+            }
+        }
+        .sheet(isPresented: $shouldShowSheet, content: {
+            AddCarView(viewModel: .init(carService: CarService(),
+                                        car: model))
+        })
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    shouldShowSheet = true
+                } label: {
+                    Image(systemName: "pencil.circle.fill")
+                }
             }
         }
         .alert("alert.delete.car", isPresented: $showsAlert,

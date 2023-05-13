@@ -6,101 +6,55 @@
 //
 
 import SwiftUI
-import PhotosUI
 
 struct AddCarView: View {
-    @State var carName: String = ""
-    @State var carBrand: String = ""
-    @State var carModel: String = ""
-    @State var carMileage: String = ""
-    @State var carFuelType: String = ""
-
-    @ObservedObject var viewModel: AddCarViewModel = .init()
+    @ObservedObject var viewModel: AddCarViewModel = .init(carService: CarService())
     @Environment(\.dismiss) var dismiss
 
-    @State private var selectedPhoto: PhotosPickerItem?
-    @State private var selectedImageData: Data?
-
     var body: some View {
-            ZStack {
-                Color.ui.background
-                    .ignoresSafeArea()
-                ScrollView {
-                CardWithTitleView(title: "Car info") {
+        ZStack {
+            Color.ui.background
+                .ignoresSafeArea()
+            ScrollView {
+                CardWithTitleView(title: "car.info") {
                     VStack {
-                        PhotosPicker(
-                            selection: $selectedPhoto,
-                            matching: .images,
-                            photoLibrary: .shared()) {
-                                if let selectedImageData,
-                                   let uiImage = UIImage(data: selectedImageData) {
-                                    Image(uiImage: uiImage)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                                        .padding()
-                                } else {
-                                    Text("select.photo")
-                                }
-                            }
-                            .onChange(of: selectedPhoto) { newItem in
-                                Task {
-                                    if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                        selectedImageData = data
-                                    }
-                                }
-                            }
-
                         Group {
                             TitleAndTextField(title: "car.name",
-                                              textFieldValue: $carName)
+                                              textFieldValue: $viewModel.carName)
                             TitleAndTextField(title: "brand",
-                                              textFieldValue: $carBrand)
+                                              textFieldValue: $viewModel.carBrand)
                             TitleAndTextField(title: "model",
-                                              textFieldValue: $carModel)
-                            TitleAndTextField(title: "mileage",
-                                              textFieldValue: $carMileage)
-                            .keyboardType(.decimalPad)
+                                              textFieldValue: $viewModel.carModel)
                         }
-                        .padding()
 
                         HStack {
                             Text("fuel.type")
-                                .padding()
                             Spacer()
-                            Picker(selection: $carFuelType, label: EmptyView()) {
+                            Picker(selection: $viewModel.carFuelType, label: EmptyView()) {
                                 ForEach(FuelTypes.allCases) {
                                     Text($0.rawValue).tag($0.rawValue)
                                 }
                             }
                             .pickerStyle(.menu)
                             .tint(Color.ui.action)
-                            .padding()
                         }
+
+                        DatePicker("insurance.expiration",
+                                   selection: $viewModel.insuranceExpiration, displayedComponents: [.date])
+                        DatePicker("technical.checkup.expiration",
+                                   selection: $viewModel.technicalCheckupExpiration, displayedComponents: [.date])
                     }
+                    .padding()
                 }
 
-                Button {
-                    Task {
-                        try await CarService().addCar(.init(id: 0,
-                                                            name: carName,
-                                                            brand: carBrand,
-                                                            model: carModel,
-                                                            refuels: [],
-                                                            fuelType: FuelTypes(rawValue: carFuelType) ?? FuelTypes.pb95,
-                                                            isFavourite: false,
-                                                            imageBase64: selectedImageData?.base64EncodedString() ?? ""))
-                        dismiss()
-                    }
-                } label: {
-                    Spacer()
+                ImagePreviewCard(imageData: $viewModel.imageData)
+
+                ButtonPrimary {
                     Text("add")
-                    Spacer()
+                } action: {
+                    viewModel.addCar()
                 }
                 .padding()
-                .buttonStyle(.borderedProminent)
-                .tint(Color.ui.action)
-
             }
         }
         .background(Color.ui.background)
