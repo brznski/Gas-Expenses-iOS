@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ImagePreviewCard: View {
+    @State private var selectedPhoto: PhotosPickerItem?
     @Binding var imageData: Data?
 
     var body: some View {
@@ -34,6 +36,22 @@ struct ImagePreviewCard: View {
                     .padding($imageData.wrappedValue == nil ? [.horizontal, .bottom] : .horizontal)
                     .buttonStyle(.borderedProminent)
                     .tint(.ui.action)
+
+                    PhotosPicker(selection: $selectedPhoto) {
+                        Spacer()
+                        Label("select.document.photo", systemImage: "photo")
+                        Spacer()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.ui.action)
+                    .padding()
+                    .onChange(of: selectedPhoto) { newValue in
+                        Task {
+                            if let data = try? await newValue?.loadTransferable(type: Data.self) {
+                                imageData = data
+                            }
+                        }
+                    }
 
                     if $imageData.wrappedValue != nil {
                         ButtonDestructive {
