@@ -30,7 +30,7 @@ final class CarCardViewModel: ObservableObject {
         switch context {
         case .landingPage:
             return "landingpage.car.card.title"
-        case .carOverview:
+        case .carOverview, .carDetails:
             return LocalizedStringKey(model?.name ?? "")
         }
     }
@@ -39,7 +39,7 @@ final class CarCardViewModel: ObservableObject {
         switch context {
         case .landingPage:
             return model?.name ?? ""
-        case .carOverview:
+        case .carOverview, .carDetails:
             return "\(model?.brand ?? "") \(model?.model ?? "")"
         }
     }

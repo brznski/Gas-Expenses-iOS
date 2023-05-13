@@ -10,6 +10,7 @@ import SwiftUI
 enum CarCardContext {
     case landingPage
     case carOverview
+    case carDetails
 }
 
 struct CarCardView: View {
@@ -47,7 +48,7 @@ struct CarCardView: View {
                         }
                     }
 
-                    if cardContext == .landingPage {
+                    if cardContext == .landingPage && carDataSource.cars.count > 1 {
                         Button {
                             onChevronDownTap?()
                         } label: {
@@ -75,20 +76,22 @@ struct CarCardView: View {
                     }
                 }
 
-                HStack {
-                    Spacer()
-                    NavigationLink {
-                        CarDetailsView(model: viewModel.model!,
-                                       viewModel: CarDetailsViewModel(carService: CarService()))
-                    } label: {
-                        Label("see.more", systemImage: "chevron.right")
-                    }
+                if cardContext != .carDetails {
+                    HStack {
+                        Spacer()
+                        NavigationLink {
+                            CarDetailsView(model: viewModel.model!,
+                                           viewModel: CarDetailsViewModel(carService: CarService()))
+                        } label: {
+                            Label("see.more", systemImage: "chevron.right")
+                        }
 
-                    .tint(.ui.action)
-                    .foregroundColor(.white)
-                    .buttonStyle(.borderedProminent)
+                        .tint(.ui.action)
+                        .foregroundColor(.white)
+                        .buttonStyle(.borderedProminent)
+                    }
+                    .padding()
                 }
-                .padding()
             }
         }
     }
