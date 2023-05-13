@@ -16,8 +16,8 @@ struct Car: Identifiable, Codable {
     let fuelType: FuelTypes
     var isFavourite: Bool
     let imageBase64: String?
-    let insuranceExpiration: Date?
-    let technicalCheckupExpiration: Date?
+    let insuranceExpiration: String?
+    let technicalCheckupExpiration: String?
 
     func averageFuelConsumptionSinceLast() -> Double {
         let twoLastRefilsArray = refuels.suffix(2)
@@ -78,8 +78,8 @@ extension Car {
                                  fuelType: .pb95,
                                  isFavourite: true,
                                  imageBase64: "",
-                                 insuranceExpiration: .now,
-                                 technicalCheckupExpiration: .now)
+                                 insuranceExpiration: "2023-13-05",
+                                 technicalCheckupExpiration: "2023-15-05")
 }
 
 extension Car: Equatable {

@@ -33,11 +33,11 @@ final class AddCarViewModel: ObservableObject {
         self.carModel = car.model
         self.carFuelType = car.fuelType.rawValue
 
-        if let insuranceExpiration = car.insuranceExpiration {
+        if let insuranceExpiration = car.insuranceExpiration?.dateFromJSON() {
             self.insuranceExpiration = insuranceExpiration
         }
 
-        if let technicalCheckupExpiration = car.technicalCheckupExpiration {
+        if let technicalCheckupExpiration = car.technicalCheckupExpiration?.dateFromJSON() {
             self.insuranceExpiration = technicalCheckupExpiration
         }
 
@@ -57,8 +57,8 @@ final class AddCarViewModel: ObservableObject {
                               fuelType: FuelTypes(rawValue: carFuelType) ?? .pb95,
                               isFavourite: false,
                               imageBase64: imageData?.base64EncodedString(),
-                              insuranceExpiration: insuranceExpiration,
-                              technicalCheckupExpiration: technicalCheckupExpiration)
+                              insuranceExpiration: insuranceExpiration?.JSONDate(),
+                              technicalCheckupExpiration: technicalCheckupExpiration?.JSONDate())
 
                 if carID != nil {
                     try await carService.editCar(car: car)

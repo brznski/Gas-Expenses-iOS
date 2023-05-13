@@ -29,8 +29,8 @@ struct AddNewCarEndpoint: BackendEndpoint {
             "fuelType": FuelTypes.pb95.rawValue,
             "isFavourite": car.isFavourite,
             "imageBase64": car.imageBase64 as Any,
-            "insuranceExpiration": car.insuranceExpiration?.JSONDate() ?? nil,
-            "technicalCheckupExpiration": car.technicalCheckupExpiration?.JSONDate() ?? nil
+            "insuranceExpiration": car.insuranceExpiration,
+            "technicalCheckupExpiration": car.technicalCheckupExpiration
         ]
     }
 
@@ -52,8 +52,8 @@ struct EditCarEndpoint: BackendEndpoint {
             "fuelType": FuelTypes.pb95.rawValue,
             "isFavourite": car.isFavourite,
             "imageBase64": car.imageBase64 as Any,
-            "insuranceExpiration": car.insuranceExpiration?.JSONDate() ?? nil,
-            "technicalCheckupExpiration": car.technicalCheckupExpiration?.JSONDate() ?? nil
+            "insuranceExpiration": car.insuranceExpiration,
+            "technicalCheckupExpiration": car.technicalCheckupExpiration
         ]
     }
     var accessToken: String
