@@ -40,9 +40,9 @@ struct AddCarView: View {
                         }
 
                         DatePicker("insurance.expiration",
-                                   selection: $viewModel.insuranceExpiration, displayedComponents: [.date])
+                                   selection: $viewModel.insuranceExpiration.toUnwrapped(defaultValue: .now), displayedComponents: [.date])
                         DatePicker("technical.checkup.expiration",
-                                   selection: $viewModel.technicalCheckupExpiration, displayedComponents: [.date])
+                                   selection: $viewModel.technicalCheckupExpiration.toUnwrapped(defaultValue: .now), displayedComponents: [.date])
                     }
                     .padding()
                 }

@@ -28,7 +28,9 @@ struct AddNewCarEndpoint: BackendEndpoint {
             "expenses": [],
             "fuelType": FuelTypes.pb95.rawValue,
             "isFavourite": car.isFavourite,
-            "imageBase64": car.imageBase64
+            "imageBase64": car.imageBase64 as Any,
+            "insuranceExpiration": car.insuranceExpiration?.JSONDate() ?? nil,
+            "technicalCheckupExpiration": car.technicalCheckupExpiration?.JSONDate() ?? nil
         ]
     }
 
@@ -36,9 +38,24 @@ struct AddNewCarEndpoint: BackendEndpoint {
 }
 
 struct EditCarEndpoint: BackendEndpoint {
+    let car: Car
     var path: String = "car/edit"
     var method: HTTPMethod = .PUT
-    var payload: [String: Any] = [:]
+    var payload: [String: Any] {
+        [
+            "id": car.id,
+            "name": car.name,
+            "brand": car.brand,
+            "model": car.model,
+            "refuels": car.refuels,
+            "expenses": [],
+            "fuelType": FuelTypes.pb95.rawValue,
+            "isFavourite": car.isFavourite,
+            "imageBase64": car.imageBase64 as Any,
+            "insuranceExpiration": car.insuranceExpiration?.JSONDate() ?? nil,
+            "technicalCheckupExpiration": car.technicalCheckupExpiration?.JSONDate() ?? nil
+        ]
+    }
     var accessToken: String
 }
 

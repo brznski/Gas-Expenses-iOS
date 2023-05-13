@@ -15,7 +15,7 @@ struct Car: Identifiable, Codable {
     let refuels: [Refuel]
     let fuelType: FuelTypes
     var isFavourite: Bool
-    let imageBase64: String
+    let imageBase64: String?
     let insuranceExpiration: Date?
     let technicalCheckupExpiration: Date?
 

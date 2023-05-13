@@ -23,8 +23,11 @@ struct CarCardView: View {
     var body: some View {
         CardWithTitleView(title: viewModel.getHeader(context: cardContext)) {
             VStack {
-                if let model = viewModel.model {
-                    ImageWithGradientView(imageName: UIImage(data: Data(base64Encoded: model.imageBase64, options: .ignoreUnknownCharacters)!)!)
+                if let carModel = viewModel.model,
+                   let imageBase64 = carModel.imageBase64,
+                   let imageData = Data(base64Encoded: imageBase64),
+                   let uiImage = UIImage(data: imageData) {
+                    ImageWithGradientView(imageName: uiImage)
                 }
                 HStack {
                     HStack {

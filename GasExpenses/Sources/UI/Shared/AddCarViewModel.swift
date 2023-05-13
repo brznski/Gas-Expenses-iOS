@@ -9,15 +9,15 @@ import Foundation
 
 final class AddCarViewModel: ObservableObject {
     private let carService: CarServiceProtocol
-    private var carID: Int? = nil
+    private var carID: Int?
 
     @Published var carName: String = ""
     @Published var carBrand: String = ""
     @Published var carModel: String = ""
     @Published var carFuelType: String = ""
-    @Published var insuranceExpiration: Date = .now
-    @Published var technicalCheckupExpiration: Date = .now
-    @Published var imageData: Data? = nil
+    @Published var insuranceExpiration: Date?
+    @Published var technicalCheckupExpiration: Date?
+    @Published var imageData: Data?
 
     init(carService: CarServiceProtocol) {
         self.carService = carService
@@ -41,10 +41,34 @@ final class AddCarViewModel: ObservableObject {
             self.insuranceExpiration = technicalCheckupExpiration
         }
 
-        self.imageData = Data(base64Encoded: car.imageBase64)
+        if let imageBase64 = car.imageBase64 {
+            self.imageData = Data(base64Encoded: imageBase64)
+        }
     }
 
     func addCar() {
+        Task {
+            do {
+                let car = Car(id: carID ?? 0,
+                              name: carName,
+                              brand: carBrand,
+                              model: carModel,
+                              refuels: [],
+                              fuelType: FuelTypes(rawValue: carFuelType) ?? .pb95,
+                              isFavourite: false,
+                              imageBase64: imageData?.base64EncodedString(),
+                              insuranceExpiration: insuranceExpiration,
+                              technicalCheckupExpiration: technicalCheckupExpiration)
 
+                if carID != nil {
+                    try await carService.editCar(car: car)
+                    return
+                }
+
+                try await carService.addCar(car)
+            } catch {
+
+            }
+        }
     }
 }

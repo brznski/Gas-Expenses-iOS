@@ -19,7 +19,8 @@ struct CarRowInfoView: View {
             dismiss()
         } label: {
             HStack {
-                if let imageData = Data(base64Encoded: carModel.imageBase64,
+                if let imageBase64 = carModel.imageBase64,
+                    let imageData = Data(base64Encoded: imageBase64,
                                         options: .ignoreUnknownCharacters),
                    let uiImage = UIImage(data: imageData) {
                     Image(uiImage: uiImage)

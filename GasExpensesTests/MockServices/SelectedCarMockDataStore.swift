@@ -12,24 +12,15 @@ final class MockCarService: CarServiceProtocol {
 
     func setFavouriteCar(carID: Int) async throws {}
 
-    func addCar(_ car: Car) async throws {
+    func addCar(_ car: Car) async throws {}
 
-    }
+    func editCar(car: Car) async throws {}
 
     func getAllCars() async throws -> [Car] {
         return cars
     }
 
-    private let cars = [
-        Car(id: 1, name: "My Subaru",
-            brand: "Subaru",
-            model: "Impreza",
-            refuels: [
-            ],
-            fuelType: .pb95,
-            isFavourite: true,
-            imageBase64: "")
-    ]
+    private let cars = [Car.mock]
 
     func getCars() -> [Car] {
         return cars
