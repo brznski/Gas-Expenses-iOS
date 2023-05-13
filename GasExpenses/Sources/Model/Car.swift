@@ -16,6 +16,8 @@ struct Car: Identifiable, Codable {
     let fuelType: FuelTypes
     var isFavourite: Bool
     let imageBase64: String
+    let insuranceExpiration: Date?
+    let technicalCheckupExpiration: Date?
 
     func averageFuelConsumptionSinceLast() -> Double {
         let twoLastRefilsArray = refuels.suffix(2)
@@ -68,11 +70,16 @@ struct Car: Identifiable, Codable {
 }
 
 extension Car {
-    static let mock: Car = .init(id: 1, name: "My Subaru",
-                          brand: "Subaru",
-                          model: "Impreza", refuels: [],
-                          fuelType: .pb95,
-                          isFavourite: true, imageBase64: "")
+    static let mock: Car = .init(id: 1,
+                                 name: "My Subaru",
+                                 brand: "Subaru",
+                                 model: "Impreza",
+                                 refuels: [],
+                                 fuelType: .pb95,
+                                 isFavourite: true,
+                                 imageBase64: "",
+                                 insuranceExpiration: .now,
+                                 technicalCheckupExpiration: .now)
 }
 
 extension Car: Equatable {
