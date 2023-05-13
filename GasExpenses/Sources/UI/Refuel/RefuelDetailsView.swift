@@ -12,11 +12,11 @@ import MapKit
 struct RefuelDetailsView: View {
     @State private var showEditSheet: Bool = false
     @State private var showAlert: Bool = false
-
-    let refuel: Refuel
-
     @State private var region: MKCoordinateRegion?
     @State private var imageData: Data?
+    let refuel: Refuel
+
+    @EnvironmentObject private var carDataSource: CarDataSource
 
     var body: some View {
 
@@ -84,7 +84,11 @@ struct RefuelDetailsView: View {
             }
         }
         .sheet(isPresented: $showEditSheet) {
-            
+            AddRefuelView(viewModel: AddRefuelViewModel(service: RefuelService(),
+                                                        carID: carDataSource.selectedCar?.id ?? -1,
+                                                        refuelID: refuel.id),
+                          refuel: refuel)
+
         }
     }
 }

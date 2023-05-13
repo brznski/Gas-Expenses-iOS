@@ -8,7 +8,7 @@
 import Foundation
 
 struct Refuel: Identifiable, Codable {
-    let id: Double
+    let id: Int
     let title: String
     let date: String
     let comment: String?

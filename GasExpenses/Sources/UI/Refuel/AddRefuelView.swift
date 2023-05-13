@@ -15,7 +15,34 @@ struct AddRefuelView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var carDataSource: CarDataSource
 
-    @State var pin: [Location] = []
+    init(viewModel: AddRefuelViewModel) {
+        self.viewModel = viewModel
+    }
+
+    init(viewModel: AddRefuelViewModel,
+         refuel: Refuel) {
+        self.viewModel = viewModel
+
+        viewModel.refuelID = refuel.id
+        viewModel.title = refuel.title
+        viewModel.comment = refuel.title
+        viewModel.mileage = "\(refuel.mileage)"
+        viewModel.fuelAmount = "\(refuel.fuelAmount)"
+        viewModel.costPerUnit = "\(refuel.costPerUnit)"
+        viewModel.date = refuel.date.dateFromJSON() ?? .now
+
+        if let latitude = refuel.latitude,
+           let longitude = refuel.longitude {
+            viewModel.usersLocation = .init(latitude: latitude,
+                                            longitude: longitude)
+        }
+
+        if let imageBase64 = refuel.documentBase64,
+           !imageBase64.isEmpty,
+           let imageData = Data(base64Encoded: imageBase64) {
+            viewModel.documentBase64 = imageData
+        }
+    }
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -42,15 +69,23 @@ struct AddRefuelView: View {
                 }
                 .padding()
             }
-            MapPreviewCard { _ in }
-            ImagePreviewCard(imageData: $viewModel.documentBase64)
 
-            if let documentPhotoData = $viewModel.documentBase64.wrappedValue {
-                Image(uiImage: .init(data: documentPhotoData)!)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(8)
+            if let latitude = viewModel.usersLocation?.latitude,
+               let longitude = viewModel.usersLocation?.longitude {
+                MapPreviewCard(region: .init(center: .init(latitude: latitude, longitude: longitude),
+                                             latitudinalMeters: 700,
+                                             longitudinalMeters: 700)) { location in
+                    viewModel.usersLocation?.longitude = location.longitude
+                    viewModel.usersLocation?.latitude = location.latitude
+                }
+            } else {
+                MapPreviewCard {
+                    viewModel.usersLocation?.longitude = $0.longitude
+                    viewModel.usersLocation?.latitude = $0.latitude
+                }
             }
+
+            ImagePreviewCard(imageData: $viewModel.documentBase64)
 
             ButtonPrimary {
                 Text("add")
@@ -78,6 +113,6 @@ struct AddRefuelView: View {
 struct AddRefuelView_Previews: PreviewProvider {
     static var previews: some View {
         AddRefuelView(viewModel: .init(service: RefuelService(),
-                                       car: .constant(Car.mock)))
+                                       carID: 0))
     }
 }

@@ -16,7 +16,7 @@ struct LadingPageActionCardGroup: View {
                 GridRow {
                     NavigationLink {
                         AddRefuelView(viewModel: .init(service: RefuelService(),
-                                                       car: $carDataSource.selectedCar))
+                                                       carID: $carDataSource.selectedCar.wrappedValue?.id ?? -1))
                     } label: {
                         ActionCard(title: "landingPage.actionCard.addFuel",
                                    imageSystemName: "fuelpump.fill")

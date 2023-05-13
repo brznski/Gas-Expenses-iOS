@@ -10,6 +10,10 @@ import CoreLocation
 import SwiftUI
 
 final class AddRefuelViewModel: ObservableObject {
+
+    var refuelID: Int?
+    let carID: Int
+
     @Published var date: Date = .now
     @Published var title: String = ""
     @Published var comment: String = ""
@@ -19,13 +23,20 @@ final class AddRefuelViewModel: ObservableObject {
     @Published var usersLocation: CLLocationCoordinate2D?
     @Published var documentBase64: Data?
 
-    @Binding var car: Car?
     private let service: RefuelServiceProtocol
 
     init(service: RefuelServiceProtocol,
-         car: Binding<Car?>) {
+         carID: Int) {
         self.service = service
-        self._car = car
+        self.carID = carID
+    }
+
+    init(service: RefuelServiceProtocol,
+         carID: Int,
+         refuelID: Int) {
+        self.service = service
+        self.carID = carID
+        self.refuelID = refuelID
     }
 
     func addRefuel() {
@@ -41,7 +52,7 @@ final class AddRefuelViewModel: ObservableObject {
                                    documentBase64: documentBase64?.base64EncodedString())
             do {
                 try await service.addRefuel(newRefuel,
-                                            carID: car?.id ?? -1)
+                                            carID: carID)
             } catch {
 
             }
