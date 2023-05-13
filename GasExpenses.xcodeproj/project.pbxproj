@@ -97,6 +97,7 @@
 		48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139D29E1DAB7009A2ED6 /* CarCardViewModel.swift */; };
 		48D5256B2A0C1630007A866D /* OnboardingMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D5256A2A0C1630007A866D /* OnboardingMainView.swift */; };
 		48D5256E2A0C19E7007A866D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D5256D2A0C19E7007A866D /* OnboardingView.swift */; };
+		48D537A02A0FDA42001428C1 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D5379F2A0FDA42001428C1 /* LocalNotificationManager.swift */; };
 		48D8BE3E2A0D09CE00B10ADC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8BE3D2A0D09CE00B10ADC /* LocationManager.swift */; };
 		48D8BE402A0D0A2100B10ADC /* AddRefuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8BE3F2A0D0A2100B10ADC /* AddRefuelViewModel.swift */; };
 		48D8BE442A0D438D00B10ADC /* RefuelRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8BE432A0D438D00B10ADC /* RefuelRowView.swift */; };
@@ -224,6 +225,7 @@
 		48D1139D29E1DAB7009A2ED6 /* CarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCardViewModel.swift; sourceTree = "<group>"; };
 		48D5256A2A0C1630007A866D /* OnboardingMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMainView.swift; sourceTree = "<group>"; };
 		48D5256D2A0C19E7007A866D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		48D5379F2A0FDA42001428C1 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		48D8BE3D2A0D09CE00B10ADC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		48D8BE3F2A0D0A2100B10ADC /* AddRefuelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRefuelViewModel.swift; sourceTree = "<group>"; };
 		48D8BE432A0D438D00B10ADC /* RefuelRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelRowView.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 		48D1138A29E1D34D009A2ED6 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				48D5379E2A0FDA33001428C1 /* Notification */,
 				48D8BE3B2A0D09B600B10ADC /* Shared */,
 				48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */,
 				48A027E429EAC8EF00515291 /* ConfigurationDebug.xcconfig */,
@@ -614,6 +617,14 @@
 				48D5256D2A0C19E7007A866D /* OnboardingView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		48D5379E2A0FDA33001428C1 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				48D5379F2A0FDA42001428C1 /* LocalNotificationManager.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		48D8BE3B2A0D09B600B10ADC /* Shared */ = {
@@ -894,6 +905,7 @@
 				48D1139329E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift in Sources */,
 				48CD096629F704D300975EAB /* CarEndpoint.swift in Sources */,
 				484CBE932A052CB9007AF611 /* ExpenseTypeMapAnnotation.swift in Sources */,
+				48D537A02A0FDA42001428C1 /* LocalNotificationManager.swift in Sources */,
 				48C7C8C229E8A85800010018 /* CarRowInfoView.swift in Sources */,
 				48D8C8582A081F3A00DCB09D /* SignupPage.swift in Sources */,
 				48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */,
