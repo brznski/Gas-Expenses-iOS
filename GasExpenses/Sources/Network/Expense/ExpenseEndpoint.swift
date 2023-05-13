@@ -42,6 +42,9 @@ struct AddExpenseEndpoint: BackendEndpoint {
 }
 
 struct EditExpenseEndpoint: BackendEndpoint {
+    let carID: String
+    let expense: Expense
+    
     var path: String = "expense/edit"
     var method: HTTPMethod = .PUT
     var payload: [String: Any] { [
@@ -60,9 +63,6 @@ struct EditExpenseEndpoint: BackendEndpoint {
     ]
     }
     var accessToken: String
-
-    let carID: String
-    let expense: Expense
 }
 
 struct DeleteExpenseEndpoint: BackendEndpoint {
