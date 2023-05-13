@@ -22,6 +22,7 @@ struct ExpenseDetailsView: View {
 
     @State private var showEditSheet: Bool = false
     @State private var showAlert: Bool = false
+    @Environment(\.dismiss) private var dismiss
 
     private var mapLocations: [MapLocation] {
         [
@@ -62,10 +63,7 @@ struct ExpenseDetailsView: View {
                 if let unwrapped = $region.toUnwrapped(defaultValue: .init(.world)) {
                     MapPreviewCard(region: unwrapped.wrappedValue) { _ in }
                 }
-//                if let documentData = Data(base64Encoded: expense.documentBase64 ?? ""),
-//                   let uiImage = UIImage(data: documentData) {
-//                    Image(uiImage: uiImage)
-//                }
+
                 ButtonDestructive {
                     Label("delete", systemImage: "trash.fill")
                 } action: {
@@ -80,7 +78,13 @@ struct ExpenseDetailsView: View {
         }
         .alert("alert.delete.expense", isPresented: $showAlert, actions: {
             Button("no", role: .cancel) {}
-            Button("yes", role: .destructive) {}
+            Button("yes", role: .destructive) {
+                Task {
+                    let service = ExpenseService()
+                    try? await service.deleteExpense(expenseID: expense.id)
+                    dismiss()
+                }
+            }
         })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

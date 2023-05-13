@@ -10,4 +10,6 @@ import Foundation
 protocol ExpenseServiceProtocol {
     func getAllExpenses(carID: String) async throws -> [Expense]
     func addExpense(carID: String, expense: Expense) async throws
+    func editExpense(expense: Expense) async throws
+    func deleteExpense(expenseID: Int) async throws
 }

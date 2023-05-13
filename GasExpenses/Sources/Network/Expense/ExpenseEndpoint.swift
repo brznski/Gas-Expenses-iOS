@@ -42,24 +42,20 @@ struct AddExpenseEndpoint: BackendEndpoint {
 }
 
 struct EditExpenseEndpoint: BackendEndpoint {
-    let carID: String
     let expense: Expense
     
     var path: String = "expense/edit"
     var method: HTTPMethod = .PUT
     var payload: [String: Any] { [
-        "carID": carID,
-        "expense": [
-            "id": expense.id,
-            "amount": expense.amount,
-            "title": expense.title,
-            "date": expense.date,
-            "expenseType": expense.expenseType.rawValue,
-            "longitude": expense.longitude as Any,
-            "latitude": expense.latitude as Any,
-            "comment": expense.comment as Any,
-            "documentBase64": expense.documentBase64 as Any
-        ]
+        "id": expense.id,
+        "amount": expense.amount,
+        "title": expense.title,
+        "date": expense.date,
+        "expenseType": expense.expenseType.rawValue,
+        "longitude": expense.longitude as Any,
+        "latitude": expense.latitude as Any,
+        "comment": expense.comment as Any,
+        "documentBase64": expense.documentBase64 as Any
     ]
     }
     var accessToken: String
