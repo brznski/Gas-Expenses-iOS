@@ -30,7 +30,7 @@ struct ImagePreviewCard: View {
                     }) {
                         Spacer()
                         Label($imageData.wrappedValue == nil ? "add.document.photo" : "edit.document.photo",
-                              systemImage: "doc")
+                              systemImage: "camera")
                         Spacer()
                     }
                     .padding($imageData.wrappedValue == nil ? [.horizontal, .bottom] : .horizontal)
