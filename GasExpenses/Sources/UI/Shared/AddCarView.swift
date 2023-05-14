@@ -47,7 +47,8 @@ struct AddCarView: View {
                     .padding()
                 }
 
-                ImagePreviewCard(imageData: $viewModel.imageData)
+                ImagePreviewCard(imageData: $viewModel.imageData,
+                                 cardContext: .edit)
 
                 ButtonPrimary {
                     Text("add")

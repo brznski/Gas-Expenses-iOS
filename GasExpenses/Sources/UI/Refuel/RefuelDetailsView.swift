@@ -41,11 +41,13 @@ struct RefuelDetailsView: View {
                 }
 
                 if let unwrapped = $region.toUnwrapped(defaultValue: .init(.world)) {
-                    MapPreviewCard(region: unwrapped.wrappedValue) { _ in }
+                    MapPreviewCard(cardContext: .preview,
+                                   region: unwrapped.wrappedValue) { _ in }
                 }
 
                 if $imageData.wrappedValue != nil {
-                    ImagePreviewCard(imageData: $imageData)
+                    ImagePreviewCard(imageData: $imageData,
+                                     cardContext: .preview)
                 }
 
                 ButtonDestructive {

@@ -61,7 +61,8 @@ struct ExpenseDetailsView: View {
                 }
 
                 if let unwrapped = $region.toUnwrapped(defaultValue: .init(.world)) {
-                    MapPreviewCard(region: unwrapped.wrappedValue) { _ in }
+                    MapPreviewCard(cardContext: .preview,
+                                   region: unwrapped.wrappedValue) { _ in }
                 }
 
                 ButtonDestructive {

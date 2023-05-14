@@ -72,20 +72,22 @@ struct AddRefuelView: View {
 
             if let latitude = viewModel.usersLocation?.latitude,
                let longitude = viewModel.usersLocation?.longitude {
-                MapPreviewCard(region: .init(center: .init(latitude: latitude, longitude: longitude),
+                MapPreviewCard(cardContext: .edit,
+                               region: .init(center: .init(latitude: latitude, longitude: longitude),
                                              latitudinalMeters: 700,
                                              longitudinalMeters: 700)) { location in
                     viewModel.usersLocation?.longitude = location.longitude
                     viewModel.usersLocation?.latitude = location.latitude
                 }
             } else {
-                MapPreviewCard {
+                MapPreviewCard(cardContext: .edit) {
                     viewModel.usersLocation?.longitude = $0.longitude
                     viewModel.usersLocation?.latitude = $0.latitude
                 }
             }
 
-            ImagePreviewCard(imageData: $viewModel.documentBase64)
+            ImagePreviewCard(imageData: $viewModel.documentBase64,
+                             cardContext: .edit)
 
             ButtonPrimary {
                 Text("add")

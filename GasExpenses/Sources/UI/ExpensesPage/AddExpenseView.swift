@@ -59,20 +59,22 @@ struct AddExpenseView: View {
 
                     if let latitude = viewModel.latitude,
                        let longitude = viewModel.longitude {
-                        MapPreviewCard(region: .init(center: .init(latitude: latitude, longitude: longitude),
+                        MapPreviewCard(cardContext: .edit,
+                                       region: .init(center: .init(latitude: latitude, longitude: longitude),
                                                      latitudinalMeters: 700,
                                                      longitudinalMeters: 700)) { location in
                             viewModel.longitude = location.longitude
                             viewModel.latitude = location.latitude
                         }
                     } else {
-                        MapPreviewCard {
+                        MapPreviewCard(cardContext: .edit) {
                             viewModel.longitude = $0.longitude
                             viewModel.latitude = $0.latitude
                         }
                     }
                     
-                    ImagePreviewCard(imageData: $viewModel.documentBase64)
+                    ImagePreviewCard(imageData: $viewModel.documentBase64,
+                                     cardContext: .edit)
 
                     ButtonPrimary {
                         Text(viewModel.context == .add ? "add" : "edit")

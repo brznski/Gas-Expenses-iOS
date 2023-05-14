@@ -12,17 +12,21 @@ import CoreLocation
 
 struct MapPreviewCard: View {
     @ObservedObject var locationManager = LocationManager()
-
     @State private var pin: [Location] = []
 
     let locationChanged: (Location) -> Void
+    let cardContext: ImagePreviewCardContext
 
-    init(locationChanged: @escaping (Location) -> Void) {
+    init(cardContext: ImagePreviewCardContext,
+         locationChanged: @escaping (Location) -> Void) {
         self.locationChanged = locationChanged
+        self.cardContext = cardContext
     }
 
-    init(region: MKCoordinateRegion,
+    init(cardContext: ImagePreviewCardContext,
+         region: MKCoordinateRegion,
          locationChanged: @escaping (Location) -> Void) {
+        self.cardContext = cardContext
         self.locationChanged = locationChanged
         locationManager.region = region
         pin.append(.init(latitude: region.center.latitude,
@@ -42,31 +46,34 @@ struct MapPreviewCard: View {
                     .frame(minHeight: 300)
                     .cornerRadius(8)
                 }
-                VStack {
-                    ButtonPrimary {
-                        Label("curent.position",
-                              systemImage: "location")
-                    } action: {
-                        locationManager.requestLocation()
-                        pin.removeAll()
-                        pin.append(.init(latitude: locationManager.location?.latitude ?? 0,
-                                         longitude: locationManager.location?.longitude ?? 0))
-                    }
-                    .padding(.horizontal)
 
-                    NavigationLink(destination: LocationSelectionView { coordinate in
-                        locationManager.location = coordinate
-                        pin.removeAll()
-                        pin.append(.init(latitude: coordinate.latitude,
-                                         longitude: coordinate.longitude))
-                    }) {
-                        Spacer()
-                        Label("open.map", systemImage: "map")
-                        Spacer()
+                if cardContext != .preview {
+                    VStack {
+                        ButtonPrimary {
+                            Label("curent.position",
+                                  systemImage: "location")
+                        } action: {
+                            locationManager.requestLocation()
+                            pin.removeAll()
+                            pin.append(.init(latitude: locationManager.location?.latitude ?? 0,
+                                             longitude: locationManager.location?.longitude ?? 0))
+                        }
+                        .padding(.horizontal)
+
+                        NavigationLink(destination: LocationSelectionView { coordinate in
+                            locationManager.location = coordinate
+                            pin.removeAll()
+                            pin.append(.init(latitude: coordinate.latitude,
+                                             longitude: coordinate.longitude))
+                        }) {
+                            Spacer()
+                            Label("open.map", systemImage: "map")
+                            Spacer()
+                        }
+                        .tint(.ui.action)
+                        .buttonStyle(.borderedProminent)
+                        .padding([.horizontal, .bottom])
                     }
-                    .tint(.ui.action)
-                    .buttonStyle(.borderedProminent)
-                    .padding([.horizontal, .bottom])
                 }
             }
         }
@@ -75,6 +82,6 @@ struct MapPreviewCard: View {
 
 struct MapPreviewCard_Previews: PreviewProvider {
     static var previews: some View {
-        MapPreviewCard { _ in }
+        MapPreviewCard(cardContext: .edit) { _ in }
     }
 }
