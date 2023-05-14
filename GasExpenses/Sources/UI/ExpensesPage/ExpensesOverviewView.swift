@@ -116,7 +116,7 @@ struct ExpensesOverviewView: View {
                 }
             }
         } content: {
-            AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: CarDataSource(carService: CarService()),
+            AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: carDataSource,
                                                           expenseService: ExpenseService()))
         }
     }

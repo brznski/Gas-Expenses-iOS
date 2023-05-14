@@ -60,6 +60,10 @@ final class CarDataSource: ObservableObject {
 
     private func setSelectedCar() {
         DispatchQueue.main.async { [weak self] in
+            if self?.cars.count == 1 {
+                self?.selectedCar = self?.cars.first
+                return
+            }
             self?.selectedCar = self?.cars.first { $0.isFavourite }
         }
     }

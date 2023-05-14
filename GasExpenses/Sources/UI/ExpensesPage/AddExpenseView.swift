@@ -77,8 +77,15 @@ struct AddExpenseView: View {
                     ButtonPrimary {
                         Text(viewModel.context == .add ? "add" : "edit")
                     } action: {
-                        viewModel.addExpense()
-                        dismiss()
+                        Task {
+                            switch viewModel.context {
+                            case .add:
+                                try? await viewModel.addExpense()
+                            case .edit:
+                                try? await viewModel.editExpense()
+                            }
+                            dismiss()
+                        }
                     }
                     .padding()
                 }

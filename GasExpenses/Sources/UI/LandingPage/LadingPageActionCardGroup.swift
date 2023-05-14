@@ -23,7 +23,7 @@ struct LadingPageActionCardGroup: View {
                     }
 
                     NavigationLink {
-                        AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: CarDataSource(carService: CarService()),
+                        AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: carDataSource,
                                                                       expenseService: ExpenseService()))
                     } label: {
                         ActionCard(title: "landingPage.actionCard.addExpense",
@@ -33,8 +33,11 @@ struct LadingPageActionCardGroup: View {
                 GridRow {
                     ActionCard(title: "landingPage.actionCard.seeNearbyGasStations",
                                imageSystemName: "map.fill")
-                    ActionCard(title: "landingPage.actionCard.scanRecipt",
-                               imageSystemName: "doc.viewfinder.fill")
+                    NavigationLink(destination: TripCalculatorView()) {
+                        ActionCard(title: "landingPage.actionCard.trip.calculator",
+                                   imageSystemName: "plus.forwardslash.minus")
+                    }
+
                 }
             }
             .foregroundColor(.blue)
