@@ -44,6 +44,9 @@ struct LandingPageView: View {
                     }
                 }
             }
+            .onAppear {
+                Storage.usesOnlineServices
+            }
             .sheet(isPresented: $shouldShowSheet) {
                 ForEach($carDataSource.cars) { car in
                     CarRowInfoView(carModel: car) {

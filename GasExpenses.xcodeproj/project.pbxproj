@@ -82,6 +82,7 @@
 		48CD096D29F7272400975EAB /* CarServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD096729F705CC00975EAB /* CarServiceProtocol.swift */; };
 		48CD097029F727FB00975EAB /* MockCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CD096F29F727FB00975EAB /* MockCar.swift */; };
 		48D049532A112F34003430EB /* ReminderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D049522A112F34003430EB /* ReminderRowView.swift */; };
+		48D049552A1133D4003430EB /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D049542A1133D4003430EB /* ServiceLocator.swift */; };
 		48D1135829E1CA0B009A2ED6 /* GasExpensesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */; };
 		48D1135C29E1CA0D009A2ED6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D1135B29E1CA0D009A2ED6 /* Assets.xcassets */; };
 		48D1135F29E1CA0D009A2ED6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48D1135E29E1CA0D009A2ED6 /* Preview Assets.xcassets */; };
@@ -210,6 +211,7 @@
 		48CD096B29F7185C00975EAB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		48CD096F29F727FB00975EAB /* MockCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCar.swift; sourceTree = "<group>"; };
 		48D049522A112F34003430EB /* ReminderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRowView.swift; sourceTree = "<group>"; };
+		48D049542A1133D4003430EB /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		48D1135429E1CA0B009A2ED6 /* GasExpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GasExpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasExpensesApp.swift; sourceTree = "<group>"; };
 		48D1135B29E1CA0D009A2ED6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 				48D1135729E1CA0B009A2ED6 /* GasExpensesApp.swift */,
 				48A027E429EAC8EF00515291 /* ConfigurationDebug.xcconfig */,
 				48A027E629EACA1200515291 /* Configuration.swift */,
+				48D049542A1133D4003430EB /* ServiceLocator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -961,6 +964,7 @@
 				48BAF92B29E71C7F00FB5527 /* FuelTypes.swift in Sources */,
 				48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */,
 				48BE04C62A1048B300BCD65C /* TripCalculatorView.swift in Sources */,
+				48D049552A1133D4003430EB /* ServiceLocator.swift in Sources */,
 				48F39A872A0E5556009C4FE0 /* MapPreviewCard.swift in Sources */,
 				488F4AD529E4A2D10062BF4B /* Cache.swift in Sources */,
 				48F39A8C2A0E95A6009C4FE0 /* RefuelDetailsView.swift in Sources */,
