@@ -54,6 +54,7 @@
 		48BCB61E29E4879200F01A0E /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BCB61B29E4837500F01A0E /* Double+Extensions.swift */; };
 		48BDB53429E9C8F800B9D269 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB53329E9C8F800B9D269 /* AddExpenseView.swift */; };
 		48BDB53629E9CC7300B9D269 /* TitleAndTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BDB53529E9CC7300B9D269 /* TitleAndTextField.swift */; };
+		48BE04C62A1048B300BCD65C /* TripCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BE04C52A1048B300BCD65C /* TripCalculatorView.swift */; };
 		48BFAE872A0A5DFE0021644E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BFAE862A0A5DFE0021644E /* CameraView.swift */; };
 		48C1331D2A0B8C3D007C84B0 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C1331C2A0B8C3D007C84B0 /* UserService.swift */; };
 		48C1331F2A0B8C48007C84B0 /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C1331E2A0B8C48007C84B0 /* UserEndpoint.swift */; };
@@ -182,6 +183,7 @@
 		48BCB61B29E4837500F01A0E /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		48BDB53329E9C8F800B9D269 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		48BDB53529E9CC7300B9D269 /* TitleAndTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndTextField.swift; sourceTree = "<group>"; };
+		48BE04C52A1048B300BCD65C /* TripCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCalculatorView.swift; sourceTree = "<group>"; };
 		48BFAE862A0A5DFE0021644E /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		48C1331C2A0B8C3D007C84B0 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		48C1331E2A0B8C48007C84B0 /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
@@ -402,6 +404,14 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
+		48BE04C42A10489F00BCD65C /* TripCalculatorPage */ = {
+			isa = PBXGroup;
+			children = (
+				48BE04C52A1048B300BCD65C /* TripCalculatorView.swift */,
+			);
+			path = TripCalculatorPage;
+			sourceTree = "<group>";
+		};
 		48BFAE852A0A5DF00021644E /* Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,6 +563,7 @@
 		48D1138B29E1D353009A2ED6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				48BE04C42A10489F00BCD65C /* TripCalculatorPage */,
 				48D5256C2A0C18FD007A866D /* Onboarding */,
 				48D8C8592A082B0100DCB09D /* SettingsPage */,
 				48D8C8522A0806E400DCB09D /* LoginPage */,
@@ -946,6 +957,7 @@
 				48D8C8542A0806F500DCB09D /* LoginMainPage.swift in Sources */,
 				48BAF92B29E71C7F00FB5527 /* FuelTypes.swift in Sources */,
 				48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */,
+				48BE04C62A1048B300BCD65C /* TripCalculatorView.swift in Sources */,
 				48F39A872A0E5556009C4FE0 /* MapPreviewCard.swift in Sources */,
 				488F4AD529E4A2D10062BF4B /* Cache.swift in Sources */,
 				48F39A8C2A0E95A6009C4FE0 /* RefuelDetailsView.swift in Sources */,
