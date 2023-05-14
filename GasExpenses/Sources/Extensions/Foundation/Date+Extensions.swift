@@ -20,10 +20,22 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 
+    func dayMonthAndYearString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM yyyy"
+        return dateFormatter.string(from: self)
+    }
+
     func JSONDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
         return dateFormatter.string(from: self)
+    }
+
+    func relativeDate() -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        return formatter.localizedString(for: self, relativeTo: Date.now)
     }
 }

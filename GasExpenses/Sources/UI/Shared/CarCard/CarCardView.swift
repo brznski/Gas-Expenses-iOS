@@ -70,8 +70,9 @@ struct CarCardView: View {
                     HStack {
                         Spacer()
                         Text("car.card.refuel.empty")
+                            .padding([.horizontal, .bottom])
                             .multilineTextAlignment(.center)
-                            .opacity(0.5)
+                            .opacity(0.7)
                         Spacer()
                     }
                 }
@@ -102,5 +103,6 @@ struct CarCardView_Previews: PreviewProvider {
         CarCardView(viewModel: .init(car: .mock,
                                      carService: CarService()),
                     cardContext: .landingPage) {}
+            .environmentObject(CarDataSource(carService: CarService()))
     }
 }

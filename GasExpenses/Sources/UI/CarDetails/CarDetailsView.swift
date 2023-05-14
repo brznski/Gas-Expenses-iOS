@@ -11,6 +11,7 @@ import Charts
 struct CarDetailsView: View {
     let model: Car
     let viewModel: CarDetailsViewModel
+
     @State var showsAlert = false
     @State var shouldShowSheet = false
 
@@ -21,44 +22,66 @@ struct CarDetailsView: View {
                                              carService: CarService()),
                             cardContext: .carDetails)
                 CardWithTitleView(title: "Gas expenses") {
-                    Chart {
-                        ForEach(model.refuels.sorted(by: { lhs, rhs in
-                            lhs.date.dateFromJSON()! < rhs.date.dateFromJSON()!
-                        })) { refuel in
-                            BarMark(
-                                x: .value("date",
-                                          refuel.date.dateFromJSON()?.dayAndMonthString() ?? ""),
-                                y: .value("",
-                                          refuel.fuelAmount * refuel.costPerUnit)
-                            )
+                    Group {
+                        if model.refuels.count < 3 {
+                            Text("car.card.refuel.empty")
+                                .padding([.horizontal, .bottom])
+                                .multilineTextAlignment(.center)
+                                .opacity(0.7)
+                        } else {
+                            Chart {
+                                ForEach(model.refuels.sorted(by: { lhs, rhs in
+                                    lhs.date.dateFromJSON()! < rhs.date.dateFromJSON()!
+                                })) { refuel in
+                                    BarMark(
+                                        x: .value("date",
+                                                  refuel.date.dateFromJSON()?.dayAndMonthString() ?? ""),
+                                        y: .value("",
+                                                  refuel.fuelAmount * refuel.costPerUnit)
+                                    )
+                                }
+                            }
+                            .padding()
                         }
                     }
-                    .padding()
                 }
                 CardWithTitleView(title: "mileage") {
-                    Chart {
-                        ForEach(model.refuels) { refuel in
-                            BarMark(
-                                x: .value("date",
-                                          refuel.date.dateFromJSON()?.dayAndMonthString() ?? ""),
-                                y: .value("",
-                                          refuel.mileage)
-                            )
+                    Group {
+                        if model.refuels.count < 3 {
+                            Text("car.card.refuel.empty")
+                                .padding([.horizontal, .bottom])
+                                .multilineTextAlignment(.center)
+                                .opacity(0.7)
+                        } else {
+                            Chart {
+                                ForEach(model.refuels) { refuel in
+                                    BarMark(
+                                        x: .value("date",
+                                                  refuel.date.dateFromJSON()?.dayAndMonthString() ?? ""),
+                                        y: .value("",
+                                                  refuel.mileage)
+                                    )
+                                }
+                            }
+                            .padding()
                         }
+                    }
+                }
+
+                CardWithTitleView(title: "reminders") {
+                    VStack {
+                        ReminderRowView(configuration: viewModel.getInsuraceReminderRowConfiguration())
+                        ReminderRowView(configuration: viewModel.getTechnicalCheckupReminderRowConfiguration())
                     }
                     .padding()
                 }
-                Button {
-                    showsAlert = true
-                } label: {
-                    Spacer()
-                    Text("delete")
-                    Spacer()
-                }
-                .tint(.ui.warning)
-                .buttonStyle(.borderedProminent)
-                .padding()
 
+                ButtonDestructive {
+                    Label("delete", systemImage: "trash")
+                } action: {
+                    showsAlert = true
+                }
+                .padding()
             }
         }
         .sheet(isPresented: $shouldShowSheet, content: {
@@ -94,5 +117,6 @@ struct CarDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         CarDetailsView(model: .mock,
                        viewModel: .init(carService: CarService()))
+        .environmentObject(CarDataSource(carService: CarService()))
     }
 }

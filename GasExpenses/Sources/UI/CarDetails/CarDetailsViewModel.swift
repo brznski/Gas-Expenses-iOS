@@ -19,4 +19,22 @@ final class CarDetailsViewModel {
             try await carService.deleteCar(carID: carID)
         }
     }
+
+    func getInsuraceReminderRowConfiguration() -> ReminderRowViewConfiguration {
+        return .init(date: .now,
+                     title: "insurance",
+                     validUntilText: "insurance.valid.until",
+                     expiresInText: "insurance.expires.in",
+                     isButtonFilled: false) {
+
+        }
+    }
+
+    func getTechnicalCheckupReminderRowConfiguration() -> ReminderRowViewConfiguration {
+        return .init(date: .now,
+                     title: "technical.checkup",
+                     validUntilText: "technical.checkup.valid.until",
+                     expiresInText: "technical.checkup.expires.in",
+                     isButtonFilled: false) {}
+    }
 }

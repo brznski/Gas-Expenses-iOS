@@ -70,16 +70,57 @@ struct Car: Identifiable, Codable {
 }
 
 extension Car {
-    static let mock: Car = .init(id: 1,
-                                 name: "My Subaru",
-                                 brand: "Subaru",
-                                 model: "Impreza",
-                                 refuels: [],
-                                 fuelType: .pb95,
-                                 isFavourite: true,
-                                 imageBase64: "",
-                                 insuranceExpiration: "2023-13-05",
-                                 technicalCheckupExpiration: "2023-15-05")
+    static var mock: Car {
+
+        var imageBase64: String
+
+        if let image = UIImage(named: "car_image_test"),
+           let imageData = image.jpegData(compressionQuality: 0.5) {
+            imageBase64 = imageData.base64EncodedString()
+        }
+        
+        return Car(id: 1,
+                   name: "My Subaru",
+                   brand: "Subaru",
+                   model: "Impreza",
+                   refuels: [
+                    .init(id: 1,
+                          title: "Refuel 1",
+                          date: "2023-05-13T00:00:00.000+00:00",
+                          comment: "Refuel 1 comment",
+                          mileage: 3500,
+                          fuelAmount: 20,
+                          costPerUnit: 6.78,
+                          latitude: 54,
+                          longitude: 20,
+                          documentBase64: nil),
+                    .init(id: 2,
+                          title: "Refuel 2",
+                          date: "2023-05-17T00:00:00.000+00:00",
+                          comment: "Refuel 2 comment",
+                          mileage: 4000,
+                          fuelAmount: 25,
+                          costPerUnit: 6.90,
+                          latitude: 54,
+                          longitude: 20,
+                          documentBase64: nil),
+                    .init(id: 3,
+                          title: "Refuel 3",
+                          date: "2023-05-20T00:00:00.000+00:00",
+                          comment: "Refuel 3 comment",
+                          mileage: 4200,
+                          fuelAmount: 30,
+                          costPerUnit: 6.50,
+                          latitude: 54,
+                          longitude: 20,
+                          documentBase64: nil)
+                   ],
+                   fuelType: .pb95,
+                   isFavourite: true,
+                   imageBase64: imageBase64,
+                   insuranceExpiration: "2024-05-13T00:00:00.000+00:00",
+                   technicalCheckupExpiration: "2024-04-13T00:00:00.000+00:00")
+    }
 }
 
 extension Car: Equatable {
