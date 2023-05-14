@@ -35,3 +35,9 @@ enum API {
         return try! URL(string: "http://" + Configuration.value(for: "BASE_URL"))!
     }
 }
+
+enum Storage {
+    static var usesOnlineServices: Bool {
+        return try! Configuration.value(for: "USE_ONLINE_SERVICES")
+    }
+}
