@@ -28,10 +28,19 @@ struct RefuelsMonth: Identifiable {
 }
 
 final class ExpensesOverviewViewModel: ObservableObject {
-    @Published var filters: ExpenseFilter = .init()
+    @Published var filters: ExpenseFilter = .init() {
+        didSet {
+            filteredRefuels = refuels
+            filteredExpenses = expenses
+            filterRefuels()
+            filterExpenses()
+        }
+    }
     @Published var expenses: [Expense] = []
     @Published var groupedExpenses: [ExpensesMonth] = []
     @Published var refuels: [Refuel] = []
+    private var filteredRefuels: [Refuel] = []
+    private var filteredExpenses: [Expense] = []
     @Published var groupedRefuels: [RefuelsMonth] = []
     @Published var lastMonthExpenses: Double = 0.0
 
@@ -52,16 +61,22 @@ final class ExpensesOverviewViewModel: ObservableObject {
         let response = try await service.getAllExpenses(carID: "\(carID)")
         DispatchQueue.main.async { [weak self] in
             self?.expenses = response
+            self?.filteredExpenses = response
+            self?.filterExpenses()
         }
     }
 
     func getRefuels() async throws {
         let response = try await refuelService.getRefuels(carID: carID)
-        refuels = response
+        DispatchQueue.main.async { [weak self] in
+            self?.refuels = response
+            self?.filteredRefuels = response
+            self?.filterRefuels()
+        }
     }
 
     func groupExpenses() {
-        let groupDic = Dictionary(grouping: expenses) { (pendingCamera) -> DateComponents in
+        let groupDic = Dictionary(grouping: filteredExpenses) { (pendingCamera) -> DateComponents in
 
             let date = Calendar.current.dateComponents([.year, .month], from: (pendingCamera.date.dateFromJSON()!))
 
@@ -86,7 +101,7 @@ final class ExpensesOverviewViewModel: ObservableObject {
     }
 
     func groupRefuels() {
-        let groupDic = Dictionary(grouping: refuels) { (pendingCamera) -> DateComponents in
+        let groupDic = Dictionary(grouping: filteredRefuels) { (pendingCamera) -> DateComponents in
 
             let date = Calendar.current.dateComponents([.year, .month], from: (pendingCamera.date.dateFromJSON()!))
 
@@ -126,5 +141,61 @@ final class ExpensesOverviewViewModel: ObservableObject {
         lastMonth.refuels.forEach { sum += $0.costPerUnit * $0.fuelAmount }
 
         lastMonthExpenses = sum
+    }
+
+    func filterRefuels() {
+        if !filters.title.isEmpty {
+            filteredRefuels = refuels.filter { $0.title.contains(filters.title) }
+        }
+
+        if !filters.amountFrom.isEmpty,
+           let amountFrom = Double(filters.amountFrom) {
+            filteredRefuels = refuels.filter { ($0.fuelAmount * $0.costPerUnit) > amountFrom }
+        }
+
+        if !filters.amountTo.isEmpty,
+           let amountTo = Double(filters.amountTo) {
+            filteredRefuels = refuels.filter { ($0.fuelAmount * $0.costPerUnit) < amountTo }
+        }
+
+        if let dateFrom = filters.dateFrom {
+            filteredRefuels = refuels.filter { $0.date.dateFromJSON()! > dateFrom }
+        }
+
+        if let dateTo = filters.dateFrom {
+            filteredRefuels = refuels.filter { $0.date.dateFromJSON()! < dateTo }
+        }
+
+        groupRefuels()
+    }
+
+    func filterExpenses() {
+        if !filters.title.isEmpty {
+            filteredExpenses = expenses.filter { $0.title.contains(filters.title) }
+        }
+
+        if !filters.amountFrom.isEmpty,
+           let amountFrom = Double(filters.amountFrom) {
+            filteredExpenses = expenses.filter { $0.amount > amountFrom }
+        }
+
+        if !filters.amountTo.isEmpty,
+           let amountTo = Double(filters.amountTo) {
+            filteredExpenses = expenses.filter { $0.amount < amountTo }
+        }
+
+        if let dateFrom = filters.dateFrom {
+            filteredExpenses = expenses.filter { $0.date.dateFromJSON()! > dateFrom }
+        }
+
+        if let dateTo = filters.dateFrom {
+            filteredExpenses = expenses.filter { $0.date.dateFromJSON()! < dateTo }
+        }
+
+        if !filters.expenseType.isEmpty {
+            filteredExpenses = expenses.filter { $0.expenseType.rawValue == filters.expenseType }
+        }
+
+        groupExpenses()
     }
 }
