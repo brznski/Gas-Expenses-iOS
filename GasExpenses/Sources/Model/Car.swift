@@ -72,7 +72,7 @@ struct Car: Identifiable, Codable {
 extension Car {
     static var mock: Car {
 
-        var imageBase64: String
+        var imageBase64: String? = nil
 
         if let image = UIImage(named: "car_image_test"),
            let imageData = image.jpegData(compressionQuality: 0.5) {
