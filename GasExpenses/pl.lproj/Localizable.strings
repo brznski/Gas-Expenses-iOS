@@ -32,10 +32,16 @@
 "amount.to" = "Kwota do";
 
 /* No comment provided by engineer. */
+"average.consumption" = "Średnie zużycie";
+
+/* No comment provided by engineer. */
 "below.%@" = "Poniżej %@";
 
 /* No comment provided by engineer. */
 "brand" = "Marka";
+
+/* No comment provided by engineer. */
+"calculate" = "Oblicz";
 
 /* No comment provided by engineer. */
 "car.card.refuel.empty" = "Dodaj minimum dwa tankowania aby wyświetlić szczegóły";
@@ -72,6 +78,9 @@
 
 /* No comment provided by engineer. */
 "delete" = "Usuń";
+
+/* No comment provided by engineer. */
+"delete.photo" = "Usuń zdjęcie";
 
 /* No comment provided by engineer. */
 "edit" = "Edytuj";
@@ -128,6 +137,9 @@
 "image" = "Obraz";
 
 /* No comment provided by engineer. */
+"insurance.expiration" = "Ubezpieczenie ważne do";
+
+/* No comment provided by engineer. */
 "landingPage.actionCard.addExpense" = "Dodaj wydatek serwisowy";
 
 /* No comment provided by engineer. */
@@ -138,6 +150,9 @@
 
 /* No comment provided by engineer. */
 "landingPage.actionCard.seeNearbyGasStations" = "Zobacz stacje paliw w pobliżu";
+
+/* No comment provided by engineer. */
+"landingPage.actionCard.trip.calculator" = "Oblicz koszt podróży";
 
 /* No comment provided by engineer. */
 "landingpage.car.card.title" = "Mój samochód";
@@ -218,6 +233,9 @@
 "see.more" = "Zobacz więcej";
 
 /* No comment provided by engineer. */
+"select.document.photo" = "Wybierz zdjęcie";
+
+/* No comment provided by engineer. */
 "select.photo" = "Wybierz zdjęcie";
 
 /* No comment provided by engineer. */
@@ -225,6 +243,9 @@
 
 /* No comment provided by engineer. */
 "take.to.app" = "Przejdź do aplikacji";
+
+/* No comment provided by engineer. */
+"technical.checkup.expiration" = "Przegląd ważny do";
 
 /* No comment provided by engineer. */
 "title" = "Tytuł";
@@ -237,4 +258,7 @@
 
 /* No comment provided by engineer. */
 "yes" = "Tak";
+
+/* No comment provided by engineer. */
+"Your trip will cost %@" = "";
 

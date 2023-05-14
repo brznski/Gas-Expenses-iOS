@@ -8,7 +8,7 @@
 "add.car" = "Add car";
 
 /* No comment provided by engineer. */
-"add.document.photo" = "Add photo of document";
+"add.document.photo" = "Add photo";
 
 /* No comment provided by engineer. */
 "alert.delete.car" = "Are you sure that you want to delete car? All data will be lost.";
@@ -32,13 +32,19 @@
 "amount.to" = "To amount";
 
 /* No comment provided by engineer. */
+"average.consumption" = "Average consumption";
+
+/* No comment provided by engineer. */
 "below.%@" = "Below %@";
 
 /* No comment provided by engineer. */
 "brand" = "Brand";
 
 /* No comment provided by engineer. */
-"car.card.refuel.empty" = "Add at least 2 refuels to see details";
+"calculate" = "Calculate";
+
+/* No comment provided by engineer. */
+"car.card.refuel.empty" = "Add at least 3 refuels to see details";
 
 /* No comment provided by engineer. */
 "car.name" = "Car name";
@@ -74,10 +80,13 @@
 "delete" = "Delete";
 
 /* No comment provided by engineer. */
+"delete.photo" = "Delete photo";
+
+/* No comment provided by engineer. */
 "edit" = "Edit";
 
 /* No comment provided by engineer. */
-"edit.document.photo" = "Change document photo";
+"edit.document.photo" = "Change photo";
 
 /* No comment provided by engineer. */
 "email" = "Email";
@@ -128,6 +137,9 @@
 "image" = "Image";
 
 /* No comment provided by engineer. */
+"insurance.expiration" = "Insurance expiration";
+
+/* No comment provided by engineer. */
 "landingPage.actionCard.addExpense" = "Add car expense";
 
 /* No comment provided by engineer. */
@@ -138,6 +150,9 @@
 
 /* No comment provided by engineer. */
 "landingPage.actionCard.seeNearbyGasStations" = "See nearby gas stations";
+
+/* No comment provided by engineer. */
+"landingPage.actionCard.trip.calculator" = "Calcluate trip";
 
 /* No comment provided by engineer. */
 "landingpage.car.card.title" = "My car";
@@ -215,6 +230,9 @@
 "see.more" = "See more";
 
 /* No comment provided by engineer. */
+"select.document.photo" = "Select photo";
+
+/* No comment provided by engineer. */
 "select.photo" = "Select photo";
 
 /* No comment provided by engineer. */
@@ -224,13 +242,16 @@
 "take.to.app" = "Take me to app";
 
 /* No comment provided by engineer. */
+"technical.checkup.expiration" = "Technical checkup expiration";
+
+/* No comment provided by engineer. */
 "title" = "Title";
 
 /* No comment provided by engineer. */
 "to.%@" = "To %@";
 
 /* No comment provided by engineer. */
-"type.%@" = "Typ %@";
+"type.%@" = "Type %@";
 
 /* No comment provided by engineer. */
 "yes" = "Yes";
