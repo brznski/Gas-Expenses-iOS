@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4829925A2A1238E2002C3998 /* PersistentRefuel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482992562A1238E2002C3998 /* PersistentRefuel+CoreDataClass.swift */; };
+		4829925B2A1238E2002C3998 /* PersistentRefuel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482992572A1238E2002C3998 /* PersistentRefuel+CoreDataProperties.swift */; };
+		4829925C2A1238E2002C3998 /* PersistentExpense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482992582A1238E2002C3998 /* PersistentExpense+CoreDataClass.swift */; };
+		4829925D2A1238E2002C3998 /* PersistentExpense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482992592A1238E2002C3998 /* PersistentExpense+CoreDataProperties.swift */; };
 		484CBE902A0524EC007AF611 /* ExpenseDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE8F2A0524EC007AF611 /* ExpenseDetailsView.swift */; };
 		484CBE932A052CB9007AF611 /* ExpenseTypeMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE922A052CB9007AF611 /* ExpenseTypeMapAnnotation.swift */; };
 		484CBE952A052D50007AF611 /* ExpenseTypeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484CBE942A052D50007AF611 /* ExpenseTypeIcon.swift */; };
@@ -147,6 +151,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		482992562A1238E2002C3998 /* PersistentRefuel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentRefuel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		482992572A1238E2002C3998 /* PersistentRefuel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentRefuel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		482992582A1238E2002C3998 /* PersistentExpense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentExpense+CoreDataClass.swift"; sourceTree = "<group>"; };
+		482992592A1238E2002C3998 /* PersistentExpense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentExpense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		484CBE8F2A0524EC007AF611 /* ExpenseDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailsView.swift; sourceTree = "<group>"; };
 		484CBE922A052CB9007AF611 /* ExpenseTypeMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTypeMapAnnotation.swift; sourceTree = "<group>"; };
 		484CBE942A052D50007AF611 /* ExpenseTypeIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTypeIcon.swift; sourceTree = "<group>"; };
@@ -467,6 +475,10 @@
 		48CB29D72A116F59002A2EE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				482992562A1238E2002C3998 /* PersistentRefuel+CoreDataClass.swift */,
+				482992572A1238E2002C3998 /* PersistentRefuel+CoreDataProperties.swift */,
+				482992582A1238E2002C3998 /* PersistentExpense+CoreDataClass.swift */,
+				482992592A1238E2002C3998 /* PersistentExpense+CoreDataProperties.swift */,
 				48CB29DB2A116FDD002A2EE9 /* PersistentCar+CoreDataClass.swift */,
 				48CB29DC2A116FDD002A2EE9 /* PersistentCar+CoreDataProperties.swift */,
 				48CB29D82A116F64002A2EE9 /* GasExpenses.xcdatamodeld */,
@@ -958,6 +970,7 @@
 				48D537A02A0FDA42001428C1 /* LocalNotificationManager.swift in Sources */,
 				48C7C8C229E8A85800010018 /* CarRowInfoView.swift in Sources */,
 				48D8C8582A081F3A00DCB09D /* SignupPage.swift in Sources */,
+				4829925A2A1238E2002C3998 /* PersistentRefuel+CoreDataClass.swift in Sources */,
 				48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */,
 				48D1139529E1D4C5009A2ED6 /* CardWithTitleView.swift in Sources */,
 				48CB29DE2A116FDD002A2EE9 /* PersistentCar+CoreDataProperties.swift in Sources */,
@@ -1000,6 +1013,7 @@
 				48BAF92B29E71C7F00FB5527 /* FuelTypes.swift in Sources */,
 				48D1139929E1D919009A2ED6 /* ImageWithGradientView.swift in Sources */,
 				48BE04C62A1048B300BCD65C /* TripCalculatorView.swift in Sources */,
+				4829925B2A1238E2002C3998 /* PersistentRefuel+CoreDataProperties.swift in Sources */,
 				48D049552A1133D4003430EB /* ServiceLocator.swift in Sources */,
 				48F39A872A0E5556009C4FE0 /* MapPreviewCard.swift in Sources */,
 				488F4AD529E4A2D10062BF4B /* Cache.swift in Sources */,
@@ -1008,8 +1022,10 @@
 				48D049532A112F34003430EB /* ReminderRowView.swift in Sources */,
 				48C1331D2A0B8C3D007C84B0 /* UserService.swift in Sources */,
 				48BCB60C29E46C6D00F01A0E /* Endpoint.swift in Sources */,
+				4829925D2A1238E2002C3998 /* PersistentExpense+CoreDataProperties.swift in Sources */,
 				48B3C56129E605C400612195 /* ExpensesFilterSection.swift in Sources */,
 				48D1138429E1CD02009A2ED6 /* Car.swift in Sources */,
+				4829925C2A1238E2002C3998 /* PersistentExpense+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
