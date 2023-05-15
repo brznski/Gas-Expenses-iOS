@@ -70,6 +70,11 @@
 		48C60A0F29E203690070AA05 /* CarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D1139D29E1DAB7009A2ED6 /* CarCardViewModel.swift */; };
 		48C60A1029E203930070AA05 /* CarCardInfoRowConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C2921D29E1E4A600FA149A /* CarCardInfoRowConfiguration.swift */; };
 		48C7C8C229E8A85800010018 /* CarRowInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7C8C129E8A85800010018 /* CarRowInfoView.swift */; };
+		48CB29D62A116EDE002A2EE9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB29D52A116EDE002A2EE9 /* CoreDataStack.swift */; };
+		48CB29DA2A116F64002A2EE9 /* GasExpenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48CB29D82A116F64002A2EE9 /* GasExpenses.xcdatamodeld */; };
+		48CB29DD2A116FDD002A2EE9 /* PersistentCar+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB29DB2A116FDD002A2EE9 /* PersistentCar+CoreDataClass.swift */; };
+		48CB29DE2A116FDD002A2EE9 /* PersistentCar+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB29DC2A116FDD002A2EE9 /* PersistentCar+CoreDataProperties.swift */; };
+		48CB29E02A116FF4002A2EE9 /* CarPersistentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB29DF2A116FF4002A2EE9 /* CarPersistentService.swift */; };
 		48CB9D4C29F05C9C006258C4 /* GetJWTEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB9D4B29F05C9C006258C4 /* GetJWTEndpoint.swift */; };
 		48CB9D4E29F05CA5006258C4 /* JWTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB9D4D29F05CA5006258C4 /* JWTService.swift */; };
 		48CB9D5029F05CB0006258C4 /* JWTServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CB9D4F29F05CB0006258C4 /* JWTServiceProtocol.swift */; };
@@ -200,6 +205,11 @@
 		48C2923029E1FB4600FA149A /* LadingPageActionCardGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LadingPageActionCardGroup.swift; sourceTree = "<group>"; };
 		48C60A0D29E203310070AA05 /* CarCardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCardViewModelTests.swift; sourceTree = "<group>"; };
 		48C7C8C129E8A85800010018 /* CarRowInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRowInfoView.swift; sourceTree = "<group>"; };
+		48CB29D52A116EDE002A2EE9 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		48CB29D92A116F64002A2EE9 /* GasExpenses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GasExpenses.xcdatamodel; sourceTree = "<group>"; };
+		48CB29DB2A116FDD002A2EE9 /* PersistentCar+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentCar+CoreDataClass.swift"; sourceTree = "<group>"; };
+		48CB29DC2A116FDD002A2EE9 /* PersistentCar+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistentCar+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		48CB29DF2A116FF4002A2EE9 /* CarPersistentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPersistentService.swift; sourceTree = "<group>"; };
 		48CB9D4B29F05C9C006258C4 /* GetJWTEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetJWTEndpoint.swift; sourceTree = "<group>"; };
 		48CB9D4D29F05CA5006258C4 /* JWTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTService.swift; sourceTree = "<group>"; };
 		48CB9D4F29F05CB0006258C4 /* JWTServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTServiceProtocol.swift; sourceTree = "<group>"; };
@@ -312,6 +322,7 @@
 		488F4AD229E48AC40062BF4B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				48CB29D42A116ED0002A2EE9 /* CoreData */,
 				488F4AD329E4A2C60062BF4B /* Caching */,
 				48BA579429E36B470003D60D /* Network */,
 				48BCB61829E4834C00F01A0E /* Extensions */,
@@ -441,6 +452,26 @@
 				488F4ACB29E489130062BF4B /* SelectedCarDataStoreProtocol.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		48CB29D42A116ED0002A2EE9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				48CB29D72A116F59002A2EE9 /* Model */,
+				48CB29D52A116EDE002A2EE9 /* CoreDataStack.swift */,
+				48CB29DF2A116FF4002A2EE9 /* CarPersistentService.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		48CB29D72A116F59002A2EE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				48CB29DB2A116FDD002A2EE9 /* PersistentCar+CoreDataClass.swift */,
+				48CB29DC2A116FDD002A2EE9 /* PersistentCar+CoreDataProperties.swift */,
+				48CB29D82A116F64002A2EE9 /* GasExpenses.xcdatamodeld */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		48CB9D4A29F05C91006258C4 /* Signing */ = {
@@ -902,6 +933,7 @@
 				488F4AD929E4AA660062BF4B /* CacheKey.swift in Sources */,
 				48CD096A29F705D300975EAB /* CarService.swift in Sources */,
 				48DC507829FB15F6009F3676 /* RefuelService.swift in Sources */,
+				48CB29DA2A116F64002A2EE9 /* GasExpenses.xcdatamodeld in Sources */,
 				48A027E729EACA1200515291 /* Configuration.swift in Sources */,
 				48CB9D4E29F05CA5006258C4 /* JWTService.swift in Sources */,
 				48CB9D5029F05CB0006258C4 /* JWTServiceProtocol.swift in Sources */,
@@ -916,6 +948,7 @@
 				48C1331F2A0B8C48007C84B0 /* UserEndpoint.swift in Sources */,
 				48D8BE402A0D0A2100B10ADC /* AddRefuelViewModel.swift in Sources */,
 				4879B8952A06F5B3003337D6 /* LocationSelectionViewController.swift in Sources */,
+				48CB29DD2A116FDD002A2EE9 /* PersistentCar+CoreDataClass.swift in Sources */,
 				485E883F29F85B81007B3088 /* ExpenseService.swift in Sources */,
 				48CB9D5929F07718006258C4 /* JWTResponse.swift in Sources */,
 				48BAF92629E7160500FB5527 /* CarOverviewView.swift in Sources */,
@@ -927,6 +960,7 @@
 				48D8C8582A081F3A00DCB09D /* SignupPage.swift in Sources */,
 				48D1139E29E1DAB7009A2ED6 /* CarCardViewModel.swift in Sources */,
 				48D1139529E1D4C5009A2ED6 /* CardWithTitleView.swift in Sources */,
+				48CB29DE2A116FDD002A2EE9 /* PersistentCar+CoreDataProperties.swift in Sources */,
 				484CBE992A053A97007AF611 /* Location.swift in Sources */,
 				48CB9D5329F0614D006258C4 /* AccessTokenManager.swift in Sources */,
 				48D1139B29E1DA46009A2ED6 /* CarCardView.swift in Sources */,
@@ -940,11 +974,13 @@
 				48D8C8562A08089D00DCB09D /* UserManager.swift in Sources */,
 				48C2921729E1E23300FA149A /* CarDataSource.swift in Sources */,
 				4879B8932A06F561003337D6 /* LocationSelectionView.swift in Sources */,
+				48CB29E02A116FF4002A2EE9 /* CarPersistentService.swift in Sources */,
 				48BAF94229E75E8B00FB5527 /* Binding+Extensions.swift in Sources */,
 				48BAF93229E7221E00FB5527 /* CarDetailsView.swift in Sources */,
 				48BFAE872A0A5DFE0021644E /* CameraView.swift in Sources */,
 				48D8C8622A08408100DCB09D /* ButtonSecondary.swift in Sources */,
 				48DC507629FB15ED009F3676 /* RefuelEndpoint.swift in Sources */,
+				48CB29D62A116EDE002A2EE9 /* CoreDataStack.swift in Sources */,
 				48D8C85D2A082CC200DCB09D /* TitleAndSecureField.swift in Sources */,
 				48BCB60E29E46C8200F01A0E /* BackendEndpoint.swift in Sources */,
 				48D8BE442A0D438D00B10ADC /* RefuelRowView.swift in Sources */,
@@ -1334,6 +1370,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		48CB29D82A116F64002A2EE9 /* GasExpenses.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				48CB29D92A116F64002A2EE9 /* GasExpenses.xcdatamodel */,
+			);
+			currentVersion = 48CB29D92A116F64002A2EE9 /* GasExpenses.xcdatamodel */;
+			path = GasExpenses.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 48D1134C29E1CA0B009A2ED6 /* Project object */;
 }

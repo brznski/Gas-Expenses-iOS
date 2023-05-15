@@ -10,14 +10,14 @@ import SwiftUI
 @main
 struct GasExpensesApp: App {
     @State var selectedTab = "home"
-    @StateObject var carDataSource: CarDataSource = .init(carService: CarService())
+    @StateObject var carDataSource: CarDataSource = .init(carService: ServiceLocator.shared.getCarService())
     @StateObject var userManager = UserManager.shared
     @AppStorage("onboardingWasShown") private var shouldShowOnboarding = true
 
     var body: some Scene {
         WindowGroup {
             Group {
-                if !$userManager.isUserLoggedIn.wrappedValue {
+                if !$userManager.isUserLoggedIn.wrappedValue && Storage.usesOnlineServices {
                     LoginMainPage(loginService: JWTService())
                 } else if $shouldShowOnboarding.wrappedValue {
                     OnboardingMainView()
@@ -45,18 +45,27 @@ struct GasExpensesApp: App {
                             .tag("expenses")
                     }
                     .environmentObject(carDataSource)
-                    .onAppear {
-                        Task {
+                    .task {
                             do {
                                 _ = try await carDataSource.getCars()
                             } catch {
 
                             }
-                        }
                     }
                     .tint(Color.ui.action)
                 }
             }.environmentObject(userManager)
+                .task {
+                    let carService = ServiceLocator.shared.getCarService()
+
+                    do {
+                        try await carService.addCar(.mock)
+                    } catch {
+
+                    }
+
+                    try? await carService.getAllCars()
+                }
         }
     }
 }
