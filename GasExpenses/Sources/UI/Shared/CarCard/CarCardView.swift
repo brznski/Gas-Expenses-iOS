@@ -69,10 +69,8 @@ struct CarCardView: View {
                 if $viewModel.carInfoRows.isEmpty {
                     HStack {
                         Spacer()
-                        Text("car.card.refuel.empty")
+                        PlaceholderTextView(text: "car.card.refuel.empty")
                             .padding([.horizontal, .bottom])
-                            .multilineTextAlignment(.center)
-                            .opacity(0.7)
                         Spacer()
                     }
                 }

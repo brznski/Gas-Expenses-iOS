@@ -44,7 +44,7 @@
 "calculate" = "Oblicz";
 
 /* No comment provided by engineer. */
-"car.card.refuel.empty" = "Dodaj minimum dwa tankowania aby wyświetlić szczegóły";
+"car.card.refuel.empty" = "Dodaj minimum trzy tankowania aby wyświetlić szczegóły";
 
 /* No comment provided by engineer. */
 "car.name" = "Nazwa samochodu";

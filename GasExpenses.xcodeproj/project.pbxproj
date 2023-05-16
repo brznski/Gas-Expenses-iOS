@@ -32,6 +32,7 @@
 		48B3C55B29E5E99E00612195 /* ExpensesOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3C55A29E5E99E00612195 /* ExpensesOverviewView.swift */; };
 		48B3C55D29E5EBA100612195 /* ExpenseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3C55C29E5EBA100612195 /* ExpenseRowView.swift */; };
 		48B3C56129E605C400612195 /* ExpensesFilterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B3C56029E605C400612195 /* ExpensesFilterSection.swift */; };
+		48B7B1762A142F1D003B588C /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B7B1752A142F1D003B588C /* PlaceholderTextView.swift */; };
 		48BA579629E36B510003D60D /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BA579529E36B510003D60D /* NetworkEngine.swift */; };
 		48BAF92629E7160500FB5527 /* CarOverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF92529E7160500FB5527 /* CarOverviewView.swift */; };
 		48BAF92829E7175C00FB5527 /* AddCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BAF92729E7175C00FB5527 /* AddCarView.swift */; };
@@ -178,6 +179,7 @@
 		48B3C55A29E5E99E00612195 /* ExpensesOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesOverviewView.swift; sourceTree = "<group>"; };
 		48B3C55C29E5EBA100612195 /* ExpenseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseRowView.swift; sourceTree = "<group>"; };
 		48B3C56029E605C400612195 /* ExpensesFilterSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesFilterSection.swift; sourceTree = "<group>"; };
+		48B7B1752A142F1D003B588C /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		48BA579529E36B510003D60D /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
 		48BAF92529E7160500FB5527 /* CarOverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarOverviewView.swift; sourceTree = "<group>"; };
 		48BAF92729E7175C00FB5527 /* AddCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarView.swift; sourceTree = "<group>"; };
@@ -621,16 +623,16 @@
 		48D1138B29E1D353009A2ED6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				48BE04C42A10489F00BCD65C /* TripCalculatorPage */,
-				48D5256C2A0C18FD007A866D /* Onboarding */,
-				48D8C8592A082B0100DCB09D /* SettingsPage */,
-				48D8C8522A0806E400DCB09D /* LoginPage */,
 				48BAF93029E7220F00FB5527 /* CarDetails */,
 				48BAF92929E71BBD00FB5527 /* CarOverview */,
 				48B3C55929E5E99100612195 /* ExpensesPage */,
 				48D1138E29E1D38E009A2ED6 /* LandingPage */,
+				48D8C8522A0806E400DCB09D /* LoginPage */,
+				48D5256C2A0C18FD007A866D /* Onboarding */,
 				48DC507129FB11F4009F3676 /* Refuel */,
+				48D8C8592A082B0100DCB09D /* SettingsPage */,
 				48D1138F29E1D396009A2ED6 /* Shared */,
+				48BE04C42A10489F00BCD65C /* TripCalculatorPage */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -649,21 +651,22 @@
 		48D1138F29E1D396009A2ED6 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				48F39A882A0E9355009C4FE0 /* Card */,
-				48BFAE852A0A5DF00021644E /* Camera */,
-				48D8C85E2A083D8300DCB09D /* BasicComponents */,
-				484CBE912A052CA8007AF611 /* Map */,
-				48D1139229E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift */,
-				48D1139429E1D4C5009A2ED6 /* CardWithTitleView.swift */,
 				48C2922C29E1FA3A00FA149A /* ActionCard.swift */,
-				48D1139829E1D919009A2ED6 /* ImageWithGradientView.swift */,
-				48D1139C29E1DAAA009A2ED6 /* CarCard */,
 				48BAF92729E7175C00FB5527 /* AddCarView.swift */,
 				48BAF92C29E71DC500FB5527 /* AddCarViewModel.swift */,
-				48BAF92E29E71F0D00FB5527 /* FuelTypeIcon.swift */,
+				48D8C85E2A083D8300DCB09D /* BasicComponents */,
+				48BFAE852A0A5DF00021644E /* Camera */,
+				48D1139C29E1DAAA009A2ED6 /* CarCard */,
+				48F39A882A0E9355009C4FE0 /* Card */,
+				48D1139429E1D4C5009A2ED6 /* CardWithTitleView.swift */,
 				48BAF93F29E74B6B00FB5527 /* CollapsableCardWithTitleView.swift */,
-				48BDB53529E9CC7300B9D269 /* TitleAndTextField.swift */,
+				48BAF92E29E71F0D00FB5527 /* FuelTypeIcon.swift */,
+				48D1139829E1D919009A2ED6 /* ImageWithGradientView.swift */,
+				484CBE912A052CA8007AF611 /* Map */,
+				48D1139229E1D3B3009A2ED6 /* TitleAndIconHeaderView.swift */,
 				48D8C85C2A082CC200DCB09D /* TitleAndSecureField.swift */,
+				48BDB53529E9CC7300B9D269 /* TitleAndTextField.swift */,
+				48B7B1752A142F1D003B588C /* PlaceholderTextView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -949,6 +952,7 @@
 				48BAF92829E7175C00FB5527 /* AddCarView.swift in Sources */,
 				48D8C8602A083D9B00DCB09D /* ButtonPrimary.swift in Sources */,
 				488F4AD729E4AA540062BF4B /* CacheEntry.swift in Sources */,
+				48B7B1762A142F1D003B588C /* PlaceholderTextView.swift in Sources */,
 				488F4ACC29E489130062BF4B /* SelectedCarDataStoreProtocol.swift in Sources */,
 				484CBE9D2A053B01007AF611 /* Refuel.swift in Sources */,
 				488F4AD929E4AA660062BF4B /* CacheKey.swift in Sources */,

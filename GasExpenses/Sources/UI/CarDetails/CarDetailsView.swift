@@ -24,10 +24,8 @@ struct CarDetailsView: View {
                 CardWithTitleView(title: "Gas expenses") {
                     Group {
                         if model.refuels.count < 3 {
-                            Text("car.card.refuel.empty")
+                            PlaceholderTextView(text: "car.card.refuel.empty")
                                 .padding([.horizontal, .bottom])
-                                .multilineTextAlignment(.center)
-                                .opacity(0.7)
                         } else {
                             Chart {
                                 ForEach(model.refuels.sorted(by: { lhs, rhs in
@@ -48,10 +46,8 @@ struct CarDetailsView: View {
                 CardWithTitleView(title: "mileage") {
                     Group {
                         if model.refuels.count < 3 {
-                            Text("car.card.refuel.empty")
+                            PlaceholderTextView(text: "car.card.refuel.empty")
                                 .padding([.horizontal, .bottom])
-                                .multilineTextAlignment(.center)
-                                .opacity(0.7)
                         } else {
                             Chart {
                                 ForEach(model.refuels) { refuel in

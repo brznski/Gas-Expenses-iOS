@@ -33,9 +33,7 @@ struct CarOverviewView: View {
                                         cardContext: .carOverview)
                         }
                     } else {
-                        Text("car.overview.car.list.empty")
-                            .opacity(0.6)
-                            .multilineTextAlignment(.center)
+                        PlaceholderTextView(text: "car.card.refuel.empty")
                     }
                 }
             }

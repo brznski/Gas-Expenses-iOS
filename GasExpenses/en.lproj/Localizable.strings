@@ -44,7 +44,7 @@
 "calculate" = "Calculate";
 
 /* No comment provided by engineer. */
-"car.card.refuel.empty" = "Add at least 3 refuels to see details";
+"car.card.refuel.empty" = "Add at least three refuels to see details";
 
 /* No comment provided by engineer. */
 "car.name" = "Car name";
