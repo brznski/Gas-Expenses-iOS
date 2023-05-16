@@ -131,7 +131,7 @@ extension Car: Equatable {
 
 extension Car {
     static func map(_ model: PersistentCar) -> Car {
-        return Car(id: Int(model.id),
+        return Car(id: model.objectID.hash,
                    name: model.name!,
                    brand: model.brand!,
                    model: model.model!,
