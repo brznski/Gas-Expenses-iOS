@@ -8,51 +8,52 @@
 import Foundation
 import CoreData
 
-struct CarPersistentService: CarServiceProtocol {
+struct CarPersistentService: CarServiceProtocol, PersistentServiceProtocol {
     let context: NSManagedObjectContext
 
     func addCar(_ car: Car) async throws {
-        var car = PersistentCar(context: context)
+        let persistentCar = PersistentCar(context: context)
 
-        car.name = "CoreData car"
-        car.model = "CoreData model"
-        car.id = 3
-        car.insuranceExpiration = .distantFuture
-        car.technicalCheckupExpiration = .distantFuture
-        car.fuelType = "PB95"
-        car.image = Data()
-        car.brand = "CoreData brand"
-        car.isFavourite = false
+        persistentCar.name = car.name
+        persistentCar.model = car.model
+        persistentCar.insuranceExpiration = car.insuranceExpiration?.dateFromJSON()
+        persistentCar.technicalCheckupExpiration = car.insuranceExpiration?.dateFromJSON()
+        persistentCar.fuelType = car.fuelType.rawValue
+        persistentCar.image = Data(base64Encoded: car.imageBase64 ?? "")
+        persistentCar.brand = car.brand
+        persistentCar.isFavourite = car.isFavourite
 
-        do {
-            try context.save()
-            CoreDataStack.shared.saveContext()
-        } catch {
-
-        }
-
-        // swiftlint:disable force_try
-        let cars = try! context.fetch(PersistentCar.fetchRequest())
-        print("2")
+        CoreDataStack.shared.saveContext()
     }
 
     func deleteCar(carID: Int) async throws {
-
+        var cars = try context.fetch(PersistentCar.fetchRequest())
+        if let carToDelete = cars.first(where: { $0.objectID.hash == carID }) {
+            context.delete(carToDelete)
+        }
+        try context.save()
+        cars = try context.fetch(PersistentCar.fetchRequest())
     }
 
     func editCar(car: Car) async throws {
-
+        
     }
 
     func getAllCars() async throws -> [Car] {
 
-        let cars = try! context.fetch(PersistentCar.fetchRequest())
-        let carsMapped = cars.map{ Car.map($0) }
-        print(carsMapped)
+        let cars = try context.fetch(PersistentCar.fetchRequest())
+        let carsMapped = cars.map { Car.map($0) }
         return carsMapped
     }
 
     func setFavouriteCar(carID: Int) async throws {
-
+        var cars = try context.fetch(PersistentCar.fetchRequest())
+        cars.forEach {
+            if $0.objectID.hash == carID {
+                $0.isFavourite = true
+            } else {
+                $0.isFavourite = false
+            }
+        }
     }
 }

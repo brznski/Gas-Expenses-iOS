@@ -14,16 +14,15 @@ final class ServiceLocator {
     private init() {}
 
     func getCarService() -> CarServiceProtocol {
-//        usesOnlineCommunication ? CarService() : CarPersistentService(context: viewContext)
         return CarPersistentService(context: viewContext.viewContext)
     }
 
     func getExpenseService() -> ExpenseServiceProtocol {
-        usesOnlineCommunication ? ExpenseService() : ExpenseService()
+        usesOnlineCommunication ? ExpenseService() : ExpensePersistentService(context: viewContext.viewContext)
     }
 
     func getRefuelService() -> RefuelServiceProtocol {
-        usesOnlineCommunication ? RefuelService() : RefuelService()
+        usesOnlineCommunication ? RefuelService() : RefuelPersistentService(context: viewContext.viewContext)
     }
 
     func getUserService() -> UserService {
