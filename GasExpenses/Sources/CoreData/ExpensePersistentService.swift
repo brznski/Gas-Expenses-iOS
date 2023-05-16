@@ -17,16 +17,9 @@ struct ExpensePersistentService: ExpenseServiceProtocol, PersistentServiceProtoc
 
     func addExpense(carID: String, expense: Expense) async throws {
         guard let car = try context.fetch(PersistentCar.fetchRequest()).first(where: { $0.objectID.hash == Int(carID) }) else { return }
-        let persistentExpense = PersistentExpense(context: context)
-        persistentExpense.title = expense.title
-        persistentExpense.comment = expense.comment
-        persistentExpense.expenseType = expense.expenseType.rawValue
-        persistentExpense.date = expense.date.dateFromJSON()
-        persistentExpense.car = car
-        persistentExpense.image = expense.documentBase64?.data(using: .utf8)
-        persistentExpense.latitude = expense.latitude ?? -1
-        persistentExpense.longitude = expense.longitude ?? -1
-        persistentExpense.amount = expense.amount
+        let persistentExpense = PersistentExpense.map(expense,
+                                                      context: context,
+                                                      car: car)
         try context.save()
     }
 
@@ -34,19 +27,13 @@ struct ExpensePersistentService: ExpenseServiceProtocol, PersistentServiceProtoc
         let refuels = try context.fetch(PersistentRefuel.fetchRequest())
         guard let oldExpense = refuels.first(where: { $0.objectID.hash == expense.id }) else { return }
 
-        let persistentExpense = PersistentExpense(context: context)
-        persistentExpense.title = expense.title
-        persistentExpense.comment = expense.comment
-        persistentExpense.expenseType = expense.expenseType.rawValue
-        persistentExpense.date = expense.date.dateFromJSON()
-        persistentExpense.car = oldExpense.car
-        persistentExpense.image = expense.documentBase64?.data(using: .utf8)
-        persistentExpense.latitude = expense.latitude ?? -1
-        persistentExpense.longitude = expense.longitude ?? -1
-        persistentExpense.amount = expense.amount
-
-        context.delete(oldExpense)
-        try context.save()
+        if let car = oldExpense.car {
+            let persistentExpense = PersistentExpense.map(expense,
+                                                          context: context,
+                                                          car: car)
+            context.delete(oldExpense)
+            try context.save()
+        }
     }
 
     func deleteExpense(expenseID: Int) async throws {
