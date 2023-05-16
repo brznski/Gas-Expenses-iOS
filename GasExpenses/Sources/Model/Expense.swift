@@ -30,3 +30,17 @@ extension Expense {
                               longitude: 20,
                               documentBase64: "")
 }
+
+extension Expense {
+    static func map(_ model: PersistentExpense) -> Expense {
+        return Expense(id: model.objectID.hash,
+                       amount: model.amount,
+                       comment: model.comment,
+                       title: model.title ?? "",
+                       date: model.date?.JSONDate() ?? "",
+                       expenseType: ExpenseType(rawValue: model.expenseType ?? "") ?? .undefinied,
+                       latitude: model.latitude,
+                       longitude: model.latitude,
+                       documentBase64: model.image?.base64EncodedString())
+    }
+}
