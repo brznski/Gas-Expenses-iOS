@@ -2,7 +2,7 @@
 //  PersistentCar+CoreDataClass.swift
 //  GasExpenses
 //
-//  Created by Michał Brzeziński on 14/05/2023.
+//  Created by Michał Brzeziński on 15/05/2023.
 //
 //
 

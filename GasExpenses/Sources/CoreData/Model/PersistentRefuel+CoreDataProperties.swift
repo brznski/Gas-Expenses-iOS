@@ -24,7 +24,7 @@ extension PersistentRefuel {
     @NSManaged public var longitude: Double
     @NSManaged public var mileage: Double
     @NSManaged public var title: String?
-
+    @NSManaged public var car: PersistentCar?
 }
 
 extension PersistentRefuel: Identifiable {

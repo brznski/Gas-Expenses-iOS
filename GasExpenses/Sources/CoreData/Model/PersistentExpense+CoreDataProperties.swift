@@ -23,6 +23,7 @@ extension PersistentExpense {
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
     @NSManaged public var title: String?
+    @NSManaged public var car: PersistentCar?
 
 }
 
