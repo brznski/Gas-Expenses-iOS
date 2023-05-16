@@ -25,12 +25,17 @@ struct CarOverviewView: View {
                             }
                     }
 
-                    if let models = $carDataSource.cars.wrappedValue {
+                    if let models = $carDataSource.cars.wrappedValue,
+                       !models.isEmpty {
                         ForEach(models) { model in
                             CarCardView(viewModel: .init(car: model,
                                                          carService: CarService()),
                                         cardContext: .carOverview)
                         }
+                    } else {
+                        Text("car.overview.car.list.empty")
+                            .opacity(0.6)
+                            .multilineTextAlignment(.center)
                     }
                 }
             }
