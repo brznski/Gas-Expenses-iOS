@@ -74,7 +74,7 @@ struct ExpensesOverviewView: View {
                             ForEach($viewModel.groupedRefuels) { monthlyRefuels in
                                 CollapsableCardWithTitleView(title: monthlyRefuels.wrappedValue.date.monthAndYearString()) {
                                     ForEach(monthlyRefuels.refuels.wrappedValue) { refuel in
-                                        NavigationLink(destination: RefuelDetailsView(refuel: refuel)) {
+                                        NavigationLink(destination: RefuelDetailsView(refuel: refuel, refuelService: ServiceLocator.shared.getRefuelService())) {
                                             RefuelRowView(refuel: refuel)
                                         }
                                     }
@@ -117,7 +117,7 @@ struct ExpensesOverviewView: View {
             }
         } content: {
             AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: carDataSource,
-                                                          expenseService: ExpenseService()))
+                                                          expenseService: ServiceLocator.shared.getExpenseService()))
         }
     }
 }
@@ -126,6 +126,6 @@ struct ExpensesOverviewView_Previews: PreviewProvider {
     static var previews: some View {
         ExpensesOverviewView(viewModel: ExpensesOverviewViewModel(carID: 0,
                                                                   carDataSource: CarDataSource(carService: CarService()),
-                                                                  refuelService: RefuelService()))
+                                                                  refuelService: ServiceLocator.shared.getRefuelService()))
     }
 }

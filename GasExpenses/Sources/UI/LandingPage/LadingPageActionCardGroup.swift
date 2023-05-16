@@ -24,7 +24,7 @@ struct LadingPageActionCardGroup: View {
 
                     NavigationLink {
                         AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: carDataSource,
-                                                                      expenseService: ExpenseService()))
+                                                                      expenseService: ServiceLocator.shared.getExpenseService()))
                     } label: {
                         ActionCard(title: "landingPage.actionCard.addExpense",
                                    imageSystemName: "wrench.and.screwdriver.fill")

@@ -57,7 +57,7 @@ final class ExpensesOverviewViewModel: ObservableObject {
     }
 
     func getExpenses() async throws {
-        let service = ExpenseService()
+        let service = ServiceLocator.shared.getExpenseService()
         let response = try await service.getAllExpenses(carID: "\(carID)")
         DispatchQueue.main.async { [weak self] in
             self?.expenses = response

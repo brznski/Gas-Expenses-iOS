@@ -82,7 +82,7 @@ struct CarCardView: View {
                         Spacer()
                         NavigationLink {
                             CarDetailsView(model: viewModel.model!,
-                                           viewModel: CarDetailsViewModel(carService: CarService()))
+                                           viewModel: CarDetailsViewModel(carService: ServiceLocator.shared.getCarService()))
                         } label: {
                             Label("see.more", systemImage: "chevron.right")
                         }

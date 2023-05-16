@@ -37,7 +37,7 @@ struct GasExpensesApp: App {
                             .tag("home")
                         ExpensesOverviewView(viewModel: ExpensesOverviewViewModel(carID: $carDataSource.selectedCar.wrappedValue?.id ?? -1,
                                                                                   carDataSource: carDataSource,
-                                                                                  refuelService: RefuelService()))
+                                                                                  refuelService: ServiceLocator.shared.getRefuelService()))
                             .tabItem {
                                 Label("expenses",
                                       systemImage: "dollarsign.circle.fill")
@@ -55,17 +55,6 @@ struct GasExpensesApp: App {
                     .tint(Color.ui.action)
                 }
             }.environmentObject(userManager)
-                .task {
-                    let carService = ServiceLocator.shared.getCarService()
-
-                    do {
-                        try await carService.addCar(.mock)
-                    } catch {
-
-                    }
-
-                    try? await carService.getAllCars()
-                }
         }
     }
 }

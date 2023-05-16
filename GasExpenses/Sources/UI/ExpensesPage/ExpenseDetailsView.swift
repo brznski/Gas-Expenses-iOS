@@ -81,7 +81,7 @@ struct ExpenseDetailsView: View {
             Button("no", role: .cancel) {}
             Button("yes", role: .destructive) {
                 Task {
-                    let service = ExpenseService()
+                    let service = ServiceLocator.shared.getExpenseService()
                     try? await service.deleteExpense(expenseID: expense.id)
                     dismiss()
                 }
