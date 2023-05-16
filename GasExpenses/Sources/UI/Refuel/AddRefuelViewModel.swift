@@ -47,7 +47,7 @@ final class AddRefuelViewModel: ObservableObject {
             context == .add ? await addRefuel() : await editRefuel()
     }
 
-    private func addRefuel() async  {
+    private func addRefuel() async {
             let newRefuel = Refuel(id: 0,
                                    title: title, date: date.JSONDate(),
                                    comment: comment,

@@ -28,7 +28,7 @@ final class AddExpenseViewModel: ObservableObject {
 
     private let carDataStore: CarDataSource
     private let expenseService: ExpenseServiceProtocol
-    
+
     init(
         carDataStore: CarDataSource,
         expenseService: ExpenseServiceProtocol
@@ -37,7 +37,7 @@ final class AddExpenseViewModel: ObservableObject {
         self.expenseService = expenseService
         context = .add
     }
-    
+
     init(
         carDataStore: CarDataSource,
         expenseService: ExpenseServiceProtocol,
@@ -58,7 +58,7 @@ final class AddExpenseViewModel: ObservableObject {
 
         context = .edit
     }
-    
+
     func addExpense() async throws {
         let expense = Expense(id: 0,
                               amount: Double(amount) ?? 0,

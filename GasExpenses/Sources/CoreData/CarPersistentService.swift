@@ -36,7 +36,7 @@ struct CarPersistentService: CarServiceProtocol, PersistentServiceProtocol {
     }
 
     func editCar(car: Car) async throws {
-        
+
     }
 
     func getAllCars() async throws -> [Car] {

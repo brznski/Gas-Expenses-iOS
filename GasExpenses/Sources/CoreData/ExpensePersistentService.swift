@@ -10,7 +10,7 @@ import CoreData
 
 struct ExpensePersistentService: ExpenseServiceProtocol, PersistentServiceProtocol {
     var context: NSManagedObjectContext
-    
+
     func getAllExpenses(carID: String) async throws -> [Expense] {
         return try context.fetch(PersistentExpense.fetchRequest()).map { Expense.map($0) }
     }

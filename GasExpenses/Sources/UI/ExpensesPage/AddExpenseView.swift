@@ -72,7 +72,7 @@ struct AddExpenseView: View {
                             viewModel.latitude = $0.latitude
                         }
                     }
-                    
+
                     ImagePreviewCard(imageData: $viewModel.documentBase64,
                                      cardContext: .edit)
 

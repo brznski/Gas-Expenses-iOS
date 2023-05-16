@@ -32,7 +32,7 @@ struct ImagePreviewCard: View {
 
                 }
                 if cardContext != .preview {
-                    VStack() {
+                    VStack {
                         NavigationLink(destination: CameraView { data in
                             imageData = data
                         }) {

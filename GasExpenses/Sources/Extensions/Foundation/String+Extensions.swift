@@ -21,7 +21,7 @@ extension String {
         if let date = dateFormatter.date(from: self) {
             return date
         }
-        
+
         return nil
     }
 }

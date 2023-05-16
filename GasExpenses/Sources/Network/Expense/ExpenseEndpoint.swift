@@ -43,7 +43,7 @@ struct AddExpenseEndpoint: BackendEndpoint {
 
 struct EditExpenseEndpoint: BackendEndpoint {
     let expense: Expense
-    
+
     var path: String = "expense/edit"
     var method: HTTPMethod = .PUT
     var payload: [String: Any] { [
