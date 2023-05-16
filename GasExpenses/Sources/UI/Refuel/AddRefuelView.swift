@@ -90,15 +90,12 @@ struct AddRefuelView: View {
                              cardContext: .edit)
 
             ButtonPrimary {
-                Text("add")
+                Text(viewModel.context == .add ? "add" : "edit")
             } action: {
                 viewModel.usersLocation = locationManager.location
-//                viewModel.addRefuel()
                 Task {
-                    await viewModel.editRefuel()
-                }
-                Cache.shared.invalidate(key: "cars")
-                Task {
+                    await viewModel.sumbit()
+                    Cache.shared.invalidate(key: "cars")
                     try await carDataSource.getCars()
                 }
                 dismiss()
@@ -118,6 +115,6 @@ struct AddRefuelView: View {
 struct AddRefuelView_Previews: PreviewProvider {
     static var previews: some View {
         AddRefuelView(viewModel: .init(service: ServiceLocator.shared.getRefuelService(),
-                                       carID: 0))
+                                       carID: 0, context: .add))
     }
 }

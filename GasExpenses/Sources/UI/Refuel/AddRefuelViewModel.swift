@@ -11,9 +11,6 @@ import SwiftUI
 
 final class AddRefuelViewModel: ObservableObject {
 
-    var refuelID: Int?
-    let carID: Int
-
     @Published var date: Date = .now
     @Published var title: String = ""
     @Published var comment: String = ""
@@ -23,24 +20,34 @@ final class AddRefuelViewModel: ObservableObject {
     @Published var usersLocation: CLLocationCoordinate2D?
     @Published var documentBase64: Data?
 
+    let context: AddExpenseViewContext
     private let service: RefuelServiceProtocol
+    var refuelID: Int?
+    let carID: Int
 
     init(service: RefuelServiceProtocol,
-         carID: Int) {
+         carID: Int,
+         context: AddExpenseViewContext) {
         self.service = service
         self.carID = carID
+        self.context = context
     }
 
     init(service: RefuelServiceProtocol,
          carID: Int,
-         refuelID: Int) {
+         refuelID: Int,
+         context: AddExpenseViewContext) {
         self.service = service
         self.carID = carID
         self.refuelID = refuelID
+        self.context = context
     }
 
-    func addRefuel() {
-        Task {
+    func sumbit() async {
+            context == .add ? await addRefuel() : await editRefuel()
+    }
+
+    private func addRefuel() async  {
             let newRefuel = Refuel(id: 0,
                                    title: title, date: date.JSONDate(),
                                    comment: comment,
@@ -56,6 +63,22 @@ final class AddRefuelViewModel: ObservableObject {
             } catch {
 
             }
+    }
+
+    private func editRefuel() async {
+        let newRefuel = Refuel(id: refuelID ?? -1,
+                               title: title, date: date.JSONDate(),
+                               comment: comment,
+                               mileage: Double(mileage)!,
+                               fuelAmount: Double(fuelAmount)!,
+                               costPerUnit: Double(costPerUnit.replacingOccurrences(of: ",", with: "."))!,
+                               latitude: usersLocation?.latitude.magnitude,
+                               longitude: usersLocation?.longitude.magnitude,
+                               documentBase64: documentBase64?.base64EncodedString())
+        do {
+            try await service.editRefuel(newRefuel)
+        } catch {
+
         }
     }
 }

@@ -14,9 +14,11 @@ struct RefuelDetailsView: View {
     @State private var showAlert: Bool = false
     @State private var region: MKCoordinateRegion?
     @State private var imageData: Data?
-    let refuel: Refuel
-
     @EnvironmentObject private var carDataSource: CarDataSource
+    @Environment(\.dismiss) private var dismiss
+
+    let refuel: Refuel
+    let refuelService: RefuelServiceProtocol
 
     var body: some View {
 
@@ -64,7 +66,12 @@ struct RefuelDetailsView: View {
         }
         .alert("alert.delete.expense", isPresented: $showAlert, actions: {
             Button("no", role: .cancel) {}
-            Button("yes", role: .destructive) {}
+            Button("yes", role: .destructive) {
+                Task {
+                    try await refuelService.deleteRefuel(refuelID: refuel.id)
+                    dismiss()
+                }
+            }
         })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -86,9 +93,10 @@ struct RefuelDetailsView: View {
             }
         }
         .sheet(isPresented: $showEditSheet) {
-            AddRefuelView(viewModel: AddRefuelViewModel(service: RefuelService(),
+            AddRefuelView(viewModel: AddRefuelViewModel(service: ServiceLocator.shared.getRefuelService(),
                                                         carID: carDataSource.selectedCar?.id ?? -1,
-                                                        refuelID: refuel.id),
+                                                        refuelID: refuel.id,
+                                                        context: .edit),
                           refuel: refuel)
 
         }
@@ -97,6 +105,6 @@ struct RefuelDetailsView: View {
 
 struct RefuelDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        RefuelDetailsView(refuel: .mock)
+        RefuelDetailsView(refuel: .mock, refuelService: ServiceLocator.shared.getRefuelService())
     }
 }
