@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddCarView: View {
-    @ObservedObject var viewModel: AddCarViewModel = .init(carService: CarService())
+    @ObservedObject var viewModel: AddCarViewModel = .init(carService: ServiceLocator.shared.getCarService())
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
