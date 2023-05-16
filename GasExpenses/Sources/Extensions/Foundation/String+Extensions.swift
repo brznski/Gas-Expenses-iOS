@@ -12,6 +12,16 @@ extension String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss:sssZZZZZ"
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
-        return dateFormatter.date(from: self)
+        if let date = dateFormatter.date(from: self) {
+            return date
+        }
+
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        if let date = dateFormatter.date(from: self) {
+            return date
+        }
+        
+        return nil
     }
 }
