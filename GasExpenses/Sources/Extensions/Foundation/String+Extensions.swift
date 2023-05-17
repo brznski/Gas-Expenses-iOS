@@ -8,6 +8,11 @@
 import Foundation
 
 extension String {
+
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+
     func dateFromJSON() -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss:sssZZZZZ"

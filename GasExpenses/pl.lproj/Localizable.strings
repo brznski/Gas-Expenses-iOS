@@ -137,7 +137,22 @@
 "image" = "Obraz";
 
 /* No comment provided by engineer. */
+"insurance" = "Ubezpieczenie";
+
+/* No comment provided by engineer. */
 "insurance.expiration" = "Ubezpieczenie ważne do";
+
+/* No comment provided by engineer. */
+"insurance.valid.until" = "Ubezpieczenie ważne do";
+
+/* No comment provided by engineer. */
+"insurance.expires.in" = "Ubezpieczenie wygasa";
+
+/* No comment provided by engineer. */
+"insurance.reminder.subtitle" = "Twoje ubezpieczenie niedługo się kończy";
+
+/* No comment provided by engineer. */
+"insurance.reminder.body" = "Pamiętaj aby je przedłużyć w przeciągu tygodnia";
 
 /* No comment provided by engineer. */
 "landingPage.actionCard.addExpense" = "Dodaj wydatek serwisowy";
@@ -224,6 +239,12 @@
 "refuels.title" = "Tankowania";
 
 /* No comment provided by engineer. */
+"reminders" = "Przypomnienia";
+
+/* No comment provided by engineer. */
+"remind.me" = "Przypomnij";
+
+/* No comment provided by engineer. */
 "remmember.me" = "Zapamiętaj mnie";
 
 /* No comment provided by engineer. */
@@ -245,7 +266,22 @@
 "take.to.app" = "Przejdź do aplikacji";
 
 /* No comment provided by engineer. */
+"technical.checkup" = "Przegląd techniczny";
+
+/* No comment provided by engineer. */
 "technical.checkup.expiration" = "Przegląd ważny do";
+
+/* No comment provided by engineer. */
+"technical.checkup.valid.until" = "Przegląd ważny do";
+
+/* No comment provided by engineer. */
+"technical.checkup.expires.in" = "Przegląd wygasa";
+
+/* No comment provided by engineer. */
+"technical.checkup.reminder.subtitle" = "Twój przegląd techniczny niedługo się kończy";
+
+/* No comment provided by engineer. */
+"technical.checkup.reminder.body" = "Pamiętaj wykonać je w przeciągu tygodnia";
 
 /* No comment provided by engineer. */
 "title" = "Tytuł";

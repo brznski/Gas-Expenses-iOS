@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-struct ReminderRowViewConfiguration {
+struct ReminderRowViewConfiguration: Identifiable {
+    var id = UUID()
     let date: Date
     let title: LocalizedStringKey
     let validUntilText: LocalizedStringKey
     let expiresInText: LocalizedStringKey
-    let isButtonFilled: Bool
+    var isButtonFilled: Bool
     let onClickButton: () -> Void
 }
 
 struct ReminderRowView: View {
-    let configuration: ReminderRowViewConfiguration
+    @State var configuration: ReminderRowViewConfiguration
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -42,7 +43,8 @@ struct ReminderRowView: View {
             HStack {
                 Spacer()
                 Button {
-
+                    configuration.isButtonFilled.toggle()
+                    configuration.onClickButton()
                 } label: {
                     Label("remind.me",
                           systemImage: configuration.isButtonFilled ? "bell.fill" : "bell")

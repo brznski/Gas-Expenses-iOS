@@ -79,8 +79,7 @@ struct CarCardView: View {
                     HStack {
                         Spacer()
                         NavigationLink {
-                            CarDetailsView(model: viewModel.model!,
-                                           viewModel: CarDetailsViewModel(carService: ServiceLocator.shared.getCarService()))
+                            CarDetailsView(viewModel: CarDetailsViewModel(carService: ServiceLocator.shared.getCarService(), car: viewModel.model!))
                         } label: {
                             Label("see.more", systemImage: "chevron.right")
                         }

@@ -137,7 +137,22 @@
 "image" = "Image";
 
 /* No comment provided by engineer. */
+"insurance" = "Insurance";
+
+/* No comment provided by engineer. */
 "insurance.expiration" = "Insurance expiration";
+
+/* No comment provided by engineer. */
+"insurance.valid.until" = "Insurance expiration";
+
+/* No comment provided by engineer. */
+"insurance.expires.in" = "Insurance expires";
+
+/* No comment provided by engineer. */
+"insurance reminder.subtitle" = "Your insurance expires soon";
+
+/* No comment provided by engineer. */
+"insurance.reminder.body" = "Remember to extend your insurance in a week";
 
 /* No comment provided by engineer. */
 "landingPage.actionCard.addExpense" = "Add car expense";
@@ -242,7 +257,25 @@
 "take.to.app" = "Take me to app";
 
 /* No comment provided by engineer. */
+"technical.checkup" = "Technical checkup";
+
+/* No comment provided by engineer. */
 "technical.checkup.expiration" = "Technical checkup expiration";
+
+/* No comment provided by engineer. */
+"technical.checkup.expiration" = "Technical checkup expires";
+
+/* No comment provided by engineer. */
+"technical.checkup.valid.until" = "Technical checkup valid until";
+
+/* No comment provided by engineer. */
+"technical.checkup.expires.in" = "Technical checkup expires";
+
+/* No comment provided by engineer. */
+"technical.checkup.reminder.subtitle" = "Your insurance expires soon";
+
+/* No comment provided by engineer. */
+"technical.checkup.reminder.body" = "Remember to extend your technical checkup in a week";
 
 /* No comment provided by engineer. */
 "title" = "Title";

@@ -9,8 +9,7 @@ import SwiftUI
 import Charts
 
 struct CarDetailsView: View {
-    let model: Car
-    let viewModel: CarDetailsViewModel
+    @ObservedObject var viewModel: CarDetailsViewModel
 
     @State var showsAlert = false
     @State var shouldShowSheet = false
@@ -18,17 +17,17 @@ struct CarDetailsView: View {
     var body: some View {
         ScrollView {
             VStack {
-                CarCardView(viewModel: .init(car: model,
+                CarCardView(viewModel: .init(car: viewModel.model,
                                              carService: CarService()),
                             cardContext: .carDetails)
                 CardWithTitleView(title: "Gas expenses") {
                     Group {
-                        if model.refuels.count < 3 {
+                        if viewModel.model.refuels.count < 3 {
                             PlaceholderTextView(text: "car.card.refuel.empty")
                                 .padding([.horizontal, .bottom])
                         } else {
                             Chart {
-                                ForEach(model.refuels.sorted(by: { lhs, rhs in
+                                ForEach(viewModel.model.refuels.sorted(by: { lhs, rhs in
                                     lhs.date.dateFromJSON()! < rhs.date.dateFromJSON()!
                                 })) { refuel in
                                     BarMark(
@@ -45,12 +44,12 @@ struct CarDetailsView: View {
                 }
                 CardWithTitleView(title: "mileage") {
                     Group {
-                        if model.refuels.count < 3 {
+                        if viewModel.model.refuels.count < 3 {
                             PlaceholderTextView(text: "car.card.refuel.empty")
                                 .padding([.horizontal, .bottom])
                         } else {
                             Chart {
-                                ForEach(model.refuels) { refuel in
+                                ForEach(viewModel.model.refuels) { refuel in
                                     BarMark(
                                         x: .value("date",
                                                   refuel.date.dateFromJSON()?.dayAndMonthString() ?? ""),
@@ -66,8 +65,9 @@ struct CarDetailsView: View {
 
                 CardWithTitleView(title: "reminders") {
                     VStack {
-                        ReminderRowView(configuration: viewModel.getInsuraceReminderRowConfiguration())
-                        ReminderRowView(configuration: viewModel.getTechnicalCheckupReminderRowConfiguration())
+                        ForEach($viewModel.remindersConfig) { configuration in
+                            ReminderRowView(configuration: configuration.wrappedValue)
+                        }
                     }
                     .padding()
                 }
@@ -80,9 +80,14 @@ struct CarDetailsView: View {
                 .padding()
             }
         }
+        .task {
+            if viewModel.remindersConfig.isEmpty {
+                viewModel.prepareRemindersConfig()
+            }
+        }
         .sheet(isPresented: $shouldShowSheet, content: {
             AddCarView(viewModel: .init(carService: CarService(),
-                                        car: model))
+                                        car: viewModel.model))
         })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -98,7 +103,7 @@ struct CarDetailsView: View {
             Button("yes", role: .destructive
 
             ) {
-                viewModel.deleteCar(carID: model.id)
+                viewModel.deleteCar(carID: viewModel.model.id)
                 showsAlert = false
             }
             Button("no", role: .cancel) {
@@ -111,8 +116,7 @@ struct CarDetailsView: View {
 
 struct CarDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        CarDetailsView(model: .mock,
-                       viewModel: .init(carService: CarService()))
+        CarDetailsView(viewModel: .init(carService: CarService(), car: .mock))
         .environmentObject(CarDataSource(carService: CarService()))
     }
 }
