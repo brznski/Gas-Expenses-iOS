@@ -38,6 +38,7 @@ struct ExpensesOverviewView: View {
                                     .tint(.ui.action)
                                     .frame(width: 30, height: 30)
                             }
+                            .buttonStyle(.plain)
                         }
 
                         CardWithTitleView(title: LocalizedStringKey("expenses.recent"),

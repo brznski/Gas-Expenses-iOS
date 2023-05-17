@@ -26,6 +26,7 @@ struct LandingPageView: View {
                                     .scaledToFit()
                                     .frame(width: 30, height: 30)
                             }
+                            .buttonStyle(.plain)
                         }
                         if let model = $carDataSource.selectedCar.wrappedValue {
                             CarCardView(viewModel: .init(car: model,
