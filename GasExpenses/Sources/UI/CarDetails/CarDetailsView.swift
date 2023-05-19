@@ -18,7 +18,7 @@ struct CarDetailsView: View {
         ScrollView {
             VStack {
                 CarCardView(viewModel: .init(car: viewModel.model,
-                                             carService: CarService()),
+                                             carService: ServiceLocator.shared.getCarService()),
                             cardContext: .carDetails)
                 CardWithTitleView(title: "Gas expenses") {
                     Group {
@@ -86,7 +86,7 @@ struct CarDetailsView: View {
             }
         }
         .sheet(isPresented: $shouldShowSheet, content: {
-            AddCarView(viewModel: .init(carService: CarService(),
+            AddCarView(viewModel: .init(carService: ServiceLocator.shared.getCarService(),
                                         car: viewModel.model))
         })
         .toolbar {
@@ -116,7 +116,7 @@ struct CarDetailsView: View {
 
 struct CarDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        CarDetailsView(viewModel: .init(carService: CarService(), car: .mock))
-        .environmentObject(CarDataSource(carService: CarService()))
+        CarDetailsView(viewModel: .init(carService: ServiceLocator.shared.getCarService(), car: .mock))
+        .environmentObject(CarDataSource(carService: ServiceLocator.shared.getCarService()))
     }
 }

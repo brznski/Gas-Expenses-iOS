@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-enum CarCardContext {
-    case landingPage
-    case carOverview
-    case carDetails
-}
-
 struct CarCardView: View {
     @ObservedObject var viewModel: CarCardViewModel
     @State var shouldShowSheet: Bool = false
@@ -98,8 +92,8 @@ struct CarCardView: View {
 struct CarCardView_Previews: PreviewProvider {
     static var previews: some View {
         CarCardView(viewModel: .init(car: .mock,
-                                     carService: CarService()),
+                                     carService: ServiceLocator.shared.getCarService()),
                     cardContext: .landingPage) {}
-            .environmentObject(CarDataSource(carService: CarService()))
+            .environmentObject(CarDataSource(carService: ServiceLocator.shared.getCarService()))
     }
 }

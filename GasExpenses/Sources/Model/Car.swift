@@ -128,18 +128,3 @@ extension Car: Equatable {
         lhs.id == rhs.id
     }
 }
-
-extension Car {
-    static func map(_ model: PersistentCar) -> Car {
-        return Car(id: model.objectID.hash,
-                   name: model.name!,
-                   brand: model.brand!,
-                   model: model.model!,
-                   refuels: [],
-                   fuelType: FuelTypes(rawValue: model.fuelType!)!,
-                   isFavourite: model.isFavourite,
-                   imageBase64: model.image?.base64EncodedString(),
-                   insuranceExpiration: model.insuranceExpiration?.JSONDate(),
-                   technicalCheckupExpiration: model.technicalCheckupExpiration?.JSONDate())
-    }
-}

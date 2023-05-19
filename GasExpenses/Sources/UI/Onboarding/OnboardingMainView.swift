@@ -48,7 +48,7 @@ struct OnboardingMainView: View {
                 .ignoresSafeArea()
         })
         .sheet(isPresented: $shouldShowAddCarSheet, content: {
-            AddCarView()
+            AddCarView(viewModel: .init(carService: ServiceLocator.shared.getCarService()))
         })
         .tabViewStyle(.page)
         .indexViewStyle(.page(backgroundDisplayMode: .always))

@@ -98,7 +98,7 @@ struct AddExpenseView: View {
 
 struct AddExpenseView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpenseView(viewModel: .init(carDataStore: CarDataSource(carService: CarService()),
+        AddExpenseView(viewModel: .init(carDataStore: CarDataSource(carService: ServiceLocator.shared.getCarService()),
                                         expenseService: ExpenseService()))
     }
 }

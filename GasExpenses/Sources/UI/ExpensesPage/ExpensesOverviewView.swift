@@ -75,7 +75,8 @@ struct ExpensesOverviewView: View {
                             ForEach($viewModel.groupedRefuels) { monthlyRefuels in
                                 CollapsableCardWithTitleView(title: monthlyRefuels.wrappedValue.date.monthAndYearString()) {
                                     ForEach(monthlyRefuels.refuels.wrappedValue) { refuel in
-                                        NavigationLink(destination: RefuelDetailsView(refuel: refuel, refuelService: ServiceLocator.shared.getRefuelService())) {
+                                        NavigationLink(destination: RefuelDetailsView(refuel: refuel,
+                                                                                      refuelService: ServiceLocator.shared.getRefuelService())) {
                                             RefuelRowView(refuel: refuel)
                                         }
                                     }
@@ -117,8 +118,16 @@ struct ExpensesOverviewView: View {
                 }
             }
         } content: {
-            AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: carDataSource,
-                                                          expenseService: ServiceLocator.shared.getExpenseService()))
+            switch selectedExpenseType {
+            case .expenses:
+                AddExpenseView(viewModel: AddExpenseViewModel(carDataStore: carDataSource,
+                                                              expenseService: ServiceLocator.shared.getExpenseService()))
+            case .refuels:
+                AddRefuelView(viewModel: .init(service: ServiceLocator.shared.getRefuelService(),
+                                               carID: carDataSource.selectedCar?.id ?? -1,
+                                               context: .add))
+            }
+
         }
     }
 }
@@ -126,7 +135,7 @@ struct ExpensesOverviewView: View {
 struct ExpensesOverviewView_Previews: PreviewProvider {
     static var previews: some View {
         ExpensesOverviewView(viewModel: ExpensesOverviewViewModel(carID: 0,
-                                                                  carDataSource: CarDataSource(carService: CarService()),
+                                                                  carDataSource: CarDataSource(carService: ServiceLocator.shared.getCarService()),
                                                                   refuelService: ServiceLocator.shared.getRefuelService()))
     }
 }

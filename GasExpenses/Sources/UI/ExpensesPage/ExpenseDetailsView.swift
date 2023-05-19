@@ -105,7 +105,7 @@ struct ExpenseDetailsView: View {
             }
         }
         .sheet(isPresented: $showEditSheet) {
-            AddExpenseView(viewModel: .init(carDataStore: CarDataSource(carService: CarService()),
+            AddExpenseView(viewModel: .init(carDataStore: CarDataSource(carService: ServiceLocator.shared.getCarService()),
                                             expenseService: ExpenseService(),
                                             expense: expense))
         }

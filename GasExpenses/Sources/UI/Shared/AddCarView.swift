@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddCarView: View {
-    @ObservedObject var viewModel: AddCarViewModel = .init(carService: ServiceLocator.shared.getCarService())
+    @ObservedObject var viewModel: AddCarViewModel
     @Environment(\.dismiss) var dismiss
 
     var body: some View {
@@ -51,9 +51,9 @@ struct AddCarView: View {
                                  cardContext: .edit)
 
                 ButtonPrimary {
-                    Text("add")
+                    Text(viewModel.getSubmitButtonText())
                 } action: {
-                    viewModel.addCar()
+                    viewModel.submit { dismiss() }
                 }
                 .padding()
             }
@@ -64,6 +64,6 @@ struct AddCarView: View {
 
 struct AddCarView_Previews: PreviewProvider {
     static var previews: some View {
-        AddCarView()
+        AddCarView(viewModel: .init(carService: ServiceLocator.shared.getCarService()))
     }
 }

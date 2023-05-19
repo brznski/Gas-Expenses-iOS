@@ -29,7 +29,7 @@ struct CarOverviewView: View {
                        !models.isEmpty {
                         ForEach(models) { model in
                             CarCardView(viewModel: .init(car: model,
-                                                         carService: CarService()),
+                                                         carService: ServiceLocator.shared.getCarService()),
                                         cardContext: .carOverview)
                         }
                     } else {
@@ -39,7 +39,7 @@ struct CarOverviewView: View {
             }
             .background(Color.ui.background)
             .sheet(isPresented: $isSheetPresented, content: {
-                AddCarView()
+                AddCarView(viewModel: .init(carService: ServiceLocator.shared.getCarService()))
             })
         }
     }

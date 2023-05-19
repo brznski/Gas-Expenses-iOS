@@ -12,16 +12,7 @@ struct CarPersistentService: CarServiceProtocol, PersistentServiceProtocol {
     let context: NSManagedObjectContext
 
     func addCar(_ car: Car) async throws {
-        let persistentCar = PersistentCar(context: context)
-
-        persistentCar.name = car.name
-        persistentCar.model = car.model
-        persistentCar.insuranceExpiration = car.insuranceExpiration?.dateFromJSON()
-        persistentCar.technicalCheckupExpiration = car.insuranceExpiration?.dateFromJSON()
-        persistentCar.fuelType = car.fuelType.rawValue
-        persistentCar.image = Data(base64Encoded: car.imageBase64 ?? "")
-        persistentCar.brand = car.brand
-        persistentCar.isFavourite = car.isFavourite
+        let persistentCar = PersistentCar.map(car, context: context)
 
         CoreDataStack.shared.saveContext()
     }
@@ -36,7 +27,16 @@ struct CarPersistentService: CarServiceProtocol, PersistentServiceProtocol {
     }
 
     func editCar(car: Car) async throws {
+        var cars = try context.fetch(PersistentCar.fetchRequest())
 
+        if let oldCar = cars.first(where: { $0.objectID.hash == car.id }) {
+            context.delete(oldCar)
+        }
+
+        let editedCar = PersistentCar.map(car, context: context)
+
+        try context.save()
+        cars = try context.fetch(PersistentCar.fetchRequest())
     }
 
     func getAllCars() async throws -> [Car] {
@@ -55,5 +55,7 @@ struct CarPersistentService: CarServiceProtocol, PersistentServiceProtocol {
                 $0.isFavourite = false
             }
         }
+
+        try context.save()
     }
 }

@@ -30,7 +30,7 @@ struct LandingPageView: View {
                         }
                         if let model = $carDataSource.selectedCar.wrappedValue {
                             CarCardView(viewModel: .init(car: model,
-                                                         carService: CarService()),
+                                                         carService: ServiceLocator.shared.getCarService()),
                                         cardContext: .landingPage) {
                                 shouldShowSheet.toggle()
                             }
@@ -62,7 +62,7 @@ struct LandingPageView: View {
 
 struct LandingPageView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = LandingPageViewModel(carDataSource: CarDataSource(carService: CarService()))
+        let viewModel = LandingPageViewModel(carDataSource: CarDataSource(carService: ServiceLocator.shared.getCarService()))
         LandingPageView(viewModel: viewModel)
     }
 }
